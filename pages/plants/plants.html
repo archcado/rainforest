@@ -1,88 +1,484 @@
 <!doctype html>
 <html lang="zh-Hant">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="CANOPY 植物商城 — 探索與選購精選雨林植物，依光照、濕度、難度篩選適合你的植物。">
-  <title>植物商城｜CANOPY</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <link rel="stylesheet" href="../../assets/css/tokens.css">
-  <link rel="stylesheet" href="../../assets/css/reset.css">
-  <link rel="stylesheet" href="../../assets/css/base.css">
-  <link rel="stylesheet" href="../../assets/css/layout.css">
-  <link rel="stylesheet" href="../../assets/css/components.css">
-  <link rel="stylesheet" href="../../assets/css/utilities.css">
-  <link rel="stylesheet" href="../../assets/css/pages/plants.css">
-</head>
+    <meta
+      name="description"
+      content="CANOPY 植物商城，探索與選購精選雨林植物，依光照、濕度、照護難度與寵物安全條件篩選適合你的植物。"
+    />
 
-<body>
+    <title>植物商城｜CANOPY</title>
 
-  <header class="site-header" role="banner">
-    <!-- 共用 Header 載入位置（components/header.html）-->
-  </header>
+    <!-- 基礎樣式 -->
+    <link rel="stylesheet" href="../../assets/css/tokens.css" />
+    <link rel="stylesheet" href="../../assets/css/reset.css" />
+    <link rel="stylesheet" href="../../assets/css/base.css" />
+    <link rel="stylesheet" href="../../assets/css/layout.css" />
+    <link rel="stylesheet" href="../../assets/css/components.css" />
+    <link rel="stylesheet" href="../../assets/css/utilities.css" />
 
-  <main class="site-main">
+    <!-- 植物商城頁面樣式 -->
+    <link rel="stylesheet" href="../../assets/css/pages/plants.css" />
+  </head>
 
-    <div class="breadcrumb-bar">
-      <div class="container">
-        <nav class="breadcrumb" aria-label="麵包屑">
-          <ol class="breadcrumb__list" role="list">
-            <li class="breadcrumb__item"><a class="breadcrumb__link" href="../../index.html">首頁</a></li>
-            <li class="breadcrumb__item"><span class="breadcrumb__current" aria-current="page">植物商城</span></li>
-          </ol>
-        </nav>
-      </div>
-    </div>
+  <body>
+    <!-- 共用 Header -->
+    <header class="site-header" id="site-header" role="banner">
+      <!-- 後續由 layout.js 載入 components/header.html -->
+    </header>
 
-    <section class="page-hero" aria-labelledby="plants-title">
-      <div class="container">
-        <h1 class="page-hero__title" id="plants-title">植物商城</h1>
-        <p class="page-hero__desc">探索來自世界各地的精選雨林植物，每株均附完整照護資訊。</p>
-      </div>
-    </section>
+    <main class="site-main" id="main-content">
+      <!-- 麵包屑 -->
+      <div class="breadcrumb-bar">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="麵包屑">
+            <ol class="breadcrumb__list" role="list">
+              <li class="breadcrumb__item">
+                <a class="breadcrumb__link" href="../../index.html"> 首頁 </a>
+              </li>
 
-    <section class="page-content">
-      <div class="container">
-        <div class="layout-sidebar">
-
-          <!-- 篩選面板 -->
-          <div class="filter-sidebar">
-            <!-- components/filter-panel.html -->
-          </div>
-
-          <!-- 植物列表 -->
-          <div>
-            <div class="sort-bar">
-              <p class="sort-bar__count">共 <span id="plants-count">0</span> 株植物</p>
-              <select class="form-select" aria-label="排序方式" style="width:auto">
-                <option value="default">預設排序</option>
-                <option value="price-asc">價格由低到高</option>
-                <option value="price-desc">價格由高到低</option>
-                <option value="name">名稱 A–Z</option>
-              </select>
-            </div>
-
-            <div class="plants-grid" id="plants-grid" aria-live="polite">
-              <!-- 植物卡片由 JavaScript 動態載入 -->
-            </div>
-          </div>
-
+              <li class="breadcrumb__item" aria-current="page">
+                <span class="breadcrumb__current"> 植物商城 </span>
+              </li>
+            </ol>
+          </nav>
         </div>
       </div>
-    </section>
 
-  </main>
+      <!-- 頁面主視覺 -->
+      <section class="page-hero plants-hero" aria-labelledby="plants-title">
+        <div class="container">
+          <div class="plants-hero__content">
+            <p class="page-hero__eyebrow">Tropical Plant Collection</p>
 
-  <footer class="site-footer" role="contentinfo">
-    <!-- 共用 Footer 載入位置（components/footer.html）-->
-  </footer>
+            <h1 class="page-hero__title" id="plants-title">
+              探索適合你的雨林植物
+            </h1>
 
-  <script src="../../assets/js/layout.js" defer></script>
-  <script src="../../assets/js/navigation.js" defer></script>
-  <script src="../../assets/js/cart.js" defer></script>
-  <script src="../../assets/js/filters.js" defer></script>
-  <script src="../../assets/js/toast.js" defer></script>
-  <script src="../../assets/js/main.js" defer></script>
+            <p class="page-hero__desc">
+              依照空間光線、照護經驗與生活環境，選擇能夠長期健康生長的室內植物。
+            </p>
+          </div>
+        </div>
+      </section>
 
-</body>
+      <!-- 植物商城主要內容 -->
+      <section
+        class="page-content plants-page"
+        aria-labelledby="plants-results-title"
+      >
+        <div class="container">
+          <!-- 行動版篩選背景遮罩 -->
+          <button
+            class="filter-backdrop"
+            id="filter-backdrop"
+            type="button"
+            aria-label="關閉植物篩選面板"
+            tabindex="-1"
+            hidden
+          ></button>
+
+          <div class="layout-sidebar plants-layout">
+            <!-- 篩選面板 -->
+            <aside
+              class="filter-sidebar"
+              id="plants-filter-panel"
+              aria-labelledby="filter-title"
+            >
+              <div class="filter-sidebar__header">
+                <div>
+                  <p class="filter-sidebar__eyebrow">Refine Results</p>
+
+                  <h2 class="filter-sidebar__title" id="filter-title">
+                    篩選植物
+                  </h2>
+                </div>
+
+                <button
+                  class="filter-sidebar__close"
+                  id="close-filter-btn"
+                  type="button"
+                  aria-label="關閉篩選面板"
+                >
+                  關閉
+                </button>
+              </div>
+
+              <form class="filter-form" id="plants-filter-form">
+                <!-- 光照需求 -->
+                <fieldset class="filter-group">
+                  <legend class="filter-group__title">光照需求</legend>
+
+                  <div class="filter-options">
+                    <label class="filter-option">
+                      <input
+                        type="checkbox"
+                        name="light"
+                        value="bright-indirect"
+                      />
+                      <span>明亮散射光</span>
+                    </label>
+
+                    <label class="filter-option">
+                      <input type="checkbox" name="light" value="medium" />
+                      <span>中等光照</span>
+                    </label>
+
+                    <label class="filter-option">
+                      <input type="checkbox" name="light" value="low" />
+                      <span>耐低光</span>
+                    </label>
+                  </div>
+                </fieldset>
+
+                <!-- 照護難度 -->
+                <fieldset class="filter-group">
+                  <legend class="filter-group__title">照護難度</legend>
+
+                  <div class="filter-options">
+                    <label class="filter-option">
+                      <input
+                        type="checkbox"
+                        name="difficulty"
+                        value="beginner"
+                      />
+                      <span>新手適合</span>
+                    </label>
+
+                    <label class="filter-option">
+                      <input
+                        type="checkbox"
+                        name="difficulty"
+                        value="intermediate"
+                      />
+                      <span>中等難度</span>
+                    </label>
+
+                    <label class="filter-option">
+                      <input
+                        type="checkbox"
+                        name="difficulty"
+                        value="advanced"
+                      />
+                      <span>進階照護</span>
+                    </label>
+                  </div>
+                </fieldset>
+
+                <!-- 濕度需求 -->
+                <fieldset class="filter-group">
+                  <legend class="filter-group__title">濕度需求</legend>
+
+                  <div class="filter-options">
+                    <label class="filter-option">
+                      <input type="checkbox" name="humidity" value="normal" />
+                      <span>一般室內濕度</span>
+                    </label>
+
+                    <label class="filter-option">
+                      <input type="checkbox" name="humidity" value="medium" />
+                      <span>中等濕度</span>
+                    </label>
+
+                    <label class="filter-option">
+                      <input type="checkbox" name="humidity" value="high" />
+                      <span>高濕度環境</span>
+                    </label>
+                  </div>
+                </fieldset>
+
+                <!-- 植物尺寸 -->
+                <fieldset class="filter-group">
+                  <legend class="filter-group__title">植物尺寸</legend>
+
+                  <div class="filter-options">
+                    <label class="filter-option">
+                      <input type="checkbox" name="size" value="small" />
+                      <span>小型植物</span>
+                    </label>
+
+                    <label class="filter-option">
+                      <input type="checkbox" name="size" value="medium" />
+                      <span>中型植物</span>
+                    </label>
+
+                    <label class="filter-option">
+                      <input type="checkbox" name="size" value="large" />
+                      <span>大型植物</span>
+                    </label>
+                  </div>
+                </fieldset>
+
+                <!-- 寵物安全 -->
+                <fieldset class="filter-group">
+                  <legend class="filter-group__title">寵物安全</legend>
+
+                  <div class="filter-options">
+                    <label class="filter-option">
+                      <input type="checkbox" name="petSafe" value="true" />
+                      <span>寵物友善</span>
+                    </label>
+                  </div>
+                </fieldset>
+
+                <!-- 價格區間 -->
+                <fieldset class="filter-group">
+                  <legend class="filter-group__title">價格區間</legend>
+
+                  <div class="filter-price">
+                    <div class="form-field">
+                      <label class="form-label" for="price-min">
+                        最低價格
+                      </label>
+
+                      <input
+                        class="form-input"
+                        id="price-min"
+                        name="priceMin"
+                        type="number"
+                        min="0"
+                        step="100"
+                        inputmode="numeric"
+                        placeholder="最低價格"
+                      />
+                    </div>
+
+                    <div class="form-field">
+                      <label class="form-label" for="price-max">
+                        最高價格
+                      </label>
+
+                      <input
+                        class="form-input"
+                        id="price-max"
+                        name="priceMax"
+                        type="number"
+                        min="0"
+                        step="100"
+                        inputmode="numeric"
+                        placeholder="最高價格"
+                      />
+                    </div>
+                  </div>
+                </fieldset>
+
+                <div class="filter-form__actions">
+                  <button class="btn btn--primary" type="submit">
+                    套用篩選
+                  </button>
+
+                  <button
+                    class="btn btn--ghost"
+                    id="reset-filters-btn"
+                    type="reset"
+                  >
+                    清除條件
+                  </button>
+                </div>
+              </form>
+            </aside>
+
+            <!-- 植物結果 -->
+            <div class="plants-results">
+              <h2 class="sr-only" id="plants-results-title">植物搜尋結果</h2>
+
+              <!-- 搜尋與排序工具列 -->
+              <div class="plants-toolbar">
+                <div class="plants-toolbar__main">
+                  <button
+                    class="btn btn--outline plants-toolbar__filter-button"
+                    id="open-filter-btn"
+                    type="button"
+                    aria-controls="plants-filter-panel"
+                    aria-expanded="false"
+                  >
+                    篩選植物
+                  </button>
+
+                  <label class="plants-search" for="plants-search">
+                    <span class="sr-only"> 搜尋植物名稱或學名 </span>
+
+                    <input
+                      class="form-input plants-search__input"
+                      id="plants-search"
+                      type="search"
+                      autocomplete="off"
+                      placeholder="搜尋植物名稱或學名"
+                    />
+                  </label>
+                </div>
+
+                <div class="plants-toolbar__secondary">
+                  <p
+                    class="sort-bar__count"
+                    id="plants-result-summary"
+                    aria-live="polite"
+                  >
+                    共
+                    <strong id="plants-count">0</strong>
+                    株植物
+                  </p>
+
+                  <label class="sort-control" for="plants-sort">
+                    <span class="sr-only"> 植物排序方式 </span>
+
+                    <select class="form-select" id="plants-sort" name="sort">
+                      <option value="default">預設排序</option>
+
+                      <option value="featured">精選植物優先</option>
+
+                      <option value="price-asc">價格由低到高</option>
+
+                      <option value="price-desc">價格由高到低</option>
+
+                      <option value="name-asc">名稱排序</option>
+                    </select>
+                  </label>
+                </div>
+              </div>
+
+              <!-- 使用中的篩選條件 -->
+              <div
+                class="active-filters"
+                id="active-filters"
+                aria-label="目前使用中的篩選條件"
+                hidden
+              >
+                <div
+                  class="active-filters__list"
+                  id="active-filters-list"
+                ></div>
+
+                <button
+                  class="active-filters__clear"
+                  id="clear-active-filters-btn"
+                  type="button"
+                >
+                  清除全部
+                </button>
+              </div>
+
+              <!-- 資料載入中 -->
+              <div
+                class="plants-status"
+                id="plants-loading"
+                role="status"
+                aria-live="polite"
+              >
+                <span class="plants-status__spinner" aria-hidden="true"></span>
+
+                <p>正在載入植物資料</p>
+              </div>
+
+              <!-- 資料載入失敗 -->
+              <section
+                class="empty-state"
+                id="plants-error"
+                aria-labelledby="plants-error-title"
+                hidden
+              >
+                <h2 class="empty-state__title" id="plants-error-title">
+                  無法載入植物資料
+                </h2>
+
+                <p class="empty-state__description">
+                  請確認網站伺服器與資料檔案路徑是否正常，再重新載入頁面。
+                </p>
+
+                <button
+                  class="btn btn--primary"
+                  id="retry-plants-btn"
+                  type="button"
+                >
+                  重新載入
+                </button>
+              </section>
+
+              <!-- 無搜尋結果 -->
+              <section
+                class="empty-state"
+                id="plants-empty"
+                aria-labelledby="plants-empty-title"
+                hidden
+              >
+                <h2 class="empty-state__title" id="plants-empty-title">
+                  沒有符合條件的植物
+                </h2>
+
+                <p class="empty-state__description">
+                  請調整搜尋文字、價格區間或照護條件。
+                </p>
+
+                <button
+                  class="btn btn--outline"
+                  id="clear-filters-btn"
+                  type="button"
+                >
+                  清除全部篩選
+                </button>
+              </section>
+
+              <!-- 植物卡片容器 -->
+              <div
+                class="plants-grid"
+                id="plants-grid"
+                aria-live="polite"
+                aria-busy="true"
+              >
+                <!-- 植物卡片由 JavaScript 動態載入 -->
+              </div>
+
+              <!-- 分頁 -->
+              <nav
+                class="pagination"
+                id="plants-pagination"
+                aria-label="植物商城分頁"
+                hidden
+              >
+                <!-- 分頁按鈕由 JavaScript 動態建立 -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 植物配對測驗 -->
+      <section class="plants-match-cta" aria-labelledby="plants-match-title">
+        <div class="container">
+          <div class="plants-match-cta__inner">
+            <div class="plants-match-cta__content">
+              <p class="plants-match-cta__eyebrow">Plant Match</p>
+
+              <h2 class="plants-match-cta__title" id="plants-match-title">
+                不確定哪一株植物適合你
+              </h2>
+
+              <p class="plants-match-cta__description">
+                根據空間光照、照護時間、經驗與生活環境，取得專屬植物推薦。
+              </p>
+            </div>
+
+            <a class="btn btn--primary btn--lg" href="../quiz/quiz.html">
+              開始植物配對測驗
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 共用 Footer -->
+    <footer class="site-footer" id="site-footer" role="contentinfo">
+      <!-- 後續由 layout.js 載入 components/footer.html -->
+    </footer>
+
+    <!-- 共用功能 -->
+<script src="../../assets/js/layout.js" defer></script>
+<script src="../../assets/js/navigation.js" defer></script>
+<script src="../../assets/js/cart.js" defer></script>
+<script src="../../assets/js/filters.js" defer></script>
+<script src="../../assets/js/toast.js" defer></script>
+<script src="../../assets/js/pages/plants.js" defer></script>
+<script src="../../assets/js/main.js" defer></script>
 </html>
