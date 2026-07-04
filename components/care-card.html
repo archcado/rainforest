@@ -1,0 +1,27 @@
+<!--
+  components/care-card.html
+  ─────────────────────────────────────────────
+  照護知識卡片元件骨架（單筆範本）
+  使用方式：由 JavaScript 動態渲染或伺服端模板複製。
+  ─────────────────────────────────────────────
+-->
+<article class="care-card">
+  <a class="care-card__image-link" href="/pages/care/care-detail.html?id={id}">
+    <img
+      class="care-card__image"
+      src="/assets/images/placeholders/care-placeholder.webp"
+      alt="{文章標題}"
+      loading="lazy"
+      width="600"
+      height="338"
+    >
+  </a>
+
+  <div class="care-card__body">
+    <p class="care-card__category">{分類}</p>
+    <h3 class="care-card__title">
+      <a href="/pages/care/care-detail.html?id={id}">{文章標題}</a>
+    </h3>
+    <p class="care-card__summary">{摘要}</p>
+  </div>
+</article>

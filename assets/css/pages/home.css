@@ -1,0 +1,126 @@
+/*
+ * pages/home.css
+ * ─────────────────────────────────────────────
+ * 首頁（index.html）專屬樣式
+ * 職責：Hero、配對測驗入口、精選植物、環境探索、
+ *       照護知識精選、功能介紹、永續摘要等區塊。
+ * 禁止：將首頁特殊樣式寫回全域 CSS。
+ * 依賴：tokens.css, layout.css, components.css
+ * ─────────────────────────────────────────────
+ */
+
+/* ── Hero ── */
+.hero {
+  padding-block: var(--space-20) var(--space-24);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+.hero__title {
+  font-family: var(--font-serif);
+  font-size: var(--text-5xl);
+  line-height: var(--leading-tight);
+  color: var(--canopy-950);
+  margin-block-end: var(--space-5);
+}
+
+.hero__desc {
+  font-size: var(--text-lg);
+  color: var(--muted);
+  max-width: 52ch;
+  margin-block-end: var(--space-8);
+}
+
+.hero__actions {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.hero__visual {
+  aspect-ratio: 1;
+  border-radius: var(--radius-lg);
+  background-color: var(--surface-leaf);
+  overflow: hidden;
+}
+
+/* ── Quiz Entry ── */
+.quiz-entry {
+  padding-block: var(--space-16);
+  background-color: var(--canopy-900);
+  color: var(--leaf-white);
+  text-align: center;
+}
+
+.quiz-entry__title {
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  margin-block-end: var(--space-4);
+}
+
+.quiz-entry__desc {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: var(--text-lg);
+  max-width: 54ch;
+  margin-inline: auto;
+  margin-block-end: var(--space-8);
+}
+
+/* ── Environment Explorer ── */
+.env-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.env-item {
+  background-color: var(--surface-leaf);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  text-align: center;
+  cursor: pointer;
+  transition: box-shadow var(--duration-normal), transform var(--duration-normal);
+}
+
+.env-item:hover {
+  box-shadow: var(--shadow-card);
+  transform: translateY(-2px);
+}
+
+.env-item__icon {
+  font-size: 2rem;
+  margin-block-end: var(--space-3);
+}
+
+.env-item__label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--canopy-900);
+}
+
+/* ── Sustainability Summary ── */
+.sustainability-strip {
+  background-color: var(--surface-sage);
+  padding-block: var(--space-16);
+}
+
+/* ── RWD ── */
+@media (max-width: 1023px) {
+  .hero__inner   { grid-template-columns: 1fr; }
+  .hero__visual  { display: none; }
+  .env-grid      { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .hero { padding-block: var(--space-12) var(--space-16); }
+  .hero__title { font-size: var(--text-4xl); }
+  .env-grid    { grid-template-columns: 1fr; }
+}

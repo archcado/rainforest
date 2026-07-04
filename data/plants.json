@@ -1,0 +1,47 @@
+[
+  {
+    "id": "plant-001",
+    "slug": "monstera-deliciosa",
+    "name": "龜背芋",
+    "scientificName": "Monstera deliciosa",
+    "price": 680,
+    "stockStatus": "in-stock",
+    "care": {
+      "light": "bright-indirect",
+      "humidity": "medium",
+      "difficulty": "easy",
+      "petFriendly": false,
+      "wateringFrequency": "weekly"
+    }
+  },
+  {
+    "id": "plant-002",
+    "slug": "alocasia-amazonica",
+    "name": "黑葉觀音蓮",
+    "scientificName": "Alocasia amazonica",
+    "price": 1280,
+    "stockStatus": "low-stock",
+    "care": {
+      "light": "bright-indirect",
+      "humidity": "high",
+      "difficulty": "medium",
+      "petFriendly": false,
+      "wateringFrequency": "twice-weekly"
+    }
+  },
+  {
+    "id": "plant-003",
+    "slug": "pothos-golden",
+    "name": "黃金葛",
+    "scientificName": "Epipremnum aureum",
+    "price": 280,
+    "stockStatus": "in-stock",
+    "care": {
+      "light": "low-to-indirect",
+      "humidity": "low",
+      "difficulty": "easy",
+      "petFriendly": false,
+      "wateringFrequency": "weekly"
+    }
+  }
+]

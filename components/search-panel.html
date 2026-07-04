@@ -1,0 +1,43 @@
+<!--
+  components/search-panel.html
+  ─────────────────────────────────────────────
+  搜尋面板元件骨架
+  使用方式：插入 body 底部，透過 search.js 控制顯示。
+  ─────────────────────────────────────────────
+-->
+<div
+  class="search-panel"
+  role="dialog"
+  aria-label="搜尋"
+  aria-hidden="true"
+>
+  <div class="search-panel__inner">
+
+    <div class="search-panel__header">
+      <h2 class="search-panel__title">搜尋植物與照護文章</h2>
+      <button class="search-panel__close" data-search-close aria-label="關閉搜尋">
+        <!-- Close Icon -->
+      </button>
+    </div>
+
+    <form class="search-panel__form" role="search" action="/pages/system/search-results.html">
+      <label class="sr-only" for="search-input">輸入搜尋關鍵字</label>
+      <input
+        id="search-input"
+        type="search"
+        name="q"
+        class="form-input search-panel__input"
+        placeholder="輸入植物名稱、照護主題…"
+        autocomplete="off"
+        spellcheck="false"
+      >
+      <button class="btn btn--primary" type="submit">搜尋</button>
+    </form>
+
+    <!-- 搜尋建議預留區 -->
+    <div class="search-panel__suggestions" aria-live="polite">
+      <!-- 熱門搜尋 / 自動補全建議 -->
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<!--
+  components/mobile-nav.html
+  ─────────────────────────────────────────────
+  行動版導覽抽屜元件骨架
+  使用方式：插入 body 底部，透過 navigation.js 控制開關。
+  aria-hidden 由 JavaScript 管理。
+  ─────────────────────────────────────────────
+-->
+<nav
+  id="mobile-nav"
+  class="mobile-nav"
+  aria-label="行動版導覽"
+  aria-hidden="true"
+>
+  <div class="mobile-nav__inner">
+
+    <!-- 頂部：品牌 + 關閉按鈕 -->
+    <div class="mobile-nav__header">
+      <span class="brand-name">CANOPY</span>
+      <button
+        class="mobile-nav__close"
+        data-nav-toggle
+        aria-label="關閉選單"
+        aria-expanded="true"
+      >
+        <!-- Close Icon -->
+      </button>
+    </div>
+
+    <!-- 主導覽 -->
+    <ul class="mobile-nav__list" role="list">
+      <li><a class="mobile-nav__link" href="/pages/plants/plants.html">植物商城</a></li>
+      <li><a class="mobile-nav__link" href="/pages/care/care.html">照護知識</a></li>
+      <li><a class="mobile-nav__link" href="/pages/quiz/quiz.html">植物配對</a></li>
+      <li><a class="mobile-nav__link" href="/pages/member/my-plants.html">我的植物</a></li>
+      <li><a class="mobile-nav__link" href="/pages/sustainability/sustainability.html">永續計畫</a></li>
+    </ul>
+
+    <hr>
+
+    <!-- 會員操作 -->
+    <div class="mobile-nav__member">
+      <a class="btn btn--primary" href="/pages/system/login.html">登入 / 註冊</a>
+    </div>
+
+  </div>
+
+  <!-- 背景遮罩 -->
+  <div class="mobile-nav__backdrop" data-nav-toggle aria-hidden="true"></div>
+</nav>

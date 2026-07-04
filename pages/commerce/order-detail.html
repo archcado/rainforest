@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CANOPY 訂單詳情 — 查看訂單狀態、商品清單與配送資訊。">
+  <title>訂單詳情｜CANOPY</title>
+
+  <link rel="stylesheet" href="../../assets/css/tokens.css">
+  <link rel="stylesheet" href="../../assets/css/reset.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/utilities.css">
+  <link rel="stylesheet" href="../../assets/css/pages/commerce.css">
+</head>
+
+<body>
+
+  <header class="site-header" role="banner">
+    <!-- 共用 Header 載入位置（components/header.html）-->
+  </header>
+
+  <main class="site-main">
+
+    <div class="breadcrumb-bar">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="麵包屑">
+          <ol class="breadcrumb__list" role="list">
+            <li class="breadcrumb__item"><a class="breadcrumb__link" href="../../index.html">首頁</a></li>
+            <li class="breadcrumb__item"><a class="breadcrumb__link" href="../member/orders.html">訂單記錄</a></li>
+            <li class="breadcrumb__item"><span class="breadcrumb__current" aria-current="page">訂單詳情</span></li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <section class="page-hero" aria-labelledby="order-detail-title">
+      <div class="container">
+        <h1 class="page-hero__title" id="order-detail-title">訂單詳情</h1>
+        <p class="text-muted">訂單編號：<span id="order-id">#—</span></p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container">
+
+        <!-- 訂單狀態 -->
+        <div class="order-status" style="margin-block-end:2rem">
+          <span class="badge badge--green" id="order-status">處理中</span>
+        </div>
+
+        <!-- 訂單項目 -->
+        <section aria-labelledby="order-items-title">
+          <h2 id="order-items-title">訂購商品</h2>
+          <div id="order-items" style="margin-block-start:1rem">
+            <!-- 訂單項目由 JavaScript 動態載入 -->
+          </div>
+        </section>
+
+        <!-- 收件資訊 -->
+        <section aria-labelledby="shipping-info-title" style="margin-block-start:2rem">
+          <h2 id="shipping-info-title">收件資訊</h2>
+          <div id="shipping-info" style="margin-block-start:1rem">
+            <!-- 收件資訊預留區 -->
+          </div>
+        </section>
+
+        <!-- 金額摘要 -->
+        <aside class="order-summary" style="max-width:400px;margin-block-start:2rem">
+          <h2 class="order-summary__title">金額摘要</h2>
+          <div class="order-summary__row">
+            <span>小計</span><span id="order-subtotal">NT$ —</span>
+          </div>
+          <div class="order-summary__row">
+            <span>運費</span><span id="order-shipping">NT$ —</span>
+          </div>
+          <div class="order-summary__total">
+            <span>合計</span><span id="order-total">NT$ —</span>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <!-- 共用 Footer 載入位置（components/footer.html）-->
+  </footer>
+
+  <script src="../../assets/js/layout.js" defer></script>
+  <script src="../../assets/js/navigation.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CANOPY 植物商城 — 探索與選購精選雨林植物，依光照、濕度、難度篩選適合你的植物。">
+  <title>植物商城｜CANOPY</title>
+
+  <link rel="stylesheet" href="../../assets/css/tokens.css">
+  <link rel="stylesheet" href="../../assets/css/reset.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/utilities.css">
+  <link rel="stylesheet" href="../../assets/css/pages/plants.css">
+</head>
+
+<body>
+
+  <header class="site-header" role="banner">
+    <!-- 共用 Header 載入位置（components/header.html）-->
+  </header>
+
+  <main class="site-main">
+
+    <div class="breadcrumb-bar">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="麵包屑">
+          <ol class="breadcrumb__list" role="list">
+            <li class="breadcrumb__item"><a class="breadcrumb__link" href="../../index.html">首頁</a></li>
+            <li class="breadcrumb__item"><span class="breadcrumb__current" aria-current="page">植物商城</span></li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <section class="page-hero" aria-labelledby="plants-title">
+      <div class="container">
+        <h1 class="page-hero__title" id="plants-title">植物商城</h1>
+        <p class="page-hero__desc">探索來自世界各地的精選雨林植物，每株均附完整照護資訊。</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container">
+        <div class="layout-sidebar">
+
+          <!-- 篩選面板 -->
+          <div class="filter-sidebar">
+            <!-- components/filter-panel.html -->
+          </div>
+
+          <!-- 植物列表 -->
+          <div>
+            <div class="sort-bar">
+              <p class="sort-bar__count">共 <span id="plants-count">0</span> 株植物</p>
+              <select class="form-select" aria-label="排序方式" style="width:auto">
+                <option value="default">預設排序</option>
+                <option value="price-asc">價格由低到高</option>
+                <option value="price-desc">價格由高到低</option>
+                <option value="name">名稱 A–Z</option>
+              </select>
+            </div>
+
+            <div class="plants-grid" id="plants-grid" aria-live="polite">
+              <!-- 植物卡片由 JavaScript 動態載入 -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <!-- 共用 Footer 載入位置（components/footer.html）-->
+  </footer>
+
+  <script src="../../assets/js/layout.js" defer></script>
+  <script src="../../assets/js/navigation.js" defer></script>
+  <script src="../../assets/js/cart.js" defer></script>
+  <script src="../../assets/js/filters.js" defer></script>
+  <script src="../../assets/js/toast.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+/*
+ * pages/quiz.css
+ * ─────────────────────────────────────────────
+ * 植物配對測驗頁（quiz.html, quiz-result.html）專屬樣式
+ * 職責：測驗步驟進度、問題卡片、選項按鈕、結果展示。
+ * 禁止：將此頁特殊樣式寫回全域 CSS。
+ * 依賴：tokens.css, layout.css, components.css
+ * ─────────────────────────────────────────────
+ */
+
+/* ── 測驗容器 ── */
+.quiz-container {
+  max-width: 680px;
+  margin-inline: auto;
+  padding-block: var(--space-12);
+}
+
+/* ── 進度條 ── */
+.quiz-progress {
+  margin-block-end: var(--space-10);
+}
+
+.quiz-progress__bar {
+  height: 6px;
+  background-color: var(--line);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-block-end: var(--space-3);
+}
+
+.quiz-progress__fill {
+  height: 100%;
+  background-color: var(--leaf-deep);
+  border-radius: var(--radius-full);
+  transition: width var(--duration-slow) var(--ease-out);
+}
+
+.quiz-progress__label {
+  font-size: var(--text-sm);
+  color: var(--muted);
+  text-align: right;
+}
+
+/* ── 問題卡片 ── */
+.quiz-question {
+  background-color: var(--surface-mist);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  margin-block-end: var(--space-6);
+}
+
+.quiz-question__text {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--canopy-950);
+  line-height: var(--leading-tight);
+  margin-block-end: var(--space-6);
+}
+
+/* ── 選項 ── */
+.quiz-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+}
+
+.quiz-option {
+  padding: var(--space-4) var(--space-5);
+  background-color: var(--surface-clear);
+  border: 2px solid var(--line);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  transition: all var(--duration-fast);
+}
+
+.quiz-option:hover {
+  border-color: var(--leaf-deep);
+  background-color: var(--surface-leaf);
+}
+
+.quiz-option--selected {
+  border-color: var(--canopy-900);
+  background-color: var(--surface-sage);
+  color: var(--canopy-900);
+}
+
+/* ── 測驗結果 ── */
+.quiz-result {
+  text-align: center;
+  padding-block: var(--space-12);
+}
+
+.quiz-result__match {
+  font-size: var(--text-5xl);
+  font-weight: 700;
+  color: var(--leaf-deep);
+  line-height: 1;
+  margin-block-end: var(--space-2);
+}
+
+.quiz-result__label {
+  font-size: var(--text-sm);
+  color: var(--muted);
+  margin-block-end: var(--space-8);
+}
+
+.quiz-result__plants {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--space-6);
+  text-align: left;
+  margin-block-start: var(--space-10);
+}
+
+/* ── RWD ── */
+@media (max-width: 640px) {
+  .quiz-options {
+    grid-template-columns: 1fr;
+  }
+}

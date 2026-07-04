@@ -1,0 +1,48 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CANOPY 會員註冊 — 建立帳戶，開始你的雨林植物旅程。">
+  <title>註冊｜CANOPY</title>
+  <link rel="stylesheet" href="../../assets/css/tokens.css">
+  <link rel="stylesheet" href="../../assets/css/reset.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/utilities.css">
+</head>
+<body>
+  <header class="site-header" role="banner"><!-- 共用 Header 載入位置（components/header.html）--></header>
+  <main class="site-main">
+    <section class="page-content"><div class="container">
+      <div class="auth-box">
+        <h1 class="auth-box__title">建立帳戶</h1>
+        <form action="#" method="post" novalidate>
+          <div class="form-group">
+            <label class="form-label form-label--required" for="reg-name">姓名</label>
+            <input id="reg-name" class="form-input" type="text" name="name" required autocomplete="name">
+          </div>
+          <div class="form-group" style="margin-block-start:1rem">
+            <label class="form-label form-label--required" for="reg-email">電子信箱</label>
+            <input id="reg-email" class="form-input" type="email" name="email" required autocomplete="email">
+          </div>
+          <div class="form-group" style="margin-block-start:1rem">
+            <label class="form-label form-label--required" for="reg-password">密碼</label>
+            <input id="reg-password" class="form-input" type="password" name="password" required autocomplete="new-password">
+          </div>
+          <button class="btn btn--primary" type="submit" style="width:100%;margin-block-start:1.5rem">建立帳戶</button>
+        </form>
+        <p style="margin-block-start:1.5rem;text-align:center">
+          已有帳戶？<a href="./login.html">立即登入</a>
+        </p>
+      </div>
+    </div></section>
+  </main>
+  <footer class="site-footer" role="contentinfo"><!-- 共用 Footer 載入位置（components/footer.html）--></footer>
+  <script src="../../assets/js/layout.js" defer></script>
+  <script src="../../assets/js/navigation.js" defer></script>
+  <script src="../../assets/js/toast.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+</body>
+</html>

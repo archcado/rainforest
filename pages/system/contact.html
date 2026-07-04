@@ -1,0 +1,48 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CANOPY 聯絡我們 — 有任何疑問或建議，歡迎與我們聯繫。">
+  <title>聯絡我們｜CANOPY</title>
+  <link rel="stylesheet" href="../../assets/css/tokens.css">
+  <link rel="stylesheet" href="../../assets/css/reset.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/utilities.css">
+</head>
+<body>
+  <header class="site-header" role="banner"><!-- 共用 Header 載入位置（components/header.html）--></header>
+  <main class="site-main">
+    <section class="page-hero" aria-labelledby="contact-title">
+      <div class="container">
+        <h1 class="page-hero__title" id="contact-title">聯絡我們</h1>
+        <p>有任何植物問題或服務建議，歡迎透過以下方式與我們聯繫。</p>
+      </div>
+    </section>
+    <section class="page-content"><div class="container">
+      <form class="contact-form" action="#" method="post" novalidate style="max-width:640px">
+        <div class="form-group">
+          <label class="form-label form-label--required" for="contact-name">姓名</label>
+          <input id="contact-name" class="form-input" type="text" name="name" required autocomplete="name">
+        </div>
+        <div class="form-group" style="margin-block-start:1rem">
+          <label class="form-label form-label--required" for="contact-email">電子信箱</label>
+          <input id="contact-email" class="form-input" type="email" name="email" required autocomplete="email">
+        </div>
+        <div class="form-group" style="margin-block-start:1rem">
+          <label class="form-label form-label--required" for="contact-message">訊息內容</label>
+          <textarea id="contact-message" class="form-textarea" name="message" rows="6" required></textarea>
+        </div>
+        <button class="btn btn--primary" type="submit" style="margin-block-start:1.5rem">送出訊息</button>
+      </form>
+    </div></section>
+  </main>
+  <footer class="site-footer" role="contentinfo"><!-- 共用 Footer 載入位置（components/footer.html）--></footer>
+  <script src="../../assets/js/layout.js" defer></script>
+  <script src="../../assets/js/navigation.js" defer></script>
+  <script src="../../assets/js/toast.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+</body>
+</html>

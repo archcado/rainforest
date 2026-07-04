@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CANOPY 購物車 — 確認你的植物選購清單與訂單金額。">
+  <title>購物車｜CANOPY</title>
+
+  <link rel="stylesheet" href="../../assets/css/tokens.css">
+  <link rel="stylesheet" href="../../assets/css/reset.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/utilities.css">
+  <link rel="stylesheet" href="../../assets/css/pages/commerce.css">
+</head>
+
+<body>
+
+  <header class="site-header" role="banner">
+    <!-- 共用 Header 載入位置（components/header.html）-->
+  </header>
+
+  <main class="site-main">
+
+    <div class="breadcrumb-bar">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="麵包屑">
+          <ol class="breadcrumb__list" role="list">
+            <li class="breadcrumb__item"><a class="breadcrumb__link" href="../../index.html">首頁</a></li>
+            <li class="breadcrumb__item"><span class="breadcrumb__current" aria-current="page">購物車</span></li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <section class="page-hero" aria-labelledby="cart-title">
+      <div class="container">
+        <h1 class="page-hero__title" id="cart-title">購物車</h1>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container">
+        <div class="cart-layout">
+
+          <!-- 購物車項目列表 -->
+          <div>
+            <div id="cart-items">
+              <!-- 購物車項目由 JavaScript 動態載入 -->
+            </div>
+            <div id="cart-empty" hidden>
+              <!-- 空購物車狀態（components/empty-state.html）-->
+            </div>
+          </div>
+
+          <!-- 訂單摘要 -->
+          <aside class="order-summary" aria-label="訂單摘要">
+            <h2 class="order-summary__title">訂單摘要</h2>
+            <div class="order-summary__row">
+              <span>小計</span>
+              <span id="cart-subtotal">NT$ —</span>
+            </div>
+            <div class="order-summary__row">
+              <span>運費</span>
+              <span>確認後計算</span>
+            </div>
+            <div class="order-summary__total">
+              <span>合計</span>
+              <span id="cart-total">NT$ —</span>
+            </div>
+            <a class="btn btn--primary" href="./checkout.html" style="width:100%;margin-block-start:1.5rem;justify-content:center">
+              前往結帳
+            </a>
+            <a class="btn btn--ghost" href="../plants/plants.html" style="width:100%;margin-block-start:.75rem;justify-content:center">
+              繼續選購
+            </a>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <!-- 共用 Footer 載入位置（components/footer.html）-->
+  </footer>
+
+  <script src="../../assets/js/layout.js" defer></script>
+  <script src="../../assets/js/navigation.js" defer></script>
+  <script src="../../assets/js/cart.js" defer></script>
+  <script src="../../assets/js/toast.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+
+</body>
+</html>

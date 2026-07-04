@@ -1,0 +1,53 @@
+<!--
+  components/plant-card.html
+  ─────────────────────────────────────────────
+  植物卡片元件骨架（單筆範本）
+  使用方式：由 JavaScript 動態渲染或伺服端模板複製。
+  class 名稱需與 components.css 保持一致。
+  ─────────────────────────────────────────────
+-->
+<article class="plant-card">
+  <a class="plant-card__image-link" href="/pages/plants/plant-detail.html?id={id}">
+    <img
+      class="plant-card__image"
+      src="/assets/images/placeholders/plant-placeholder.webp"
+      alt="{植物名稱}"
+      loading="lazy"
+      width="400"
+      height="300"
+    >
+  </a>
+
+  <div class="plant-card__body">
+    <h3 class="plant-card__title">
+      <a href="/pages/plants/plant-detail.html?id={id}">{植物名稱}</a>
+    </h3>
+    <p class="plant-card__scientific">{學名}</p>
+
+    <div class="plant-card__meta">
+      <span class="plant-card__price">NT$ {price}</span>
+      <span class="badge badge--neutral">{庫存狀態}</span>
+    </div>
+
+    <div class="plant-card__actions">
+      <!-- 收藏 -->
+      <button
+        class="btn btn--ghost btn--sm"
+        aria-label="加入收藏 {植物名稱}"
+        data-favorite-id="{id}"
+      >
+        <!-- Heart Icon -->
+      </button>
+
+      <!-- 加入購物車 -->
+      <button
+        class="btn btn--primary btn--sm"
+        data-add-to-cart="{id}"
+        data-name="{植物名稱}"
+        data-price="{price}"
+      >
+        加入購物車
+      </button>
+    </div>
+  </div>
+</article>

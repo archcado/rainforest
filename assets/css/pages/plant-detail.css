@@ -1,0 +1,125 @@
+/*
+ * pages/plant-detail.css
+ * ─────────────────────────────────────────────
+ * 植物詳情頁（plant-detail.html）專屬樣式
+ * 職責：圖片展示、照護資訊表格、加入購物車區塊、相關推薦。
+ * 禁止：將此頁特殊樣式寫回全域 CSS。
+ * 依賴：tokens.css, layout.css, components.css
+ * ─────────────────────────────────────────────
+ */
+
+/* ── 詳情主區塊 ── */
+.plant-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: start;
+  padding-block: var(--space-12);
+}
+
+/* ── 圖片區 ── */
+.plant-detail__gallery {
+  position: sticky;
+  top: calc(72px + var(--space-4));
+}
+
+.plant-detail__main-image {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  background-color: var(--surface-leaf);
+}
+
+.plant-detail__thumbnails {
+  display: flex;
+  gap: var(--space-2);
+  margin-block-start: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.plant-detail__thumb {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  background-color: var(--surface-leaf);
+  transition: border-color var(--duration-fast);
+}
+
+.plant-detail__thumb--active {
+  border-color: var(--leaf-deep);
+}
+
+/* ── 資訊區 ── */
+.plant-detail__info {
+  padding-block-start: var(--space-4);
+}
+
+.plant-detail__name {
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  color: var(--canopy-950);
+  margin-block-end: var(--space-2);
+}
+
+.plant-detail__scientific {
+  font-size: var(--text-base);
+  color: var(--muted);
+  font-style: italic;
+  margin-block-end: var(--space-4);
+}
+
+.plant-detail__price {
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--canopy-900);
+  margin-block-end: var(--space-6);
+}
+
+/* ── 照護指標 ── */
+.care-indicators {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+  margin-block: var(--space-6);
+}
+
+.care-indicator {
+  background-color: var(--surface-sage);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3) var(--space-4);
+  text-align: center;
+}
+
+.care-indicator__label {
+  font-size: var(--text-xs);
+  color: var(--muted);
+  margin-block-end: var(--space-1);
+}
+
+.care-indicator__value {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--canopy-900);
+}
+
+/* ── RWD ── */
+@media (max-width: 1023px) {
+  .plant-detail {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .plant-detail__gallery {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .care-indicators {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

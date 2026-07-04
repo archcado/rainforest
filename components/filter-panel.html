@@ -1,0 +1,80 @@
+<!--
+  components/filter-panel.html
+  ─────────────────────────────────────────────
+  植物篩選面板元件骨架
+  使用方式：插入植物列表頁側邊欄，透過 filters.js 管理狀態。
+  ─────────────────────────────────────────────
+-->
+<aside class="filter-panel" aria-label="篩選條件">
+
+  <div class="filter-panel__header">
+    <h2 class="filter-panel__title">篩選植物</h2>
+    <button class="btn btn--ghost btn--sm" data-filter-reset>重設篩選</button>
+  </div>
+
+  <!-- 光照需求 -->
+  <fieldset class="filter-group">
+    <legend class="filter-group__title">光照需求</legend>
+    <label class="filter-option">
+      <input type="checkbox" name="light" value="bright-direct"> 明亮直射光
+    </label>
+    <label class="filter-option">
+      <input type="checkbox" name="light" value="bright-indirect"> 明亮散射光
+    </label>
+    <label class="filter-option">
+      <input type="checkbox" name="light" value="medium"> 中等光線
+    </label>
+    <label class="filter-option">
+      <input type="checkbox" name="light" value="low"> 低光環境
+    </label>
+  </fieldset>
+
+  <!-- 環境濕度 -->
+  <fieldset class="filter-group">
+    <legend class="filter-group__title">環境濕度</legend>
+    <label class="filter-option">
+      <input type="checkbox" name="humidity" value="high"> 高濕度
+    </label>
+    <label class="filter-option">
+      <input type="checkbox" name="humidity" value="medium"> 一般濕度
+    </label>
+    <label class="filter-option">
+      <input type="checkbox" name="humidity" value="low"> 耐乾燥
+    </label>
+  </fieldset>
+
+  <!-- 照護難度 -->
+  <fieldset class="filter-group">
+    <legend class="filter-group__title">照護難度</legend>
+    <label class="filter-option">
+      <input type="checkbox" name="difficulty" value="easy"> 新手適合
+    </label>
+    <label class="filter-option">
+      <input type="checkbox" name="difficulty" value="medium"> 有點挑戰
+    </label>
+    <label class="filter-option">
+      <input type="checkbox" name="difficulty" value="hard"> 進階玩家
+    </label>
+  </fieldset>
+
+  <!-- 寵物友善 -->
+  <fieldset class="filter-group">
+    <legend class="filter-group__title">寵物友善</legend>
+    <label class="filter-option">
+      <input type="checkbox" name="petFriendly" value="true"> 寵物友善
+    </label>
+  </fieldset>
+
+  <!-- 價格區間 -->
+  <fieldset class="filter-group">
+    <legend class="filter-group__title">價格區間</legend>
+    <div class="filter-price-range">
+      <label class="sr-only" for="price-min">最低價格</label>
+      <input id="price-min" class="form-input" type="number" name="priceMin" placeholder="NT$ 最低" min="0">
+      <span>–</span>
+      <label class="sr-only" for="price-max">最高價格</label>
+      <input id="price-max" class="form-input" type="number" name="priceMax" placeholder="NT$ 最高" min="0">
+    </div>
+  </fieldset>
+
+</aside>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CANOPY 植物配對測驗 — 回答幾個問題，找到最適合你居家環境的雨林植物。">
+  <title>植物配對測驗｜CANOPY</title>
+
+  <link rel="stylesheet" href="../../assets/css/tokens.css">
+  <link rel="stylesheet" href="../../assets/css/reset.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/utilities.css">
+  <link rel="stylesheet" href="../../assets/css/pages/quiz.css">
+</head>
+
+<body>
+
+  <header class="site-header" role="banner">
+    <!-- 共用 Header 載入位置（components/header.html）-->
+  </header>
+
+  <main class="site-main">
+
+    <div class="breadcrumb-bar">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="麵包屑">
+          <ol class="breadcrumb__list" role="list">
+            <li class="breadcrumb__item"><a class="breadcrumb__link" href="../../index.html">首頁</a></li>
+            <li class="breadcrumb__item"><span class="breadcrumb__current" aria-current="page">植物配對測驗</span></li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <section class="page-content">
+      <div class="container">
+        <div class="quiz-container">
+
+          <!-- 測驗進度 -->
+          <div class="quiz-progress" aria-label="測驗進度">
+            <div class="quiz-progress__bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              <div class="quiz-progress__fill" id="quiz-progress-fill" style="width:0%"></div>
+            </div>
+            <p class="quiz-progress__label" id="quiz-progress-label">1 / 8</p>
+          </div>
+
+          <!-- 問題卡片 -->
+          <div class="quiz-question" id="quiz-question">
+            <h1 class="quiz-question__text" id="quiz-question-text">
+              <!-- 問題文字由 JavaScript 動態載入 -->
+            </h1>
+            <div class="quiz-options" id="quiz-options">
+              <!-- 選項由 JavaScript 動態載入 -->
+            </div>
+          </div>
+
+          <!-- 導覽按鈕 -->
+          <div class="quiz-nav flex-between">
+            <button class="btn btn--ghost" id="quiz-prev" hidden>← 上一題</button>
+            <button class="btn btn--primary" id="quiz-next" hidden>下一題 →</button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <!-- 共用 Footer 載入位置（components/footer.html）-->
+  </footer>
+
+  <script src="../../assets/js/layout.js" defer></script>
+  <script src="../../assets/js/navigation.js" defer></script>
+  <script src="../../assets/js/quiz.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+
+</body>
+</html>

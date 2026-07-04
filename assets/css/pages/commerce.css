@@ -1,0 +1,173 @@
+/*
+ * pages/commerce.css
+ * ─────────────────────────────────────────────
+ * 商城流程頁面專屬樣式
+ * 涵蓋：cart.html, checkout.html, order-complete.html, order-detail.html
+ * 職責：購物車項目、結帳步驟、訂單摘要、完成頁。
+ * 禁止：將此頁特殊樣式寫回全域 CSS。
+ * 依賴：tokens.css, layout.css, components.css
+ * ─────────────────────────────────────────────
+ */
+
+/* ── 結帳步驟指示器 ── */
+.checkout-steps {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-block-end: var(--space-10);
+}
+
+.checkout-step {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.checkout-step__num {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--line);
+  display: grid;
+  place-items: center;
+  font-size: var(--text-xs);
+  font-weight: 700;
+}
+
+.checkout-step--active .checkout-step__num {
+  background-color: var(--canopy-900);
+  border-color: var(--canopy-900);
+  color: var(--leaf-white);
+}
+
+.checkout-step--done .checkout-step__num {
+  background-color: var(--success);
+  border-color: var(--success);
+  color: white;
+}
+
+.checkout-step--active {
+  color: var(--canopy-900);
+}
+
+.checkout-step__sep {
+  flex: 1;
+  height: 1px;
+  background-color: var(--line);
+}
+
+/* ── 購物車版面 ── */
+.cart-layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: var(--space-8);
+  align-items: start;
+  padding-block: var(--space-10);
+}
+
+/* ── 購物車項目 ── */
+.cart-item {
+  display: flex;
+  gap: var(--space-5);
+  padding-block: var(--space-5);
+  border-bottom: 1px solid var(--line);
+}
+
+.cart-item__image {
+  width: 100px;
+  height: 100px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  background-color: var(--surface-leaf);
+  flex-shrink: 0;
+}
+
+.cart-item__name {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--canopy-900);
+  margin-block-end: var(--space-2);
+}
+
+/* ── 訂單摘要卡 ── */
+.order-summary {
+  position: sticky;
+  top: calc(72px + var(--space-4));
+  background-color: var(--surface-mist);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+}
+
+.order-summary__title {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--canopy-950);
+  margin-block-end: var(--space-5);
+  padding-block-end: var(--space-4);
+  border-bottom: 1px solid var(--line);
+}
+
+.order-summary__row {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--text-sm);
+  color: var(--muted);
+  padding-block: var(--space-2);
+}
+
+.order-summary__total {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--canopy-950);
+  padding-block-start: var(--space-4);
+  margin-block-start: var(--space-4);
+  border-top: 1px solid var(--line);
+}
+
+/* ── 訂單完成 ── */
+.order-complete {
+  text-align: center;
+  padding-block: var(--space-20);
+}
+
+.order-complete__icon {
+  width: 80px;
+  height: 80px;
+  margin-inline: auto;
+  margin-block-end: var(--space-6);
+  color: var(--success);
+}
+
+.order-complete__title {
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--canopy-950);
+  margin-block-end: var(--space-4);
+}
+
+/* ── RWD ── */
+@media (max-width: 1023px) {
+  .cart-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .order-summary {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .checkout-steps {
+    gap: var(--space-1);
+  }
+
+  .checkout-step__label {
+    display: none;
+  }
+}

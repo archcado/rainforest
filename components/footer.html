@@ -1,0 +1,75 @@
+<!--
+  components/footer.html
+  ─────────────────────────────────────────────
+  共用 Footer 元件骨架
+  使用方式：透過 JavaScript 或伺服端 include 載入至各頁面。
+  ─────────────────────────────────────────────
+-->
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner">
+
+    <!-- 上半：品牌 + 導覽連結 -->
+    <div class="footer-top">
+
+      <!-- 品牌區 -->
+      <div class="footer-brand">
+        <a class="brand" href="/index.html" aria-label="CANOPY 首頁">
+          <span class="brand-name">CANOPY</span>
+          <span class="brand-sub">Rainforest Plants</span>
+        </a>
+        <p class="footer-tagline">探索雨林的生命力，帶回家中。</p>
+      </div>
+
+      <!-- 導覽連結群 -->
+      <nav class="footer-nav" aria-label="網站頁尾導覽">
+
+        <div class="footer-nav-group">
+          <h3 class="footer-nav-title">探索</h3>
+          <ul>
+            <li><a href="/pages/plants/plants.html">植物商城</a></li>
+            <li><a href="/pages/care/care.html">照護知識</a></li>
+            <li><a href="/pages/quiz/quiz.html">植物配對測驗</a></li>
+            <li><a href="/pages/sustainability/sustainability.html">永續計畫</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-group">
+          <h3 class="footer-nav-title">會員</h3>
+          <ul>
+            <li><a href="/pages/member/my-plants.html">我的植物</a></li>
+            <li><a href="/pages/member/favorites.html">我的收藏</a></li>
+            <li><a href="/pages/member/orders.html">訂單記錄</a></li>
+            <li><a href="/pages/member/account.html">帳戶設定</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-group">
+          <h3 class="footer-nav-title">關於</h3>
+          <ul>
+            <li><a href="/pages/system/about.html">關於 CANOPY</a></li>
+            <li><a href="/pages/system/contact.html">聯絡我們</a></li>
+            <li><a href="/pages/system/shipping.html">配送說明</a></li>
+            <li><a href="/pages/system/privacy.html">隱私政策</a></li>
+            <li><a href="/pages/system/terms.html">服務條款</a></li>
+          </ul>
+        </div>
+
+      </nav>
+    </div>
+
+    <!-- 下半：版權 + 社群 -->
+    <div class="footer-bottom">
+      <p class="footer-copyright">
+        &copy; <span id="footer-year"></span> CANOPY. 保留所有權利。
+      </p>
+      <div class="footer-social" aria-label="社群媒體連結">
+        <!-- 社群連結預留位置 -->
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+  document.getElementById("footer-year").textContent = new Date().getFullYear();
+</script>

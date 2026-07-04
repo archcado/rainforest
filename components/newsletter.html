@@ -1,0 +1,33 @@
+<!--
+  components/newsletter.html
+  ─────────────────────────────────────────────
+  電子報訂閱元件骨架
+  使用方式：插入首頁及各主要頁面底部（Footer 上方）。
+  ─────────────────────────────────────────────
+-->
+<section class="newsletter-section section" aria-labelledby="newsletter-title">
+  <div class="container">
+    <div class="newsletter">
+      <h2 class="newsletter__title" id="newsletter-title">訂閱 CANOPY 電子報</h2>
+      <p class="newsletter__desc">
+        每月精選照護知識、新品資訊與植物配對技巧，直接送進你的信箱。
+      </p>
+      <form class="newsletter__form" action="#" method="post" novalidate>
+        <label class="sr-only" for="newsletter-email">電子郵件信箱</label>
+        <input
+          id="newsletter-email"
+          class="form-input"
+          type="email"
+          name="email"
+          placeholder="your@email.com"
+          required
+          autocomplete="email"
+        >
+        <button class="btn btn--primary" type="submit">訂閱</button>
+      </form>
+      <p class="newsletter__note text-xs text-muted">
+        我們不會濫用你的信箱，隨時可取消訂閱。
+      </p>
+    </div>
+  </div>
+</section>

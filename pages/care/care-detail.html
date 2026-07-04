@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CANOPY 照護文章 — 深入的植物照護知識與實作指引。">
+  <title>照護文章｜CANOPY</title>
+
+  <link rel="stylesheet" href="../../assets/css/tokens.css">
+  <link rel="stylesheet" href="../../assets/css/reset.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/utilities.css">
+  <link rel="stylesheet" href="../../assets/css/pages/care.css">
+</head>
+
+<body>
+
+  <header class="site-header" role="banner">
+    <!-- 共用 Header 載入位置（components/header.html）-->
+  </header>
+
+  <main class="site-main">
+
+    <div class="breadcrumb-bar">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="麵包屑">
+          <ol class="breadcrumb__list" role="list">
+            <li class="breadcrumb__item"><a class="breadcrumb__link" href="../../index.html">首頁</a></li>
+            <li class="breadcrumb__item"><a class="breadcrumb__link" href="./care.html">照護知識</a></li>
+            <li class="breadcrumb__item"><span class="breadcrumb__current" aria-current="page" id="article-title-bc">文章標題</span></li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <section class="page-content">
+      <div class="container">
+        <div class="care-article">
+
+          <!-- 文章主體 -->
+          <article class="article-body" id="article-body">
+            <header class="article-header">
+              <p class="care-card__category" id="article-category">分類</p>
+              <h1 id="article-title">文章標題</h1>
+              <p class="text-muted" id="article-meta">發布日期 · 閱讀時間</p>
+            </header>
+
+            <div id="article-content">
+              <!-- 文章正文預留區 -->
+            </div>
+          </article>
+
+          <!-- 側欄 -->
+          <aside class="article-sidebar">
+            <!-- 適用植物 -->
+            <div class="sidebar-widget">
+              <h2 class="sidebar-widget__title">適用植物</h2>
+              <div id="related-plants">
+                <!-- 相關植物預留區 -->
+              </div>
+            </div>
+
+            <!-- 延伸閱讀 -->
+            <div class="sidebar-widget">
+              <h2 class="sidebar-widget__title">延伸閱讀</h2>
+              <ul id="further-reading">
+                <!-- 延伸閱讀連結預留區 -->
+              </ul>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <!-- 共用 Footer 載入位置（components/footer.html）-->
+  </footer>
+
+  <script src="../../assets/js/layout.js" defer></script>
+  <script src="../../assets/js/navigation.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+
+</body>
+</html>

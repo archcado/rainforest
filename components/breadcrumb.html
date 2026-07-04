@@ -1,0 +1,22 @@
+<!--
+  components/breadcrumb.html
+  ─────────────────────────────────────────────
+  麵包屑元件骨架（範本）
+  使用方式：由頁面或 JavaScript 動態注入各頁的路徑資訊。
+  ─────────────────────────────────────────────
+-->
+<nav class="breadcrumb" aria-label="麵包屑導覽">
+  <ol class="breadcrumb__list" role="list">
+    <li class="breadcrumb__item">
+      <a class="breadcrumb__link" href="/index.html">首頁</a>
+    </li>
+    <!-- 中間層級依頁面動態插入，例如：
+    <li class="breadcrumb__item">
+      <a class="breadcrumb__link" href="/pages/plants/plants.html">植物商城</a>
+    </li>
+    -->
+    <li class="breadcrumb__item">
+      <span class="breadcrumb__current" aria-current="page">{當前頁面名稱}</span>
+    </li>
+  </ol>
+</nav>

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "result-easy-low-light",
+    "label": "低維護、低光線適合型",
+    "conditions": {
+      "light": ["low", "medium"],
+      "careTime": "low",
+      "petFriendly": false
+    },
+    "recommendedPlantIds": ["plant-003"]
+  },
+  {
+    "id": "result-tropical-enthusiast",
+    "label": "熱帶植物愛好型",
+    "conditions": {
+      "light": ["bright-indirect"],
+      "humidity": ["high", "medium"],
+      "careTime": ["medium", "high"]
+    },
+    "recommendedPlantIds": ["plant-001", "plant-002"]
+  }
+]

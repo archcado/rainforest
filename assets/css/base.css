@@ -1,0 +1,135 @@
+/*
+ * base.css
+ * ─────────────────────────────────────────────
+ * 全站基礎元素樣式
+ * 職責：設定 html、body、標題、內文、連結、圖片、
+ *       表單基本字體與基礎 focus 狀態。
+ * 禁止：撰寫版面邏輯、元件樣式或頁面特殊樣式。
+ * 依賴：tokens.css
+ * ─────────────────────────────────────────────
+ */
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--ink);
+  background-color: var(--mist-surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── 標題 ── */
+h1 {
+  font-size: var(--text-4xl);
+  line-height: var(--leading-tight);
+  font-weight: 700;
+}
+h2 {
+  font-size: var(--text-3xl);
+  line-height: var(--leading-tight);
+  font-weight: 700;
+}
+h3 {
+  font-size: var(--text-2xl);
+  line-height: var(--leading-tight);
+  font-weight: 600;
+}
+h4 {
+  font-size: var(--text-xl);
+  line-height: var(--leading-tight);
+  font-weight: 600;
+}
+h5 {
+  font-size: var(--text-lg);
+  line-height: var(--leading-tight);
+  font-weight: 600;
+}
+h6 {
+  font-size: var(--text-base);
+  line-height: var(--leading-tight);
+  font-weight: 600;
+}
+
+/* ── 內文 ── */
+p {
+  margin-block-end: var(--space-4);
+}
+
+p:last-child {
+  margin-block-end: 0;
+}
+
+/* ── 連結 ── */
+a {
+  color: var(--leaf-deep);
+  transition: color var(--duration-fast);
+}
+
+a:hover {
+  color: var(--canopy-900);
+}
+
+/* ── 圖片 ── */
+img {
+  height: auto;
+  object-fit: cover;
+}
+
+/* ── 表單基礎 ── */
+input,
+textarea,
+select {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  color: var(--ink);
+}
+
+/* ── 基礎 focus 狀態 ── */
+:focus-visible {
+  outline: 2px solid var(--leaf-deep);
+  outline-offset: 3px;
+  border-radius: var(--radius-xs);
+}
+
+/* ── 選取文字 ── */
+::selection {
+  background-color: var(--grass-light);
+  color: var(--canopy-950);
+}
+
+/* ── 水平分隔線 ── */
+hr {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin-block: var(--space-8);
+}
+
+/* ── 引言 ── */
+blockquote {
+  padding-left: var(--space-6);
+  border-left: 3px solid var(--grass-fresh);
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* ── 程式碼 ── */
+code,
+kbd,
+samp,
+pre {
+  font-family: ui-monospace, "Cascadia Code", monospace;
+  font-size: 0.9em;
+}
+
+/* ── 強調 ── */
+strong {
+  font-weight: 700;
+}
+em {
+  font-style: italic;
+}

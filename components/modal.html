@@ -1,0 +1,39 @@
+<!--
+  components/modal.html
+  ─────────────────────────────────────────────
+  Modal 元件骨架（通用範本）
+  使用方式：依需求為各 Modal 設定唯一 id，
+            透過 modal.js 控制開關。
+  ─────────────────────────────────────────────
+-->
+<div
+  id="modal-example"
+  class="modal-backdrop"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="modal-example-title"
+  aria-hidden="true"
+  hidden
+>
+  <div class="modal">
+    <button
+      class="modal__close"
+      data-modal-close="modal-example"
+      aria-label="關閉對話框"
+    >
+      ✕
+    </button>
+
+    <h2 class="modal__title" id="modal-example-title">Modal 標題</h2>
+
+    <div class="modal__body">
+      <!-- Modal 內容插槽 -->
+    </div>
+
+    <div class="modal__footer">
+      <!-- 操作按鈕插槽 -->
+      <button class="btn btn--ghost" data-modal-close="modal-example">取消</button>
+      <button class="btn btn--primary">確認</button>
+    </div>
+  </div>
+</div>

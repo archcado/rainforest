@@ -1,0 +1,42 @@
+[
+  {
+    "id": "q-01",
+    "question": "你家的光線環境大致是？",
+    "type": "single-choice",
+    "options": [
+      { "value": "bright-direct",   "label": "明亮直射光（窗邊無遮蔽）" },
+      { "value": "bright-indirect", "label": "明亮散射光（窗邊有薄紗）" },
+      { "value": "medium",          "label": "中等光線（距窗 1–2 公尺）" },
+      { "value": "low",             "label": "低光環境（距窗 2 公尺以上）" }
+    ]
+  },
+  {
+    "id": "q-02",
+    "question": "你能維持的室內濕度大約是？",
+    "type": "single-choice",
+    "options": [
+      { "value": "high",   "label": "高濕（有加濕器或浴室附近）" },
+      { "value": "medium", "label": "一般（台灣標準室內）" },
+      { "value": "low",    "label": "乾燥（冷氣長時間開啟）" }
+    ]
+  },
+  {
+    "id": "q-03",
+    "question": "你每週能花多少時間照顧植物？",
+    "type": "single-choice",
+    "options": [
+      { "value": "low",    "label": "10 分鐘以內" },
+      { "value": "medium", "label": "10–30 分鐘" },
+      { "value": "high",   "label": "30 分鐘以上" }
+    ]
+  },
+  {
+    "id": "q-04",
+    "question": "家中是否有寵物？",
+    "type": "single-choice",
+    "options": [
+      { "value": "yes", "label": "有（狗或貓）" },
+      { "value": "no",  "label": "沒有" }
+    ]
+  }
+]

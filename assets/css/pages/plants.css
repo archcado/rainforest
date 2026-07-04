@@ -1,0 +1,56 @@
+/*
+ * pages/plants.css
+ * ─────────────────────────────────────────────
+ * 植物列表頁（plants.html）專屬樣式
+ * 職責：篩選面板、植物卡片格狀排列、搜尋列、排序控制。
+ * 禁止：將此頁特殊樣式寫回全域 CSS。
+ * 依賴：tokens.css, layout.css, components.css
+ * ─────────────────────────────────────────────
+ */
+
+/* ── 篩選側邊欄 ── */
+.filter-sidebar {
+  position: sticky;
+  top: calc(72px + var(--space-4));
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+/* ── 植物格狀 ── */
+.plants-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--space-6);
+}
+
+/* ── 排序控制列 ── */
+.sort-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-block: var(--space-4);
+  border-bottom: 1px solid var(--line);
+  margin-block-end: var(--space-6);
+}
+
+.sort-bar__count {
+  font-size: var(--text-sm);
+  color: var(--muted);
+}
+
+/* ── RWD ── */
+@media (max-width: 1023px) {
+  .filter-sidebar {
+    position: static;
+    max-height: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .plants-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "care-001",
+    "slug": "watering-basics",
+    "title": "澆水基礎：如何判斷植物是否需要澆水",
+    "category": "watering",
+    "summary": "介紹觀察土壤濕度、葉片狀態與環境條件，做出正確澆水判斷。"
+  },
+  {
+    "id": "care-002",
+    "slug": "light-guide",
+    "title": "光照需求完整指南：明亮散射光與低光環境的差異",
+    "category": "light",
+    "summary": "說明各類光照條件的定義，以及如何依窗戶方向與遮蔽物選擇合適植物。"
+  },
+  {
+    "id": "care-003",
+    "slug": "humidity-for-tropicals",
+    "title": "熱帶植物的濕度需求與居家增濕方法",
+    "category": "humidity",
+    "summary": "說明雨林植物對濕度的依賴，以及霧化器、水盤、群植等增濕技巧。"
+  }
+]

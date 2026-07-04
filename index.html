@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CANOPY — 雨林植物選品、科學照護、植物配對與個人植物管理平台。找到適合你生活方式的植物。">
+  <title>CANOPY｜雨林植物照護平台</title>
+
+  <link rel="stylesheet" href="./assets/css/tokens.css">
+  <link rel="stylesheet" href="./assets/css/reset.css">
+  <link rel="stylesheet" href="./assets/css/base.css">
+  <link rel="stylesheet" href="./assets/css/layout.css">
+  <link rel="stylesheet" href="./assets/css/components.css">
+  <link rel="stylesheet" href="./assets/css/utilities.css">
+  <link rel="stylesheet" href="./assets/css/pages/home.css">
+</head>
+
+<body>
+
+  <!-- ── 共用 Header ── -->
+  <header class="site-header" role="banner">
+    <!-- 共用 Header 載入位置（components/header.html）-->
+    <div class="header-inner">
+      <a class="brand" href="./index.html" aria-label="CANOPY 首頁">
+        <span class="brand-name">CANOPY</span>
+      </a>
+      <nav class="nav" aria-label="主導覽">
+        <a class="nav-link" href="./pages/plants/plants.html">植物商城</a>
+        <a class="nav-link" href="./pages/care/care.html">照護知識</a>
+        <a class="nav-link" href="./pages/quiz/quiz.html">植物配對</a>
+        <a class="nav-link" href="./pages/member/my-plants.html">我的植物</a>
+        <a class="nav-link" href="./pages/sustainability/sustainability.html">永續計畫</a>
+      </nav>
+      <div class="header-actions">
+        <button class="header-icon-btn" data-search-open aria-label="開啟搜尋">🔍</button>
+        <a class="header-icon-btn" href="./pages/member/favorites.html" aria-label="收藏">♡</a>
+        <a class="header-icon-btn" href="./pages/commerce/cart.html" aria-label="購物車">
+          🛒 <span class="cart-badge" data-cart-count hidden>0</span>
+        </a>
+        <a class="header-icon-btn" href="./pages/system/login.html" aria-label="登入">👤</a>
+        <button class="header-icon-btn hide-desktop" data-nav-toggle
+          aria-label="開啟選單" aria-expanded="false" aria-controls="mobile-nav">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="site-main">
+
+    <!-- ── Hero 品牌主視覺 ── -->
+    <section class="hero section" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero__inner">
+          <div class="hero__copy">
+            <h1 class="hero__title" id="hero-title">
+              將雨林的<br>生命力帶回家
+            </h1>
+            <p class="hero__desc">
+              CANOPY 精選來自世界各地的雨林植物，提供科學照護指南、
+              環境配對測驗，協助你找到真正適合你的植物夥伴。
+            </p>
+            <div class="hero__actions">
+              <a class="btn btn--primary btn--lg" href="./pages/plants/plants.html">探索植物</a>
+              <a class="btn btn--secondary btn--lg" href="./pages/quiz/quiz.html">開始植物配對</a>
+            </div>
+          </div>
+          <div class="hero__visual" aria-hidden="true">
+            <!-- 品牌植物主視覺圖片預留位置 -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 植物配對測驗入口 ── -->
+    <section class="quiz-entry" aria-labelledby="quiz-entry-title">
+      <div class="container">
+        <h2 class="quiz-entry__title" id="quiz-entry-title">
+          找到屬於你的植物
+        </h2>
+        <p class="quiz-entry__desc">
+          回答 8 個關於你的居家環境與生活方式的問題，
+          我們為你推薦最合適的雨林植物。
+        </p>
+        <a class="btn btn--primary btn--lg" href="./pages/quiz/quiz.html">
+          開始配對測驗
+        </a>
+      </div>
+    </section>
+
+    <!-- ── 精選植物 ── -->
+    <section class="section" aria-labelledby="featured-plants-title">
+      <div class="container">
+        <div class="section__header flex-between">
+          <div>
+            <h2 class="section__title" id="featured-plants-title">精選植物</h2>
+            <p class="section__desc">本季精心挑選的雨林植物，品質與照護資訊皆已驗證。</p>
+          </div>
+          <a class="btn btn--secondary" href="./pages/plants/plants.html">查看全部</a>
+        </div>
+
+        <div class="grid grid--auto-md" id="featured-plants-grid">
+          <!-- 植物卡片由 JavaScript 動態載入 -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 依環境探索植物 ── -->
+    <section class="section section--alt" aria-labelledby="env-explore-title">
+      <div class="container">
+        <div class="section__header text-center">
+          <h2 class="section__title" id="env-explore-title">依你的環境選植物</h2>
+          <p class="section__desc">選擇最接近你家環境的條件，直接找到適合的植物。</p>
+        </div>
+
+        <div class="env-grid">
+          <a class="env-item" href="./pages/plants/plants.html?light=bright-indirect">
+            <div class="env-item__icon" aria-hidden="true">☀️</div>
+            <span class="env-item__label">明亮散射光</span>
+          </a>
+          <a class="env-item" href="./pages/plants/plants.html?light=low">
+            <div class="env-item__icon" aria-hidden="true">🌑</div>
+            <span class="env-item__label">低光環境</span>
+          </a>
+          <a class="env-item" href="./pages/plants/plants.html?humidity=high">
+            <div class="env-item__icon" aria-hidden="true">💧</div>
+            <span class="env-item__label">高濕度環境</span>
+          </a>
+          <a class="env-item" href="./pages/plants/plants.html?difficulty=easy">
+            <div class="env-item__icon" aria-hidden="true">🌱</div>
+            <span class="env-item__label">新手適合</span>
+          </a>
+          <a class="env-item" href="./pages/plants/plants.html?petFriendly=true">
+            <div class="env-item__icon" aria-hidden="true">🐾</div>
+            <span class="env-item__label">寵物友善</span>
+          </a>
+          <a class="env-item" href="./pages/plants/plants.html?size=small">
+            <div class="env-item__icon" aria-hidden="true">🪴</div>
+            <span class="env-item__label">小空間適合</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 照護知識精選 ── -->
+    <section class="section" aria-labelledby="featured-care-title">
+      <div class="container">
+        <div class="section__header flex-between">
+          <div>
+            <h2 class="section__title" id="featured-care-title">照護知識精選</h2>
+            <p class="section__desc">科學驗證的植物照護指南，從新手到進階都適合。</p>
+          </div>
+          <a class="btn btn--secondary" href="./pages/care/care.html">瀏覽全部</a>
+        </div>
+
+        <div class="grid grid--3" id="featured-care-grid">
+          <!-- 照護文章卡片由 JavaScript 動態載入 -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 我的植物功能介紹 ── -->
+    <section class="section section--alt" aria-labelledby="my-plants-intro-title">
+      <div class="container">
+        <div class="section__header text-center">
+          <h2 class="section__title" id="my-plants-intro-title">建立你的植物檔案庫</h2>
+          <p class="section__desc">
+            記錄每株植物的澆水、施肥、換盆與生長歷程，
+            讓植物照護不再靠記憶。
+          </p>
+        </div>
+        <div class="text-center">
+          <a class="btn btn--primary" href="./pages/member/my-plants.html">開始管理我的植物</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 永續計畫摘要 ── -->
+    <section class="sustainability-strip section" aria-labelledby="sustainability-title">
+      <div class="container">
+        <h2 class="section__title" id="sustainability-title">我們的永續承諾</h2>
+        <p class="section__desc">
+          合法來源、環保包裝、低碳配送，每一株植物都有責任追蹤。
+        </p>
+        <a class="btn btn--secondary" href="./pages/sustainability/sustainability.html">
+          了解永續計畫
+        </a>
+      </div>
+    </section>
+
+    <!-- ── 電子報訂閱 ── -->
+    <section class="section" aria-labelledby="newsletter-title">
+      <div class="container">
+        <div class="newsletter">
+          <h2 class="newsletter__title" id="newsletter-title">訂閱 CANOPY 電子報</h2>
+          <p class="newsletter__desc">
+            每月精選照護知識、新品資訊與植物配對技巧，直接送進你的信箱。
+          </p>
+          <form class="newsletter__form" action="#" method="post" novalidate>
+            <label class="sr-only" for="newsletter-email">電子郵件信箱</label>
+            <input
+              id="newsletter-email"
+              class="form-input"
+              type="email"
+              name="email"
+              placeholder="your@email.com"
+              required
+              autocomplete="email"
+            >
+            <button class="btn btn--primary" type="submit">訂閱</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── 共用 Footer ── -->
+  <footer class="site-footer" role="contentinfo">
+    <!-- 共用 Footer 載入位置（components/footer.html）-->
+    <div class="footer-inner">
+      <p style="color:rgba(255,255,255,.5);font-size:.875rem;padding-block:1rem">
+        &copy; <span id="footer-year"></span> CANOPY. 保留所有權利。
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("footer-year").textContent = new Date().getFullYear();
+  </script>
+  <script src="./assets/js/layout.js" defer></script>
+  <script src="./assets/js/navigation.js" defer></script>
+  <script src="./assets/js/search.js" defer></script>
+  <script src="./assets/js/cart.js" defer></script>
+  <script src="./assets/js/toast.js" defer></script>
+  <script src="./assets/js/main.js" defer></script>
+
+</body>
+</html>

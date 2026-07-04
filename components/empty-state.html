@@ -1,0 +1,18 @@
+<!--
+  components/empty-state.html
+  ─────────────────────────────────────────────
+  空狀態元件骨架（通用範本）
+  使用方式：當列表無資料或搜尋無結果時顯示。
+  ─────────────────────────────────────────────
+-->
+<div class="empty-state" role="status">
+  <div class="empty-state__icon" aria-hidden="true">
+    <!-- Icon SVG 插入位置 -->
+  </div>
+  <h3 class="empty-state__title">{標題}</h3>
+  <p class="empty-state__desc">{說明文字}</p>
+  <div class="empty-state__action">
+    <!-- CTA 按鈕插槽 -->
+    <a class="btn btn--primary" href="/pages/plants/plants.html">探索植物</a>
+  </div>
+</div>

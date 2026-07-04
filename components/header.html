@@ -1,0 +1,68 @@
+<!--
+  components/header.html
+  ─────────────────────────────────────────────
+  共用 Header 元件骨架
+  使用方式：透過 JavaScript 或伺服端 include 載入至各頁面。
+  注意：不含寫死的使用者資料或頁面特殊內容。
+  ─────────────────────────────────────────────
+-->
+<header class="site-header" role="banner">
+  <div class="header-inner">
+
+    <!-- 品牌識別 -->
+    <a class="brand" href="/index.html" aria-label="CANOPY 首頁">
+      <span class="brand-mark" aria-hidden="true">
+        <!-- Logo SVG 插入位置 -->
+      </span>
+      <span class="brand-text">
+        <span class="brand-name">CANOPY</span>
+        <span class="brand-sub">Rainforest Plants</span>
+      </span>
+    </a>
+
+    <!-- 桌面主導覽 -->
+    <nav class="nav" aria-label="主導覽">
+      <a class="nav-link" href="/pages/plants/plants.html">植物商城</a>
+      <a class="nav-link" href="/pages/care/care.html">照護知識</a>
+      <a class="nav-link" href="/pages/quiz/quiz.html">植物配對</a>
+      <a class="nav-link" href="/pages/member/my-plants.html">我的植物</a>
+      <a class="nav-link" href="/pages/sustainability/sustainability.html">永續計畫</a>
+    </nav>
+
+    <!-- 右側功能列 -->
+    <div class="header-actions" role="toolbar" aria-label="功能列">
+      <!-- 搜尋 -->
+      <button class="header-icon-btn" data-search-open aria-label="開啟搜尋">
+        <!-- Search Icon -->
+      </button>
+
+      <!-- 收藏 -->
+      <a class="header-icon-btn" href="/pages/member/favorites.html" aria-label="我的收藏">
+        <!-- Heart Icon -->
+      </a>
+
+      <!-- 購物車 -->
+      <a class="header-icon-btn" href="/pages/commerce/cart.html" aria-label="購物車">
+        <!-- Cart Icon -->
+        <span class="cart-badge" data-cart-count hidden>0</span>
+      </a>
+
+      <!-- 會員 -->
+      <a class="header-icon-btn" href="/pages/system/login.html" aria-label="會員登入">
+        <!-- User Icon -->
+      </a>
+
+      <!-- 行動版漢堡選單 -->
+      <button
+        class="header-icon-btn hide-desktop"
+        data-nav-toggle
+        aria-label="開啟選單"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+      >
+        <!-- Hamburger Icon -->
+      </button>
+    </div>
+
+  </div>
+</header>

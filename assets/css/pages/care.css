@@ -1,0 +1,105 @@
+/*
+ * pages/care.css
+ * ─────────────────────────────────────────────
+ * 照護知識系列頁（care.html, care-detail.html）專屬樣式
+ * 職責：文章列表、分類導覽、文章詳情排版、延伸閱讀。
+ * 禁止：將此頁特殊樣式寫回全域 CSS。
+ * 依賴：tokens.css, layout.css, components.css
+ * ─────────────────────────────────────────────
+ */
+
+/* ── 分類標籤列 ── */
+.care-categories {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  padding-block: var(--space-6);
+}
+
+.care-category-tab {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--line);
+  background-color: var(--surface-mist);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all var(--duration-fast);
+}
+
+.care-category-tab:hover,
+.care-category-tab--active {
+  background-color: var(--canopy-900);
+  color: var(--leaf-white);
+  border-color: var(--canopy-900);
+}
+
+/* ── 文章列表 ── */
+.care-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-6);
+}
+
+/* ── 文章詳情 ── */
+.care-article {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: var(--space-10);
+  align-items: start;
+  padding-block: var(--space-12);
+}
+
+.article-body {
+  font-size: var(--text-base);
+  line-height: var(--leading-loose);
+}
+
+.article-body h2 {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--canopy-950);
+  margin-block: var(--space-8) var(--space-4);
+}
+
+.article-body h3 {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--canopy-900);
+  margin-block: var(--space-6) var(--space-3);
+}
+
+.article-body p {
+  margin-block-end: var(--space-5);
+}
+
+.article-body ul,
+.article-body ol {
+  padding-left: var(--space-6);
+  margin-block-end: var(--space-5);
+}
+
+.article-body ul { list-style: disc; }
+.article-body ol { list-style: decimal; }
+
+.article-body li { margin-block-end: var(--space-2); }
+
+/* ── 文章側欄 ── */
+.article-sidebar {
+  position: sticky;
+  top: calc(72px + var(--space-4));
+}
+
+/* ── RWD ── */
+@media (max-width: 1023px) {
+  .care-article {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .article-sidebar {
+    position: static;
+    order: -1;
+  }
+}

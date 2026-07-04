@@ -1,0 +1,133 @@
+/*
+ * pages/member.css
+ * ─────────────────────────────────────────────
+ * 會員系列頁面專屬樣式
+ * 涵蓋：account.html, favorites.html, orders.html,
+ *       my-plants.html, plant-journal.html, notifications.html
+ * 職責：會員側邊導覽、帳戶設定區塊、我的植物管理、日誌排版。
+ * 禁止：將此頁特殊樣式寫回全域 CSS。
+ * 依賴：tokens.css, layout.css, components.css
+ * ─────────────────────────────────────────────
+ */
+
+/* ── 會員版面 ── */
+.member-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: var(--space-10);
+  align-items: start;
+  padding-block: var(--space-10);
+}
+
+/* ── 會員側邊導覽 ── */
+.member-nav {
+  position: sticky;
+  top: calc(72px + var(--space-4));
+  background-color: var(--surface-mist);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+
+.member-nav__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--muted);
+  transition: all var(--duration-fast);
+}
+
+.member-nav__item:hover,
+.member-nav__item--active {
+  background-color: var(--surface-leaf);
+  color: var(--canopy-900);
+}
+
+/* ── 我的植物卡片 ── */
+.my-plant-card {
+  background-color: var(--surface-mist);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.my-plant-card__image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background-color: var(--surface-leaf);
+}
+
+.my-plant-card__body {
+  padding: var(--space-4);
+}
+
+.my-plant-card__name {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--canopy-900);
+  margin-block-end: var(--space-2);
+}
+
+/* ── 植物日誌 ── */
+.journal-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.journal-entry {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: var(--space-4);
+}
+
+.journal-entry__date {
+  text-align: center;
+  font-size: var(--text-xs);
+  color: var(--muted);
+  padding-block-start: var(--space-1);
+}
+
+.journal-entry__content {
+  background-color: var(--surface-mist);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-5);
+}
+
+/* ── 通知項目 ── */
+.notification-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--line);
+  transition: background-color var(--duration-fast);
+}
+
+.notification-item:hover {
+  background-color: var(--surface-leaf);
+}
+
+.notification-item--unread {
+  background-color: rgba(197, 220, 153, 0.10);
+}
+
+/* ── RWD ── */
+@media (max-width: 1023px) {
+  .member-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .member-nav {
+    position: static;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+  }
+}

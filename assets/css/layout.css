@@ -1,0 +1,172 @@
+/*
+ * layout.css
+ * ─────────────────────────────────────────────
+ * 全站版面結構
+ * 職責：Container、Header、Footer、Grid、Section、
+ *       Page Hero、頁面主結構與 RWD 主要版面。
+ * 禁止：撰寫元件細節樣式或頁面特殊樣式。
+ * 依賴：tokens.css
+ * ─────────────────────────────────────────────
+ */
+
+/* ── Container ── */
+.container {
+  width: var(--content);
+  margin-inline: auto;
+}
+
+.container--sm {
+  width: var(--content-sm);
+  margin-inline: auto;
+}
+
+.container--xs {
+  width: var(--content-xs);
+  margin-inline: auto;
+}
+
+/* ── Site Header ── */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  width: 100%;
+  border-bottom: 1px solid var(--line);
+  background:
+    radial-gradient(circle at 82% 0%, rgba(217, 184, 186, 0.10), transparent 26%),
+    linear-gradient(110deg, rgba(248, 250, 244, 0.92), rgba(238, 244, 228, 0.86));
+  backdrop-filter: blur(20px) saturate(115%);
+  box-shadow: 0 4px 20px rgba(54, 78, 56, 0.06);
+}
+
+.header-inner {
+  width: var(--content);
+  min-height: 72px;
+  margin-inline: auto;
+  padding-inline: var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+/* ── Site Footer ── */
+.site-footer {
+  background-color: var(--canopy-950);
+  color: rgba(255, 255, 255, 0.80);
+  padding-block: var(--space-16) var(--space-8);
+}
+
+.footer-inner {
+  width: var(--content);
+  margin-inline: auto;
+  padding-inline: var(--space-4);
+}
+
+/* ── Site Main ── */
+.site-main {
+  min-height: 60vh;
+}
+
+/* ── Page Hero ── */
+.page-hero {
+  padding-block: var(--space-16) var(--space-12);
+  background-color: var(--surface-leaf);
+  border-bottom: 1px solid var(--line);
+}
+
+.page-hero__title {
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  color: var(--canopy-950);
+  margin-block-end: var(--space-4);
+}
+
+.page-hero__desc {
+  font-size: var(--text-lg);
+  color: var(--muted);
+  max-width: 54ch;
+}
+
+/* ── Page Content ── */
+.page-content {
+  padding-block: var(--space-12) var(--space-20);
+}
+
+/* ── Section ── */
+.section {
+  padding-block: var(--space-16);
+}
+
+.section--alt {
+  background-color: var(--surface-mist);
+}
+
+.section__header {
+  margin-block-end: var(--space-8);
+}
+
+.section__title {
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--canopy-950);
+  margin-block-end: var(--space-3);
+}
+
+.section__desc {
+  color: var(--muted);
+  font-size: var(--text-lg);
+  max-width: 60ch;
+}
+
+/* ── Grid ── */
+.grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.grid--2 { grid-template-columns: repeat(2, 1fr); }
+.grid--3 { grid-template-columns: repeat(3, 1fr); }
+.grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+.grid--auto-sm {
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+
+.grid--auto-md {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+/* ── Sidebar Layout ── */
+.layout-sidebar {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+
+/* ── Breadcrumb ── */
+.breadcrumb-bar {
+  padding-block: var(--space-4);
+  border-bottom: 1px solid var(--line);
+  background-color: var(--surface-mist);
+}
+
+/* ────────────────
+   RWD
+   ──────────────── */
+@media (max-width: 1023px) {
+  .grid--4 { grid-template-columns: repeat(2, 1fr); }
+  .grid--3 { grid-template-columns: repeat(2, 1fr); }
+  .layout-sidebar { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .page-hero { padding-block: var(--space-10) var(--space-8); }
+  .page-hero__title { font-size: var(--text-3xl); }
+  .section { padding-block: var(--space-10); }
+  .section__title { font-size: var(--text-2xl); }
+  .grid--2,
+  .grid--3,
+  .grid--4 { grid-template-columns: 1fr; }
+}

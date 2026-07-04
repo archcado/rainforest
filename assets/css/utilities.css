@@ -1,0 +1,176 @@
+/*
+ * utilities.css
+ * ─────────────────────────────────────────────
+ * 工具類別（Utility Classes）
+ * 職責：少量、明確且可重複使用的輔助類別。
+ * 禁止：加入頁面特殊樣式或大量覆蓋規則。
+ * 依賴：tokens.css
+ * ─────────────────────────────────────────────
+ */
+
+/* ── 顯示 ── */
+.d-none {
+  display: none !important;
+}
+.d-block {
+  display: block !important;
+}
+.d-flex {
+  display: flex !important;
+}
+.d-grid {
+  display: grid !important;
+}
+.d-inline {
+  display: inline !important;
+}
+
+/* ── Flex 輔助 ── */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.flex-col {
+  flex-direction: column;
+}
+.gap-2 {
+  gap: var(--space-2);
+}
+.gap-4 {
+  gap: var(--space-4);
+}
+.gap-6 {
+  gap: var(--space-6);
+}
+.gap-8 {
+  gap: var(--space-8);
+}
+
+/* ── 文字對齊 ── */
+.text-left {
+  text-align: left !important;
+}
+.text-center {
+  text-align: center !important;
+}
+.text-right {
+  text-align: right !important;
+}
+
+/* ── 文字色 ── */
+.text-ink {
+  color: var(--ink) !important;
+}
+.text-muted {
+  color: var(--muted) !important;
+}
+.text-accent {
+  color: var(--leaf-deep) !important;
+}
+
+/* ── 字重 ── */
+.font-normal {
+  font-weight: 400 !important;
+}
+.font-medium {
+  font-weight: 500 !important;
+}
+.font-semibold {
+  font-weight: 600 !important;
+}
+.font-bold {
+  font-weight: 700 !important;
+}
+
+/* ── 字級 ── */
+.text-xs {
+  font-size: var(--text-xs) !important;
+}
+.text-sm {
+  font-size: var(--text-sm) !important;
+}
+.text-base {
+  font-size: var(--text-base) !important;
+}
+.text-lg {
+  font-size: var(--text-lg) !important;
+}
+.text-xl {
+  font-size: var(--text-xl) !important;
+}
+
+/* ── 間距 ── */
+.mt-0 {
+  margin-top: 0 !important;
+}
+.mt-4 {
+  margin-top: var(--space-4) !important;
+}
+.mt-8 {
+  margin-top: var(--space-8) !important;
+}
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+.mb-4 {
+  margin-bottom: var(--space-4) !important;
+}
+.mb-8 {
+  margin-bottom: var(--space-8) !important;
+}
+
+/* ── 視覺隱藏（仍可被輔助技術讀取）── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── 截斷省略 ── */
+.truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* ── 圓角 ── */
+.rounded-sm {
+  border-radius: var(--radius-sm) !important;
+}
+.rounded-md {
+  border-radius: var(--radius-md) !important;
+}
+.rounded-lg {
+  border-radius: var(--radius-lg) !important;
+}
+.rounded-full {
+  border-radius: var(--radius-full) !important;
+}
+
+/* ── 響應式顯示 ── */
+@media (max-width: 640px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 641px) {
+  .hide-desktop {
+    display: none !important;
+  }
+}

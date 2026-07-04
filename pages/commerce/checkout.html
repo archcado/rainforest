@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CANOPY 結帳 — 填寫收件資訊與選擇付款方式。">
+  <title>結帳｜CANOPY</title>
+
+  <link rel="stylesheet" href="../../assets/css/tokens.css">
+  <link rel="stylesheet" href="../../assets/css/reset.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/utilities.css">
+  <link rel="stylesheet" href="../../assets/css/pages/commerce.css">
+</head>
+
+<body>
+
+  <header class="site-header" role="banner">
+    <!-- 共用 Header 載入位置（components/header.html）-->
+  </header>
+
+  <main class="site-main">
+
+    <section class="page-hero" aria-labelledby="checkout-title">
+      <div class="container">
+        <h1 class="page-hero__title" id="checkout-title">結帳</h1>
+
+        <!-- 結帳步驟 -->
+        <div class="checkout-steps" role="list" aria-label="結帳步驟">
+          <div class="checkout-step checkout-step--done" role="listitem">
+            <span class="checkout-step__num">✓</span>
+            <span class="checkout-step__label">購物車</span>
+          </div>
+          <div class="checkout-step__sep" aria-hidden="true"></div>
+          <div class="checkout-step checkout-step--active" role="listitem" aria-current="step">
+            <span class="checkout-step__num">2</span>
+            <span class="checkout-step__label">填寫資料</span>
+          </div>
+          <div class="checkout-step__sep" aria-hidden="true"></div>
+          <div class="checkout-step" role="listitem">
+            <span class="checkout-step__num">3</span>
+            <span class="checkout-step__label">付款</span>
+          </div>
+          <div class="checkout-step__sep" aria-hidden="true"></div>
+          <div class="checkout-step" role="listitem">
+            <span class="checkout-step__num">4</span>
+            <span class="checkout-step__label">完成</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container">
+        <div class="cart-layout">
+
+          <!-- 結帳表單 -->
+          <form class="checkout-form" action="#" method="post" novalidate>
+
+            <fieldset>
+              <legend class="section__title">收件人資訊</legend>
+              <div class="grid grid--2" style="margin-block-start:1rem">
+                <div class="form-group">
+                  <label class="form-label form-label--required" for="receiver-name">姓名</label>
+                  <input id="receiver-name" class="form-input" type="text" name="name" required autocomplete="name">
+                </div>
+                <div class="form-group">
+                  <label class="form-label form-label--required" for="receiver-phone">手機號碼</label>
+                  <input id="receiver-phone" class="form-input" type="tel" name="phone" required autocomplete="tel">
+                </div>
+              </div>
+              <div class="form-group" style="margin-block-start:1rem">
+                <label class="form-label form-label--required" for="receiver-address">收件地址</label>
+                <input id="receiver-address" class="form-input" type="text" name="address" required autocomplete="street-address">
+              </div>
+            </fieldset>
+
+            <fieldset style="margin-block-start:2rem">
+              <legend class="section__title">付款方式</legend>
+              <p class="text-muted text-sm" style="margin-block-start:.5rem">
+                付款功能尚未啟用，目前為測試用骨架。
+              </p>
+              <!-- 付款方式選項預留區 -->
+            </fieldset>
+
+            <div style="margin-block-start:2rem">
+              <button class="btn btn--primary btn--lg" type="submit">確認訂單</button>
+            </div>
+
+          </form>
+
+          <!-- 訂單摘要 -->
+          <aside class="order-summary" aria-label="訂單摘要">
+            <h2 class="order-summary__title">訂單摘要</h2>
+            <div id="checkout-items">
+              <!-- 購物車項目摘要由 JavaScript 動態載入 -->
+            </div>
+            <div class="order-summary__total">
+              <span>合計</span>
+              <span id="checkout-total">NT$ —</span>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <!-- 共用 Footer 載入位置（components/footer.html）-->
+  </footer>
+
+  <script src="../../assets/js/layout.js" defer></script>
+  <script src="../../assets/js/navigation.js" defer></script>
+  <script src="../../assets/js/cart.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+/*
+ * tokens.css
+ * ─────────────────────────────────────────────
+ * 設計變數（Design Tokens）
+ * 職責：存放全站所有設計決策的原始值，包含色彩、字體、
+ *       間距、圓角、陰影、斷點、動畫時間與容器寬度。
+ * 禁止：在此檔案撰寫任何選擇器規則或版面邏輯。
+ * ─────────────────────────────────────────────
+ */
+
+:root {
+  /* ── 品牌色：森林綠系 ── */
+  --canopy-950: #1f3528;
+  --canopy-900: #2b4534;
+  --canopy-800: #385943;
+  --canopy-700: #4b6f55;
+
+  /* ── 草綠系 ── */
+  --grass-light: #c5dc99;
+  --grass-fresh: #aeca78;
+  --grass-muted: #a4b48d;
+  --grass-deep: #87996e;
+
+  /* ── 斑葉插圖用色 ── */
+  --leaf-deep: #345f45;
+  --leaf-mid: #66866d;
+  --leaf-sage: #87a58d;
+  --leaf-light: #a7bea0;
+
+  /* ── 新葉 / 斑葉粉點綴（僅限小面積使用）── */
+  --blush-deep: #d6969d;
+  --blush-mid: #e7b1b6;
+  --blush-light: #f0c9ca;
+  --blush-leaf: #d9b8ba;
+  --blush-soft: #e8cecd;
+  --blush-haze: #f1dfdc;
+
+  /* ── Logo 專用色 ── */
+  --logo-green-deep: #315f3d;
+  --logo-green-mid: #5f875d;
+  --logo-green-fresh: #83a56f;
+  --logo-green-light: #b6ca8c;
+  --logo-vein: #dce8b8;
+
+  /* ── 輔助色 ── */
+  --vein-light: #d9dea4;
+  --rain-mint: #b8ddc1;
+  --rain-blue: #9fc7d6;
+
+  /* ── 背景 / 表面色 ── */
+  --sunlit-ivory: #f6f0d7;
+  --leaf-white: #f8faf4;
+  --mist-surface: #eef3e5;
+
+  /* ── 半透明表面 ── */
+  --surface-clear: rgba(255, 255, 255, 0.72);
+  --surface-leaf: rgba(235, 242, 222, 0.78);
+  --surface-mist: rgba(246, 248, 241, 0.88);
+  --surface-sage: rgba(231, 238, 222, 0.78);
+
+  /* ── 線條 ── */
+  --line: rgba(70, 96, 72, 0.14);
+
+  /* ── 文字色 ── */
+  --ink: #263a2d;
+  --muted: #687568;
+
+  /* ── 狀態色 ── */
+  --danger: #bf5d50;
+  --warning: #d39b32;
+  --success: #5d963f;
+
+  /* ── 字體 ── */
+  --font-sans:
+    Inter, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  --font-serif: Georgia, "Times New Roman", serif;
+
+  /* ── 字級 ── */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+
+  /* ── 行高 ── */
+  --leading-tight: 1.25;
+  --leading-normal: 1.65;
+  --leading-loose: 1.85;
+
+  /* ── 間距 ── */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* ── 圓角 ── */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+  --radius-xl: 40px;
+  --radius-full: 9999px;
+
+  /* ── 陰影 ── */
+  --shadow-soft: 0 22px 55px rgba(55, 78, 57, 0.16);
+  --shadow-card: 0 12px 36px rgba(52, 76, 54, 0.1);
+  --shadow-sm: 0 4px 12px rgba(52, 76, 54, 0.08);
+
+  /* ── 斷點（供文件參考）── */
+  /* Mobile  : ≤ 640px         */
+  /* Tablet  : 641px – 1023px  */
+  /* Desktop : ≥ 1024px        */
+
+  /* ── 容器 ── */
+  --content: min(1180px, calc(100% - 40px));
+  --content-sm: min(800px, calc(100% - 40px));
+  --content-xs: min(560px, calc(100% - 40px));
+
+  /* ── 動畫時間 ── */
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 400ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* ── z-index 層級 ── */
+  --z-base: 0;
+  --z-raised: 10;
+  --z-sticky: 20;
+  --z-header: 30;
+  --z-drawer: 40;
+  --z-modal: 50;
+  --z-toast: 60;
+}
