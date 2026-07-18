@@ -1,6 +1,6 @@
 # CANOPY 開發指南
 
-本文件說明 CANOPY 前端專案的開發設定、程式碼規範與常見注意事項。
+本文件說明 CANOPY 商城前端、會員 API 與商品管理後台的開發設定、程式碼規範與常見注意事項。
 
 ---
 
@@ -8,11 +8,20 @@
 
 ### 必要工具
 - 文字編輯器（推薦 VS Code）
-- 本機 HTTP 伺服器（避免 `file://` 協議的跨域問題）
+- Node.js 20 以上
 
-### 啟動本機伺服器
+### 啟動完整功能
 
-**VS Code Live Server（推薦）**
+```bash
+npm start
+# 瀏覽 http://localhost:3000
+```
+
+管理員帳號、n8n Webhook 等設定請參考根目錄 `.env.example`。伺服器以 HttpOnly Cookie、CSRF Header 與角色權限共用會員／管理員驗證機制。
+
+### 僅預覽靜態頁面
+
+**VS Code Live Server**
 1. 安裝擴充：[Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
 2. 在 `index.html` 右鍵 → Open with Live Server
 3. 瀏覽器自動開啟並熱重載
@@ -27,6 +36,8 @@ python -m http.server 8080
 ```bash
 npx serve .
 ```
+
+靜態伺服器不提供會員、訂單、後台、客服與回饋 API。
 
 ---
 
@@ -117,8 +128,12 @@ document.addEventListener("DOMContentLoaded", () => {
 | `toast.js` | 操作通知顯示與自動消失 |
 | `filters.js` | 植物列表篩選、URL 參數同步 |
 | `cart.js` | localStorage 購物車 CRUD、數量更新 |
+| `member.js` | 登入狀態、會員 API、收藏與購物車同步 |
+| `chatbot.js` | 浮動客服與意見回饋 |
 | `quiz.js` | 植物配對測驗步驟流程、結果計算 |
 | `pages/plant-detail.js` | 商品規格、環境範圍、介質比例與相關植物渲染 |
+| `pages/member-pages.js` | 登入、註冊及會員中心頁面 |
+| `pages/admin.js` | 商品管理後台 CRUD 與批次作業 |
 
 ---
 
@@ -161,9 +176,29 @@ components/header.html
 components/footer.html
 components/mobile-nav.html
 components/search-panel.html
+components/chatbot.html
 ```
 
 頁面只保留 `.site-header` 與 `.site-footer` 掛載位置。共用元件使用專案根路徑撰寫連結，載入器會依實際部署子路徑轉換，支援本機與 GitHub Pages 類型的子目錄部署。
+
+---
+
+## API 與執行期資料
+
+- `server/server.js`：靜態檔案、會員、訂單、商品管理與 n8n 代理 API
+- `server/storage.js`：JSON 執行期資料初始化與序列化寫入
+- `server/runtime/`：執行期資料，不進版控
+- `data/plants-detailed-v2.json`：十六種植物的原始種子資料與靜態模式備援
+
+前台 `plant-service.js` 會優先讀取 `/api/plants`，API 不可用時才改讀原始 JSON。正式部署若改接資料庫，應維持相同回應結構，或同步修改 service adapter。
+
+## 自動化測試
+
+```bash
+npm test
+```
+
+提交前至少執行一次，避免共用元件路徑、植物資料與 API 權限回歸。
 
 ---
 

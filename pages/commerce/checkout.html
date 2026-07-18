@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../../assets/css/pages/commerce.css">
 </head>
 
-<body>
+<body data-member-required>
 
   <header class="site-header" role="banner">
     <!-- 共用 Header 載入位置（components/header.html）-->
@@ -57,7 +57,7 @@
         <div class="cart-layout">
 
           <!-- 結帳表單 -->
-          <form class="checkout-form" action="#" method="post" novalidate>
+          <form class="checkout-form" data-checkout-form novalidate>
 
             <fieldset>
               <legend class="section__title">收件人資訊</legend>
@@ -79,14 +79,16 @@
 
             <fieldset style="margin-block-start:2rem">
               <legend class="section__title">付款方式</legend>
-              <p class="text-muted text-sm" style="margin-block-start:.5rem">
-                付款功能尚未啟用，目前為測試用骨架。
-              </p>
-              <!-- 付款方式選項預留區 -->
+              <p class="text-muted text-sm" style="margin-block-start:.5rem">此版本建立訂單紀錄，不會進行真實扣款。</p>
+              <div class="payment-options">
+                <label><input type="radio" name="paymentMethod" value="bank-transfer" checked> ATM 轉帳</label>
+                <label><input type="radio" name="paymentMethod" value="cash-on-delivery"> 貨到付款</label>
+              </div>
             </fieldset>
 
             <div style="margin-block-start:2rem">
               <button class="btn btn--primary btn--lg" type="submit">確認訂單</button>
+              <p class="form-status" data-checkout-status role="status"></p>
             </div>
 
           </form>
@@ -116,6 +118,7 @@
   <script src="../../assets/js/layout.js" defer></script>
   <script src="../../assets/js/navigation.js" defer></script>
   <script src="../../assets/js/cart.js" defer></script>
+  <script src="../../assets/js/pages/commerce.js" defer></script>
   <script src="../../assets/js/main.js" defer></script>
 
 </body>

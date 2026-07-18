@@ -1,48 +1,33 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="CANOPY 會員註冊 — 建立帳戶，開始你的雨林植物旅程。">
-  <title>註冊｜CANOPY</title>
-  <link rel="stylesheet" href="../../assets/css/tokens.css">
-  <link rel="stylesheet" href="../../assets/css/reset.css">
-  <link rel="stylesheet" href="../../assets/css/base.css">
-  <link rel="stylesheet" href="../../assets/css/layout.css">
-  <link rel="stylesheet" href="../../assets/css/components.css">
-  <link rel="stylesheet" href="../../assets/css/utilities.css">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="建立 CANOPY 商城會員帳戶。"><title>會員註冊｜CANOPY</title>
+  <link rel="stylesheet" href="../../assets/css/tokens.css"><link rel="stylesheet" href="../../assets/css/reset.css">
+  <link rel="stylesheet" href="../../assets/css/base.css"><link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css"><link rel="stylesheet" href="../../assets/css/utilities.css">
+  <link rel="stylesheet" href="../../assets/css/pages/member.css">
 </head>
 <body>
-  <header class="site-header" role="banner"><!-- 共用 Header 載入位置（components/header.html）--></header>
-  <main class="site-main">
-    <section class="page-content"><div class="container">
-      <div class="auth-box">
-        <h1 class="auth-box__title">建立帳戶</h1>
-        <form action="#" method="post" novalidate>
-          <div class="form-group">
-            <label class="form-label form-label--required" for="reg-name">姓名</label>
-            <input id="reg-name" class="form-input" type="text" name="name" required autocomplete="name">
-          </div>
-          <div class="form-group" style="margin-block-start:1rem">
-            <label class="form-label form-label--required" for="reg-email">電子信箱</label>
-            <input id="reg-email" class="form-input" type="email" name="email" required autocomplete="email">
-          </div>
-          <div class="form-group" style="margin-block-start:1rem">
-            <label class="form-label form-label--required" for="reg-password">密碼</label>
-            <input id="reg-password" class="form-input" type="password" name="password" required autocomplete="new-password">
-          </div>
-          <button class="btn btn--primary" type="submit" style="width:100%;margin-block-start:1.5rem">建立帳戶</button>
-        </form>
-        <p style="margin-block-start:1.5rem;text-align:center">
-          已有帳戶？<a href="./login.html">立即登入</a>
-        </p>
-      </div>
-    </div></section>
-  </main>
-  <footer class="site-footer" role="contentinfo"><!-- 共用 Footer 載入位置（components/footer.html）--></footer>
-  <script src="../../assets/js/layout.js" defer></script>
-  <script src="../../assets/js/navigation.js" defer></script>
-  <script src="../../assets/js/toast.js" defer></script>
+  <header class="site-header" role="banner"></header>
+  <main class="site-main auth-page"><section class="page-content"><div class="container container--xs">
+    <div class="auth-box">
+      <p class="auth-box__eyebrow">CREATE ACCOUNT</p><h1 class="auth-box__title">建立商城帳戶</h1>
+      <p class="auth-box__description">會員功能專注於商品收藏、購物車、地址及訂單管理。</p>
+      <form class="auth-form" data-register-form novalidate>
+        <div class="form-group"><label class="form-label form-label--required" for="reg-name">姓名</label><input id="reg-name" class="form-input" name="name" required minlength="2" autocomplete="name"></div>
+        <div class="form-group"><label class="form-label form-label--required" for="reg-email">電子信箱</label><input id="reg-email" class="form-input" type="email" name="email" required autocomplete="email"></div>
+        <div class="form-group"><label class="form-label form-label--required" for="reg-password">密碼</label><input id="reg-password" class="form-input" type="password" name="password" required minlength="8" maxlength="128" autocomplete="new-password"><p class="form-help">至少 8 個字元。</p></div>
+        <div class="form-group"><label class="form-label form-label--required" for="reg-confirm-password">確認密碼</label><input id="reg-confirm-password" class="form-input" type="password" name="confirmPassword" required minlength="8" autocomplete="new-password"></div>
+        <label class="auth-consent"><input type="checkbox" required> <span>我已閱讀並同意<a href="./terms.html">服務條款</a>與<a href="./privacy.html">隱私權政策</a>。</span></label>
+        <button class="btn btn--primary btn--lg" type="submit">建立帳戶</button>
+        <p class="form-status" data-auth-status role="status" aria-live="polite"></p>
+      </form>
+      <p class="auth-box__switch">已有帳戶？<a href="./login.html">立即登入</a></p>
+    </div>
+  </div></section></main>
+  <footer class="site-footer" role="contentinfo"></footer>
+  <script src="../../assets/js/layout.js" defer></script><script src="../../assets/js/navigation.js" defer></script>
+  <script src="../../assets/js/toast.js" defer></script><script src="../../assets/js/pages/member-pages.js" defer></script>
   <script src="../../assets/js/main.js" defer></script>
-</body>
-</html>
+</body></html>

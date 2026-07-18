@@ -1,45 +1,9 @@
-﻿<!doctype html>
-<html lang="zh-Hant">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="CANOPY 訂單記錄 — 查看歷史訂單與配送狀態。">
-  <title>訂單記錄｜CANOPY</title>
-  <link rel="stylesheet" href="../../assets/css/tokens.css">
-  <link rel="stylesheet" href="../../assets/css/reset.css">
-  <link rel="stylesheet" href="../../assets/css/base.css">
-  <link rel="stylesheet" href="../../assets/css/layout.css">
-  <link rel="stylesheet" href="../../assets/css/components.css">
-  <link rel="stylesheet" href="../../assets/css/utilities.css">
-  <link rel="stylesheet" href="../../assets/css/pages/member.css">
-</head>
-<body>
-  <header class="site-header" role="banner"><!-- 共用 Header 載入位置（components/header.html）--></header>
-  <main class="site-main">
-    <div class="breadcrumb-bar"><div class="container">
-      <nav class="breadcrumb" aria-label="麵包屑"><ol class="breadcrumb__list" role="list">
-        <li class="breadcrumb__item"><a class="breadcrumb__link" href="../../index.html">首頁</a></li>
-        <li class="breadcrumb__item"><span class="breadcrumb__current" aria-current="page">訂單記錄</span></li>
-      </ol></nav>
-    </div></div>
-    <section class="page-content"><div class="container"><div class="member-layout">
-      <nav class="member-nav" aria-label="會員功能">
-        <a class="member-nav__item" href="./account.html">帳戶設定</a>
-        <a class="member-nav__item" href="./favorites.html">我的收藏</a>
-        <a class="member-nav__item member-nav__item--active" href="./orders.html" aria-current="page">訂單記錄</a>
-        <a class="member-nav__item" href="./notifications.html">通知設定</a>
-      </nav>
-      <div>
-        <h1 class="page-hero__title">訂單記錄</h1>
-        <div id="orders-list" aria-live="polite" style="margin-block-start:1.5rem">
-          <!-- 訂單列表由 JavaScript 動態載入 -->
-        </div>
-      </div>
-    </div></div></section>
-  </main>
-  <footer class="site-footer" role="contentinfo"><!-- 共用 Footer 載入位置（components/footer.html）--></footer>
-  <script src="../../assets/js/layout.js" defer></script>
-  <script src="../../assets/js/navigation.js" defer></script>
-  <script src="../../assets/js/main.js" defer></script>
-</body>
-</html>
+<!doctype html><html lang="zh-Hant"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="查看 CANOPY 會員訂單紀錄。"><title>訂單記錄｜CANOPY</title>
+  <link rel="stylesheet" href="../../assets/css/tokens.css"><link rel="stylesheet" href="../../assets/css/reset.css"><link rel="stylesheet" href="../../assets/css/base.css"><link rel="stylesheet" href="../../assets/css/layout.css"><link rel="stylesheet" href="../../assets/css/components.css"><link rel="stylesheet" href="../../assets/css/utilities.css"><link rel="stylesheet" href="../../assets/css/pages/member.css">
+</head><body data-member-required><header class="site-header" role="banner"></header><main class="site-main"><section class="page-content"><div class="container"><div class="member-layout">
+  <nav class="member-nav" aria-label="會員功能"><a class="member-nav__item" href="./account.html">帳戶設定</a><a class="member-nav__item" href="./favorites.html">我的收藏</a><a class="member-nav__item" href="../commerce/cart.html">購物車</a><a class="member-nav__item member-nav__item--active" href="./orders.html" aria-current="page">訂單記錄</a><a class="member-nav__item" href="./notifications.html">通知設定</a><button class="member-nav__logout" type="button" data-logout>登出</button></nav>
+  <div class="member-content"><header class="member-page-heading"><p>ORDERS</p><h1>訂單記錄</h1><span>查看成立時間、付款與出貨狀態。</span></header><div class="order-record-list" id="orders-list" aria-live="polite"></div></div>
+  </div></div></section></main><footer class="site-footer" role="contentinfo"></footer>
+  <script src="../../assets/js/layout.js" defer></script><script src="../../assets/js/navigation.js" defer></script><script src="../../assets/js/pages/member-pages.js" defer></script><script src="../../assets/js/main.js" defer></script>
+</body></html>

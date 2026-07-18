@@ -68,6 +68,7 @@ for (const relative of [
   "components/footer.html",
   "components/mobile-nav.html",
   "components/search-panel.html",
+  "components/chatbot.html",
 ]) {
   const source = fs.readFileSync(path.join(root, relative), "utf8");
   assert.equal(count(source, /\sstyle=/gi), 0, `${relative} 不應使用行內 style`);
@@ -105,6 +106,26 @@ assert.match(plantsPageScript, /dataset\.addToCart/);
 assert.match(plantsPageScript, /data-favorite-id/);
 assert.match(plantsPageScript, /plant-card__original-price/);
 assert.match(plantsPageScript, /plant-card__discount/);
+
+for (const relative of [
+  "pages/system/login.html",
+  "pages/system/register.html",
+  "pages/system/forgot-password.html",
+  "pages/member/account.html",
+  "pages/admin/index.html",
+]) {
+  assert.ok(fs.existsSync(path.join(root, relative)), `${relative} 不存在`);
+}
+
+const serverSource = fs.readFileSync(path.join(root, "server/server.js"), "utf8");
+assert.match(serverSource, /CANOPY_ADMIN_EMAIL/);
+assert.match(serverSource, /N8N_CHAT_WEBHOOK_URL/);
+assert.match(serverSource, /\/api\/admin\/plants/);
+assert.match(serverSource, /HttpOnly; SameSite=Lax/);
+
+const headerSource = fs.readFileSync(path.join(root, "components/header.html"), "utf8");
+assert.match(headerSource, />照護資源</);
+assert.doesNotMatch(headerSource, />照護知識</);
 
 const publicSources = [
   path.join(root, "index.html"),

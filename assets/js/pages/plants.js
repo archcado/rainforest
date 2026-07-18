@@ -897,6 +897,9 @@ window.CanopyPlants = {
 
     try {
       localStorage.setItem("canopy_favorites", JSON.stringify(nextFavorites));
+      window.CanopyMember?.syncFavorites(nextFavorites).catch((error) => {
+        console.info("收藏稍後再同步：", error.message);
+      });
     } catch (error) {
       console.error("無法儲存收藏資料。", error);
       window.CanopyToast?.error("收藏狀態無法儲存，請稍後再試");

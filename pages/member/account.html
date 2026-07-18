@@ -1,88 +1,40 @@
-<!doctype html>
-<html lang="zh-Hant">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="CANOPY 帳戶設定 — 管理個人資訊、密碼與通知偏好。">
-  <title>帳戶設定｜CANOPY</title>
-
-  <link rel="stylesheet" href="../../assets/css/tokens.css">
-  <link rel="stylesheet" href="../../assets/css/reset.css">
-  <link rel="stylesheet" href="../../assets/css/base.css">
-  <link rel="stylesheet" href="../../assets/css/layout.css">
-  <link rel="stylesheet" href="../../assets/css/components.css">
-  <link rel="stylesheet" href="../../assets/css/utilities.css">
-  <link rel="stylesheet" href="../../assets/css/pages/member.css">
-</head>
-
-<body>
-
-  <header class="site-header" role="banner">
-    <!-- 共用 Header 載入位置（components/header.html）-->
-  </header>
-
-  <main class="site-main">
-
-    <div class="breadcrumb-bar">
-      <div class="container">
-        <nav class="breadcrumb" aria-label="麵包屑">
-          <ol class="breadcrumb__list" role="list">
-            <li class="breadcrumb__item"><a class="breadcrumb__link" href="../../index.html">首頁</a></li>
-            <li class="breadcrumb__item"><span class="breadcrumb__current" aria-current="page">帳戶設定</span></li>
-          </ol>
-        </nav>
+<!doctype html><html lang="zh-Hant"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="管理 CANOPY 商城會員資料、收件地址與密碼。"><title>帳戶設定｜CANOPY</title>
+  <link rel="stylesheet" href="../../assets/css/tokens.css"><link rel="stylesheet" href="../../assets/css/reset.css"><link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css"><link rel="stylesheet" href="../../assets/css/components.css"><link rel="stylesheet" href="../../assets/css/utilities.css"><link rel="stylesheet" href="../../assets/css/pages/member.css">
+</head><body data-member-required>
+  <header class="site-header" role="banner"></header><main class="site-main">
+    <div class="breadcrumb-bar"><div class="container"><nav class="breadcrumb" aria-label="麵包屑"><ol class="breadcrumb__list"><li class="breadcrumb__item"><a class="breadcrumb__link" href="../../index.html">首頁</a></li><li class="breadcrumb__item"><span class="breadcrumb__current" aria-current="page">帳戶設定</span></li></ol></nav></div></div>
+    <section class="page-content"><div class="container"><div class="member-layout">
+      <nav class="member-nav" aria-label="會員功能">
+        <a class="member-nav__item member-nav__item--active" href="./account.html" aria-current="page">帳戶設定</a><a class="member-nav__item" href="./favorites.html">我的收藏</a><a class="member-nav__item" href="../commerce/cart.html">購物車</a><a class="member-nav__item" href="./orders.html">訂單記錄</a><a class="member-nav__item" href="./notifications.html">通知設定</a><a class="member-nav__item" href="../admin/index.html" data-admin-entry hidden>商品管理後台</a><button class="member-nav__logout" type="button" data-logout>登出</button>
+      </nav>
+      <div class="member-content"><header class="member-page-heading"><p>MEMBER CENTER</p><h1>帳戶設定</h1><span>管理商城帳號、收件資料與密碼。</span></header>
+        <section class="member-panel" aria-labelledby="profile-title"><div class="member-panel__heading"><h2 id="profile-title">個人資料</h2></div>
+          <form class="account-form" data-account-form novalidate><div class="member-form-grid">
+            <div class="form-group"><label class="form-label" for="account-name">姓名</label><input id="account-name" class="form-input" name="name" required minlength="2" autocomplete="name"></div>
+            <div class="form-group"><label class="form-label" for="account-email">電子信箱</label><input id="account-email" class="form-input" type="email" name="email" readonly></div>
+            <div class="form-group"><label class="form-label" for="account-phone">手機號碼</label><input id="account-phone" class="form-input" type="tel" name="phone" autocomplete="tel"></div>
+          </div><button class="btn btn--primary" type="submit">儲存個人資料</button><p class="form-status" data-account-status role="status"></p></form>
+        </section>
+        <section class="member-panel" aria-labelledby="address-title"><div class="member-panel__heading"><h2 id="address-title">收件地址</h2><p>結帳時可快速帶入。</p></div>
+          <div class="address-list" data-address-list></div>
+          <form class="address-form" data-address-form><div class="member-form-grid">
+            <div class="form-group"><label class="form-label" for="address-label">地址名稱</label><input id="address-label" class="form-input" name="label" value="常用地址"></div>
+            <div class="form-group"><label class="form-label" for="address-recipient">收件人</label><input id="address-recipient" class="form-input" name="recipient" required autocomplete="name"></div>
+            <div class="form-group"><label class="form-label" for="address-phone">手機號碼</label><input id="address-phone" class="form-input" name="phone" required autocomplete="tel"></div>
+            <div class="form-group"><label class="form-label" for="address-postal">郵遞區號</label><input id="address-postal" class="form-input" name="postalCode" inputmode="numeric" autocomplete="postal-code"></div>
+            <div class="form-group"><label class="form-label" for="address-city">縣市</label><input id="address-city" class="form-input" name="city" required autocomplete="address-level1"></div>
+            <div class="form-group"><label class="form-label" for="address-district">行政區</label><input id="address-district" class="form-input" name="district" autocomplete="address-level2"></div>
+            <div class="form-group member-form-grid__wide"><label class="form-label" for="address-detail">詳細地址</label><input id="address-detail" class="form-input" name="address" required autocomplete="street-address"></div>
+          </div><button class="btn btn--secondary" type="submit">新增地址</button><p class="form-status" data-address-status role="status"></p></form>
+        </section>
+        <section class="member-panel" aria-labelledby="password-title"><div class="member-panel__heading"><h2 id="password-title">變更密碼</h2></div>
+          <form class="password-form" data-password-form><div class="member-form-grid"><div class="form-group"><label class="form-label" for="current-password">目前密碼</label><input id="current-password" class="form-input" type="password" name="currentPassword" required autocomplete="current-password"></div><div class="form-group"><label class="form-label" for="new-password">新密碼</label><input id="new-password" class="form-input" type="password" name="newPassword" required minlength="8" autocomplete="new-password"></div></div><button class="btn btn--secondary" type="submit">更新密碼</button><p class="form-status" data-password-status role="status"></p></form>
+        </section>
       </div>
-    </div>
-
-    <section class="page-content">
-      <div class="container">
-        <div class="member-layout">
-
-          <!-- 會員側邊導覽 -->
-          <nav class="member-nav" aria-label="會員功能">
-            <a class="member-nav__item member-nav__item--active" href="./account.html" aria-current="page">帳戶設定</a>
-            <a class="member-nav__item" href="./favorites.html">我的收藏</a>
-            <a class="member-nav__item" href="./orders.html">訂單記錄</a>
-            <a class="member-nav__item" href="./notifications.html">通知設定</a>
-          </nav>
-
-          <!-- 帳戶設定主區 -->
-          <div>
-            <h1 class="page-hero__title">帳戶設定</h1>
-
-            <form class="account-form" action="#" method="post" novalidate style="margin-block-start:1.5rem">
-              <fieldset>
-                <legend class="section__title">個人資訊</legend>
-                <div class="grid grid--2" style="margin-block-start:1rem">
-                  <div class="form-group">
-                    <label class="form-label" for="account-name">姓名</label>
-                    <input id="account-name" class="form-input" type="text" name="name" autocomplete="name">
-                  </div>
-                  <div class="form-group">
-                    <label class="form-label" for="account-email">電子信箱</label>
-                    <input id="account-email" class="form-input" type="email" name="email" autocomplete="email">
-                  </div>
-                </div>
-              </fieldset>
-
-              <button class="btn btn--primary" type="submit" style="margin-block-start:1.5rem">儲存變更</button>
-            </form>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="site-footer" role="contentinfo">
-    <!-- 共用 Footer 載入位置（components/footer.html）-->
-  </footer>
-
-  <script src="../../assets/js/layout.js" defer></script>
-  <script src="../../assets/js/navigation.js" defer></script>
-  <script src="../../assets/js/toast.js" defer></script>
-  <script src="../../assets/js/main.js" defer></script>
-
-</body>
-</html>
+    </div></div></section>
+  </main><footer class="site-footer" role="contentinfo"></footer>
+  <script src="../../assets/js/layout.js" defer></script><script src="../../assets/js/navigation.js" defer></script><script src="../../assets/js/toast.js" defer></script><script src="../../assets/js/pages/member-pages.js" defer></script><script src="../../assets/js/main.js" defer></script>
+</body></html>

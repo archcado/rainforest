@@ -3,7 +3,7 @@
  * ─────────────────────────────────────────────
  * 首頁（index.html）專屬樣式
  * 職責：Hero、配對測驗入口、精選植物、環境探索、
- *       照護知識精選、功能介紹、永續摘要等區塊。
+ *       照護資源精選、功能介紹、永續摘要等區塊。
  * 禁止：將首頁特殊樣式寫回全域 CSS。
  * 依賴：tokens.css, layout.css, components.css
  * ─────────────────────────────────────────────
@@ -96,8 +96,17 @@
 }
 
 .env-item__icon {
-  font-size: 2rem;
   margin-block-end: var(--space-3);
+}
+
+.env-item__icon svg {
+  width: 2rem;
+  height: 2rem;
+  fill: none;
+  stroke: var(--canopy-700);
+  stroke-width: 1.55;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .env-item__label {

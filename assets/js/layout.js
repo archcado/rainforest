@@ -62,11 +62,12 @@ window.CanopyLayout = (() => {
     const headerPlaceholder = document.querySelector(".site-header");
     const footerPlaceholder = document.querySelector(".site-footer");
 
-    const [header, footer, mobileNav, searchPanel] = await Promise.all([
+    const [header, footer, mobileNav, searchPanel, chatbot] = await Promise.all([
       fetchComponent("components/header.html"),
       fetchComponent("components/footer.html"),
       fetchComponent("components/mobile-nav.html"),
       fetchComponent("components/search-panel.html"),
+      fetchComponent("components/chatbot.html"),
     ]);
 
     headerPlaceholder?.replaceWith(header);
@@ -74,7 +75,8 @@ window.CanopyLayout = (() => {
 
     document.querySelector("#mobile-nav")?.remove();
     document.querySelector(".search-panel")?.remove();
-    document.body.append(mobileNav, searchPanel);
+    document.querySelector(".support-widget")?.remove();
+    document.body.append(mobileNav, searchPanel, chatbot);
 
     const year = footer.querySelector("[data-footer-year]");
     if (year) year.textContent = String(new Date().getFullYear());

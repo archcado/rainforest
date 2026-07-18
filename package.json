@@ -1,0 +1,14 @@
+{
+  "name": "canopy-rainforest",
+  "version": "2.2.0",
+  "private": true,
+  "description": "CANOPY 植物商城、會員系統與商品管理 API",
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "node tests/static-structure.test.js && node tests/plant-match.test.js && node tests/server-api.test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
+

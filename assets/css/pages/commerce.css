@@ -92,6 +92,17 @@
   margin-block-end: var(--space-2);
 }
 
+.cart-item__body { flex: 1; min-width: 0; }
+.cart-item__controls { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: end; margin-block-start: var(--space-4); }
+.cart-item__controls label { display: grid; gap: var(--space-1); color: var(--muted); font-size: var(--text-xs); }
+.cart-item__controls input { width: 78px; min-height: 38px; padding-inline: var(--space-2); border: 1px solid var(--line); border-radius: var(--radius-sm); }
+.cart-item__controls button { min-height: 38px; border: 0; color: var(--danger); background: transparent; font-weight: 750; cursor: pointer; }
+.commerce-empty { padding: var(--space-10); border: 1px dashed var(--line); border-radius: var(--radius-lg); background: var(--surface-leaf); text-align: center; }
+.commerce-empty p { margin-block: var(--space-2) var(--space-5); color: var(--muted); }
+.checkout-summary-item { display: flex; justify-content: space-between; gap: var(--space-3); padding-block: var(--space-2); color: var(--muted); font-size: var(--text-sm); }
+.payment-options { display: grid; gap: var(--space-2); margin-block-start: var(--space-4); }
+.payment-options label { padding: var(--space-3); border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface-mist); }
+
 /* ── 訂單摘要卡 ── */
 .order-summary {
   position: sticky;
