@@ -1,7 +1,7 @@
 {
   "primary": [
     { "key": "plants",       "label": "植物商城",   "href": "/pages/plants/plants.html" },
-    { "key": "care",         "label": "照護知識",   "href": "/pages/care/care.html" },
+    { "key": "care",         "label": "照護資源",   "href": "/pages/care/care.html" },
     { "key": "quiz",         "label": "植物配對",   "href": "/pages/quiz/quiz.html" },
     { "key": "sustainability","label": "永續計畫",  "href": "/pages/sustainability/sustainability.html" },
     { "key": "about",        "label": "品牌故事",   "href": "/pages/system/about.html" }

@@ -1,7 +1,7 @@
 /*
  * pages/care.css
  * ─────────────────────────────────────────────
- * 照護知識系列頁（care.html, care-detail.html）專屬樣式
+ * 照護資源系列頁（care.html, care-detail.html）專屬樣式
  * 職責：文章列表、分類導覽、文章詳情排版、延伸閱讀。
  * 禁止：將此頁特殊樣式寫回全域 CSS。
  * 依賴：tokens.css, layout.css, components.css

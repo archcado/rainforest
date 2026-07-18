@@ -175,16 +175,23 @@ window.CanopyPlantService = (() => {
 
   async function load() {
     if (!plantsPromise) {
-      plantsPromise = fetch(resolveProjectURL("data/plants-detailed-v2.json"), {
-        headers: { Accept: "application/json" },
-      })
+      plantsPromise = (async () => {
+        try {
+          const apiResponse = await fetch("/api/plants", { headers: { Accept: "application/json" } });
+          const contentType = apiResponse.headers.get("content-type") || "";
+          if (apiResponse.ok && contentType.includes("application/json")) return apiResponse.json();
+        } catch {}
+
+        const fallbackResponse = await fetch(resolveProjectURL("data/plants-detailed-v2.json"), {
+          headers: { Accept: "application/json" },
+        });
+        if (!fallbackResponse.ok) {
+          throw new Error(`植物資料載入失敗（HTTP ${fallbackResponse.status}）`);
+        }
+        return fallbackResponse.json();
+      })()
         .then((response) => {
-          if (!response.ok) {
-            throw new Error(`植物資料載入失敗（HTTP ${response.status}）`);
-          }
-          return response.json();
-        })
-        .then((payload) => {
+          const payload = response;
           const source = Array.isArray(payload) ? payload : payload.plants;
           if (!Array.isArray(source)) throw new TypeError("植物資料缺少 plants 陣列。");
           return source.map(normalizePlant);
@@ -231,5 +238,6 @@ window.CanopyPlantService = (() => {
     resolveImageSource,
     getFallbackImage,
     formatCurrency,
+    resetCache() { plantsPromise = null; },
   };
 })();

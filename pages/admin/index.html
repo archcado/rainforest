@@ -1,0 +1,57 @@
+<!doctype html><html lang="zh-Hant"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="CANOPY 商品管理後台。"><title>商品管理後台｜CANOPY</title>
+  <link rel="stylesheet" href="../../assets/css/tokens.css"><link rel="stylesheet" href="../../assets/css/reset.css"><link rel="stylesheet" href="../../assets/css/base.css"><link rel="stylesheet" href="../../assets/css/layout.css"><link rel="stylesheet" href="../../assets/css/components.css"><link rel="stylesheet" href="../../assets/css/utilities.css"><link rel="stylesheet" href="../../assets/css/pages/admin.css">
+</head><body data-member-required>
+  <header class="site-header" role="banner"></header>
+  <main class="site-main admin-page"><div class="container">
+    <section class="admin-access" data-admin-denied hidden><h1>無法進入管理後台</h1><p>目前登入帳戶不具管理員權限。</p><a class="btn btn--primary" href="../member/account.html">返回會員中心</a></section>
+    <div id="admin-products" hidden>
+      <header class="admin-heading"><div><p>CANOPY COMMERCE</p><h1>商品管理後台</h1><span>管理植物商品、庫存、價格、環境條件與介質配方。</span></div><div class="admin-heading__actions"><a class="btn btn--secondary" href="../member/account.html">會員中心</a><button class="btn btn--primary" type="button" data-new-plant>新增商品</button></div></header>
+      <section class="admin-stats" aria-label="商品統計"><article><span>商品總數</span><strong data-stat-total>0</strong></article><article><span>已上架</span><strong data-stat-published>0</strong></article><article><span>庫存不足</span><strong data-stat-low>0</strong></article><article><span>總庫存</span><strong data-stat-stock>0</strong></article></section>
+      <section class="admin-toolbar" aria-label="商品工具列">
+        <label><span class="sr-only">搜尋商品</span><input class="form-input" type="search" data-admin-search placeholder="搜尋名稱、學名或 SKU"></label>
+        <label><span class="sr-only">上架狀態</span><select class="form-select" data-admin-status><option value="">全部狀態</option><option value="published">已上架</option><option value="draft">草稿</option><option value="archived">封存</option></select></label>
+        <div class="admin-batch"><span data-selection-count>已選 0 項</span><button type="button" data-batch-status="published">批次上架</button><button type="button" data-batch-status="draft">批次下架</button><button type="button" data-batch-stock="1">庫存 +1</button><button type="button" data-batch-stock="-1">庫存 -1</button></div>
+      </section>
+      <div class="admin-table-wrap"><table class="admin-table"><thead><tr><th><input type="checkbox" data-select-all aria-label="選取全部商品"></th><th>商品</th><th>狀態</th><th>價格</th><th>庫存</th><th>介質</th><th>操作</th></tr></thead><tbody data-admin-table></tbody></table></div>
+      <p class="form-status" data-admin-status-message role="status"></p>
+    </div>
+  </div></main>
+
+  <dialog class="admin-dialog" data-product-dialog><form method="dialog" class="admin-dialog__shell" data-product-form>
+    <header class="admin-dialog__header"><div><p>PRODUCT EDITOR</p><h2 data-editor-title>編輯商品</h2></div><button type="button" data-dialog-close aria-label="關閉編輯器">×</button></header>
+    <div class="admin-dialog__body">
+      <fieldset><legend>基本資料</legend><div class="admin-form-grid">
+        <label>商品 ID<input class="form-input" name="id" required pattern="[a-z0-9-]+"></label><label>Slug<input class="form-input" name="slug" required></label>
+        <label>中文名稱<input class="form-input" name="name" required></label><label>學名<input class="form-input" name="scientificName" required></label>
+        <label>商品分類<input class="form-input" name="category" value="觀葉植物"></label><label>狀態<select class="form-select" name="status"><option value="draft">草稿</option><option value="published">已上架</option><option value="archived">封存</option></select></label>
+        <label class="admin-form-grid__wide">商品摘要<textarea class="form-input" name="description" rows="3" required></textarea></label><label class="admin-checkbox"><input type="checkbox" name="featured"> 精選商品</label><label class="admin-checkbox"><input type="checkbox" name="sellable"> 可販售</label>
+      </div></fieldset>
+      <fieldset><legend>價格、庫存與圖片</legend><div class="admin-form-grid">
+        <label>售價 TWD<input class="form-input" name="price" type="number" min="0" required></label><label>優惠價 TWD<input class="form-input" name="salePrice" type="number" min="0" placeholder="無優惠可留空"></label>
+        <label>庫存<input class="form-input" name="stock" type="number" min="0" required></label><label>SKU<input class="form-input" name="sku" required></label>
+        <label>規格名稱<input class="form-input" name="variantName" required></label><label>盆徑 cm<input class="form-input" name="potCm" type="number" min="1"></label>
+        <label class="admin-form-grid__wide">商品卡圖片路徑／URL<input class="form-input" name="cardImage"></label><label class="admin-form-grid__wide">商品主圖路徑／URL<input class="form-input" name="heroImage"></label>
+      </div></fieldset>
+      <fieldset><legend>環境條件</legend><div class="admin-form-grid">
+        <label>光照代碼<select class="form-select" name="light"><option value="low-to-indirect">低光至散射光</option><option value="medium-indirect">中等散射光</option><option value="bright-indirect">明亮散射光</option></select></label><label>光照說明<input class="form-input" name="lightLabel"></label>
+        <label>理想濕度下限 %<input class="form-input" name="humidityMin" type="number" min="0" max="100"></label><label>理想濕度上限 %<input class="form-input" name="humidityMax" type="number" min="0" max="100"></label>
+        <label>理想溫度下限 °C<input class="form-input" name="temperatureMin" type="number"></label><label>理想溫度上限 °C<input class="form-input" name="temperatureMax" type="number"></label>
+        <label>生長速度<select class="form-select" name="growthRate"><option value="0">緩慢</option><option value="1">中等</option><option value="2">快速</option></select></label>
+      </div></fieldset>
+      <fieldset><legend>介質配方（合計 100%）</legend><div class="admin-form-grid">
+        <label>介質類型<select class="form-select" name="substrateType"><option value="chunky">粗顆粒排水型</option><option value="balanced">均衡保水型</option><option value="moisture-retentive">保濕透氣型</option><option value="gritty">高排水礦物型</option></select></label><label>介質標籤<input class="form-input" name="substrateLabel"></label>
+      </div><div class="substrate-editor">
+        <label>成分 1<input class="form-input" name="componentName1"></label><label>比例<input class="form-input" name="componentPercent1" type="number" min="0" max="100"></label>
+        <label>成分 2<input class="form-input" name="componentName2"></label><label>比例<input class="form-input" name="componentPercent2" type="number" min="0" max="100"></label>
+        <label>成分 3<input class="form-input" name="componentName3"></label><label>比例<input class="form-input" name="componentPercent3" type="number" min="0" max="100"></label>
+        <label>成分 4<input class="form-input" name="componentName4"></label><label>比例<input class="form-input" name="componentPercent4" type="number" min="0" max="100"></label>
+      </div><p class="substrate-total" data-substrate-total>目前合計：0%</p></fieldset>
+    </div>
+    <footer class="admin-dialog__footer"><button class="btn btn--ghost" type="button" data-delete-plant>刪除商品</button><div><button class="btn btn--secondary" type="button" data-dialog-close>取消</button><button class="btn btn--primary" type="submit">儲存商品</button></div></footer>
+  </form></dialog>
+  <footer class="site-footer" role="contentinfo"></footer>
+  <script src="../../assets/js/layout.js" defer></script><script src="../../assets/js/navigation.js" defer></script><script src="../../assets/js/toast.js" defer></script><script src="../../assets/js/pages/admin.js" defer></script><script src="../../assets/js/main.js" defer></script>
+</body></html>
+

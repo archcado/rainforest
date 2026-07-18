@@ -32,6 +32,9 @@ window.CanopyCart = {
   saveItems(items) {
     localStorage.setItem(this._key, JSON.stringify(items));
     this.updateBadge();
+    window.CanopyMember?.syncCart(items).catch((error) => {
+      console.info("購物車稍後再同步：", error.message);
+    });
   },
 
   /** 加入購物車

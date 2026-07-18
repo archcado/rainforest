@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     ["CanopyCart", "assets/js/cart.js"],
     ["CanopyModal", "assets/js/modal.js"],
     ["CanopyToast", "assets/js/toast.js"],
+    ["CanopyMember", "assets/js/member.js"],
+    ["CanopyChatbot", "assets/js/chatbot.js"],
     ["CanopyPlantService", "assets/js/services/plant-service.js"],
     ["CanopyPlantMatchService", "assets/js/services/plant-match-service.js"],
   ];
@@ -24,14 +26,19 @@ document.addEventListener("DOMContentLoaded", async () => {
   for (const moduleName of [
     "CanopyNavigation",
     "CanopySearch",
+    "CanopyMember",
     "CanopyCart",
     "CanopyModal",
     "CanopyToast",
+    "CanopyChatbot",
     "CanopyFilters",
     "CanopyPlants",
     "CanopyPlantDetail",
     "CanopyQuiz",
     "CanopyQuizResult",
+    "CanopyMemberPages",
+    "CanopyCommercePages",
+    "CanopyAdmin",
   ]) {
     await initModule(moduleName);
   }

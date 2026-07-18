@@ -1,0 +1,45 @@
+<aside class="support-widget" aria-label="CANOPY 自動客服與意見回饋">
+  <button class="support-widget__toggle" type="button" data-chatbot-toggle aria-controls="support-panel" aria-expanded="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5.5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-4.5 3v-3H5a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2Z"/><path d="M8 10h8M8 13.5h5"/></svg>
+    <span>需要協助？</span>
+  </button>
+  <section class="support-widget__panel" id="support-panel" hidden>
+    <header class="support-widget__header">
+      <div><p class="support-widget__eyebrow">CANOPY SUPPORT</p><h2>植物選購助手</h2></div>
+      <button class="support-widget__close" type="button" data-chatbot-close aria-label="關閉客服視窗">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+      </button>
+    </header>
+    <div class="support-widget__tabs" role="tablist" aria-label="客服功能">
+      <button type="button" role="tab" aria-selected="true" data-support-tab="chat">詢問客服</button>
+      <button type="button" role="tab" aria-selected="false" data-support-tab="feedback">提供回饋</button>
+    </div>
+    <div class="support-widget__view" data-support-view="chat">
+      <div class="support-widget__messages" data-chatbot-messages aria-live="polite">
+        <p class="support-message support-message--agent">你好，我可以協助商品選擇、照護資源與訂單常見問題。</p>
+      </div>
+      <form class="support-widget__form" data-chatbot-form>
+        <label class="sr-only" for="chatbot-message">輸入問題</label>
+        <textarea id="chatbot-message" name="message" rows="2" maxlength="1000" placeholder="輸入你的問題…" required></textarea>
+        <button class="btn btn--primary" type="submit">送出</button>
+      </form>
+      <p class="support-widget__privacy">請勿輸入密碼、完整信用卡號或其他敏感資料。</p>
+    </div>
+    <div class="support-widget__view" data-support-view="feedback" hidden>
+      <form class="support-feedback" data-feedback-form>
+        <label for="feedback-type">回饋類型</label>
+        <select id="feedback-type" name="type">
+          <option value="experience">使用體驗</option><option value="product">商品資訊</option>
+          <option value="bug">問題回報</option><option value="general">其他建議</option>
+        </select>
+        <label for="feedback-message">回饋內容</label>
+        <textarea id="feedback-message" name="message" rows="4" minlength="3" maxlength="3000" required></textarea>
+        <label for="feedback-email">Email（選填）</label>
+        <input id="feedback-email" name="email" type="email" autocomplete="email">
+        <button class="btn btn--primary" type="submit">送出回饋</button>
+        <p class="support-feedback__status" data-feedback-status role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</aside>
+
