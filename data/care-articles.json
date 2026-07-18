@@ -1,23 +1,574 @@
-[
-  {
-    "id": "care-001",
-    "slug": "watering-basics",
-    "title": "澆水基礎：如何判斷植物是否需要澆水",
-    "category": "watering",
-    "summary": "介紹觀察土壤濕度、葉片狀態與環境條件，做出正確澆水判斷。"
-  },
-  {
-    "id": "care-002",
-    "slug": "light-guide",
-    "title": "光照需求完整指南：明亮散射光與低光環境的差異",
-    "category": "light",
-    "summary": "說明各類光照條件的定義，以及如何依窗戶方向與遮蔽物選擇合適植物。"
-  },
-  {
-    "id": "care-003",
-    "slug": "humidity-for-tropicals",
-    "title": "熱帶植物的濕度需求與居家增濕方法",
-    "category": "humidity",
-    "summary": "說明雨林植物對濕度的依賴，以及霧化器、水盤、群植等增濕技巧。"
-  }
-]
+{
+  "version": "2.0.0",
+  "updatedAt": "2026-07-19",
+  "references": [
+    {
+      "label": "University of Minnesota Extension｜Houseplants",
+      "url": "https://extension.umn.edu/find-plants/houseplants"
+    },
+    {
+      "label": "University of Minnesota Extension｜Lighting for indoor plants",
+      "url": "https://extension.umn.edu/planting-and-growing-guides/lighting-indoor-plants"
+    },
+    {
+      "label": "University of Minnesota Extension｜Managing insects on indoor plants",
+      "url": "https://extension.umn.edu/yard-and-garden-insects/insects-indoor-plants"
+    }
+  ],
+  "articles": [
+    {
+      "id": "care-001",
+      "slug": "watering-basics",
+      "title": "澆水不是排程：用三個訊號判斷植物真的渴了",
+      "contentType": "guide",
+      "category": "watering",
+      "summary": "從介質觸感、盆器重量與葉片反應交叉判斷，建立比固定星期澆水更可靠的方法。",
+      "featured": true,
+      "publishedAt": "2026-07-19",
+      "readingMinutes": 6,
+      "author": "CANOPY 編輯室",
+      "coverTone": "rain",
+      "coverSymbol": "water",
+      "tags": ["澆水", "新手", "排水"],
+      "keyTakeaways": [
+        "先確認介質乾濕，再決定是否澆水。",
+        "每次澆透並讓多餘水分完全排出。",
+        "季節、光照與盆器都會改變乾燥速度。"
+      ],
+      "sections": [
+        {
+          "heading": "先看植物，不看行事曆",
+          "paragraphs": [
+            "固定每週澆一次看似方便，卻忽略了室溫、日照、植株大小與盆器材質的差異。更穩定的方式，是先摸表層介質，再抬起盆器感受重量，最後觀察葉片是否出現失去張力的現象。",
+            "三個訊號不需要同時出現；重點是累積對同一盆植物的觀察，找出它在你家環境中的乾燥節奏。"
+          ],
+          "bullets": ["手指探入表層約 2–3 公分", "比較剛澆透與乾燥時的盆器重量", "避免只因表面顏色變淺就立刻補水"]
+        },
+        {
+          "heading": "澆水時要讓根系完整喝到水",
+          "paragraphs": [
+            "確認需要澆水後，沿盆面緩慢澆灌，直到水從底孔流出，再倒除外盆或水盤中的積水。長期只給少量水，容易讓部分根系反覆乾燥；長期泡水則會降低根部周圍的空氣。"
+          ],
+          "bullets": ["使用有排水孔的內盆", "澆水後等待充分瀝乾", "不要讓盆底長時間浸在積水中"]
+        }
+      ],
+      "relatedPlantIds": ["plant-001", "plant-003", "plant-004", "plant-010"],
+      "relatedArticleIds": ["care-004", "care-010", "care-013"]
+    },
+    {
+      "id": "care-002",
+      "slug": "read-indoor-light",
+      "title": "讀懂居家光線：明亮散射光不是房間看起來很亮",
+      "contentType": "guide",
+      "category": "light",
+      "summary": "從窗向、距離、遮蔽物與日照時數理解室內光線，替植物找到更合適的位置。",
+      "featured": true,
+      "publishedAt": "2026-07-19",
+      "readingMinutes": 7,
+      "author": "CANOPY 編輯室",
+      "coverTone": "sun",
+      "coverSymbol": "light",
+      "tags": ["光照", "窗向", "擺放"],
+      "keyTakeaways": [
+        "植物接收到的光量會隨離窗距離快速下降。",
+        "人的視覺會適應昏暗環境，不能只憑感覺判斷。",
+        "移動到更強光線時應逐步適應。"
+      ],
+      "sections": [
+        {
+          "heading": "先從窗戶開始判斷",
+          "paragraphs": [
+            "觀察一天中陽光何時進入、是否被建築或窗簾遮擋，再記錄植物與窗戶的距離。明亮散射光通常靠近採光良好的窗邊，但葉片不長時間承受炙熱直射。",
+            "同一扇窗在不同季節也會改變入射角度，因此位置不是一次決定後永久不變。"
+          ],
+          "bullets": ["記錄上午與下午的光線差異", "留意屋簷、鄰棟與窗簾遮擋", "每週觀察新葉大小與莖節距離"]
+        },
+        {
+          "heading": "從植物反應校正位置",
+          "paragraphs": [
+            "光線不足時，植物可能朝窗戶傾斜、莖節拉長或新葉變小；突然接受過強日照則可能出現褪色、乾燥斑塊。調整位置時，以小幅移動和持續觀察取代一次大幅換位。"
+          ],
+          "bullets": ["每次移動約 30–50 公分", "斑葉植物避免突然曝曬", "需要補光時同時考慮距離與照射時間"]
+        }
+      ],
+      "relatedPlantIds": ["plant-001", "plant-006", "plant-008", "plant-012"],
+      "relatedArticleIds": ["care-014", "care-016", "care-009"]
+    },
+    {
+      "id": "care-003",
+      "slug": "humidity-without-wet-leaves",
+      "title": "提升濕度，但不要讓葉片一直濕著",
+      "contentType": "guide",
+      "category": "humidity",
+      "summary": "分辨空氣濕度與葉面噴水的差異，建立兼顧通風與穩定性的居家微氣候。",
+      "featured": false,
+      "publishedAt": "2026-07-19",
+      "readingMinutes": 5,
+      "author": "CANOPY 編輯室",
+      "coverTone": "mist",
+      "coverSymbol": "humidity",
+      "tags": ["濕度", "通風", "冷氣房"],
+      "keyTakeaways": ["濕度指空氣狀態，不等於反覆噴濕葉面。", "群植與穩定環境比短暫噴霧更可預測。", "高濕環境仍需要空氣流動。"],
+      "sections": [
+        {
+          "heading": "先量測，再決定是否加濕",
+          "paragraphs": [
+            "冷氣、除濕與季節變化都會影響室內濕度。使用溫濕度計觀察一天的變化，比看到葉尖乾燥就立即噴水更有依據；葉尖乾燥也可能來自水質、根系或忽乾忽濕。"
+          ],
+          "bullets": ["溫濕度計放在植物高度附近", "避開出風口與緊貼加濕器的位置", "記錄白天與夜間差異"]
+        },
+        {
+          "heading": "建立穩定而通風的微環境",
+          "paragraphs": [
+            "把需求相近的植物集中擺放、避免冷氣直吹，必要時再使用加濕設備。加濕時不要讓水霧持續凝結在葉面或牆面，並保留溫和的空氣流動。"
+          ],
+          "bullets": ["群植時仍保留葉片間距", "定期清潔加濕設備", "發現凝水時降低輸出並增加通風"]
+        }
+      ],
+      "relatedPlantIds": ["plant-002", "plant-008", "plant-014", "plant-015"],
+      "relatedArticleIds": ["care-007", "care-008", "care-011"]
+    },
+    {
+      "id": "care-004",
+      "slug": "substrate-air-water-balance",
+      "title": "介質不是只有土：理解保水、排水與通氣",
+      "contentType": "guide",
+      "category": "soil",
+      "summary": "從根系需要的水與空氣出發，理解椰纖、樹皮、珍珠石等材料在配方中的角色。",
+      "featured": true,
+      "publishedAt": "2026-07-19",
+      "readingMinutes": 7,
+      "author": "CANOPY 編輯室",
+      "coverTone": "earth",
+      "coverSymbol": "soil",
+      "tags": ["介質", "根系", "排水"],
+      "keyTakeaways": ["介質要同時保有水分與空氣孔隙。", "配方需配合植物、盆器與澆水習慣。", "顆粒多不代表可以忽略實際乾燥速度。"],
+      "sections": [
+        {
+          "heading": "先理解材料的工作",
+          "paragraphs": [
+            "有機材料通常負責保水與緩衝，較粗的樹皮或顆粒材料則增加孔隙。好的配方不是追求最快排水，而是讓澆水後仍有空氣回到根系周圍，並在下一次澆水前保留適量水分。"
+          ],
+          "bullets": ["椰纖或培養土提供主要保水基底", "樹皮建立較大的空氣孔隙", "珍珠石等顆粒降低板結"]
+        },
+        {
+          "heading": "用自己的環境校正比例",
+          "paragraphs": [
+            "通風弱、外盆密閉或澆水頻繁的環境，需要更重視通氣；乾燥且光線強的空間，則要避免配方乾得過快。商品頁的介質比例是起點，不是所有家庭都必須照抄。"
+          ],
+          "bullets": ["觀察澆透後需要幾天變輕", "確認底孔不被細粉堵塞", "換配方後先降低澆水頻率並觀察"]
+        }
+      ],
+      "relatedPlantIds": ["plant-001", "plant-002", "plant-011", "plant-014"],
+      "relatedArticleIds": ["care-001", "care-005", "care-015"]
+    },
+    {
+      "id": "care-005",
+      "slug": "when-to-repot",
+      "title": "什麼時候才需要換盆？先辨認根系與介質訊號",
+      "contentType": "guide",
+      "category": "repotting",
+      "summary": "換盆不是年度例行公事；從根系空間、介質劣化與澆水狀態判斷真正時機。",
+      "featured": false,
+      "publishedAt": "2026-07-19",
+      "readingMinutes": 6,
+      "author": "CANOPY 編輯室",
+      "coverTone": "sprout",
+      "coverSymbol": "repot",
+      "tags": ["換盆", "根系", "盆器"],
+      "keyTakeaways": ["新盆只需比原盆略大。", "根滿盆不一定等於立即換盆。", "換盆後先給穩定環境，不急著施肥。"],
+      "sections": [
+        {
+          "heading": "需要換盆的三類訊號",
+          "paragraphs": [
+            "根系繞滿盆壁、介質澆水後長時間不乾，或水一澆就從縫隙快速流走，都值得進一步檢查。若植物仍穩定生長，單純看到一兩條根從底孔伸出，不必立刻換到大盆。"
+          ],
+          "bullets": ["根球幾乎取代原本介質", "介質明顯粉化或板結", "植株比例使盆器容易傾倒"]
+        },
+        {
+          "heading": "避免一次跳太大的盆",
+          "paragraphs": [
+            "過大的盆會讓未被根系利用的介質長時間保持濕潤。選擇只比原盆寬一個尺寸、具排水孔的新盆，換盆後澆透並放回光線穩定的位置。"
+          ],
+          "bullets": ["保留健康根系，不過度拆散", "剪除明顯腐爛或空心根", "等待恢復生長後再恢復施肥"]
+        }
+      ],
+      "relatedPlantIds": ["plant-001", "plant-006", "plant-009", "plant-013"],
+      "relatedArticleIds": ["care-004", "care-006", "care-015"]
+    },
+    {
+      "id": "care-006",
+      "slug": "fertilizer-without-overfeeding",
+      "title": "施肥不是補藥：看懂生長期、濃度與累積",
+      "contentType": "guide",
+      "category": "fertilizing",
+      "summary": "以生長狀態決定是否施肥，避免在根系受損或環境不足時用肥料硬推生長。",
+      "featured": false,
+      "publishedAt": "2026-07-19",
+      "readingMinutes": 6,
+      "author": "CANOPY 編輯室",
+      "coverTone": "sprout",
+      "coverSymbol": "fertilizer",
+      "tags": ["施肥", "生長期", "鹽分"],
+      "keyTakeaways": ["肥料不能取代光線、水分與健康根系。", "室內植物宜從較低濃度開始。", "乾燥介質與受損根系不宜直接施肥。"],
+      "sections": [
+        {
+          "heading": "先確認植物真的在生長",
+          "paragraphs": [
+            "新葉展開、根系活躍且環境穩定時，植物才有較明確的養分需求。若正處於缺光、低溫、換盆恢復或根系問題，先修正環境比增加肥料更重要。"
+          ],
+          "bullets": ["觀察是否持續長出新葉", "依產品標示從低濃度開始", "不要自行混合多種肥料"]
+        },
+        {
+          "heading": "留意介質中的鹽分累積",
+          "paragraphs": [
+            "長期施肥但澆水量不足，可能讓鹽分留在介質中。定期以清水充分澆灌並排出多餘水分，若葉尖持續焦枯，也要同時檢查水質、濕度與根系。"
+          ],
+          "bullets": ["不在完全乾燥的根球上直接施肥", "生長減緩時降低頻率", "出現異常先停肥並找原因"]
+        }
+      ],
+      "relatedPlantIds": ["plant-001", "plant-006", "plant-009", "plant-016"],
+      "relatedArticleIds": ["care-005", "care-009", "care-010"]
+    },
+    {
+      "id": "care-007",
+      "slug": "clean-leaves-gently",
+      "title": "讓葉片正常呼吸：清潔、修剪與日常觀察",
+      "contentType": "guide",
+      "category": "maintenance",
+      "summary": "用溫和的方式移除灰塵、枯葉與可能藏匿的害蟲，不靠亮葉劑製造短暫光澤。",
+      "featured": false,
+      "publishedAt": "2026-07-19",
+      "readingMinutes": 4,
+      "author": "CANOPY 編輯室",
+      "coverTone": "canopy",
+      "coverSymbol": "leaf",
+      "tags": ["清潔", "修剪", "葉片"],
+      "keyTakeaways": ["以濕布或溫和水流清潔葉片。", "同時檢查葉背與葉柄交界。", "避免使用亮葉劑、牛奶或油性偏方。"],
+      "sections": [
+        {
+          "heading": "清潔也是一次健康檢查",
+          "paragraphs": [
+            "一手托住葉片，一手用柔軟濕布由葉柄向葉尖擦拭。清潔時翻看葉背、葉脈與新葉，能更早發現介殼蟲、粉介殼蟲或蟎類活動。"
+          ],
+          "bullets": ["使用乾淨的常溫水", "每片葉使用乾淨布面", "工具接觸病株後先消毒"]
+        },
+        {
+          "heading": "只移除已失去功能的部分",
+          "paragraphs": [
+            "完全枯黃的葉片可以從葉柄基部剪除；仍有大片綠色的葉片仍能進行光合作用，不必只因外觀不完美就全部剪掉。"
+          ],
+          "bullets": ["剪刀保持銳利與乾淨", "一次避免移除過多健康葉片", "修剪後持續觀察切口與新生長"]
+        }
+      ],
+      "relatedPlantIds": ["plant-001", "plant-006", "plant-007", "plant-009"],
+      "relatedArticleIds": ["care-003", "care-011", "care-016"]
+    },
+    {
+      "id": "care-008",
+      "slug": "air-conditioner-season-care",
+      "title": "冷氣房與季節轉換：別讓環境一次改太多",
+      "contentType": "guide",
+      "category": "environment",
+      "summary": "從出風口、溫差、光線與乾燥速度調整植物位置，降低季節切換造成的壓力。",
+      "featured": false,
+      "publishedAt": "2026-07-19",
+      "readingMinutes": 5,
+      "author": "CANOPY 編輯室",
+      "coverTone": "mist",
+      "coverSymbol": "temperature",
+      "tags": ["溫度", "冷氣房", "季節"],
+      "keyTakeaways": ["避開冷暖氣直接吹拂。", "環境改變後先重新觀察乾燥速度。", "不要同時換位、換盆又施肥。"],
+      "sections": [
+        {
+          "heading": "出風口造成的不只是低溫",
+          "paragraphs": [
+            "持續氣流會加速葉面與介質水分散失，也可能形成局部溫差。把植物移離直吹範圍，並用溫濕度計確認實際環境，不要只依室內設定溫度判斷。"
+          ],
+          "bullets": ["避開冷氣、暖氣與除濕機出口", "夜間留意窗邊低溫", "移位後至少觀察一至兩週"]
+        },
+        {
+          "heading": "一次只改變一件事",
+          "paragraphs": [
+            "環境轉換期的黃葉不一定需要立即換盆或施肥。先穩定光線與澆水，再依新葉和根系反應決定下一步，才能分辨真正原因。"
+          ],
+          "bullets": ["先記錄再處理", "避免為了補濕而頻繁澆水", "新葉穩定後再恢復例行管理"]
+        }
+      ],
+      "relatedPlantIds": ["plant-002", "plant-008", "plant-014", "plant-015"],
+      "relatedArticleIds": ["care-003", "care-009", "care-010"]
+    },
+    {
+      "id": "care-009",
+      "slug": "yellow-leaf-triage",
+      "title": "葉片變黃先別剪：用位置與時間找出原因",
+      "contentType": "diagnosis",
+      "category": "diagnosis",
+      "summary": "黃葉不是單一疾病，從老葉或新葉、局部或全株，以及近期環境變化逐步排查。",
+      "featured": true,
+      "publishedAt": "2026-07-19",
+      "readingMinutes": 7,
+      "author": "CANOPY 編輯室",
+      "coverTone": "sun",
+      "coverSymbol": "diagnosis",
+      "tags": ["黃葉", "診斷", "根系"],
+      "keyTakeaways": ["先記錄黃葉發生位置與速度。", "不要只看到黃葉就增加澆水或施肥。", "同時檢查根系、光線與害蟲。"],
+      "sections": [
+        {
+          "heading": "建立黃葉事件紀錄",
+          "paragraphs": [
+            "單片最老葉逐漸變黃，可能只是自然代謝；若多片葉在短時間一起變黃，就要回想近期是否換位、換盆、連續潮濕或突然缺水。拍照並記錄日期，比憑印象更容易看出速度。"
+          ],
+          "bullets": ["老葉、新葉或全株", "均勻變黃或斑駁", "介質目前偏乾或長期潮濕"]
+        },
+        {
+          "heading": "按風險順序排查",
+          "paragraphs": [
+            "先排除盆底積水、根系異味與明顯害蟲，再檢查光線與溫差。不要同一天同時澆水、施肥、換盆與噴藥，否則植物承受更多壓力，也無法知道哪項處理有效。"
+          ],
+          "bullets": ["處理最急迫的積水或腐爛", "環境穩定後觀察新葉", "不確定病因時先隔離而非混藥"]
+        }
+      ],
+      "relatedPlantIds": ["plant-003", "plant-008", "plant-010", "plant-014"],
+      "relatedArticleIds": ["care-001", "care-010", "care-011"]
+    },
+    {
+      "id": "care-010",
+      "slug": "root-rot-response",
+      "title": "懷疑爛根時怎麼做：先停下錯誤循環",
+      "contentType": "diagnosis",
+      "category": "watering",
+      "summary": "辨認長期潮濕、異味與根系軟爛等訊號，依嚴重程度處理，而不是只把盆面吹乾。",
+      "featured": false,
+      "publishedAt": "2026-07-19",
+      "readingMinutes": 7,
+      "author": "CANOPY 編輯室",
+      "coverTone": "earth",
+      "coverSymbol": "root",
+      "tags": ["爛根", "積水", "急救"],
+      "keyTakeaways": ["爛根核心是根系缺氧與組織受損。", "先停止造成長期潮濕的條件。", "嚴重時需移除腐爛根並更換乾淨介質。"],
+      "sections": [
+        {
+          "heading": "先判斷是否需要脫盆",
+          "paragraphs": [
+            "介質長時間不乾、盆內有異味、植株在濕土中仍持續萎軟，代表值得檢查根系。健康根通常有韌性；腐爛根則可能褐黑、軟爛或外皮輕拉就脫落。"
+          ],
+          "bullets": ["輕柔取出完整根球", "用乾淨工具剪除明顯腐爛部分", "不要保留有異味且崩解的舊介質"]
+        },
+        {
+          "heading": "處理後先恢復根系",
+          "paragraphs": [
+            "換入大小合適、排水良好的盆器與新介質，放在穩定散射光處。恢復期避免施肥，澆水頻率也要依新介質重新判斷。"
+          ],
+          "bullets": ["盆器不要一次放大", "避免烈日與劇烈溫差", "觀察新根或新葉再逐步恢復管理"]
+        }
+      ],
+      "relatedPlantIds": ["plant-001", "plant-008", "plant-010", "plant-014"],
+      "relatedArticleIds": ["care-001", "care-004", "care-009"]
+    },
+    {
+      "id": "care-011",
+      "slug": "common-houseplant-pests",
+      "title": "葉背的小異常：室內常見害蟲的第一輪處理",
+      "contentType": "diagnosis",
+      "category": "pests",
+      "summary": "從隔離、清潔與物理移除開始，辨認粉介殼蟲、介殼蟲、蟎類等常見問題。",
+      "featured": true,
+      "publishedAt": "2026-07-19",
+      "readingMinutes": 8,
+      "author": "CANOPY 編輯室",
+      "coverTone": "blush",
+      "coverSymbol": "pest",
+      "tags": ["病蟲害", "隔離", "葉背"],
+      "keyTakeaways": ["新植物先與原有植物分開觀察。", "少量害蟲優先物理移除與清潔。", "任何藥劑都應依標示使用並先局部測試。"],
+      "sections": [
+        {
+          "heading": "先隔離，再仔細看",
+          "paragraphs": [
+            "發現黏液、白色棉絮、固定凸點、細網或密集失綠小點時，先把植株移離其他植物。使用明亮光線檢查葉背、葉腋、新芽與盆緣，並拍照追蹤。"
+          ],
+          "bullets": ["粉介殼蟲常藏在葉腋", "介殼蟲可能像固定的小凸點", "蟎類常伴隨細小失綠斑與細網"]
+        },
+        {
+          "heading": "從低風險方法開始",
+          "paragraphs": [
+            "少量害蟲可以用水流、濕布、棉棒或鑷子移除，並剪除嚴重受害部位。若使用園藝用產品，需確認適用於室內與目標害蟲，依標示稀釋、保持通風並避免兒童與寵物接觸。"
+          ],
+          "bullets": ["每次處理後持續觀察數週", "清潔附近盆器與檯面", "不要自行混合不同藥劑或清潔劑"]
+        }
+      ],
+      "relatedPlantIds": ["plant-001", "plant-002", "plant-006", "plant-015"],
+      "relatedArticleIds": ["care-007", "care-009", "care-012"]
+    },
+    {
+      "id": "care-012",
+      "slug": "fungus-gnat-cycle",
+      "title": "小黑飛從哪裡來？從潮濕介質打斷蕈蚋循環",
+      "contentType": "diagnosis",
+      "category": "pests",
+      "summary": "理解成蟲與幼蟲所在位置，搭配水分管理與環境清潔降低反覆出現。",
+      "featured": false,
+      "publishedAt": "2026-07-19",
+      "readingMinutes": 5,
+      "author": "CANOPY 編輯室",
+      "coverTone": "earth",
+      "coverSymbol": "pest",
+      "tags": ["蕈蚋", "小黑飛", "潮濕"],
+      "keyTakeaways": ["成蟲飛舞只是表象，幼蟲主要在潮濕介質。", "先修正長期潮濕與枯葉堆積。", "黏蟲板適合監測，不代表已處理根源。"],
+      "sections": [
+        {
+          "heading": "找出介質為什麼一直濕",
+          "paragraphs": [
+            "盆器過大、底孔受阻、介質粉化或澆水太頻繁，都可能讓表層長期潮濕。移除盆面枯葉，讓介質依植物需求適度乾燥，並確認外盆沒有積水。"
+          ],
+          "bullets": ["檢查底孔與外盆", "清除腐敗有機物", "讓表層在兩次澆水間有乾燥期"]
+        },
+        {
+          "heading": "用監測確認是否改善",
+          "paragraphs": [
+            "黃色黏蟲板可幫助觀察成蟲數量趨勢，但仍需搭配介質管理。若問題持續或植株根系受損，應評估更換乾淨介質並清潔盆器。"
+          ],
+          "bullets": ["記錄每週成蟲數量", "新購植物先隔離觀察", "避免只增加藥劑而不改善積水"]
+        }
+      ],
+      "relatedPlantIds": ["plant-008", "plant-010", "plant-014", "plant-015"],
+      "relatedArticleIds": ["care-001", "care-010", "care-011"]
+    },
+    {
+      "id": "care-013",
+      "slug": "watering-tool-guide",
+      "title": "好物分享：一把好澆水壺應該幫你控制水流",
+      "contentType": "gear",
+      "category": "tools",
+      "summary": "不比較品牌，從壺嘴、容量、重心與清潔方式選擇真正適合家中植物的工具。",
+      "featured": true,
+      "publishedAt": "2026-07-19",
+      "readingMinutes": 5,
+      "author": "CANOPY 選物編輯",
+      "coverTone": "rain",
+      "coverSymbol": "watering-can",
+      "tags": ["好物分享", "澆水壺", "工具"],
+      "keyTakeaways": ["細長壺嘴適合深入葉叢控制落點。", "容量要配合植物數量與手腕負擔。", "能完整清潔與乾燥比造型更重要。"],
+      "sections": [
+        {
+          "heading": "先看使用場景，不先看造型",
+          "paragraphs": [
+            "植物集中在地面時，需要較大的容量；多為桌上小盆栽時，輕巧與水流控制更重要。細長壺嘴能把水送到介質表面，避免一直淋濕葉心。"
+          ],
+          "bullets": ["握滿水後仍能穩定操作", "壺嘴出水不突然爆量", "能伸入葉片密集的盆面"]
+        },
+        {
+          "heading": "清潔與收納也屬於選購條件",
+          "paragraphs": [
+            "壺身若難以刷洗或長期存水，容易累積沉澱與氣味。使用後倒空、晾乾，若曾裝過肥料溶液，應另外以清水沖洗。"
+          ],
+          "bullets": ["開口足以清潔內部", "材質不易留下尖銳裂痕", "肥料量杯與日常水壺分開"]
+        }
+      ],
+      "relatedPlantIds": ["plant-001", "plant-003", "plant-014", "plant-016"],
+      "relatedArticleIds": ["care-001", "care-003", "care-015"]
+    },
+    {
+      "id": "care-014",
+      "slug": "grow-light-buying-guide",
+      "title": "好物分享：植物燈要看光線、距離，也要看生活方式",
+      "contentType": "gear",
+      "category": "light",
+      "summary": "從照射範圍、安裝距離、定時與散熱理解補光設備，不把瓦數當成唯一答案。",
+      "featured": true,
+      "publishedAt": "2026-07-19",
+      "readingMinutes": 7,
+      "author": "CANOPY 選物編輯",
+      "coverTone": "sun",
+      "coverSymbol": "grow-light",
+      "tags": ["好物分享", "植物燈", "補光"],
+      "keyTakeaways": ["瓦數是耗電資訊，不等於植物實際收到的光。", "距離與照射範圍會直接影響效果。", "定時器讓日照節奏更穩定。"],
+      "sections": [
+        {
+          "heading": "先確認需要補多少光",
+          "paragraphs": [
+            "植物燈適合補足自然光不足，不等於把任何植物放進黑暗角落都會成功。先記錄原本的窗邊光線與植物反應，再決定是延長日照，還是增加白天的光強度。"
+          ],
+          "bullets": ["查看產品建議距離與覆蓋面積", "避免燈具緊貼葉片造成熱傷害", "選擇能穩定固定的燈架"]
+        },
+        {
+          "heading": "讓設備融入日常",
+          "paragraphs": [
+            "可定時、散熱良好、電線容易整理的設備，比規格漂亮但難以每天使用的產品更實際。安裝後觀察新葉與莖節，不要因一次開太久造成突然的環境變化。"
+          ],
+          "bullets": ["固定開關時間", "逐步增加照射時間", "離家時確認電器與周邊乾燥安全"]
+        }
+      ],
+      "relatedPlantIds": ["plant-005", "plant-006", "plant-007", "plant-009"],
+      "relatedArticleIds": ["care-002", "care-008", "care-016"]
+    },
+    {
+      "id": "care-015",
+      "slug": "pot-drainage-guide",
+      "title": "好物分享：底孔、套盆與水盤怎麼搭配",
+      "contentType": "gear",
+      "category": "soil",
+      "summary": "理解育苗盆、裝飾套盆與水盤各自的功能，兼顧美感、排水與日常清潔。",
+      "featured": false,
+      "publishedAt": "2026-07-19",
+      "readingMinutes": 5,
+      "author": "CANOPY 選物編輯",
+      "coverTone": "earth",
+      "coverSymbol": "pot",
+      "tags": ["好物分享", "盆器", "排水"],
+      "keyTakeaways": ["有底孔的內盆負責排出多餘水分。", "套盆負責外觀，不應長期蓄水。", "水盤尺寸要能承接排水並方便清潔。"],
+      "sections": [
+        {
+          "heading": "把種植與裝飾功能分開",
+          "paragraphs": [
+            "保留有底孔的育苗盆，再放入裝飾套盆，是容易管理的做法。澆水時取出內盆、充分瀝乾後再放回，可降低盆底長時間泡水的風險。"
+          ],
+          "bullets": ["內盆與套盆之間保留取放空間", "確認套盆底部沒有殘留積水", "大型植物可搭配防水墊保護地面"]
+        },
+        {
+          "heading": "材質會改變乾燥速度",
+          "paragraphs": [
+            "多孔材質可能讓介質較快乾燥，塑膠內盆則較能保留水分。選盆後應重新觀察澆水節奏，不要沿用更換前的固定頻率。"
+          ],
+          "bullets": ["盆器大小配合根球", "底孔不被裝飾石或細粉堵塞", "水盤定期清洗避免沉積"]
+        }
+      ],
+      "relatedPlantIds": ["plant-006", "plant-009", "plant-011", "plant-013"],
+      "relatedArticleIds": ["care-004", "care-005", "care-013"]
+    },
+    {
+      "id": "care-016",
+      "slug": "build-a-plant-corner",
+      "title": "空間靈感：從一扇窗建立有層次的植物角落",
+      "contentType": "inspiration",
+      "category": "styling",
+      "summary": "先依光線與動線安排位置，再用高度、葉形與留白建立自然但容易照護的室內植物層次。",
+      "featured": true,
+      "publishedAt": "2026-07-19",
+      "readingMinutes": 6,
+      "author": "CANOPY 編輯室",
+      "coverTone": "canopy",
+      "coverSymbol": "space",
+      "tags": ["空間靈感", "擺放", "群植"],
+      "keyTakeaways": ["先依植物需求分區，再做視覺排列。", "保留澆水、清潔與通風動線。", "用葉形與高度創造層次，不用塞滿每個空隙。"],
+      "sections": [
+        {
+          "heading": "從最穩定的光線區開始",
+          "paragraphs": [
+            "觀察窗邊一天的光線後，把需求相近的植物放在同一區域。大型直立植物先決定輪廓，中型闊葉建立主體，小型垂墜植物再補充邊緣，不要為了畫面把低光植物推進烈日。"
+          ],
+          "bullets": ["高植株不遮住後方小盆光線", "敏感葉片避開出風口與走道", "預留轉盆與取出澆水的空間"]
+        },
+        {
+          "heading": "留白讓植物真正被看見",
+          "paragraphs": [
+            "葉片之間保留空氣與視覺間距，比把盆器排滿更能呈現生命力。材質可集中在兩至三種，讓青草綠、薄荷綠與葉片本身成為主角。"
+          ],
+          "bullets": ["用不同高度的植物架形成節奏", "盆器色彩保持低飽和", "每月重新檢查光線與葉片是否互相擁擠"]
+        }
+      ],
+      "relatedPlantIds": ["plant-001", "plant-009", "plant-013", "plant-016"],
+      "relatedArticleIds": ["care-002", "care-003", "care-014"]
+    }
+  ]
+}
