@@ -2,9 +2,8 @@
  * pages/member.css
  * ─────────────────────────────────────────────
  * 會員系列頁面專屬樣式
- * 涵蓋：account.html, favorites.html, orders.html,
- *       my-plants.html, plant-journal.html, notifications.html
- * 職責：會員側邊導覽、帳戶設定區塊、我的植物管理、日誌排版。
+ * 涵蓋：account.html, favorites.html, orders.html, notifications.html
+ * 職責：會員側邊導覽、帳戶設定、收藏、訂單與通知排版。
  * 禁止：將此頁特殊樣式寫回全域 CSS。
  * 依賴：tokens.css, layout.css, components.css
  * ─────────────────────────────────────────────
@@ -45,59 +44,6 @@
 .member-nav__item--active {
   background-color: var(--surface-leaf);
   color: var(--canopy-900);
-}
-
-/* ── 我的植物卡片 ── */
-.my-plant-card {
-  background-color: var(--surface-mist);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-}
-
-.my-plant-card__image {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  background-color: var(--surface-leaf);
-}
-
-.my-plant-card__body {
-  padding: var(--space-4);
-}
-
-.my-plant-card__name {
-  font-size: var(--text-base);
-  font-weight: 600;
-  color: var(--canopy-900);
-  margin-block-end: var(--space-2);
-}
-
-/* ── 植物日誌 ── */
-.journal-timeline {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-6);
-}
-
-.journal-entry {
-  display: grid;
-  grid-template-columns: 56px 1fr;
-  gap: var(--space-4);
-}
-
-.journal-entry__date {
-  text-align: center;
-  font-size: var(--text-xs);
-  color: var(--muted);
-  padding-block-start: var(--space-1);
-}
-
-.journal-entry__content {
-  background-color: var(--surface-mist);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-  padding: var(--space-4) var(--space-5);
 }
 
 /* ── 通知項目 ── */

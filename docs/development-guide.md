@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
 | `filters.js` | 植物列表篩選、URL 參數同步 |
 | `cart.js` | localStorage 購物車 CRUD、數量更新 |
 | `quiz.js` | 植物配對測驗步驟流程、結果計算 |
-| `plant-journal.js` | 植物日誌 CRUD、時間軸渲染 |
+| `pages/plant-detail.js` | 商品規格、環境範圍、介質比例與相關植物渲染 |
 
 ---
 
@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 - 必須為合法 JSON（可用 [JSONLint](https://jsonlint.com/) 驗證）
 - 欄位命名使用 camelCase
-- ID 使用整數；slug 使用 kebab-case 字串
+- 植物 ID 使用 `plant-001` 格式；slug 使用 kebab-case 字串
 - 不寫入真實使用者資料或敏感資訊
 
 ---
@@ -146,10 +146,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
 ## Design System 說明
 
-- 視覺規範來源：`design-system.html`（目前在根目錄）
-- 建議位置：`design-system/design-system.html`（目錄已建立，待手動移入）
-- `assets/css/tokens.css` 的變數值必須與 `design-system.html` 保持一致
-- 修改品牌色或字體前，必須先更新 `design-system.html`
+- 正式視覺與元件規格：`design-system/design-system.html`
+- 正式程式實作：`assets/css/tokens.css`、`layout.css`、`components.css`
+- 所有頁面必須沿用 Design System 的品牌色、表面、字體、圓角、陰影與互動狀態
+- 修改品牌層級規格時，必須同時更新 Design System 展示頁與對應 CSS Token
+- 頁面專屬 CSS 不得建立另一套按鈕、表單、Header、Footer 或植物卡片規格
+
+### 共用版面載入
+
+`assets/js/layout.js` 會在其他模組初始化前載入：
+
+```text
+components/header.html
+components/footer.html
+components/mobile-nav.html
+components/search-panel.html
+```
+
+頁面只保留 `.site-header` 與 `.site-footer` 掛載位置。共用元件使用專案根路徑撰寫連結，載入器會依實際部署子路徑轉換，支援本機與 GitHub Pages 類型的子目錄部署。
 
 ---
 

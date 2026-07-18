@@ -1,10 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="CANOPY 植物配對結果 — 依你的居家環境，為你推薦最合適的雨林植物。">
-  <title>配對結果｜CANOPY</title>
+  <meta name="description" content="查看依居家環境、照護能力、安全條件與預算產生的 CANOPY 觀葉植物購買建議。">
+  <title>植物配對結果｜CANOPY</title>
 
   <link rel="stylesheet" href="../../assets/css/tokens.css">
   <link rel="stylesheet" href="../../assets/css/reset.css">
@@ -14,54 +14,86 @@
   <link rel="stylesheet" href="../../assets/css/utilities.css">
   <link rel="stylesheet" href="../../assets/css/pages/quiz.css">
 </head>
-
 <body>
+  <header class="site-header"></header>
 
-  <header class="site-header" role="banner">
-    <!-- 共用 Header 載入位置（components/header.html）-->
-  </header>
-
-  <main class="site-main">
-
-    <section class="page-content">
+  <main class="site-main" id="match-results-app">
+    <h1 class="sr-only">植物配對結果</h1>
+    <div class="breadcrumb-bar">
       <div class="container">
-        <div class="quiz-result">
+        <nav class="breadcrumb" aria-label="麵包屑">
+          <ol class="breadcrumb__list">
+            <li class="breadcrumb__item"><a class="breadcrumb__link" href="../../index.html">首頁</a></li>
+            <li class="breadcrumb__item"><a class="breadcrumb__link" href="./quiz.html">植物配對</a></li>
+            <li class="breadcrumb__item"><span class="breadcrumb__current" aria-current="page">配對結果</span></li>
+          </ol>
+        </nav>
+      </div>
+    </div>
 
-          <p class="text-muted">你的配對結果</p>
-          <h1 class="quiz-result__match" id="result-match">—</h1>
-          <p class="quiz-result__label" id="result-label">配對類型</p>
+    <section class="result-loading" id="result-loading" role="status" aria-live="polite">
+      <span class="quiz-loading__leaf" aria-hidden="true"></span>
+      <p>正在比較植物與你的環境條件</p>
+    </section>
 
-          <p id="result-desc" class="text-muted" style="max-width:50ch;margin-inline:auto">
-            <!-- 結果說明由 JavaScript 動態載入 -->
-          </p>
+    <div id="result-content" hidden>
+      <section class="result-hero" aria-labelledby="result-title">
+        <div class="container result-hero__inner">
+          <p class="quiz-eyebrow">Your Plant Match</p>
+          <h2 class="result-hero__title" id="result-title">正在產生配對結果</h2>
+          <p class="result-hero__description" id="result-description"></p>
+        </div>
+      </section>
 
-          <h2 class="section__title" style="margin-block-start:3rem">為你推薦的植物</h2>
+      <section class="result-section" aria-labelledby="profile-title">
+        <div class="container result-layout">
+          <aside class="result-profile">
+            <p class="quiz-eyebrow">Your Conditions</p>
+            <h2 id="profile-title">你的條件摘要</h2>
+            <dl class="result-profile__list" id="result-profile-list"></dl>
+            <p class="result-profile__note">結果是條件比較，不代表存活率；植物仍需依季節與實際介質狀態照護。</p>
+          </aside>
 
-          <div class="quiz-result__plants" id="result-plants">
-            <!-- 推薦植物卡片由 JavaScript 動態載入 -->
+          <div>
+            <div class="result-heading">
+              <div>
+                <p class="quiz-eyebrow">Available Plants</p>
+                <h2>適合購入的觀葉植物</h2>
+              </div>
+              <a class="btn btn--secondary" href="./quiz.html">重新配對</a>
+            </div>
+            <div class="match-grid" id="result-plants"></div>
           </div>
+        </div>
+      </section>
+    </div>
 
-          <div style="margin-block-start:2rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
-            <a class="btn btn--primary" href="./quiz.html">重新測驗</a>
-            <a class="btn btn--secondary" href="../plants/plants.html">瀏覽全部植物</a>
-          </div>
-
+    <section class="result-empty" id="result-empty" aria-labelledby="result-empty-title" hidden>
+      <div class="container result-empty__card">
+        <p class="quiz-eyebrow">No Safe Match</p>
+        <h2 id="result-empty-title">目前沒有符合條件的商品</h2>
+        <p id="result-empty-description"></p>
+        <p class="result-empty__suggestion" id="result-empty-suggestion"></p>
+        <div class="result-empty__actions">
+          <a class="btn btn--primary" href="./quiz.html">開始或重新配對</a>
+          <a class="btn btn--secondary" href="../plants/plants.html">瀏覽全部植物</a>
         </div>
       </div>
     </section>
 
+    <section class="result-error" id="result-error" aria-labelledby="result-error-title" hidden>
+      <div class="container result-empty__card">
+        <h2 id="result-error-title">無法產生配對結果</h2>
+        <p>請確認植物資料與配對規則可以正常載入，再重新整理頁面。</p>
+        <a class="btn btn--primary" href="./quiz.html">返回問卷</a>
+      </div>
+    </section>
   </main>
 
-  <footer class="site-footer" role="contentinfo">
-    <!-- 共用 Footer 載入位置（components/footer.html）-->
-  </footer>
+  <footer class="site-footer"></footer>
 
   <script src="../../assets/js/layout.js" defer></script>
-  <script src="../../assets/js/navigation.js" defer></script>
-  <script src="../../assets/js/cart.js" defer></script>
-  <script src="../../assets/js/quiz.js" defer></script>
-  <script src="../../assets/js/toast.js" defer></script>
+  <script src="../../assets/js/pages/quiz-result.js" defer></script>
   <script src="../../assets/js/main.js" defer></script>
-
 </body>
 </html>

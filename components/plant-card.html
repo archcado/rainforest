@@ -7,16 +7,27 @@
   ─────────────────────────────────────────────
 -->
 <article class="plant-card">
-  <a class="plant-card__image-link" href="/pages/plants/plant-detail.html?id={id}">
-    <img
-      class="plant-card__image"
-      src="/assets/images/placeholders/plant-placeholder.webp"
-      alt="{植物名稱}"
-      loading="lazy"
-      width="400"
-      height="300"
+  <div class="plant-card__media">
+    <a class="plant-card__image" href="/pages/plants/plant-detail.html?id={id}">
+      <img
+        src="/assets/images/placeholders/plant-placeholder.svg"
+        alt="{植物名稱}"
+        loading="lazy"
+        width="400"
+        height="300"
+      >
+    </a>
+    <button
+      class="plant-card__favorite"
+      type="button"
+      aria-label="收藏 {植物名稱}"
+      aria-pressed="false"
+      data-favorite-id="{id}"
+      data-name="{植物名稱}"
     >
-  </a>
+      <!-- Heart SVG Icon -->
+    </button>
+  </div>
 
   <div class="plant-card__body">
     <h3 class="plant-card__title">
@@ -24,30 +35,30 @@
     </h3>
     <p class="plant-card__scientific">{學名}</p>
 
-    <div class="plant-card__meta">
-      <span class="plant-card__price">NT$ {price}</span>
-      <span class="badge badge--neutral">{庫存狀態}</span>
+    <div class="plant-card__purchase">
+      <div class="plant-card__pricing">
+        <span class="plant-card__price-label">售價</span>
+        <div class="plant-card__price-row">
+          <strong class="plant-card__price">NT$ {price}</strong>
+          <!-- 特價時加入 plant-card__original-price 與 plant-card__discount -->
+        </div>
+      </div>
+      <span class="plant-card__stock">{庫存狀態}</span>
     </div>
 
     <div class="plant-card__actions">
-      <!-- 收藏 -->
       <button
-        class="btn btn--ghost btn--sm"
-        aria-label="加入收藏 {植物名稱}"
-        data-favorite-id="{id}"
-      >
-        <!-- Heart Icon -->
-      </button>
-
-      <!-- 加入購物車 -->
-      <button
-        class="btn btn--primary btn--sm"
+        class="btn btn--primary plant-card__cart-button"
         data-add-to-cart="{id}"
         data-name="{植物名稱}"
         data-price="{price}"
+        data-image="{image}"
       >
         加入購物車
       </button>
+      <a class="plant-card__detail-link" href="/pages/plants/plant-detail.html?id={id}">
+        查看詳情 →
+      </a>
     </div>
   </div>
 </article>

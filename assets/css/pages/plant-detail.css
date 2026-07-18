@@ -1,125 +1,655 @@
 /*
  * pages/plant-detail.css
- * ─────────────────────────────────────────────
- * 植物詳情頁（plant-detail.html）專屬樣式
- * 職責：圖片展示、照護資訊表格、加入購物車區塊、相關推薦。
- * 禁止：將此頁特殊樣式寫回全域 CSS。
- * 依賴：tokens.css, layout.css, components.css
- * ─────────────────────────────────────────────
+ * 植物商品詳情：商品規格、適生環境、照護內容、介質比例與配送說明。
  */
 
-/* ── 詳情主區塊 ── */
-.plant-detail {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-12);
-  align-items: start;
-  padding-block: var(--space-12);
+.plant-detail-page {
+  background:
+    radial-gradient(circle at 7% 12%, rgba(197, 220, 153, 0.18), transparent 28rem),
+    radial-gradient(circle at 94% 30%, rgba(184, 221, 193, 0.2), transparent 30rem),
+    var(--surface-mist);
 }
 
-/* ── 圖片區 ── */
+.plant-detail-status {
+  min-height: 50vh;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+}
+
+.plant-detail {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+  gap: clamp(var(--space-8), 6vw, var(--space-16));
+  align-items: start;
+  padding-block: var(--space-12) var(--space-16);
+}
+
 .plant-detail__gallery {
   position: sticky;
-  top: calc(72px + var(--space-4));
+  top: calc(82px + var(--space-4));
+}
+
+.plant-detail__image-frame {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(70, 96, 72, 0.16);
+  border-radius: clamp(var(--radius-md), 3vw, var(--radius-xl));
+  background:
+    radial-gradient(circle at 22% 20%, rgba(197, 220, 153, 0.85), transparent 34%),
+    radial-gradient(circle at 76% 28%, rgba(217, 184, 186, 0.48), transparent 32%),
+    linear-gradient(145deg, #edf3e4, #b8d3ae);
+  box-shadow: var(--shadow-soft);
+}
+
+.plant-detail__image-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 65%, rgba(35, 67, 48, 0.1));
 }
 
 .plant-detail__main-image {
   width: 100%;
-  aspect-ratio: 1;
-  border-radius: var(--radius-md);
-  object-fit: cover;
-  background-color: var(--surface-leaf);
+  aspect-ratio: 4 / 5;
+  object-fit: contain;
+  object-position: center bottom;
+  position: relative;
+  z-index: 1;
 }
 
 .plant-detail__thumbnails {
   display: flex;
   gap: var(--space-2);
   margin-block-start: var(--space-3);
-  flex-wrap: wrap;
+  overflow-x: auto;
+  padding-block-end: var(--space-1);
+}
+
+.plant-detail__thumb-button {
+  flex: 0 0 76px;
+  width: 76px;
+  height: 76px;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface-leaf);
+  cursor: pointer;
+}
+
+.plant-detail__thumb-button[aria-current="true"] {
+  border-color: var(--leaf-deep);
+  box-shadow: 0 0 0 2px rgba(52, 95, 69, 0.13);
 }
 
 .plant-detail__thumb {
-  width: 72px;
-  height: 72px;
-  border-radius: var(--radius-sm);
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  cursor: pointer;
-  border: 2px solid transparent;
-  background-color: var(--surface-leaf);
-  transition: border-color var(--duration-fast);
 }
 
-.plant-detail__thumb--active {
-  border-color: var(--leaf-deep);
+.plant-detail__image-note {
+  margin-block-start: var(--space-3);
+  font-size: var(--text-xs);
+  line-height: 1.7;
+  color: var(--muted);
 }
 
-/* ── 資訊區 ── */
 .plant-detail__info {
-  padding-block-start: var(--space-4);
+  padding-block-start: var(--space-2);
+}
+
+.plant-detail__eyebrow,
+.detail-section__eyebrow {
+  margin-block-end: var(--space-2);
+  color: var(--leaf-deep);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
 }
 
 .plant-detail__name {
-  font-size: var(--text-4xl);
-  font-weight: 700;
+  margin: 0;
   color: var(--canopy-950);
-  margin-block-end: var(--space-2);
+  font-size: clamp(2.25rem, 5vw, 4.25rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
 }
 
 .plant-detail__scientific {
-  font-size: var(--text-base);
+  margin-block-start: var(--space-2);
   color: var(--muted);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: var(--text-lg);
   font-style: italic;
-  margin-block-end: var(--space-4);
+}
+
+.plant-detail__headline {
+  margin-block-start: var(--space-6);
+  color: var(--canopy-900);
+  font-size: var(--text-xl);
+  font-weight: 650;
+}
+
+.plant-detail__summary {
+  margin-block-start: var(--space-3);
+  color: var(--muted);
+  line-height: 1.85;
+}
+
+.plant-detail__purchase-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-block-start: var(--space-8);
+  padding-block-end: var(--space-5);
+  border-bottom: 1px solid var(--line);
+}
+
+.plant-detail__pricing {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-3);
+  align-items: baseline;
 }
 
 .plant-detail__price {
-  font-size: var(--text-3xl);
-  font-weight: 700;
+  margin: 0;
   color: var(--canopy-900);
-  margin-block-end: var(--space-6);
+  font-size: var(--text-3xl);
+  font-weight: 750;
+  letter-spacing: -0.03em;
 }
 
-/* ── 照護指標 ── */
+.plant-detail__pricing--sale .plant-detail__price {
+  color: #9d493e;
+}
+
+.plant-detail__original-price {
+  color: var(--muted);
+  font-size: var(--text-sm);
+}
+
+.plant-detail__discount {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.65rem;
+  padding-inline: var(--space-2);
+  border-radius: var(--radius-full);
+  color: #9d493e;
+  background: #fff1ef;
+  font-size: var(--text-xs);
+  font-weight: 800;
+}
+
+.product-specs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-block-start: var(--space-5);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.product-specs__item {
+  padding: var(--space-4);
+}
+
+.product-specs__item:nth-child(odd) {
+  border-inline-end: 1px solid var(--line);
+}
+
+.product-specs__item:nth-child(-n + 2) {
+  border-block-end: 1px solid var(--line);
+}
+
+.product-specs dt {
+  color: var(--muted);
+  font-size: var(--text-xs);
+}
+
+.product-specs dd {
+  margin-block-start: var(--space-1);
+  color: var(--canopy-900);
+  font-size: var(--text-sm);
+  font-weight: 650;
+}
+
 .care-indicators {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--space-3);
   margin-block: var(--space-6);
 }
 
 .care-indicator {
-  background-color: var(--surface-sage);
+  min-height: 94px;
+  display: grid;
+  align-content: center;
+  padding: var(--space-4);
+  border: 1px solid rgba(70, 96, 72, 0.12);
   border-radius: var(--radius-sm);
-  padding: var(--space-3) var(--space-4);
-  text-align: center;
+  background: linear-gradient(145deg, rgba(237, 245, 226, 0.9), rgba(255, 255, 255, 0.72));
 }
 
 .care-indicator__label {
-  font-size: var(--text-xs);
+  margin: 0 0 var(--space-1);
   color: var(--muted);
-  margin-block-end: var(--space-1);
+  font-size: var(--text-xs);
 }
 
 .care-indicator__value {
+  margin: 0;
+  color: var(--canopy-900);
   font-size: var(--text-sm);
-  font-weight: 600;
+  font-weight: 650;
+  line-height: 1.45;
+}
+
+.plant-detail__actions {
+  display: grid;
+  grid-template-columns: 88px minmax(150px, 1fr) auto;
+  gap: var(--space-3);
+  align-items: end;
+}
+
+.quantity-field {
+  display: grid;
+  gap: var(--space-1);
+  color: var(--muted);
+  font-size: var(--text-xs);
+}
+
+.quantity-field .form-input {
+  width: 88px;
+  min-height: 48px;
+}
+
+.plant-detail__favorite {
+  min-height: 48px;
+}
+
+.included-items {
+  margin-block-start: var(--space-7);
+  padding: var(--space-5);
+  border-left: 3px solid var(--grass-fresh, #87a85f);
+  background: rgba(255, 255, 255, 0.52);
+}
+
+.included-items__title {
+  margin: 0;
+  color: var(--canopy-900);
+  font-size: var(--text-sm);
+}
+
+.included-items__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+  margin-block-start: var(--space-3);
+  color: var(--muted);
+  font-size: var(--text-sm);
+}
+
+.included-items__list li::before {
+  content: "—";
+  margin-inline-end: var(--space-2);
+  color: var(--leaf-deep);
+}
+
+.detail-section {
+  padding-block: clamp(var(--space-12), 8vw, var(--space-20));
+  border-top: 1px solid var(--line);
+}
+
+.detail-section__heading {
+  max-width: 760px;
+  margin-block-end: var(--space-8);
+}
+
+.detail-section__heading h2 {
+  margin: 0;
+  color: var(--canopy-950);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  letter-spacing: -0.025em;
+}
+
+.detail-section__heading > p:last-child {
+  margin-block-start: var(--space-3);
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.detail-section__heading--row {
+  max-width: none;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--space-5);
+}
+
+.environment-profile {
+  display: grid;
+  gap: var(--space-6);
+  padding: clamp(var(--space-5), 4vw, var(--space-10));
+  border: 1px solid rgba(70, 96, 72, 0.16);
+  border-radius: var(--radius-xl);
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: var(--shadow-soft);
+}
+
+.environment-row {
+  display: grid;
+  grid-template-columns: minmax(100px, 0.7fr) minmax(260px, 3fr) minmax(110px, 0.8fr);
+  gap: var(--space-5);
+  align-items: center;
+}
+
+.environment-row__name {
+  color: var(--canopy-900);
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+
+.environment-row__value {
+  color: var(--leaf-deep);
+  font-size: var(--text-sm);
+  font-weight: 650;
+  text-align: end;
+}
+
+.environment-scale {
+  min-width: 0;
+}
+
+.environment-scale__track {
+  --range-start: 25%;
+  --range-size: 35%;
+  position: relative;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #e9eee3, #d6e5c8);
+}
+
+.environment-scale__range {
+  position: absolute;
+  top: -4px;
+  left: var(--range-start);
+  width: var(--range-size);
+  height: 16px;
+  border: 2px solid var(--leaf-deep);
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--leaf-deep), #789b68);
+  box-shadow: 0 4px 10px rgba(52, 95, 69, 0.18);
+}
+
+.environment-scale__range--point {
+  width: 16px;
+  transform: translateX(-50%);
+}
+
+.environment-scale__labels {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-block-start: var(--space-3);
+  color: var(--muted);
+  font-size: 0.68rem;
+}
+
+.care-guide-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.care-guide-card {
+  min-height: 230px;
+  padding: var(--space-6);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.66);
+}
+
+.care-guide-card__index {
+  color: var(--grass-fresh, #789b68);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: var(--text-2xl);
+  font-style: italic;
+}
+
+.care-guide-card h3 {
+  margin-block-start: var(--space-5);
+  color: var(--canopy-900);
+  font-size: var(--text-lg);
+}
+
+.care-guide-card h3 + p {
+  margin-block-start: var(--space-3);
+  color: var(--muted);
+  font-size: var(--text-sm);
+  line-height: 1.8;
+}
+
+.substrate-section {
+  position: relative;
+}
+
+.substrate-composition {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.substrate-bar {
+  display: flex;
+  height: 54px;
+  overflow: hidden;
+  border: 1px solid rgba(70, 96, 72, 0.16);
+  border-radius: 999px;
+  background: var(--surface-leaf);
+}
+
+.substrate-bar__segment {
+  min-width: 0;
+  display: grid;
+  place-items: center;
+  color: var(--canopy-950);
+  font-size: var(--text-xs);
+  font-weight: 700;
+}
+
+.substrate-bar__segment:nth-child(4n + 1) { background: #c9d9ac; }
+.substrate-bar__segment:nth-child(4n + 2) { background: #a9c6a5; }
+.substrate-bar__segment:nth-child(4n + 3) { background: #dce6c9; }
+.substrate-bar__segment:nth-child(4n + 4) { background: #bdcfb8; }
+
+.substrate-legend {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.substrate-legend__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--muted);
+  font-size: var(--text-sm);
+}
+
+.substrate-legend__item strong {
   color: var(--canopy-900);
 }
 
-/* ── RWD ── */
+.substrate-repotting-note {
+  margin-block-start: var(--space-6);
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-sm);
+  background: var(--surface-leaf);
+  color: var(--canopy-900);
+  line-height: 1.75;
+}
+
+.product-notes__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.product-note-card {
+  padding: var(--space-6);
+  border-top: 3px solid var(--grass-fresh, #789b68);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.product-note-card h3 {
+  color: var(--canopy-900);
+  font-size: var(--text-base);
+}
+
+.product-note-card p {
+  margin-block-start: var(--space-3);
+  color: var(--muted);
+  font-size: var(--text-sm);
+  line-height: 1.8;
+}
+
+.related-plants-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+.related-plant-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.68);
+  transition: transform var(--duration-fast), box-shadow var(--duration-fast);
+}
+
+.related-plant-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-soft);
+}
+
+.related-plant-card__image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  background: linear-gradient(145deg, #edf3e4, #c1d8b5);
+}
+
+.related-plant-card__body {
+  padding: var(--space-5);
+}
+
+.related-plant-card__body h3 {
+  color: var(--canopy-900);
+  font-size: var(--text-lg);
+}
+
+.related-plant-card__body p {
+  margin-block: var(--space-1) var(--space-4);
+  color: var(--muted);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: var(--text-sm);
+  font-style: italic;
+}
+
 @media (max-width: 1023px) {
   .plant-detail {
     grid-template-columns: 1fr;
-    gap: var(--space-8);
   }
 
   .plant-detail__gallery {
     position: static;
   }
+
+  .plant-detail__main-image {
+    aspect-ratio: 16 / 12;
+  }
+
+  .care-guide-grid,
+  .product-notes__grid,
+  .related-plants-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .substrate-legend {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
-@media (max-width: 640px) {
-  .care-indicators {
-    grid-template-columns: repeat(2, 1fr);
+@media (max-width: 700px) {
+  .plant-detail {
+    padding-block-start: var(--space-6);
+  }
+
+  .product-specs,
+  .care-indicators,
+  .care-guide-grid,
+  .product-notes__grid,
+  .related-plants-grid,
+  .substrate-legend {
+    grid-template-columns: 1fr;
+  }
+
+  .product-specs__item,
+  .product-specs__item:nth-child(odd),
+  .product-specs__item:nth-child(-n + 2) {
+    border: 0;
+    border-block-end: 1px solid var(--line);
+  }
+
+  .product-specs__item:last-child {
+    border-block-end: 0;
+  }
+
+  .plant-detail__actions {
+    grid-template-columns: 84px 1fr;
+  }
+
+  .plant-detail__favorite {
+    grid-column: 1 / -1;
+  }
+
+  .environment-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .environment-row__value {
+    text-align: start;
+  }
+
+  .substrate-bar {
+    height: 40px;
+  }
+
+  .substrate-bar__segment {
+    font-size: 0;
+  }
+
+  .detail-section__heading--row {
+    align-items: start;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .related-plant-card {
+    transition: none;
   }
 }
