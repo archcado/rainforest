@@ -1,27 +1,21 @@
 {
-  "schemaVersion": "2.0.0",
-  "updatedAt": "2026-06-29",
+  "schemaVersion": "2.1.0",
+  "updatedAt": "2026-07-19",
   "locale": "zh-TW",
   "currency": "TWD",
-  "description": "CANOPY 植物商城與植物詳情頁共用的前端讀取模型。植物學、照護內容、媒體、商品與 SEO 資料集中於單一讀取物件；正式後端可再拆分為多個資料表。",
+  "description": "CANOPY 十六種正式植物商品的單一前端資料來源，整合商品規格、適生環境、介質配方、照護與安全資訊。",
   "dictionaries": {
     "stockStatus": {
-      "in-stock": "有庫存",
-      "low-stock": "低庫存",
-      "out-of-stock": "缺貨",
-      "preorder": "可預購",
-      "discontinued": "停止販售"
-    },
-    "difficulty": {
-      "easy": "新手適合",
-      "medium": "需要穩定照護",
-      "advanced": "進階照護"
+      "in-stock": "現貨供應",
+      "low-stock": "庫存有限",
+      "out-of-stock": "暫時缺貨",
+      "preorder": "可預購"
     },
     "light": {
+      "bright-direct": "柔和直射光",
       "bright-indirect": "明亮散射光",
       "medium-indirect": "中等散射光",
-      "low-to-indirect": "低光至散射光",
-      "avoid-direct-sun": "避免強烈直射光"
+      "low-to-indirect": "低光至散射光"
     },
     "humidity": {
       "normal-home": "一般室內濕度",
@@ -37,7 +31,15 @@
     "growthHabit": {
       "climbing": "攀爬型",
       "trailing": "垂吊／蔓生型",
-      "upright": "直立叢生型"
+      "upright": "直立型",
+      "clumping": "叢生型",
+      "rosette": "蓮座型"
+    },
+    "substrate": {
+      "chunky": "粗顆粒排水型",
+      "balanced": "均衡保水型",
+      "moisture-retentive": "保濕透氣型",
+      "gritty": "高排水礦物型"
     }
   },
   "plants": [
@@ -49,1203 +51,277 @@
         "name": "龜背芋",
         "shortName": "龜背芋",
         "englishName": "Swiss cheese plant",
-        "aliases": [
-          "大龜背芋",
-          "蓬萊蕉"
-        ],
+        "aliases": ["大龜背芋", "蓬萊蕉"],
         "scientificName": "Monstera deliciosa",
-        "acceptedScientificName": "Monstera deliciosa",
-        "scientificAuthor": "Liebm.",
-        "family": "Araceae",
-        "genus": "Monstera",
-        "species": "deliciosa",
-        "cultivar": null,
-        "hybrid": false,
-        "taxonomicRank": "species",
-        "taxonomicStatus": "accepted"
+        "family": "Araceae"
       },
       "catalog": {
-        "primaryCategory": "foliage-plant",
         "categoryLabel": "觀葉植物",
-        "seriesKey": "monstera-series",
-        "seriesLabel": "龜背芋系列",
-        "matrix": {
-          "row": 1,
-          "column": 1,
-          "displayOrder": 1
-        },
+        "displayOrder": 1,
         "featured": true,
-        "newArrival": false,
-        "bestSeller": true,
-        "tags": [
-          "雨林植物",
-          "大型葉片",
-          "裂葉",
-          "攀爬植物",
-          "新手適合"
-        ],
+        "tags": ["大型裂葉", "攀爬植物", "雨林植物"],
         "filterKeys": {
-          "light": [
-            "bright-indirect",
-            "medium-indirect"
-          ],
-          "humidity": [
-            "medium",
-            "medium-high"
-          ],
-          "difficulty": "easy",
+          "light": ["bright-indirect", "medium-indirect"],
+          "humidity": ["medium", "medium-high"],
+          "substrate": "chunky",
           "petFriendly": false,
-          "space": [
-            "medium-space",
-            "large-space"
-          ],
-          "growthHabit": [
-            "climbing"
-          ]
+          "space": ["medium-space", "large-space"],
+          "growthHabit": ["climbing"]
         }
       },
       "summary": {
         "headline": "經典大型雨林觀葉植物",
-        "shortDescription": "成熟葉片具有明顯裂葉與穿孔，適合明亮散射光、溫暖且具一定濕度的室內空間。",
-        "longDescription": "龜背芋是具代表性的熱帶攀爬植物。幼葉通常完整，隨植株成熟、光照與攀附條件改善，葉片會逐漸形成裂葉與穿孔。室內栽培時應提供足夠空間及穩定支撐，避免長期積水或突然曝曬。",
-        "keyFeatures": [
-          "大型心形至裂葉葉片",
-          "成熟葉可形成穿孔",
-          "具氣生根與攀爬習性",
-          "適合成為室內大型視覺主體"
-        ]
+        "shortDescription": "成熟葉片具有裂葉與穿孔，適合明亮散射光及具有生長空間的室內角落。",
+        "longDescription": "龜背芋是具代表性的熱帶攀爬植物。幼葉通常完整，隨植株成熟、光照與攀附條件改善，葉片會逐漸形成裂葉與穿孔。室內栽培時應提供穩定支撐，並避免長期積水或突然曝曬。",
+        "keyFeatures": ["大型心形裂葉", "成熟葉可形成穿孔", "具氣生根與攀爬習性"]
       },
       "morphology": {
         "growthHabit": "climbing",
         "growthRate": "medium",
-        "matureIndoorSize": {
-          "heightCm": {
-            "min": 120,
-            "max": 250,
-            "note": "實際大小受空間、支撐、光照與修剪影響。"
-          },
-          "spreadCm": {
-            "min": 80,
-            "max": 180
-          }
-        },
-        "leaf": {
-          "shape": "大型心形，成熟後形成裂葉與穿孔",
-          "surface": "革質、有自然光澤",
-          "primaryColor": "深綠",
-          "variegation": false,
-          "distinctiveTraits": [
-            "fenestration",
-            "split-leaf",
-            "aerial-roots"
-          ]
-        },
-        "supportRequired": true,
-        "recommendedSupport": [
-          "moss-pole",
-          "coir-pole",
-          "trellis"
-        ]
+        "matureIndoorSize": {"heightCm": {"min": 120, "max": 250}, "spreadCm": {"min": 80, "max": 180}}
+      },
+      "environmentProfile": {
+        "light": {"scale": ["低光", "中等散射光", "明亮散射光", "柔和直射光"], "idealMin": 1, "idealMax": 2, "label": "中等至明亮散射光", "notes": "可接受柔和晨光，避免午後強烈直射。"},
+        "humidity": {"scaleMin": 40, "scaleMax": 90, "idealMin": 55, "idealMax": 75, "unit": "%", "label": "55–75%"},
+        "temperature": {"scaleMin": 10, "scaleMax": 35, "idealMin": 18, "idealMax": 28, "unit": "°C", "label": "18–28°C"},
+        "growthRate": {"scale": ["緩慢", "中等", "快速"], "value": 1, "label": "中等"}
       },
       "care": {
-        "difficulty": "easy",
-        "light": {
-          "primary": "bright-indirect",
-          "acceptedLevels": [
-            "bright-indirect",
-            "medium-indirect"
-          ],
-          "avoid": [
-            "長時間強烈直射光",
-            "長期極低光"
-          ],
-          "placement": [
-            "東向窗附近",
-            "西向窗附近但避開午後直曬",
-            "明亮房間內離窗一段距離"
-          ],
-          "notes": "光線不足時生長速度與成熟葉穿孔表現可能下降。"
-        },
-        "watering": {
-          "strategy": "condition-based",
-          "trigger": "介質表層已部分乾燥，盆器重量明顯變輕時再澆水。",
-          "method": "一次澆透，並讓多餘水分完全排出。",
-          "avoid": [
-            "固定星期澆水而不檢查介質",
-            "盆底長期積水",
-            "冬季維持與夏季相同水量"
-          ],
-          "seasonalAdjustment": {
-            "springSummer": "生長期依介質乾燥速度正常補水。",
-            "autumnWinter": "降低頻率，避免低溫與低光下過濕。"
-          }
-        },
-        "humidity": {
-          "level": "medium-high",
-          "preferred": "中等至較高濕度",
-          "notes": "保持通風；提高濕度時不可讓葉面與介質長期悶濕。"
-        },
-        "temperature": {
-          "preferredCelsius": {
-            "min": 18,
-            "max": 25
-          },
-          "minimumCelsius": 18,
-          "avoid": [
-            "冷風",
-            "冷氣出風口",
-            "暖氣直接吹拂",
-            "劇烈溫差"
-          ]
-        },
+        "observationFrequency": "medium",
+        "environmentSensitivity": "moderate",
+        "light": {"primary": "bright-indirect", "acceptedLevels": ["bright-indirect", "medium-indirect"], "placement": "東向窗附近，或西向窗內側避開午後直曬。", "notes": "長期低光會使新葉變小並降低穿孔表現。"},
+        "watering": {"trigger": "表層介質乾燥約 3–5 公分，且盆器重量變輕時再澆水。", "method": "一次澆透，讓多餘水分完全排出。", "avoid": ["固定日期澆水", "盆底長期積水"]},
+        "humidity": {"level": "medium-high", "preferred": "55–75%", "notes": "提高濕度時仍需維持通風。"},
+        "temperature": {"preferredCelsius": {"min": 18, "max": 28}, "minimumCelsius": 15},
         "substrate": {
-          "type": "chunky-well-drained",
-          "label": "保水但排水良好的粗顆粒觀葉介質",
-          "properties": [
-            "透氣",
-            "排水良好",
-            "具有一定保水性",
-            "不易板結"
-          ],
-          "suggestedComponents": [
-            "椰纖或泥炭替代介質",
-            "樹皮",
-            "珍珠石",
-            "浮石",
-            "少量有機質"
-          ]
+          "type": "chunky",
+          "label": "粗顆粒排水型介質",
+          "summary": "兼顧根系含氧量、排水與適度保水，避免細土長期板結。",
+          "properties": ["透氣", "排水良好", "不易板結"],
+          "components": [{"name": "椰纖土", "percentage": 40}, {"name": "松樹皮", "percentage": 30}, {"name": "珍珠石", "percentage": 20}, {"name": "園藝木炭", "percentage": 10}],
+          "repottingNote": "約每 1–2 年於春季檢查根系與介質結構。"
         },
-        "fertilizing": {
-          "activeSeason": "生長期約每月施用一次均衡液肥。",
-          "dormantSeason": "低光或低溫期間減少或暫停。",
-          "avoid": [
-            "乾燥介質直接施肥",
-            "超過標示濃度"
-          ]
-        },
-        "repotting": {
-          "frequency": "約每 1–2 年檢查一次，依根系與介質狀況決定。",
-          "bestSeason": "春季至初夏",
-          "signals": [
-            "根系明顯擁擠",
-            "介質排水速度異常",
-            "盆器比例失衡",
-            "植株容易傾倒"
-          ]
-        },
-        "pruning": {
-          "purpose": [
-            "移除受損葉片",
-            "控制株型",
-            "維持通風"
-          ],
-          "notes": "使用清潔工具，避免一次移除過多健康葉片。"
-        },
-        "propagation": {
-          "methods": [
-            "帶節莖插",
-            "頂芽插",
-            "空中壓條"
-          ],
-          "requirements": [
-            "插穗需包含節點",
-            "無節葉片通常無法形成完整新植株"
-          ]
-        },
-        "commonProblems": [
-          {
-            "symptom": "葉緣焦褐",
-            "possibleCauses": [
-              "空氣過乾",
-              "澆水不穩定",
-              "鹽分累積"
-            ]
-          },
-          {
-            "symptom": "黃葉與介質長期濕潤",
-            "possibleCauses": [
-              "澆水過量",
-              "排水不良",
-              "根系缺氧"
-            ]
-          },
-          {
-            "symptom": "新葉小且缺少穿孔",
-            "possibleCauses": [
-              "光線不足",
-              "缺乏攀爬支撐",
-              "植株尚未成熟"
-            ]
-          }
-        ],
-        "commonPests": [
-          "介殼蟲",
-          "粉介殼蟲",
-          "紅蜘蛛"
-        ]
+        "fertilizing": "春夏生長期每 4–6 週施用一次稀釋均衡液肥，低溫與低光期減量。",
+        "commonProblems": ["黃葉且介質久濕通常與過度澆水或排水不良有關。", "新葉小且無穿孔時應檢查光照與攀爬支撐。"]
       },
-      "safety": {
-        "petFriendly": false,
-        "toxicTo": [
-          "cats",
-          "dogs"
-        ],
-        "toxicPrinciple": "insoluble-calcium-oxalates",
-        "riskLevel": "toxic-if-chewed-or-ingested",
-        "symptoms": [
-          "口腔刺激",
-          "流口水",
-          "嘔吐",
-          "吞嚥困難"
-        ],
-        "handlingNotes": [
-          "放置於兒童與寵物不易接觸的位置",
-          "修剪後清潔工具與手部"
-        ],
-        "disclaimer": "本資訊不能取代獸醫或醫療診斷；若誤食或出現症狀，應立即聯絡專業人員。"
-      },
+      "safety": {"petFriendly": false, "toxicTo": ["cats", "dogs"], "note": "植株含不溶性草酸鈣結晶，啃咬可能造成口腔刺激。", "disclaimer": "若寵物誤食或出現症狀，請立即聯絡獸醫。"},
       "commerce": {
         "sellable": true,
-        "basePrice": {
-          "amount": 680,
-          "currency": "TWD"
-        },
-        "compareAtPrice": null,
-        "taxable": true,
+        "basePrice": {"amount": 680, "currency": "TWD"},
         "stockStatus": "in-stock",
-        "totalStock": null,
-        "purchaseLimit": null,
-        "variants": [
-          {
-            "sku": "CAN-MON-DEL-STD",
-            "name": "標準株",
-            "active": true,
-            "price": {
-              "amount": 680,
-              "currency": "TWD"
-            },
-            "stockStatus": "in-stock",
-            "stockQuantity": null,
-            "plantHeightCm": {
-              "min": null,
-              "max": null
-            },
-            "nurseryPotCm": null,
-            "weightGram": null,
-            "requiresManualDimensionInput": true
-          }
-        ],
-        "shipping": {
-          "available": true,
-          "fragile": true,
-          "oversized": false,
-          "temperatureSensitive": true,
-          "notes": "實際包裝、植株高度與配送限制待商品規格確認。"
-        }
+        "totalStock": 18,
+        "includedItems": ["健康植株一盆", "6 吋育苗盆", "紙本照護說明卡"],
+        "variants": [{"sku": "CAN-MON-DEL-006", "name": "6 吋標準株", "active": true, "price": {"amount": 680, "currency": "TWD"}, "stockStatus": "in-stock", "stockQuantity": 18, "plantHeightCm": {"min": 45, "max": 60}, "nurseryPotCm": 15, "decorativePotIncluded": false}],
+        "shipping": {"available": true, "fragile": true, "notes": "以護葉紙及固定支架包裝，出貨後請儘早拆箱並置於通風散射光處。"},
+        "livingPlantNotice": "植物為自然生長商品，每株葉片數量、紋理、株型與高度可能略有差異。"
       },
-      "media": {
-        "cardImage": {
-          "src": "assets/images/plants/monstera-deliciosa-card.webp",
-          "alt": "龜背芋大型深綠裂葉與穿孔葉片",
-          "aspectRatio": "4:5",
-          "background": "transparent",
-          "objectPosition": "center bottom"
-        },
-        "heroImage": {
-          "src": "assets/images/plants/monstera-deliciosa-hero.webp",
-          "alt": "龜背芋完整植株去背主視覺",
-          "aspectRatio": "4:5",
-          "background": "transparent",
-          "objectPosition": "center bottom"
-        },
-        "gallery": [
-          {
-            "type": "leaf-detail",
-            "src": "assets/images/plants/monstera-deliciosa-leaf-detail.webp",
-            "alt": "龜背芋成熟葉片穿孔細節"
-          },
-          {
-            "type": "scale-reference",
-            "src": "assets/images/plants/monstera-deliciosa-scale.webp",
-            "alt": "龜背芋植株尺寸比例示意"
-          }
-        ],
-        "imageDirection": {
-          "singlePlantOnly": true,
-          "potVisible": false,
-          "transparentBackground": true,
-          "lighting": "soft-natural-diffused",
-          "shadow": "subtle-drop-shadow"
-        }
-      },
-      "content": {
-        "careHighlights": [
-          "明亮散射光",
-          "介質部分乾燥後再澆透",
-          "提供攀爬支撐",
-          "避免寵物啃咬"
-        ],
-        "beginnerTips": [
-          "不要依固定日曆澆水，先檢查介質與盆器重量。",
-          "新葉未穿孔不一定是異常，成熟度、光照與攀爬條件都會影響。",
-          "大型植株應定期轉盆，使受光較平均。"
-        ],
-        "warnings": [
-          "汁液及植株組織可能造成刺激。",
-          "盆器過大與介質過濕會提高根系問題風險。"
-        ],
-        "faq": [
-          {
-            "question": "龜背芋為什麼沒有開孔？",
-            "answer": "常見原因包括植株尚未成熟、光線不足或缺少攀爬支撐。"
-          },
-          {
-            "question": "可以放在低光房間嗎？",
-            "answer": "可短期適應較低光，但長期低光通常會使生長變慢、葉片變小。"
-          }
-        ]
-      },
-      "relations": {
-        "relatedPlantIds": [],
-        "recommendedCareArticleIds": [
-          "care-light-001",
-          "care-watering-001",
-          "care-support-001"
-        ],
-        "quizTraitKeys": [
-          "statement-plant",
-          "bright-indirect-light",
-          "medium-care-time",
-          "no-pet-access"
-        ]
-      },
-      "seo": {
-        "title": "龜背芋｜植物選品與照護指南｜CANOPY",
-        "description": "查看龜背芋的光照、澆水、濕度、介質、毒性、商品規格與完整照護資訊。",
-        "keywords": [
-          "龜背芋",
-          "Monstera deliciosa",
-          "雨林植物",
-          "室內植物",
-          "龜背芋照護"
-        ],
-        "canonicalPath": "/pages/plants/plant-detail.html?slug=monstera-deliciosa"
-      },
-      "editorial": {
-        "contentStatus": "reviewed-structure",
-        "horticulturalReviewStatus": "needs-final-local-review",
-        "commerceReviewStatus": "needs-product-dimensions",
-        "lastReviewedAt": "2026-06-29",
-        "sourceRefs": [
-          "kew-powo-monstera-deliciosa",
-          "rhs-monstera-growing-guide",
-          "rhs-monstera-deliciosa-details",
-          "aspca-monstera-deliciosa"
-        ]
-      }
+      "media": {"cardImage": {"src": "assets/images/plants/monstera-deliciosa-card.webp", "alt": "龜背芋大型深綠裂葉"}, "heroImage": {"src": "assets/images/plants/monstera-deliciosa-hero.webp", "alt": "龜背芋六吋標準株"}, "gallery": [{"src": "assets/images/plants/monstera-deliciosa-leaf-detail.webp", "alt": "龜背芋成熟葉片細節"}]},
+      "relations": {"relatedPlantIds": ["plant-004", "plant-009", "plant-003"]},
+      "seo": {"title": "龜背芋商品與照護指南｜CANOPY", "description": "龜背芋六吋標準株商品規格、適生環境、介質與完整照護資訊。"},
+      "editorial": {"lastReviewedAt": "2026-07-19", "sourceRefs": ["RHS houseplant guidance", "ASPCA toxic and non-toxic plants"]}
     },
     {
       "id": "plant-002",
       "slug": "alocasia-amazonica",
       "status": "published",
-      "identity": {
-        "name": "黑葉觀音蓮",
-        "shortName": "黑葉觀音蓮",
-        "englishName": "African mask plant",
-        "aliases": [
-          "亞馬遜海芋",
-          "非洲面具海芋"
-        ],
-        "scientificName": "Alocasia × amazonica",
-        "acceptedScientificName": "Alocasia × mortfontanensis",
-        "scientificAuthor": null,
-        "family": "Araceae",
-        "genus": "Alocasia",
-        "species": null,
-        "cultivar": null,
-        "hybrid": true,
-        "taxonomicRank": "artificial-hybrid",
-        "taxonomicStatus": "horticultural-name-with-taxonomic-note",
-        "nameUsageNote": "園藝流通常使用 Alocasia × amazonica；Kew POWO 將此名稱列為未定位名稱，並接受 Alocasia × mortfontanensis 為人工雜交種。"
-      },
-      "catalog": {
-        "primaryCategory": "foliage-plant",
-        "categoryLabel": "觀葉植物",
-        "seriesKey": "alocasia-series",
-        "seriesLabel": "海芋系列",
-        "matrix": {
-          "row": 2,
-          "column": 1,
-          "displayOrder": 5
-        },
-        "featured": true,
-        "newArrival": false,
-        "bestSeller": false,
-        "tags": [
-          "雨林植物",
-          "箭形葉",
-          "高對比葉脈",
-          "高濕度",
-          "進階新手"
-        ],
-        "filterKeys": {
-          "light": [
-            "bright-indirect"
-          ],
-          "humidity": [
-            "high"
-          ],
-          "difficulty": "medium",
-          "petFriendly": false,
-          "space": [
-            "small-space",
-            "medium-space"
-          ],
-          "growthHabit": [
-            "upright"
-          ]
-        }
-      },
-      "summary": {
-        "headline": "深色箭形葉與銀白葉脈",
-        "shortDescription": "具有深綠至近黑色箭形葉片及明顯淺色葉脈，偏好明亮散射光、溫暖與高濕度環境。",
-        "longDescription": "黑葉觀音蓮以高對比葉脈與直立葉姿著稱。相較龜背芋，它對低溫、乾燥空氣與澆水失衡更敏感，適合能維持穩定環境並願意定期觀察介質狀態的使用者。",
-        "keyFeatures": [
-          "箭形深色葉片",
-          "銀白色高對比葉脈",
-          "直立叢生株型",
-          "適合作為中小型視覺焦點"
-        ]
-      },
-      "morphology": {
-        "growthHabit": "upright",
-        "growthRate": "medium",
-        "matureIndoorSize": {
-          "heightCm": {
-            "min": 40,
-            "max": 90,
-            "note": "不同栽培系、環境與商品株齡差異較大。"
-          },
-          "spreadCm": {
-            "min": 35,
-            "max": 80
-          }
-        },
-        "leaf": {
-          "shape": "箭形至盾形",
-          "surface": "略具光澤",
-          "primaryColor": "深綠至近黑綠",
-          "secondaryColor": "銀白葉脈",
-          "variegation": false,
-          "distinctiveTraits": [
-            "arrow-shaped-leaf",
-            "contrasting-veins",
-            "upright-petioles"
-          ]
-        },
-        "supportRequired": false,
-        "recommendedSupport": []
-      },
-      "care": {
-        "difficulty": "medium",
-        "light": {
-          "primary": "bright-indirect",
-          "acceptedLevels": [
-            "bright-indirect"
-          ],
-          "avoid": [
-            "強烈直射光",
-            "長期低光"
-          ],
-          "placement": [
-            "明亮但無直曬的窗邊",
-            "具遮光簾的東向或西向空間"
-          ],
-          "notes": "低光可使生長顯著變慢，強光則可能造成葉片灼傷。"
-        },
-        "watering": {
-          "strategy": "condition-based",
-          "trigger": "表層介質開始乾燥，但根域尚未完全乾透時補水。",
-          "method": "均勻澆透並排出積水。",
-          "avoid": [
-            "長期乾透",
-            "盆底積水",
-            "冬季過度澆水"
-          ],
-          "seasonalAdjustment": {
-            "springSummer": "生長期維持較穩定的介質水分。",
-            "autumnWinter": "生長減緩時明顯降低澆水量與頻率。"
-          }
-        },
-        "humidity": {
-          "level": "high",
-          "preferred": "高濕度且空氣流通",
-          "notes": "可使用加濕設備或群植方式提高環境濕度，但不可讓葉面長期濕滯。"
-        },
-        "temperature": {
-          "preferredCelsius": {
-            "min": 16,
-            "max": 30
-          },
-          "minimumCelsius": 15,
-          "avoid": [
-            "低於建議最低溫",
-            "冷氣直吹",
-            "夜間劇烈降溫"
-          ]
-        },
-        "substrate": {
-          "type": "airy-moisture-retentive",
-          "label": "保水但高度透氣的海芋介質",
-          "properties": [
-            "排水快速",
-            "含氧量高",
-            "具有適度保水性"
-          ],
-          "suggestedComponents": [
-            "無泥炭室內植物介質",
-            "珍珠石",
-            "細樹皮",
-            "椰纖",
-            "少量浮石"
-          ]
-        },
-        "fertilizing": {
-          "activeSeason": "春季至秋季約每 2–3 週施用一般液肥，依產品標示稀釋。",
-          "dormantSeason": "冬季生長緩慢時減少或暫停。",
-          "avoid": [
-            "低溫休眠期高頻施肥",
-            "乾燥根系直接接觸濃肥"
-          ]
-        },
-        "repotting": {
-          "frequency": "通常可先留在原盆約一年，之後依根系狀態每數年換盆。",
-          "bestSeason": "春季",
-          "signals": [
-            "根系擁擠",
-            "介質結構劣化",
-            "澆水後長期不乾",
-            "植株與盆器比例不穩"
-          ]
-        },
-        "pruning": {
-          "purpose": [
-            "移除黃化或受損葉片",
-            "降低病害與腐敗風險"
-          ],
-          "notes": "葉柄應以清潔工具從基部附近移除。"
-        },
-        "propagation": {
-          "methods": [
-            "分株",
-            "分離側芽或球莖"
-          ],
-          "requirements": [
-            "待側芽具有獨立根系後再分離"
-          ]
-        },
-        "commonProblems": [
-          {
-            "symptom": "葉片下垂",
-            "possibleCauses": [
-              "缺水",
-              "過濕造成根系問題",
-              "低溫",
-              "環境突然改變"
-            ]
-          },
-          {
-            "symptom": "葉緣乾焦",
-            "possibleCauses": [
-              "空氣過乾",
-              "水分波動",
-              "肥料或鹽分累積"
-            ]
-          },
-          {
-            "symptom": "冬季落葉或生長停滯",
-            "possibleCauses": [
-              "季節性休眠",
-              "低溫",
-              "光照下降"
-            ]
-          }
-        ],
-        "commonPests": [
-          "紅蜘蛛",
-          "粉介殼蟲",
-          "介殼蟲"
-        ]
-      },
-      "safety": {
-        "petFriendly": false,
-        "toxicTo": [
-          "cats",
-          "dogs",
-          "horses"
-        ],
-        "toxicPrinciple": "insoluble-calcium-oxalates",
-        "riskLevel": "toxic-if-chewed-or-ingested",
-        "symptoms": [
-          "口腔疼痛與刺激",
-          "嘴唇或舌部腫脹",
-          "流口水",
-          "嘔吐",
-          "吞嚥困難"
-        ],
-        "handlingNotes": [
-          "汁液可能刺激皮膚與眼睛",
-          "修剪時建議戴手套",
-          "遠離兒童與寵物"
-        ],
-        "disclaimer": "本資訊不能取代獸醫或醫療診斷；若誤食或出現症狀，應立即聯絡專業人員。"
-      },
-      "commerce": {
-        "sellable": true,
-        "basePrice": {
-          "amount": 1280,
-          "currency": "TWD"
-        },
-        "compareAtPrice": null,
-        "taxable": true,
-        "stockStatus": "low-stock",
-        "totalStock": null,
-        "purchaseLimit": null,
-        "variants": [
-          {
-            "sku": "CAN-ALO-AMZ-STD",
-            "name": "標準株",
-            "active": true,
-            "price": {
-              "amount": 1280,
-              "currency": "TWD"
-            },
-            "stockStatus": "low-stock",
-            "stockQuantity": null,
-            "plantHeightCm": {
-              "min": null,
-              "max": null
-            },
-            "nurseryPotCm": null,
-            "weightGram": null,
-            "requiresManualDimensionInput": true
-          }
-        ],
-        "shipping": {
-          "available": true,
-          "fragile": true,
-          "oversized": false,
-          "temperatureSensitive": true,
-          "notes": "海芋葉片與葉柄較易在搬運中受損，需加強固定並避開低溫配送。"
-        }
-      },
-      "media": {
-        "cardImage": {
-          "src": "assets/images/plants/alocasia-amazonica-card.webp",
-          "alt": "黑葉觀音蓮深色箭形葉片與銀白葉脈",
-          "aspectRatio": "4:5",
-          "background": "transparent",
-          "objectPosition": "center bottom"
-        },
-        "heroImage": {
-          "src": "assets/images/plants/alocasia-amazonica-hero.webp",
-          "alt": "黑葉觀音蓮完整植株去背主視覺",
-          "aspectRatio": "4:5",
-          "background": "transparent",
-          "objectPosition": "center bottom"
-        },
-        "gallery": [
-          {
-            "type": "leaf-detail",
-            "src": "assets/images/plants/alocasia-amazonica-leaf-detail.webp",
-            "alt": "黑葉觀音蓮葉脈與葉面細節"
-          },
-          {
-            "type": "scale-reference",
-            "src": "assets/images/plants/alocasia-amazonica-scale.webp",
-            "alt": "黑葉觀音蓮植株尺寸比例示意"
-          }
-        ],
-        "imageDirection": {
-          "singlePlantOnly": true,
-          "potVisible": false,
-          "transparentBackground": true,
-          "lighting": "soft-natural-diffused",
-          "shadow": "subtle-drop-shadow"
-        }
-      },
-      "content": {
-        "careHighlights": [
-          "明亮散射光",
-          "高濕度",
-          "溫暖且穩定",
-          "冬季減少澆水"
-        ],
-        "beginnerTips": [
-          "葉片下垂不一定代表缺水，先檢查介質與根部狀態。",
-          "放置位置應避開冷氣與門窗冷風。",
-          "冬季生長減緩時不可照夏季頻率澆水。"
-        ],
-        "warnings": [
-          "對低溫與澆水失衡較敏感。",
-          "葉片與葉柄在搬動時容易受損。"
-        ],
-        "faq": [
-          {
-            "question": "冬天葉片減少是死亡嗎？",
-            "answer": "海芋可能在低溫與低光期間進入生長停滯或休眠，應先檢查根莖健康並降低澆水。"
-          },
-          {
-            "question": "葉片下垂是否應立即澆水？",
-            "answer": "不應只依葉片判斷；過濕、缺水、低溫與環境改變都可能造成下垂。"
-          }
-        ]
-      },
-      "relations": {
-        "relatedPlantIds": [],
-        "recommendedCareArticleIds": [
-          "care-humidity-001",
-          "care-watering-001",
-          "care-dormancy-001"
-        ],
-        "quizTraitKeys": [
-          "dramatic-foliage",
-          "bright-indirect-light",
-          "high-humidity",
-          "regular-observation",
-          "no-pet-access"
-        ]
-      },
-      "seo": {
-        "title": "黑葉觀音蓮｜植物選品與照護指南｜CANOPY",
-        "description": "查看黑葉觀音蓮的光照、濕度、溫度、澆水、休眠、毒性與商品規格。",
-        "keywords": [
-          "黑葉觀音蓮",
-          "Alocasia amazonica",
-          "亞馬遜海芋",
-          "海芋照護",
-          "高濕度植物"
-        ],
-        "canonicalPath": "/pages/plants/plant-detail.html?slug=alocasia-amazonica"
-      },
-      "editorial": {
-        "contentStatus": "reviewed-structure",
-        "horticulturalReviewStatus": "needs-final-local-review",
-        "commerceReviewStatus": "needs-product-dimensions",
-        "lastReviewedAt": "2026-06-29",
-        "sourceRefs": [
-          "kew-powo-alocasia-mortfontanensis",
-          "rhs-alocasia-amazonica",
-          "rhs-alocasia-growing-guide",
-          "aspca-alocasia"
-        ]
-      }
+      "identity": {"name": "黑葉觀音蓮", "shortName": "黑葉觀音蓮", "englishName": "African mask plant", "aliases": ["亞馬遜海芋"], "scientificName": "Alocasia × amazonica", "family": "Araceae"},
+      "catalog": {"categoryLabel": "觀葉植物", "displayOrder": 2, "featured": true, "tags": ["箭形葉", "銀白葉脈", "高濕度"], "filterKeys": {"light": ["bright-indirect"], "humidity": ["high"], "substrate": "moisture-retentive", "petFriendly": false, "space": ["small-space", "medium-space"], "growthHabit": ["upright"]}},
+      "summary": {"headline": "深色箭形葉與銀白葉脈", "shortDescription": "高對比箭形葉片帶來鮮明層次，適合溫暖、明亮且濕度穩定的室內空間。", "longDescription": "黑葉觀音蓮以深色葉面與銀白葉脈著稱。它偏好穩定的溫濕度與透氣但能保留部分水分的介質，應避開冷氣直吹、低溫與忽乾忽濕。", "keyFeatures": ["深色箭形葉", "銀白高對比葉脈", "直立叢生株型"]},
+      "morphology": {"growthHabit": "upright", "growthRate": "medium", "matureIndoorSize": {"heightCm": {"min": 45, "max": 90}, "spreadCm": {"min": 35, "max": 75}}},
+      "environmentProfile": {"light": {"scale": ["低光", "中等散射光", "明亮散射光", "柔和直射光"], "idealMin": 2, "idealMax": 2, "label": "明亮散射光", "notes": "避免強烈直射及長期低光。"}, "humidity": {"scaleMin": 40, "scaleMax": 90, "idealMin": 65, "idealMax": 80, "unit": "%", "label": "65–80%"}, "temperature": {"scaleMin": 10, "scaleMax": 35, "idealMin": 20, "idealMax": 28, "unit": "°C", "label": "20–28°C"}, "growthRate": {"scale": ["緩慢", "中等", "快速"], "value": 1, "label": "中等"}},
+      "care": {"observationFrequency": "high", "environmentSensitivity": "sensitive", "light": {"primary": "bright-indirect", "acceptedLevels": ["bright-indirect"], "placement": "有遮光簾的明亮窗邊。", "notes": "低光會使生長停滯，強烈日照可能灼傷葉片。"}, "watering": {"trigger": "表層約 2 公分開始乾燥、根域仍微潤時補水。", "method": "均勻澆透並完全排出積水。", "avoid": ["介質完全乾透", "冬季過度澆水"]}, "humidity": {"level": "high", "preferred": "65–80%", "notes": "高濕度環境仍需維持空氣流通。"}, "temperature": {"preferredCelsius": {"min": 20, "max": 28}, "minimumCelsius": 16}, "substrate": {"type": "moisture-retentive", "label": "保濕透氣型介質", "summary": "保留均勻水分，同時以樹皮與珍珠石維持根域含氧。", "properties": ["保濕", "透氣", "排水穩定"], "components": [{"name": "椰纖土", "percentage": 45}, {"name": "細松樹皮", "percentage": 25}, {"name": "珍珠石", "percentage": 20}, {"name": "水苔碎料", "percentage": 10}], "repottingNote": "春季依根系擁擠程度換盆，避免一次使用過大的盆器。"}, "fertilizing": "春夏每 3–4 週施用一次稀釋液肥，冬季生長停滯時暫停。", "commonProblems": ["葉緣焦褐常與濕度不足或水分波動有關。", "葉柄軟垂且介質久濕時應檢查根系。"]},
+      "safety": {"petFriendly": false, "toxicTo": ["cats", "dogs"], "note": "植株含不溶性草酸鈣結晶，應避免兒童與寵物啃咬。", "disclaimer": "若寵物誤食或出現症狀，請立即聯絡獸醫。"},
+      "commerce": {"sellable": true, "basePrice": {"amount": 980, "currency": "TWD"}, "stockStatus": "low-stock", "totalStock": 6, "includedItems": ["健康植株一盆", "5 吋育苗盆", "紙本照護說明卡"], "variants": [{"sku": "CAN-ALO-AMZ-005", "name": "5 吋標準株", "active": true, "price": {"amount": 980, "currency": "TWD"}, "stockStatus": "low-stock", "stockQuantity": 6, "plantHeightCm": {"min": 30, "max": 45}, "nurseryPotCm": 12, "decorativePotIncluded": false}], "shipping": {"available": true, "fragile": true, "notes": "葉柄較易受壓，使用獨立固定結構包裝並避開低溫配送。"}, "livingPlantNotice": "植物為自然生長商品，每株葉片數量、葉脈紋理與高度可能略有差異。"},
+      "media": {"cardImage": {"src": "assets/images/plants/alocasia-amazonica-card.webp", "alt": "黑葉觀音蓮箭形葉片"}, "heroImage": {"src": "assets/images/plants/alocasia-amazonica-hero.webp", "alt": "黑葉觀音蓮五吋標準株"}, "gallery": [{"src": "assets/images/plants/alocasia-amazonica-leaf-detail.webp", "alt": "黑葉觀音蓮銀白葉脈細節"}]},
+      "relations": {"relatedPlantIds": ["plant-008", "plant-010", "plant-014"]},
+      "seo": {"title": "黑葉觀音蓮商品與照護指南｜CANOPY", "description": "黑葉觀音蓮商品規格、高濕度環境、介質與完整照護資訊。"},
+      "editorial": {"lastReviewedAt": "2026-07-19", "sourceRefs": ["RHS houseplant guidance", "ASPCA toxic and non-toxic plants"]}
     },
     {
       "id": "plant-003",
       "slug": "epipremnum-aureum-golden",
       "status": "published",
-      "identity": {
-        "name": "黃金葛",
-        "shortName": "黃金葛",
-        "englishName": "Golden pothos",
-        "aliases": [
-          "綠蘿",
-          "魔鬼藤"
-        ],
-        "scientificName": "Epipremnum aureum",
-        "acceptedScientificName": "Epipremnum aureum",
-        "scientificAuthor": "(Linden & André) G.S.Bunting",
-        "family": "Araceae",
-        "genus": "Epipremnum",
-        "species": "aureum",
-        "cultivar": null,
-        "hybrid": false,
-        "taxonomicRank": "species",
-        "taxonomicStatus": "accepted"
-      },
-      "catalog": {
-        "primaryCategory": "foliage-plant",
-        "categoryLabel": "觀葉植物",
-        "seriesKey": "trailing-aroid-series",
-        "seriesLabel": "蔓生天南星系列",
-        "matrix": {
-          "row": null,
-          "column": null,
-          "displayOrder": 13
-        },
-        "featured": false,
-        "newArrival": false,
-        "bestSeller": true,
-        "tags": [
-          "新手植物",
-          "蔓生植物",
-          "垂吊植物",
-          "耐陰",
-          "生長快速"
-        ],
-        "filterKeys": {
-          "light": [
-            "bright-indirect",
-            "medium-indirect",
-            "low-to-indirect"
-          ],
-          "humidity": [
-            "normal-home",
-            "medium"
-          ],
-          "difficulty": "easy",
-          "petFriendly": false,
-          "space": [
-            "small-space",
-            "medium-space"
-          ],
-          "growthHabit": [
-            "climbing",
-            "trailing"
-          ]
-        }
-      },
-      "summary": {
-        "headline": "耐受度高的經典蔓生觀葉植物",
-        "shortDescription": "具有綠色與黃色斑紋的心形葉片，可垂吊或攀爬，適合多數明亮室內環境。",
-        "longDescription": "黃金葛是容易管理的蔓生植物，可作垂吊展示，也能沿支柱攀爬。它對一般室內環境具有較高適應力，但長期深暗仍會造成生長變慢與斑紋減弱。澆水應以介質乾燥程度判斷，而不是固定日程。",
-        "keyFeatures": [
-          "心形綠黃斑葉",
-          "可垂吊或攀爬",
-          "生長速度較快",
-          "適合新手建立照護習慣"
-        ]
-      },
-      "morphology": {
-        "growthHabit": "trailing",
-        "growthRate": "fast",
-        "matureIndoorSize": {
-          "vineLengthCm": {
-            "min": 100,
-            "max": 300,
-            "note": "可透過修剪控制長度；攀爬與垂吊會形成不同株型。"
-          },
-          "spreadCm": {
-            "min": 30,
-            "max": 100
-          }
-        },
-        "leaf": {
-          "shape": "心形至卵形",
-          "surface": "平滑、有光澤",
-          "primaryColor": "綠色",
-          "secondaryColor": "黃色斑紋",
-          "variegation": true,
-          "distinctiveTraits": [
-            "heart-shaped-leaf",
-            "yellow-variegation",
-            "trailing-vine"
-          ]
-        },
-        "supportRequired": false,
-        "recommendedSupport": [
-          "optional-moss-pole",
-          "optional-trellis",
-          "hanging-display"
-        ]
-      },
-      "care": {
-        "difficulty": "easy",
-        "light": {
-          "primary": "bright-indirect",
-          "acceptedLevels": [
-            "bright-indirect",
-            "medium-indirect",
-            "low-to-indirect"
-          ],
-          "avoid": [
-            "強烈直射光",
-            "長期完全無自然光的深暗位置"
-          ],
-          "placement": [
-            "明亮散射光窗邊",
-            "有自然光的書架或桌面",
-            "可提供植物燈的較暗空間"
-          ],
-          "notes": "較低光下仍可能存活，但生長變慢且黃色斑紋可能減少。"
-        },
-        "watering": {
-          "strategy": "condition-based",
-          "trigger": "表層約 2 公分介質乾燥後再澆水。",
-          "method": "澆透後倒除外盆或托盤積水。",
-          "avoid": [
-            "頻繁少量澆水",
-            "介質長期濕透",
-            "長期完全乾旱"
-          ],
-          "seasonalAdjustment": {
-            "springSummer": "生長快時增加檢查頻率。",
-            "autumnWinter": "低光與低溫期間延長乾燥時間。"
-          }
-        },
-        "humidity": {
-          "level": "normal-home",
-          "preferred": "一般室內至中等濕度",
-          "notes": "多數室內濕度可維持，但乾燥環境中仍需避免暖氣直吹。"
-        },
-        "temperature": {
-          "preferredCelsius": {
-            "min": null,
-            "max": null
-          },
-          "minimumCelsius": null,
-          "avoid": [
-            "低溫冷風",
-            "劇烈溫差",
-            "暖氣直接吹拂"
-          ],
-          "notes": "偏好溫暖室內環境；正式數值應依品牌所在地與栽培測試校正。"
-        },
-        "substrate": {
-          "type": "well-drained-houseplant-mix",
-          "label": "排水良好的室內觀葉介質",
-          "properties": [
-            "透氣",
-            "排水良好",
-            "保有適度水分"
-          ],
-          "suggestedComponents": [
-            "無泥炭室內植物介質",
-            "珍珠石",
-            "細樹皮",
-            "椰纖"
-          ]
-        },
-        "fertilizing": {
-          "activeSeason": "生長期使用低濃度均衡液肥；頻率依肥料標示與植株生長調整。",
-          "dormantSeason": "低光與低溫期間減少。",
-          "avoid": [
-            "過量施肥",
-            "乾燥根系直接接觸濃肥"
-          ]
-        },
-        "repotting": {
-          "frequency": "根系擁擠、介質劣化或乾濕速度異常時換盆。",
-          "bestSeason": "春季至初夏",
-          "signals": [
-            "根系繞盆",
-            "澆水後快速流失或長期不乾",
-            "生長明顯停滯"
-          ]
-        },
-        "pruning": {
-          "purpose": [
-            "促進分枝",
-            "控制藤蔓長度",
-            "移除受損葉片"
-          ],
-          "notes": "春季摘心或修剪可促進較茂密的株型。"
-        },
-        "propagation": {
-          "methods": [
-            "帶節莖插",
-            "水培生根",
-            "介質扦插",
-            "壓條"
-          ],
-          "requirements": [
-            "插穗需包含至少一個節點"
-          ]
-        },
-        "commonProblems": [
-          {
-            "symptom": "斑紋減少",
-            "possibleCauses": [
-              "光線不足"
-            ]
-          },
-          {
-            "symptom": "黃葉與莖基部軟化",
-            "possibleCauses": [
-              "澆水過量",
-              "排水不良"
-            ]
-          },
-          {
-            "symptom": "葉片失去挺度",
-            "possibleCauses": [
-              "缺水",
-              "根系問題",
-              "低溫"
-            ]
-          }
-        ],
-        "commonPests": [
-          "粉介殼蟲",
-          "介殼蟲",
-          "紅蜘蛛"
-        ]
-      },
-      "safety": {
-        "petFriendly": false,
-        "toxicTo": [
-          "cats",
-          "dogs"
-        ],
-        "toxicPrinciple": "insoluble-calcium-oxalates",
-        "riskLevel": "toxic-if-chewed-or-ingested",
-        "symptoms": [
-          "口腔灼熱與刺激",
-          "流口水",
-          "嘔吐",
-          "吞嚥困難"
-        ],
-        "handlingNotes": [
-          "遠離會啃咬植物的寵物",
-          "修剪後清潔手部與工具"
-        ],
-        "disclaimer": "本資訊不能取代獸醫或醫療診斷；若誤食或出現症狀，應立即聯絡專業人員。"
-      },
-      "commerce": {
-        "sellable": true,
-        "basePrice": {
-          "amount": 280,
-          "currency": "TWD"
-        },
-        "compareAtPrice": null,
-        "taxable": true,
-        "stockStatus": "in-stock",
-        "totalStock": null,
-        "purchaseLimit": null,
-        "variants": [
-          {
-            "sku": "CAN-EPI-AUR-STD",
-            "name": "標準株",
-            "active": true,
-            "price": {
-              "amount": 280,
-              "currency": "TWD"
-            },
-            "stockStatus": "in-stock",
-            "stockQuantity": null,
-            "plantHeightCm": {
-              "min": null,
-              "max": null
-            },
-            "vineLengthCm": {
-              "min": null,
-              "max": null
-            },
-            "nurseryPotCm": null,
-            "weightGram": null,
-            "requiresManualDimensionInput": true
-          }
-        ],
-        "shipping": {
-          "available": true,
-          "fragile": false,
-          "oversized": false,
-          "temperatureSensitive": true,
-          "notes": "藤蔓需固定，避免葉片與節點在運送時折損。"
-        }
-      },
-      "media": {
-        "cardImage": {
-          "src": "assets/images/plants/epipremnum-aureum-golden-card.webp",
-          "alt": "黃金葛綠色心形葉片與黃色斑紋",
-          "aspectRatio": "4:5",
-          "background": "transparent",
-          "objectPosition": "center bottom"
-        },
-        "heroImage": {
-          "src": "assets/images/plants/epipremnum-aureum-golden-hero.webp",
-          "alt": "黃金葛完整藤蔓去背主視覺",
-          "aspectRatio": "4:5",
-          "background": "transparent",
-          "objectPosition": "center bottom"
-        },
-        "gallery": [
-          {
-            "type": "leaf-detail",
-            "src": "assets/images/plants/epipremnum-aureum-golden-leaf-detail.webp",
-            "alt": "黃金葛黃色斑紋葉片細節"
-          },
-          {
-            "type": "growth-habit",
-            "src": "assets/images/plants/epipremnum-aureum-golden-growth-habit.webp",
-            "alt": "黃金葛垂吊與攀爬生長方式示意"
-          }
-        ],
-        "imageDirection": {
-          "singlePlantOnly": true,
-          "potVisible": false,
-          "transparentBackground": true,
-          "lighting": "soft-natural-diffused",
-          "shadow": "subtle-drop-shadow"
-        }
-      },
-      "content": {
-        "careHighlights": [
-          "明亮散射光最佳",
-          "可適應部分低光",
-          "表層乾燥後再澆水",
-          "可垂吊或攀爬"
-        ],
-        "beginnerTips": [
-          "黃金葛耐受度高，但耐陰不等於完全不需要光。",
-          "藤蔓過長可修剪並使用帶節枝條繁殖。",
-          "外盆積水是常見黃葉原因。"
-        ],
-        "warnings": [
-          "對貓狗有毒，不屬於寵物友善植物。",
-          "低光下斑紋可能逐漸減少。"
-        ],
-        "faq": [
-          {
-            "question": "黃金葛可以放在沒有窗戶的房間嗎？",
-            "answer": "若沒有自然光，應提供合適植物燈；長期完全無光不適合植物生長。"
-          },
-          {
-            "question": "為什麼黃色斑紋變少？",
-            "answer": "常見原因是光線不足，新生葉會傾向增加綠色面積。"
-          }
-        ]
-      },
-      "relations": {
-        "relatedPlantIds": [],
-        "recommendedCareArticleIds": [
-          "care-low-light-001",
-          "care-watering-001",
-          "care-propagation-001"
-        ],
-        "quizTraitKeys": [
-          "beginner-friendly",
-          "small-space",
-          "trailing-plant",
-          "variable-light",
-          "no-pet-access"
-        ]
-      },
-      "seo": {
-        "title": "黃金葛｜植物選品與照護指南｜CANOPY",
-        "description": "查看黃金葛的光照、澆水、介質、繁殖、毒性、商品規格與完整照護資訊。",
-        "keywords": [
-          "黃金葛",
-          "Epipremnum aureum",
-          "綠蘿",
-          "新手植物",
-          "垂吊植物"
-        ],
-        "canonicalPath": "/pages/plants/plant-detail.html?slug=epipremnum-aureum-golden"
-      },
-      "editorial": {
-        "contentStatus": "reviewed-structure",
-        "horticulturalReviewStatus": "needs-final-local-review",
-        "commerceReviewStatus": "needs-product-dimensions",
-        "lastReviewedAt": "2026-06-29",
-        "sourceRefs": [
-          "kew-powo-epipremnum-aureum",
-          "rhs-epipremnum-growing-guide",
-          "rhs-epipremnum-details",
-          "aspca-golden-pothos"
-        ]
-      }
+      "identity": {"name": "黃金葛", "shortName": "黃金葛", "englishName": "Golden pothos", "aliases": ["綠蘿", "魔鬼藤"], "scientificName": "Epipremnum aureum", "family": "Araceae"},
+      "catalog": {"categoryLabel": "觀葉植物", "displayOrder": 3, "featured": true, "tags": ["垂吊植物", "黃綠斑紋", "耐低光"], "filterKeys": {"light": ["low-to-indirect", "medium-indirect", "bright-indirect"], "humidity": ["normal-home", "medium"], "substrate": "balanced", "petFriendly": false, "space": ["small-space", "medium-space"], "growthHabit": ["trailing", "climbing"]}},
+      "summary": {"headline": "適應範圍寬廣的垂吊植物", "shortDescription": "黃綠斑紋葉片能垂吊或攀爬生長，適合中等至明亮散射光的室內空間。", "longDescription": "黃金葛可作為桌面、層架垂吊或攀爬植栽。較明亮的散射光有助維持斑紋，低光環境仍可存活但生長與斑紋表現會下降。澆水應依介質乾燥程度判斷。", "keyFeatures": ["黃綠斑紋葉片", "可垂吊或攀爬", "容易修剪塑形"]},
+      "morphology": {"growthHabit": "trailing", "growthRate": "fast", "matureIndoorSize": {"heightCm": {"min": 20, "max": 50}, "spreadCm": {"min": 60, "max": 200}}},
+      "environmentProfile": {"light": {"scale": ["低光", "中等散射光", "明亮散射光", "柔和直射光"], "idealMin": 1, "idealMax": 2, "label": "中等至明亮散射光", "notes": "低光可適應但斑紋可能減少。"}, "humidity": {"scaleMin": 40, "scaleMax": 90, "idealMin": 45, "idealMax": 70, "unit": "%", "label": "45–70%"}, "temperature": {"scaleMin": 10, "scaleMax": 35, "idealMin": 18, "idealMax": 29, "unit": "°C", "label": "18–29°C"}, "growthRate": {"scale": ["緩慢", "中等", "快速"], "value": 2, "label": "快速"}},
+      "care": {"observationFrequency": "low", "environmentSensitivity": "tolerant", "light": {"primary": "bright-indirect", "acceptedLevels": ["low-to-indirect", "medium-indirect", "bright-indirect"], "placement": "明亮房間、東向窗邊或具有自然光的層架。", "notes": "避免完全無自然光的角落。"}, "watering": {"trigger": "表層介質乾燥約 2–3 公分後再澆水。", "method": "澆透後倒除托盤積水。", "avoid": ["盆土長期濕黏", "完全依固定週期澆水"]}, "humidity": {"level": "medium", "preferred": "45–70%", "notes": "一般室內濕度即可，乾燥環境應避開空調直吹。"}, "temperature": {"preferredCelsius": {"min": 18, "max": 29}, "minimumCelsius": 15}, "substrate": {"type": "balanced", "label": "均衡保水型介質", "summary": "以室內植物介質為基底，加入樹皮與珍珠石改善通氣。", "properties": ["適度保水", "排水穩定", "容易管理"], "components": [{"name": "椰纖土", "percentage": 50}, {"name": "松樹皮", "percentage": 20}, {"name": "珍珠石", "percentage": 20}, {"name": "蚯蚓糞", "percentage": 10}], "repottingNote": "根系充滿盆器或介質明顯板結時再換盆。"}, "fertilizing": "春夏每 4–6 週施用一次稀釋均衡液肥。", "commonProblems": ["斑紋變淡或節間拉長時應檢查光照。", "黃葉且介質久濕通常表示澆水過量。"]},
+      "safety": {"petFriendly": false, "toxicTo": ["cats", "dogs"], "note": "啃咬植株可能造成口腔刺激與不適。", "disclaimer": "若寵物誤食或出現症狀，請立即聯絡獸醫。"},
+      "commerce": {"sellable": true, "basePrice": {"amount": 280, "currency": "TWD"}, "stockStatus": "in-stock", "totalStock": 34, "includedItems": ["健康植株一盆", "4 吋育苗盆", "紙本照護說明卡"], "variants": [{"sku": "CAN-EPI-AUR-004", "name": "4 吋垂吊株", "active": true, "price": {"amount": 280, "currency": "TWD"}, "stockStatus": "in-stock", "stockQuantity": 34, "plantHeightCm": {"min": 18, "max": 30}, "nurseryPotCm": 10, "decorativePotIncluded": false}], "shipping": {"available": true, "fragile": false, "notes": "藤蔓將以透氣紙材整理固定，拆箱後可依空間重新引導。"}, "livingPlantNotice": "植物為自然生長商品，每株藤蔓長度、葉片數量與斑紋比例可能略有差異。"},
+      "media": {"cardImage": {"src": "assets/images/plants/epipremnum-aureum-golden-card.webp", "alt": "黃金葛黃綠斑紋葉片"}, "heroImage": {"src": "assets/images/plants/epipremnum-aureum-golden-hero.webp", "alt": "黃金葛四吋垂吊株"}, "gallery": [{"src": "assets/images/plants/epipremnum-aureum-golden-leaf-detail.webp", "alt": "黃金葛葉片斑紋細節"}]},
+      "relations": {"relatedPlantIds": ["plant-004", "plant-005", "plant-016"]},
+      "seo": {"title": "黃金葛商品與照護指南｜CANOPY", "description": "黃金葛商品規格、光照範圍、均衡介質與完整照護資訊。"},
+      "editorial": {"lastReviewedAt": "2026-07-19", "sourceRefs": ["RHS Epipremnum growing guide", "ASPCA toxic and non-toxic plants"]}
+    },
+    {
+      "id": "plant-004", "slug": "philodendron-hederaceum", "status": "published",
+      "identity": {"name": "心葉蔓綠絨", "shortName": "心葉蔓綠絨", "englishName": "Heartleaf philodendron", "aliases": ["心葉喜林芋"], "scientificName": "Philodendron hederaceum", "family": "Araceae"},
+      "catalog": {"categoryLabel": "觀葉植物", "displayOrder": 4, "featured": false, "tags": ["心形葉", "垂吊植物", "攀爬植物"], "filterKeys": {"light": ["medium-indirect", "bright-indirect"], "humidity": ["normal-home", "medium"], "substrate": "chunky", "petFriendly": false, "space": ["small-space", "medium-space"], "growthHabit": ["trailing", "climbing"]}},
+      "summary": {"headline": "柔和心形葉片與蔓生線條", "shortDescription": "深綠心形葉沿藤蔓生長，可垂吊展示，也可沿支架向上攀爬。", "longDescription": "心葉蔓綠絨株型柔和、適應一般室內環境。明亮散射光能使節間較緊密，提供攀爬支架後葉片通常更有層次。", "keyFeatures": ["深綠心形葉", "垂吊與攀爬皆適合", "株型容易修剪"]},
+      "morphology": {"growthHabit": "trailing", "growthRate": "fast", "matureIndoorSize": {"heightCm": {"min": 20, "max": 50}, "spreadCm": {"min": 60, "max": 180}}},
+      "environmentProfile": {"light": {"scale": ["低光", "中等散射光", "明亮散射光", "柔和直射光"], "idealMin": 1, "idealMax": 2, "label": "中等至明亮散射光", "notes": "避免長時間強烈直射。"}, "humidity": {"scaleMin": 40, "scaleMax": 90, "idealMin": 45, "idealMax": 70, "unit": "%", "label": "45–70%"}, "temperature": {"scaleMin": 10, "scaleMax": 35, "idealMin": 18, "idealMax": 29, "unit": "°C", "label": "18–29°C"}, "growthRate": {"scale": ["緩慢", "中等", "快速"], "value": 2, "label": "快速"}},
+      "care": {"observationFrequency": "low", "environmentSensitivity": "tolerant", "light": {"primary": "bright-indirect", "acceptedLevels": ["medium-indirect", "bright-indirect"], "placement": "東向窗邊或明亮房間的層架。", "notes": "低光會造成節間拉長。"}, "watering": {"trigger": "表層介質乾燥 3 公分左右再澆水。", "method": "澆透並保持盆底排水順暢。", "avoid": ["積水", "長期完全乾透"]}, "humidity": {"level": "medium", "preferred": "45–70%", "notes": "一般室內濕度可生長。"}, "temperature": {"preferredCelsius": {"min": 18, "max": 29}, "minimumCelsius": 15}, "substrate": {"type": "chunky", "label": "粗顆粒排水型介質", "summary": "以較細的粗顆粒配方兼顧藤本根系的通氣與保水。", "properties": ["透氣", "均衡保水", "排水良好"], "components": [{"name": "椰纖土", "percentage": 45}, {"name": "細松樹皮", "percentage": 25}, {"name": "珍珠石", "percentage": 20}, {"name": "園藝木炭", "percentage": 10}], "repottingNote": "根系明顯繞盆或介質結構劣化時換盆。"}, "fertilizing": "春夏每月施用一次稀釋均衡液肥。", "commonProblems": ["節間過長通常與光照不足有關。", "葉片軟垂時先檢查介質乾濕再補水。"]},
+      "safety": {"petFriendly": false, "toxicTo": ["cats", "dogs"], "note": "植株含不溶性草酸鈣結晶。", "disclaimer": "若寵物誤食或出現症狀，請立即聯絡獸醫。"},
+      "commerce": {"sellable": true, "basePrice": {"amount": 420, "currency": "TWD"}, "stockStatus": "in-stock", "totalStock": 22, "includedItems": ["健康植株一盆", "4 吋育苗盆", "紙本照護說明卡"], "variants": [{"sku": "CAN-PHI-HED-004", "name": "4 吋垂吊株", "active": true, "price": {"amount": 420, "currency": "TWD"}, "stockStatus": "in-stock", "stockQuantity": 22, "plantHeightCm": {"min": 20, "max": 35}, "nurseryPotCm": 10, "decorativePotIncluded": false}], "shipping": {"available": true, "fragile": false, "notes": "藤蔓以透氣紙材整理固定，避免葉片折傷。"}, "livingPlantNotice": "每株藤蔓長度、葉片數量與株型自然不同。"},
+      "media": {"cardImage": {"src": "assets/images/plants/philodendron-hederaceum-card.webp", "alt": "心葉蔓綠絨心形葉片"}, "heroImage": {"src": "assets/images/plants/philodendron-hederaceum-hero.webp", "alt": "心葉蔓綠絨四吋垂吊株"}, "gallery": []},
+      "relations": {"relatedPlantIds": ["plant-003", "plant-005", "plant-001"]}, "seo": {"title": "心葉蔓綠絨商品與照護指南｜CANOPY", "description": "心葉蔓綠絨商品規格、環境需求與介質建議。"}, "editorial": {"lastReviewedAt": "2026-07-19", "sourceRefs": ["RHS houseplant guidance", "ASPCA toxic and non-toxic plants"]}
+    },
+    {
+      "id": "plant-005", "slug": "philodendron-birkin", "status": "published",
+      "identity": {"name": "白紋蔓綠絨", "shortName": "白紋蔓綠絨", "englishName": "Philodendron Birkin", "aliases": ["Birkin 蔓綠絨"], "scientificName": "Philodendron 'Birkin'", "family": "Araceae"},
+      "catalog": {"categoryLabel": "觀葉植物", "displayOrder": 5, "featured": true, "tags": ["白色條紋", "直立株型", "細緻葉紋"], "filterKeys": {"light": ["bright-indirect"], "humidity": ["medium", "medium-high"], "substrate": "chunky", "petFriendly": false, "space": ["small-space", "medium-space"], "growthHabit": ["upright"]}},
+      "summary": {"headline": "深綠葉面上的細緻白色條紋", "shortDescription": "每片新葉的白色線紋各不相同，適合明亮散射光的桌面與層架。", "longDescription": "白紋蔓綠絨以深綠葉面與奶白線紋形成對比。較穩定的明亮散射光有助維持葉紋，澆水前應讓表層介質適度乾燥。", "keyFeatures": ["白色細線葉紋", "緊湊直立株型", "每片葉紋具有差異"]},
+      "morphology": {"growthHabit": "upright", "growthRate": "medium", "matureIndoorSize": {"heightCm": {"min": 45, "max": 90}, "spreadCm": {"min": 35, "max": 70}}},
+      "environmentProfile": {"light": {"scale": ["低光", "中等散射光", "明亮散射光", "柔和直射光"], "idealMin": 2, "idealMax": 2, "label": "明亮散射光", "notes": "避免正午強光。"}, "humidity": {"scaleMin": 40, "scaleMax": 90, "idealMin": 50, "idealMax": 70, "unit": "%", "label": "50–70%"}, "temperature": {"scaleMin": 10, "scaleMax": 35, "idealMin": 18, "idealMax": 28, "unit": "°C", "label": "18–28°C"}, "growthRate": {"scale": ["緩慢", "中等", "快速"], "value": 1, "label": "中等"}},
+      "care": {"observationFrequency": "medium", "environmentSensitivity": "moderate", "light": {"primary": "bright-indirect", "acceptedLevels": ["bright-indirect"], "placement": "有紗簾的東向或西向窗邊。", "notes": "光線不足時葉紋表現可能降低。"}, "watering": {"trigger": "表層 3–4 公分乾燥後再澆透。", "method": "緩慢澆水至盆底出水。", "avoid": ["長期潮濕", "突然曝曬"]}, "humidity": {"level": "medium", "preferred": "50–70%", "notes": "避免冷氣直吹造成葉緣乾燥。"}, "temperature": {"preferredCelsius": {"min": 18, "max": 28}, "minimumCelsius": 16}, "substrate": {"type": "chunky", "label": "粗顆粒排水型介質", "summary": "使用細樹皮與珍珠石增加通氣，並保留適量有機質。", "properties": ["通氣", "排水", "適度保水"], "components": [{"name": "椰纖土", "percentage": 40}, {"name": "細松樹皮", "percentage": 30}, {"name": "珍珠石", "percentage": 20}, {"name": "蚯蚓糞", "percentage": 10}], "repottingNote": "春季依根系狀態換至大一號盆器。"}, "fertilizing": "生長期每 4–6 週施用稀釋肥料。", "commonProblems": ["葉紋減少時先檢查光照。", "黃葉與介質久濕可能表示根域缺氧。"]},
+      "safety": {"petFriendly": false, "toxicTo": ["cats", "dogs"], "note": "應避免寵物啃咬植株。", "disclaimer": "若寵物誤食或出現症狀，請立即聯絡獸醫。"},
+      "commerce": {"sellable": true, "basePrice": {"amount": 780, "currency": "TWD"}, "stockStatus": "in-stock", "totalStock": 12, "includedItems": ["健康植株一盆", "5 吋育苗盆", "紙本照護說明卡"], "variants": [{"sku": "CAN-PHI-BIR-005", "name": "5 吋標準株", "active": true, "price": {"amount": 780, "currency": "TWD"}, "stockStatus": "in-stock", "stockQuantity": 12, "plantHeightCm": {"min": 28, "max": 42}, "nurseryPotCm": 12, "decorativePotIncluded": false}], "shipping": {"available": true, "fragile": true, "notes": "以護葉紙分隔葉片，降低運送摩擦。"}, "livingPlantNotice": "白色條紋比例與分布為自然差異，不接受以葉紋完全一致為由退換。"},
+      "media": {"cardImage": {"src": "assets/images/plants/philodendron-birkin-card.webp", "alt": "白紋蔓綠絨白色線紋葉片"}, "heroImage": {"src": "assets/images/plants/philodendron-birkin-hero.webp", "alt": "白紋蔓綠絨五吋標準株"}, "gallery": []},
+      "relations": {"relatedPlantIds": ["plant-004", "plant-003", "plant-008"]}, "seo": {"title": "白紋蔓綠絨商品與照護指南｜CANOPY", "description": "白紋蔓綠絨商品規格、光照與粗顆粒介質建議。"}, "editorial": {"lastReviewedAt": "2026-07-19", "sourceRefs": ["RHS houseplant guidance", "ASPCA toxic and non-toxic plants"]}
+    },
+    {
+      "id": "plant-006", "slug": "ficus-lyrata", "status": "published",
+      "identity": {"name": "琴葉榕", "shortName": "琴葉榕", "englishName": "Fiddle-leaf fig", "aliases": [], "scientificName": "Ficus lyrata", "family": "Moraceae"},
+      "catalog": {"categoryLabel": "觀葉植物", "displayOrder": 6, "featured": true, "tags": ["大型葉片", "室內樹型", "明亮空間"], "filterKeys": {"light": ["bright-indirect", "bright-direct"], "humidity": ["medium"], "substrate": "balanced", "petFriendly": false, "space": ["large-space"], "growthHabit": ["upright"]}},
+      "summary": {"headline": "具有建築感的大型室內樹", "shortDescription": "提琴形厚葉與直立樹型適合作為客廳或工作空間的視覺主體。", "longDescription": "琴葉榕偏好穩定而明亮的位置，不喜頻繁搬動、冷風與澆水失衡。購買前應確認空間具有足夠自然光及植株向上生長的高度。", "keyFeatures": ["大型提琴形葉片", "直立樹型", "適合大型明亮空間"]},
+      "morphology": {"growthHabit": "upright", "growthRate": "medium", "matureIndoorSize": {"heightCm": {"min": 150, "max": 300}, "spreadCm": {"min": 80, "max": 150}}},
+      "environmentProfile": {"light": {"scale": ["低光", "中等散射光", "明亮散射光", "柔和直射光"], "idealMin": 2, "idealMax": 3, "label": "明亮散射至柔和直射光", "notes": "適應新位置後避免頻繁移動。"}, "humidity": {"scaleMin": 40, "scaleMax": 90, "idealMin": 45, "idealMax": 65, "unit": "%", "label": "45–65%"}, "temperature": {"scaleMin": 10, "scaleMax": 35, "idealMin": 18, "idealMax": 27, "unit": "°C", "label": "18–27°C"}, "growthRate": {"scale": ["緩慢", "中等", "快速"], "value": 1, "label": "中等"}},
+      "care": {"observationFrequency": "medium", "environmentSensitivity": "sensitive", "light": {"primary": "bright-indirect", "acceptedLevels": ["bright-indirect", "bright-direct"], "placement": "落地窗或明亮大窗附近。", "notes": "換位或光照突變可能造成落葉。"}, "watering": {"trigger": "表層介質乾燥約 4–5 公分後再補水。", "method": "完整澆透並倒除積水。", "avoid": ["少量頻繁澆水", "環境改變後仍沿用原頻率"]}, "humidity": {"level": "medium", "preferred": "45–65%", "notes": "避免暖氣與冷氣直接吹拂。"}, "temperature": {"preferredCelsius": {"min": 18, "max": 27}, "minimumCelsius": 15}, "substrate": {"type": "balanced", "label": "均衡保水型介質", "summary": "具有穩定結構的盆栽介質，兼顧水分緩衝與快速排水。", "properties": ["結構穩定", "排水", "適度保水"], "components": [{"name": "椰纖土", "percentage": 50}, {"name": "松樹皮", "percentage": 20}, {"name": "浮石", "percentage": 20}, {"name": "堆肥", "percentage": 10}], "repottingNote": "每 1–2 年於春季檢查，避免換盆後反覆移動。"}, "fertilizing": "春夏每 4–6 週施用一次稀釋肥料。", "commonProblems": ["突然落葉常與搬動、溫差或澆水變化有關。", "褐斑若伴隨濕土應檢查根系與排水。"]},
+      "safety": {"petFriendly": false, "toxicTo": ["cats", "dogs"], "note": "乳白汁液可能刺激皮膚與口腔。", "disclaimer": "修剪時避免汁液接觸眼睛；若寵物誤食請聯絡獸醫。"},
+      "commerce": {"sellable": true, "basePrice": {"amount": 1280, "currency": "TWD"}, "stockStatus": "low-stock", "totalStock": 5, "includedItems": ["健康植株一盆", "8 吋育苗盆", "固定支架", "紙本照護說明卡"], "variants": [{"sku": "CAN-FIC-LYR-008", "name": "8 吋落地株", "active": true, "price": {"amount": 1280, "currency": "TWD"}, "stockStatus": "low-stock", "stockQuantity": 5, "plantHeightCm": {"min": 80, "max": 110}, "nurseryPotCm": 20, "decorativePotIncluded": false}], "shipping": {"available": true, "fragile": true, "notes": "大型葉片以護葉套與植株固定架包裝。"}, "livingPlantNotice": "每株分枝、葉片尺寸與樹幹彎曲程度不同，商品高度以區間為準。"},
+      "media": {"cardImage": {"src": "assets/images/plants/ficus-lyrata-card.webp", "alt": "琴葉榕大型提琴形葉片"}, "heroImage": {"src": "assets/images/plants/ficus-lyrata-hero.webp", "alt": "琴葉榕八吋落地株"}, "gallery": []},
+      "relations": {"relatedPlantIds": ["plant-007", "plant-009", "plant-001"]}, "seo": {"title": "琴葉榕商品與照護指南｜CANOPY", "description": "琴葉榕八吋落地株商品規格、環境與介質建議。"}, "editorial": {"lastReviewedAt": "2026-07-19", "sourceRefs": ["RHS houseplant guidance", "ASPCA toxic and non-toxic plants"]}
+    },
+    {
+      "id": "plant-007", "slug": "ficus-elastica-burgundy", "status": "published",
+      "identity": {"name": "黑金剛橡皮樹", "shortName": "黑金剛橡皮樹", "englishName": "Burgundy rubber plant", "aliases": ["橡皮樹"], "scientificName": "Ficus elastica 'Burgundy'", "family": "Moraceae"},
+      "catalog": {"categoryLabel": "觀葉植物", "displayOrder": 7, "featured": false, "tags": ["深色厚葉", "室內樹型", "耐乾間隔"], "filterKeys": {"light": ["medium-indirect", "bright-indirect"], "humidity": ["normal-home", "medium"], "substrate": "balanced", "petFriendly": false, "space": ["medium-space", "large-space"], "growthHabit": ["upright"]}},
+      "summary": {"headline": "酒紅至近黑色的厚實葉片", "shortDescription": "深色革質葉面與直立樹型，適合明亮客廳或辦公空間。", "longDescription": "黑金剛橡皮樹具有厚實深色葉片，明亮散射光能維持較濃的葉色。澆水間應讓介質上層乾燥，並避免突然搬動或冷風直吹。", "keyFeatures": ["深酒紅厚葉", "直立樹型", "適合中大型空間"]},
+      "morphology": {"growthHabit": "upright", "growthRate": "medium", "matureIndoorSize": {"heightCm": {"min": 120, "max": 250}, "spreadCm": {"min": 60, "max": 120}}},
+      "environmentProfile": {"light": {"scale": ["低光", "中等散射光", "明亮散射光", "柔和直射光"], "idealMin": 1, "idealMax": 2, "label": "中等至明亮散射光", "notes": "明亮光線有助維持深色葉面。"}, "humidity": {"scaleMin": 40, "scaleMax": 90, "idealMin": 40, "idealMax": 65, "unit": "%", "label": "40–65%"}, "temperature": {"scaleMin": 10, "scaleMax": 35, "idealMin": 18, "idealMax": 28, "unit": "°C", "label": "18–28°C"}, "growthRate": {"scale": ["緩慢", "中等", "快速"], "value": 1, "label": "中等"}},
+      "care": {"observationFrequency": "low", "environmentSensitivity": "moderate", "light": {"primary": "bright-indirect", "acceptedLevels": ["medium-indirect", "bright-indirect"], "placement": "明亮窗邊或有充足自然光的客廳。", "notes": "定期轉盆可使株型較均衡。"}, "watering": {"trigger": "上層介質乾燥 4–5 公分後再澆水。", "method": "澆透後保持盆底通風排水。", "avoid": ["介質長期潮濕", "冷風直吹"]}, "humidity": {"level": "normal-home", "preferred": "40–65%", "notes": "一般室內濕度即可。"}, "temperature": {"preferredCelsius": {"min": 18, "max": 28}, "minimumCelsius": 15}, "substrate": {"type": "balanced", "label": "均衡保水型介質", "summary": "使用結構穩定、排水良好的室內樹木盆栽介質。", "properties": ["排水", "結構穩定", "適度保水"], "components": [{"name": "椰纖土", "percentage": 50}, {"name": "浮石", "percentage": 25}, {"name": "松樹皮", "percentage": 15}, {"name": "堆肥", "percentage": 10}], "repottingNote": "根系擁擠或盆器比例失衡時於春季換盆。"}, "fertilizing": "生長期每月施用一次稀釋液肥。", "commonProblems": ["下位葉大量脫落時檢查溫差、搬動與澆水。", "葉面積塵會降低觀賞性，可用濕布輕拭。"]},
+      "safety": {"petFriendly": false, "toxicTo": ["cats", "dogs"], "note": "乳白汁液可能刺激皮膚及消化道。", "disclaimer": "修剪後清潔手部與工具；若寵物誤食請聯絡獸醫。"},
+      "commerce": {"sellable": true, "basePrice": {"amount": 880, "currency": "TWD"}, "stockStatus": "in-stock", "totalStock": 9, "includedItems": ["健康植株一盆", "6 吋育苗盆", "紙本照護說明卡"], "variants": [{"sku": "CAN-FIC-ELA-006", "name": "6 吋標準株", "active": true, "price": {"amount": 880, "currency": "TWD"}, "stockStatus": "in-stock", "stockQuantity": 9, "plantHeightCm": {"min": 50, "max": 70}, "nurseryPotCm": 15, "decorativePotIncluded": false}], "shipping": {"available": true, "fragile": true, "notes": "葉片與主幹分別固定，拆箱時請由盆器處取出。"}, "livingPlantNotice": "每株葉片角度、分枝及深色程度可能略有差異。"},
+      "media": {"cardImage": {"src": "assets/images/plants/ficus-elastica-burgundy-card.webp", "alt": "黑金剛橡皮樹深色厚葉"}, "heroImage": {"src": "assets/images/plants/ficus-elastica-burgundy-hero.webp", "alt": "黑金剛橡皮樹六吋標準株"}, "gallery": []},
+      "relations": {"relatedPlantIds": ["plant-006", "plant-009", "plant-011"]}, "seo": {"title": "黑金剛橡皮樹商品與照護指南｜CANOPY", "description": "黑金剛橡皮樹商品規格、環境與均衡介質建議。"}, "editorial": {"lastReviewedAt": "2026-07-19", "sourceRefs": ["RHS houseplant guidance", "ASPCA toxic and non-toxic plants"]}
+    },
+    {
+      "id": "plant-008", "slug": "goeppertia-orbifolia", "status": "published",
+      "identity": {"name": "青蘋果竹芋", "shortName": "青蘋果竹芋", "englishName": "Round-leaf calathea", "aliases": ["圓葉竹芋"], "scientificName": "Goeppertia orbifolia", "family": "Marantaceae"},
+      "catalog": {"categoryLabel": "觀葉植物", "displayOrder": 8, "featured": true, "tags": ["銀綠條紋", "圓形葉片", "寵物友善"], "filterKeys": {"light": ["medium-indirect", "bright-indirect"], "humidity": ["high"], "substrate": "moisture-retentive", "petFriendly": true, "space": ["medium-space"], "growthHabit": ["clumping"]}},
+      "summary": {"headline": "寬大圓葉上的銀綠條紋", "shortDescription": "銀綠相間的寬圓葉片適合濕度較高、光線柔和的室內位置。", "longDescription": "青蘋果竹芋偏好均勻水分、高濕度與柔和散射光。硬水、乾燥空氣或澆水波動可能造成葉緣焦褐，適合能提供穩定室內環境的位置。", "keyFeatures": ["銀綠寬條紋", "圓形大葉", "對貓狗標示為非毒性"]},
+      "morphology": {"growthHabit": "clumping", "growthRate": "medium", "matureIndoorSize": {"heightCm": {"min": 50, "max": 90}, "spreadCm": {"min": 50, "max": 90}}},
+      "environmentProfile": {"light": {"scale": ["低光", "中等散射光", "明亮散射光", "柔和直射光"], "idealMin": 1, "idealMax": 2, "label": "中等至明亮散射光", "notes": "避免直射光使葉色褪淡。"}, "humidity": {"scaleMin": 40, "scaleMax": 90, "idealMin": 65, "idealMax": 85, "unit": "%", "label": "65–85%"}, "temperature": {"scaleMin": 10, "scaleMax": 35, "idealMin": 19, "idealMax": 27, "unit": "°C", "label": "19–27°C"}, "growthRate": {"scale": ["緩慢", "中等", "快速"], "value": 1, "label": "中等"}},
+      "care": {"observationFrequency": "high", "environmentSensitivity": "sensitive", "light": {"primary": "medium-indirect", "acceptedLevels": ["medium-indirect", "bright-indirect"], "placement": "浴室外側、加濕區或有紗簾的窗邊。", "notes": "避免葉面長期曝曬。"}, "watering": {"trigger": "表層約 1–2 公分略乾時補水。", "method": "使用低礦物質水均勻澆透。", "avoid": ["完全乾透", "盆底積水", "高鹽分硬水"]}, "humidity": {"level": "high", "preferred": "65–85%", "notes": "濕度不足容易出現焦邊。"}, "temperature": {"preferredCelsius": {"min": 19, "max": 27}, "minimumCelsius": 16}, "substrate": {"type": "moisture-retentive", "label": "保濕透氣型介質", "summary": "細緻但不板結的介質可維持均勻水分，並保留根域空氣。", "properties": ["均勻保濕", "細緻透氣", "弱酸性"], "components": [{"name": "椰纖土", "percentage": 50}, {"name": "細樹皮", "percentage": 20}, {"name": "珍珠石", "percentage": 20}, {"name": "水苔碎料", "percentage": 10}], "repottingNote": "春季換盆時避免過度擾動細根。"}, "fertilizing": "春夏每 4–6 週使用低濃度均衡液肥。", "commonProblems": ["葉緣焦褐常與乾燥、硬水或肥鹽累積有關。", "葉片捲曲時先檢查缺水與空氣濕度。"]},
+      "safety": {"petFriendly": true, "toxicTo": [], "note": "一般資料將竹芋類列為對貓狗非毒性；仍不建議寵物大量啃食。", "disclaimer": "個別動物反應不同，若食用後不適仍應聯絡獸醫。"},
+      "commerce": {"sellable": true, "basePrice": {"amount": 980, "currency": "TWD"}, "stockStatus": "low-stock", "totalStock": 7, "includedItems": ["健康植株一盆", "6 吋育苗盆", "紙本照護說明卡"], "variants": [{"sku": "CAN-GOE-ORB-006", "name": "6 吋標準株", "active": true, "price": {"amount": 980, "currency": "TWD"}, "stockStatus": "low-stock", "stockQuantity": 7, "plantHeightCm": {"min": 35, "max": 50}, "nurseryPotCm": 15, "decorativePotIncluded": false}], "shipping": {"available": true, "fragile": true, "notes": "寬大葉片以分層護葉紙包裝，避開極端高低溫配送。"}, "livingPlantNotice": "每株葉片展開角度、條紋與邊緣狀態可能略有差異。"},
+      "media": {"cardImage": {"src": "assets/images/plants/goeppertia-orbifolia-card.webp", "alt": "青蘋果竹芋銀綠條紋葉片"}, "heroImage": {"src": "assets/images/plants/goeppertia-orbifolia-hero.webp", "alt": "青蘋果竹芋六吋標準株"}, "gallery": []},
+      "relations": {"relatedPlantIds": ["plant-014", "plant-015", "plant-002"]}, "seo": {"title": "青蘋果竹芋商品與照護指南｜CANOPY", "description": "青蘋果竹芋商品規格、高濕度環境與保濕介質建議。"}, "editorial": {"lastReviewedAt": "2026-07-19", "sourceRefs": ["RHS houseplant guidance", "ASPCA toxic and non-toxic plants"]}
+    },
+    {
+      "id": "plant-009", "slug": "strelitzia-nicolai", "status": "published",
+      "identity": {"name": "白天堂鳥", "shortName": "白天堂鳥", "englishName": "White bird of paradise", "aliases": ["大鶴望蘭"], "scientificName": "Strelitzia nicolai", "family": "Strelitziaceae"},
+      "catalog": {"categoryLabel": "觀葉植物", "displayOrder": 9, "featured": true, "tags": ["大型葉片", "明亮空間", "熱帶樹型"], "filterKeys": {"light": ["bright-indirect", "bright-direct"], "humidity": ["normal-home", "medium"], "substrate": "balanced", "petFriendly": false, "space": ["large-space"], "growthHabit": ["upright"]}},
+      "summary": {"headline": "展開感強烈的大型熱帶葉片", "shortDescription": "長橢圓葉片與直立葉柄營造開闊層次，適合採光良好的大型空間。", "longDescription": "白天堂鳥需要比多數觀葉植物更充足的光線與生長空間。葉片沿葉脈自然裂開是適應風力的生長特徵，不一定代表病害。", "keyFeatures": ["大型長橢圓葉", "直立扇形株型", "適合落地展示"]},
+      "morphology": {"growthHabit": "upright", "growthRate": "fast", "matureIndoorSize": {"heightCm": {"min": 180, "max": 350}, "spreadCm": {"min": 100, "max": 220}}},
+      "environmentProfile": {"light": {"scale": ["低光", "中等散射光", "明亮散射光", "柔和直射光"], "idealMin": 2, "idealMax": 3, "label": "明亮散射至柔和直射光", "notes": "光線不足會使葉柄細長。"}, "humidity": {"scaleMin": 40, "scaleMax": 90, "idealMin": 45, "idealMax": 70, "unit": "%", "label": "45–70%"}, "temperature": {"scaleMin": 10, "scaleMax": 35, "idealMin": 18, "idealMax": 30, "unit": "°C", "label": "18–30°C"}, "growthRate": {"scale": ["緩慢", "中等", "快速"], "value": 2, "label": "快速"}},
+      "care": {"observationFrequency": "medium", "environmentSensitivity": "moderate", "light": {"primary": "bright-direct", "acceptedLevels": ["bright-indirect", "bright-direct"], "placement": "落地窗、陽台內側或採光充足的挑高空間。", "notes": "逐步適應柔和直射光，避免突然曝曬。"}, "watering": {"trigger": "表層介質乾燥約 4–5 公分再澆水。", "method": "大量澆透並確保大型盆器完全排水。", "avoid": ["大盆積水", "低光下高頻澆水"]}, "humidity": {"level": "medium", "preferred": "45–70%", "notes": "葉片容易積塵，可定期擦拭。"}, "temperature": {"preferredCelsius": {"min": 18, "max": 30}, "minimumCelsius": 15}, "substrate": {"type": "balanced", "label": "均衡保水型介質", "summary": "大型根系需要結構穩定且排水順暢的盆栽介質。", "properties": ["結構穩定", "排水快速", "適度保水"], "components": [{"name": "椰纖土", "percentage": 45}, {"name": "浮石", "percentage": 25}, {"name": "松樹皮", "percentage": 20}, {"name": "堆肥", "percentage": 10}], "repottingNote": "根系擁擠或植株重心不穩時，於暖季換至大一號盆器。"}, "fertilizing": "生長期每月施用一次稀釋均衡肥料。", "commonProblems": ["葉柄過長、葉片偏小通常與光照不足有關。", "葉片自然沿葉脈裂開通常不是病害。"]},
+      "safety": {"petFriendly": false, "toxicTo": ["cats", "dogs"], "note": "植株與種子可能造成腸胃不適，應避免寵物啃食。", "disclaimer": "若寵物誤食或出現症狀，請聯絡獸醫。"},
+      "commerce": {"sellable": true, "basePrice": {"amount": 1380, "currency": "TWD"}, "stockStatus": "in-stock", "totalStock": 8, "includedItems": ["健康植株一盆", "10 吋育苗盆", "固定支架", "紙本照護說明卡"], "variants": [{"sku": "CAN-STR-NIC-010", "name": "10 吋落地株", "active": true, "price": {"amount": 1380, "currency": "TWD"}, "stockStatus": "in-stock", "stockQuantity": 8, "plantHeightCm": {"min": 110, "max": 140}, "nurseryPotCm": 25, "decorativePotIncluded": false}], "shipping": {"available": true, "fragile": true, "notes": "屬大型配送商品，葉柄與盆器分段固定。"}, "livingPlantNotice": "葉片自然裂痕、葉柄角度與植株高度存在個體差異。"},
+      "media": {"cardImage": {"src": "assets/images/plants/strelitzia-nicolai-card.webp", "alt": "白天堂鳥大型熱帶葉片"}, "heroImage": {"src": "assets/images/plants/strelitzia-nicolai-hero.webp", "alt": "白天堂鳥十吋落地株"}, "gallery": []},
+      "relations": {"relatedPlantIds": ["plant-006", "plant-007", "plant-001"]}, "seo": {"title": "白天堂鳥商品與照護指南｜CANOPY", "description": "白天堂鳥十吋落地株商品規格、明亮環境與介質建議。"}, "editorial": {"lastReviewedAt": "2026-07-19", "sourceRefs": ["RHS houseplant guidance", "ASPCA toxic and non-toxic plants"]}
+    },
+    {
+      "id": "plant-010", "slug": "spathiphyllum-wallisii", "status": "published",
+      "identity": {"name": "白鶴芋", "shortName": "白鶴芋", "englishName": "Peace lily", "aliases": ["和平芋"], "scientificName": "Spathiphyllum wallisii", "family": "Araceae"},
+      "catalog": {"categoryLabel": "觀葉植物", "displayOrder": 10, "featured": false, "tags": ["白色佛焰苞", "耐中低光", "叢生植物"], "filterKeys": {"light": ["low-to-indirect", "medium-indirect", "bright-indirect"], "humidity": ["medium", "medium-high"], "substrate": "moisture-retentive", "petFriendly": false, "space": ["small-space", "medium-space"], "growthHabit": ["clumping"]}},
+      "summary": {"headline": "深綠葉叢與白色佛焰苞", "shortDescription": "叢生葉片搭配白色佛焰苞，可適應中等散射光並偏好均勻水分。", "longDescription": "白鶴芋可在中等光線下維持葉片，但較明亮的散射光更有利於開花。它對缺水反應明顯，仍應以介質狀態判斷澆水，而不是等待植株長時間萎垂。", "keyFeatures": ["白色佛焰苞", "深綠叢生葉", "可適應中等光照"]},
+      "morphology": {"growthHabit": "clumping", "growthRate": "medium", "matureIndoorSize": {"heightCm": {"min": 40, "max": 80}, "spreadCm": {"min": 40, "max": 80}}},
+      "environmentProfile": {"light": {"scale": ["低光", "中等散射光", "明亮散射光", "柔和直射光"], "idealMin": 1, "idealMax": 2, "label": "中等至明亮散射光", "notes": "低光可維持葉片，但開花可能減少。"}, "humidity": {"scaleMin": 40, "scaleMax": 90, "idealMin": 50, "idealMax": 75, "unit": "%", "label": "50–75%"}, "temperature": {"scaleMin": 10, "scaleMax": 35, "idealMin": 18, "idealMax": 28, "unit": "°C", "label": "18–28°C"}, "growthRate": {"scale": ["緩慢", "中等", "快速"], "value": 1, "label": "中等"}},
+      "care": {"observationFrequency": "medium", "environmentSensitivity": "moderate", "light": {"primary": "medium-indirect", "acceptedLevels": ["low-to-indirect", "medium-indirect", "bright-indirect"], "placement": "具有自然光的客廳、書房或浴室外側。", "notes": "避免午後強光直射。"}, "watering": {"trigger": "表層約 2 公分乾燥、葉片尚未明顯萎垂前補水。", "method": "均勻澆透並倒除積水。", "avoid": ["長期積水", "反覆嚴重萎垂"]}, "humidity": {"level": "medium-high", "preferred": "50–75%", "notes": "乾燥時葉尖可能焦褐。"}, "temperature": {"preferredCelsius": {"min": 18, "max": 28}, "minimumCelsius": 15}, "substrate": {"type": "moisture-retentive", "label": "保濕透氣型介質", "summary": "細緻介質保持均勻水分，加入珍珠石避免根域缺氧。", "properties": ["均勻保濕", "透氣", "排水穩定"], "components": [{"name": "椰纖土", "percentage": 55}, {"name": "珍珠石", "percentage": 20}, {"name": "細樹皮", "percentage": 15}, {"name": "堆肥", "percentage": 10}], "repottingNote": "根系擁擠時可於春季換盆或分株。"}, "fertilizing": "春夏每 4–6 週施用低濃度肥料。", "commonProblems": ["長期不開花時應檢查光照。", "葉尖焦褐可能與乾燥、水質或肥鹽累積有關。"]},
+      "safety": {"petFriendly": false, "toxicTo": ["cats", "dogs"], "note": "植株含不溶性草酸鈣結晶，並非寵物安全植物。", "disclaimer": "若寵物誤食或出現症狀，請立即聯絡獸醫。"},
+      "commerce": {"sellable": true, "basePrice": {"amount": 480, "currency": "TWD"}, "stockStatus": "in-stock", "totalStock": 16, "includedItems": ["健康植株一盆", "5 吋育苗盆", "紙本照護說明卡"], "variants": [{"sku": "CAN-SPA-WAL-005", "name": "5 吋標準株", "active": true, "price": {"amount": 480, "currency": "TWD"}, "stockStatus": "in-stock", "stockQuantity": 16, "plantHeightCm": {"min": 30, "max": 45}, "nurseryPotCm": 12, "decorativePotIncluded": false}], "shipping": {"available": true, "fragile": true, "notes": "花苞與葉片分層保護，實際出貨不保證正在開花。"}, "livingPlantNotice": "花苞數量受季節與成熟度影響，商品以健康葉叢與規格高度為出貨依據。"},
+      "media": {"cardImage": {"src": "assets/images/plants/spathiphyllum-wallisii-card.webp", "alt": "白鶴芋深綠葉叢與白色佛焰苞"}, "heroImage": {"src": "assets/images/plants/spathiphyllum-wallisii-hero.webp", "alt": "白鶴芋五吋標準株"}, "gallery": []},
+      "relations": {"relatedPlantIds": ["plant-008", "plant-014", "plant-013"]}, "seo": {"title": "白鶴芋商品與照護指南｜CANOPY", "description": "白鶴芋商品規格、光照範圍與保濕介質建議。"}, "editorial": {"lastReviewedAt": "2026-07-19", "sourceRefs": ["RHS houseplant guidance", "ASPCA toxic and non-toxic plants"]}
+    },
+    {
+      "id": "plant-011", "slug": "zamioculcas-zamiifolia", "status": "published",
+      "identity": {"name": "金錢樹", "shortName": "金錢樹", "englishName": "ZZ plant", "aliases": ["雪鐵芋"], "scientificName": "Zamioculcas zamiifolia", "family": "Araceae"},
+      "catalog": {"categoryLabel": "觀葉植物", "displayOrder": 11, "featured": false, "tags": ["耐低光", "耐乾間隔", "直立葉柄"], "filterKeys": {"light": ["low-to-indirect", "medium-indirect", "bright-indirect"], "humidity": ["normal-home"], "substrate": "gritty", "petFriendly": false, "space": ["small-space", "medium-space"], "growthHabit": ["upright"]}},
+      "summary": {"headline": "光澤葉片與耐乾地下莖", "shortDescription": "直立羽狀葉具有自然光澤，適合一般室內濕度與澆水間隔較長的空間。", "longDescription": "金錢樹的地下莖能儲存水分，因此比缺水更怕長期積水。雖可適應較低光線，仍需要足以閱讀的自然光，明亮散射光下生長較穩定。", "keyFeatures": ["光澤羽狀葉", "地下莖儲水", "可適應較低光線"]},
+      "morphology": {"growthHabit": "upright", "growthRate": "slow", "matureIndoorSize": {"heightCm": {"min": 60, "max": 110}, "spreadCm": {"min": 50, "max": 90}}},
+      "environmentProfile": {"light": {"scale": ["低光", "中等散射光", "明亮散射光", "柔和直射光"], "idealMin": 0, "idealMax": 2, "label": "低光至明亮散射光", "notes": "低光下應明顯降低澆水頻率。"}, "humidity": {"scaleMin": 40, "scaleMax": 90, "idealMin": 40, "idealMax": 60, "unit": "%", "label": "40–60%"}, "temperature": {"scaleMin": 10, "scaleMax": 35, "idealMin": 18, "idealMax": 29, "unit": "°C", "label": "18–29°C"}, "growthRate": {"scale": ["緩慢", "中等", "快速"], "value": 0, "label": "緩慢"}},
+      "care": {"observationFrequency": "low", "environmentSensitivity": "tolerant", "light": {"primary": "medium-indirect", "acceptedLevels": ["low-to-indirect", "medium-indirect", "bright-indirect"], "placement": "具有自然光的走道、辦公室或客廳內側。", "notes": "無窗空間仍需植物燈。"}, "watering": {"trigger": "大部分介質乾燥、盆器明顯變輕後再澆水。", "method": "完全澆透後讓盆器充分排水。", "avoid": ["少量頻繁補水", "無排水孔盆器"]}, "humidity": {"level": "normal-home", "preferred": "40–60%", "notes": "不需要額外加濕。"}, "temperature": {"preferredCelsius": {"min": 18, "max": 29}, "minimumCelsius": 15}, "substrate": {"type": "gritty", "label": "高排水礦物型介質", "summary": "提高浮石與珍珠石比例，讓儲水地下莖避免長期處於濕黏介質。", "properties": ["快速排水", "高含氧", "不易板結"], "components": [{"name": "椰纖土", "percentage": 35}, {"name": "浮石", "percentage": 30}, {"name": "珍珠石", "percentage": 25}, {"name": "松樹皮", "percentage": 10}], "repottingNote": "地下莖使盆器明顯變形或排水惡化時再換盆。"}, "fertilizing": "春夏每 6–8 週施用低濃度肥料即可。", "commonProblems": ["莖基部軟爛通常與介質過濕有關。", "長期低光下新葉稀少屬常見反應。"]},
+      "safety": {"petFriendly": false, "toxicTo": ["cats", "dogs"], "note": "植株含草酸鈣結晶，應避免啃咬及汁液接觸。", "disclaimer": "若寵物誤食或出現症狀，請聯絡獸醫。"},
+      "commerce": {"sellable": true, "basePrice": {"amount": 680, "currency": "TWD"}, "stockStatus": "in-stock", "totalStock": 15, "includedItems": ["健康植株一盆", "6 吋育苗盆", "紙本照護說明卡"], "variants": [{"sku": "CAN-ZAM-ZAM-006", "name": "6 吋標準株", "active": true, "price": {"amount": 680, "currency": "TWD"}, "stockStatus": "in-stock", "stockQuantity": 15, "plantHeightCm": {"min": 40, "max": 55}, "nurseryPotCm": 15, "decorativePotIncluded": false}], "shipping": {"available": true, "fragile": false, "notes": "葉柄集中固定，拆箱後置於散射光處恢復株型。"}, "livingPlantNotice": "每株葉柄數量、高度與展開角度自然不同。"},
+      "media": {"cardImage": {"src": "assets/images/plants/zamioculcas-zamiifolia-card.webp", "alt": "金錢樹光澤羽狀葉"}, "heroImage": {"src": "assets/images/plants/zamioculcas-zamiifolia-hero.webp", "alt": "金錢樹六吋標準株"}, "gallery": []},
+      "relations": {"relatedPlantIds": ["plant-012", "plant-007", "plant-013"]}, "seo": {"title": "金錢樹商品與照護指南｜CANOPY", "description": "金錢樹商品規格、低光適應與高排水介質建議。"}, "editorial": {"lastReviewedAt": "2026-07-19", "sourceRefs": ["RHS houseplant guidance", "ASPCA toxic and non-toxic plants"]}
+    },
+    {
+      "id": "plant-012", "slug": "dracaena-trifasciata", "status": "published",
+      "identity": {"name": "虎尾蘭", "shortName": "虎尾蘭", "englishName": "Snake plant", "aliases": ["虎皮蘭"], "scientificName": "Dracaena trifasciata", "family": "Asparagaceae"},
+      "catalog": {"categoryLabel": "觀葉植物", "displayOrder": 12, "featured": true, "tags": ["劍形葉", "耐低光", "耐乾間隔"], "filterKeys": {"light": ["low-to-indirect", "medium-indirect", "bright-indirect"], "humidity": ["normal-home"], "substrate": "gritty", "petFriendly": false, "space": ["small-space", "medium-space"], "growthHabit": ["upright"]}},
+      "summary": {"headline": "俐落劍形葉與高排水需求", "shortDescription": "直立劍形葉占地較小，可適應多種光照，但必須避免介質長期潮濕。", "longDescription": "虎尾蘭具有肉質葉與地下莖，澆水間應讓介質充分乾燥。低光環境生長較慢且用水更少，具有明亮散射光時葉色與新芽表現較佳。", "keyFeatures": ["直立劍形葉", "占地面積小", "需要高排水介質"]},
+      "morphology": {"growthHabit": "upright", "growthRate": "slow", "matureIndoorSize": {"heightCm": {"min": 50, "max": 110}, "spreadCm": {"min": 25, "max": 60}}},
+      "environmentProfile": {"light": {"scale": ["低光", "中等散射光", "明亮散射光", "柔和直射光"], "idealMin": 0, "idealMax": 2, "label": "低光至明亮散射光", "notes": "避免突然接受強烈直射。"}, "humidity": {"scaleMin": 40, "scaleMax": 90, "idealMin": 40, "idealMax": 60, "unit": "%", "label": "40–60%"}, "temperature": {"scaleMin": 10, "scaleMax": 35, "idealMin": 18, "idealMax": 30, "unit": "°C", "label": "18–30°C"}, "growthRate": {"scale": ["緩慢", "中等", "快速"], "value": 0, "label": "緩慢"}},
+      "care": {"observationFrequency": "low", "environmentSensitivity": "tolerant", "light": {"primary": "medium-indirect", "acceptedLevels": ["low-to-indirect", "medium-indirect", "bright-indirect"], "placement": "有自然光的玄關、臥室或辦公桌旁。", "notes": "低光不代表無光。"}, "watering": {"trigger": "介質由上到下大部分乾燥後再澆水。", "method": "沿盆緣澆透，避免水留在葉心。", "avoid": ["冬季頻繁澆水", "套盆積水"]}, "humidity": {"level": "normal-home", "preferred": "40–60%", "notes": "一般室內濕度即可。"}, "temperature": {"preferredCelsius": {"min": 18, "max": 30}, "minimumCelsius": 12}, "substrate": {"type": "gritty", "label": "高排水礦物型介質", "summary": "以浮石與珍珠石提升排水，降低肉質根莖腐爛風險。", "properties": ["快速乾燥", "高排水", "礦物顆粒"], "components": [{"name": "椰纖土", "percentage": 30}, {"name": "浮石", "percentage": 35}, {"name": "珍珠石", "percentage": 25}, {"name": "粗砂", "percentage": 10}], "repottingNote": "地下莖擠滿盆器或盆器裂開時再換盆。"}, "fertilizing": "春夏每 8 週使用低濃度肥料，冬季不施肥。", "commonProblems": ["葉基部軟爛多與積水或低溫過濕有關。", "葉片皺縮且介質完全乾燥時再補水。"]},
+      "safety": {"petFriendly": false, "toxicTo": ["cats", "dogs"], "note": "食用可能造成噁心、流口水或腸胃不適。", "disclaimer": "若寵物誤食或出現症狀，請聯絡獸醫。"},
+      "commerce": {"sellable": true, "basePrice": {"amount": 520, "currency": "TWD"}, "stockStatus": "in-stock", "totalStock": 20, "includedItems": ["健康植株一盆", "5 吋育苗盆", "紙本照護說明卡"], "variants": [{"sku": "CAN-DRA-TRI-005", "name": "5 吋標準株", "active": true, "price": {"amount": 520, "currency": "TWD"}, "stockStatus": "in-stock", "stockQuantity": 20, "plantHeightCm": {"min": 35, "max": 50}, "nurseryPotCm": 12, "decorativePotIncluded": false}], "shipping": {"available": true, "fragile": false, "notes": "劍形葉以直立護套包裝，拆箱時避免折彎葉尖。"}, "livingPlantNotice": "每株葉片高度、斑紋與新芽數量可能略有差異。"},
+      "media": {"cardImage": {"src": "assets/images/plants/dracaena-trifasciata-card.webp", "alt": "虎尾蘭直立劍形斑紋葉"}, "heroImage": {"src": "assets/images/plants/dracaena-trifasciata-hero.webp", "alt": "虎尾蘭五吋標準株"}, "gallery": []},
+      "relations": {"relatedPlantIds": ["plant-011", "plant-007", "plant-016"]}, "seo": {"title": "虎尾蘭商品與照護指南｜CANOPY", "description": "虎尾蘭商品規格、光照範圍與高排水介質建議。"}, "editorial": {"lastReviewedAt": "2026-07-19", "sourceRefs": ["RHS houseplant guidance", "ASPCA toxic and non-toxic plants"]}
+    },
+    {
+      "id": "plant-013", "slug": "chamaedorea-elegans", "status": "published",
+      "identity": {"name": "袖珍椰子", "shortName": "袖珍椰子", "englishName": "Parlour palm", "aliases": [], "scientificName": "Chamaedorea elegans", "family": "Arecaceae"},
+      "catalog": {"categoryLabel": "觀葉植物", "displayOrder": 13, "featured": false, "tags": ["羽狀葉", "柔和株型", "寵物友善"], "filterKeys": {"light": ["low-to-indirect", "medium-indirect", "bright-indirect"], "humidity": ["medium"], "substrate": "balanced", "petFriendly": true, "space": ["small-space", "medium-space"], "growthHabit": ["clumping"]}},
+      "summary": {"headline": "細緻羽狀葉與柔和叢生株型", "shortDescription": "纖細羽狀葉可適應中等光線，適合書桌、層架與小型地面空間。", "longDescription": "袖珍椰子生長緩慢、株型輕盈，較適合柔和散射光。應避免強烈日曬及介質長期積水，空氣過乾時可能出現葉尖焦褐。", "keyFeatures": ["細緻羽狀葉", "緩慢叢生", "對貓狗標示為非毒性"]},
+      "morphology": {"growthHabit": "clumping", "growthRate": "slow", "matureIndoorSize": {"heightCm": {"min": 70, "max": 150}, "spreadCm": {"min": 50, "max": 100}}},
+      "environmentProfile": {"light": {"scale": ["低光", "中等散射光", "明亮散射光", "柔和直射光"], "idealMin": 1, "idealMax": 2, "label": "中等至明亮散射光", "notes": "避免午後直射光。"}, "humidity": {"scaleMin": 40, "scaleMax": 90, "idealMin": 50, "idealMax": 70, "unit": "%", "label": "50–70%"}, "temperature": {"scaleMin": 10, "scaleMax": 35, "idealMin": 18, "idealMax": 27, "unit": "°C", "label": "18–27°C"}, "growthRate": {"scale": ["緩慢", "中等", "快速"], "value": 0, "label": "緩慢"}},
+      "care": {"observationFrequency": "medium", "environmentSensitivity": "tolerant", "light": {"primary": "medium-indirect", "acceptedLevels": ["low-to-indirect", "medium-indirect", "bright-indirect"], "placement": "距離明亮窗戶一段距離的書房或客廳。", "notes": "直射光容易使葉片失綠。"}, "watering": {"trigger": "表層介質乾燥約 2–3 公分後再補水。", "method": "均勻澆透並完全排水。", "avoid": ["根域長期積水", "暖氣直吹"]}, "humidity": {"level": "medium", "preferred": "50–70%", "notes": "乾燥時葉尖可能焦褐。"}, "temperature": {"preferredCelsius": {"min": 18, "max": 27}, "minimumCelsius": 13}, "substrate": {"type": "balanced", "label": "均衡保水型介質", "summary": "細緻但排水良好的棕櫚介質，可維持水分又不使細根缺氧。", "properties": ["均衡保水", "透氣", "結構細緻"], "components": [{"name": "椰纖土", "percentage": 50}, {"name": "珍珠石", "percentage": 20}, {"name": "細樹皮", "percentage": 20}, {"name": "堆肥", "percentage": 10}], "repottingNote": "生長緩慢，約每 2–3 年依根系狀態換盆。"}, "fertilizing": "春夏每 6 週施用一次低濃度肥料。", "commonProblems": ["葉尖焦褐常與乾燥或水質有關。", "葉色發白時檢查是否受到直射光。"]},
+      "safety": {"petFriendly": true, "toxicTo": [], "note": "一般資料將袖珍椰子列為對貓狗非毒性。", "disclaimer": "仍不建議寵物大量啃食；若出現不適請聯絡獸醫。"},
+      "commerce": {"sellable": true, "basePrice": {"amount": 580, "currency": "TWD"}, "stockStatus": "in-stock", "totalStock": 17, "includedItems": ["健康植株一盆", "6 吋育苗盆", "紙本照護說明卡"], "variants": [{"sku": "CAN-CHA-ELE-006", "name": "6 吋標準株", "active": true, "price": {"amount": 580, "currency": "TWD"}, "stockStatus": "in-stock", "stockQuantity": 17, "plantHeightCm": {"min": 40, "max": 55}, "nurseryPotCm": 15, "decorativePotIncluded": false}], "shipping": {"available": true, "fragile": true, "notes": "羽狀葉以透氣護套束整，拆箱後數日會逐漸展開。"}, "livingPlantNotice": "每株葉片密度、高度與展開幅度可能略有差異。"},
+      "media": {"cardImage": {"src": "assets/images/plants/chamaedorea-elegans-card.webp", "alt": "袖珍椰子細緻羽狀葉"}, "heroImage": {"src": "assets/images/plants/chamaedorea-elegans-hero.webp", "alt": "袖珍椰子六吋標準株"}, "gallery": []},
+      "relations": {"relatedPlantIds": ["plant-014", "plant-015", "plant-016"]}, "seo": {"title": "袖珍椰子商品與照護指南｜CANOPY", "description": "袖珍椰子商品規格、柔和光照與均衡介質建議。"}, "editorial": {"lastReviewedAt": "2026-07-19", "sourceRefs": ["RHS houseplant guidance", "ASPCA toxic and non-toxic plants"]}
+    },
+    {
+      "id": "plant-014", "slug": "asplenium-nidus", "status": "published",
+      "identity": {"name": "鳥巢蕨", "shortName": "鳥巢蕨", "englishName": "Bird's-nest fern", "aliases": ["山蘇花"], "scientificName": "Asplenium nidus", "family": "Aspleniaceae"},
+      "catalog": {"categoryLabel": "觀葉植物", "displayOrder": 14, "featured": false, "tags": ["波浪葉", "蓮座株型", "寵物友善"], "filterKeys": {"light": ["medium-indirect", "bright-indirect"], "humidity": ["high"], "substrate": "moisture-retentive", "petFriendly": true, "space": ["small-space", "medium-space"], "growthHabit": ["rosette"]}},
+      "summary": {"headline": "由中心展開的亮綠波浪葉", "shortDescription": "亮綠葉片形成鳥巢狀蓮座，適合溫暖、高濕度與柔和散射光的位置。", "longDescription": "鳥巢蕨的葉片由中心生長點向外展開。澆水應落在介質周圍，避免水長期停留於葉心；介質需保濕但仍保持透氣。", "keyFeatures": ["亮綠波浪葉", "鳥巢狀蓮座", "對貓狗標示為非毒性"]},
+      "morphology": {"growthHabit": "rosette", "growthRate": "medium", "matureIndoorSize": {"heightCm": {"min": 40, "max": 90}, "spreadCm": {"min": 50, "max": 100}}},
+      "environmentProfile": {"light": {"scale": ["低光", "中等散射光", "明亮散射光", "柔和直射光"], "idealMin": 1, "idealMax": 2, "label": "中等至明亮散射光", "notes": "避免直射光灼傷嫩葉。"}, "humidity": {"scaleMin": 40, "scaleMax": 90, "idealMin": 65, "idealMax": 85, "unit": "%", "label": "65–85%"}, "temperature": {"scaleMin": 10, "scaleMax": 35, "idealMin": 18, "idealMax": 28, "unit": "°C", "label": "18–28°C"}, "growthRate": {"scale": ["緩慢", "中等", "快速"], "value": 1, "label": "中等"}},
+      "care": {"observationFrequency": "high", "environmentSensitivity": "moderate", "light": {"primary": "medium-indirect", "acceptedLevels": ["medium-indirect", "bright-indirect"], "placement": "明亮浴室、加濕區或無直曬的窗邊。", "notes": "嫩葉對強光較敏感。"}, "watering": {"trigger": "介質表面開始失去濕潤光澤但仍未乾透時補水。", "method": "沿盆緣澆水，避免直接灌入中心生長點。", "avoid": ["葉心積水", "介質完全乾透"]}, "humidity": {"level": "high", "preferred": "65–85%", "notes": "高濕度環境仍需輕微通風。"}, "temperature": {"preferredCelsius": {"min": 18, "max": 28}, "minimumCelsius": 15}, "substrate": {"type": "moisture-retentive", "label": "保濕透氣型介質", "summary": "模擬腐植質環境，保持均勻濕度並避免細根缺氧。", "properties": ["保濕", "疏鬆", "富含有機質"], "components": [{"name": "椰纖土", "percentage": 45}, {"name": "水苔碎料", "percentage": 25}, {"name": "細松樹皮", "percentage": 20}, {"name": "珍珠石", "percentage": 10}], "repottingNote": "介質板結或根系充滿盆器時於暖季換盆。"}, "fertilizing": "春夏每 6–8 週使用低濃度液肥，避免肥液停留葉心。", "commonProblems": ["中心發黑軟爛可能與葉心積水有關。", "葉緣乾焦常與乾燥或澆水波動有關。"]},
+      "safety": {"petFriendly": true, "toxicTo": [], "note": "一般資料將鳥巢蕨列為對貓狗非毒性。", "disclaimer": "仍不建議寵物大量啃食；若出現不適請聯絡獸醫。"},
+      "commerce": {"sellable": true, "basePrice": {"amount": 620, "currency": "TWD"}, "stockStatus": "in-stock", "totalStock": 11, "includedItems": ["健康植株一盆", "6 吋育苗盆", "紙本照護說明卡"], "variants": [{"sku": "CAN-ASP-NID-006", "name": "6 吋標準株", "active": true, "price": {"amount": 620, "currency": "TWD"}, "stockStatus": "in-stock", "stockQuantity": 11, "plantHeightCm": {"min": 28, "max": 40}, "nurseryPotCm": 15, "decorativePotIncluded": false}], "shipping": {"available": true, "fragile": true, "notes": "嫩葉與中心生長點以立體護套保護。"}, "livingPlantNotice": "葉緣波浪、葉片數量與展開幅度存在自然差異。"},
+      "media": {"cardImage": {"src": "assets/images/plants/asplenium-nidus-card.webp", "alt": "鳥巢蕨亮綠波浪葉"}, "heroImage": {"src": "assets/images/plants/asplenium-nidus-hero.webp", "alt": "鳥巢蕨六吋標準株"}, "gallery": []},
+      "relations": {"relatedPlantIds": ["plant-015", "plant-008", "plant-013"]}, "seo": {"title": "鳥巢蕨商品與照護指南｜CANOPY", "description": "鳥巢蕨商品規格、高濕度環境與保濕介質建議。"}, "editorial": {"lastReviewedAt": "2026-07-19", "sourceRefs": ["RHS houseplant guidance", "ASPCA toxic and non-toxic plants"]}
+    },
+    {
+      "id": "plant-015", "slug": "nephrolepis-exaltata-bostoniensis", "status": "published",
+      "identity": {"name": "波士頓腎蕨", "shortName": "波士頓腎蕨", "englishName": "Boston fern", "aliases": ["波士頓蕨"], "scientificName": "Nephrolepis exaltata 'Bostoniensis'", "family": "Nephrolepidaceae"},
+      "catalog": {"categoryLabel": "觀葉植物", "displayOrder": 15, "featured": false, "tags": ["羽狀葉", "垂墜株型", "寵物友善"], "filterKeys": {"light": ["medium-indirect", "bright-indirect"], "humidity": ["high"], "substrate": "moisture-retentive", "petFriendly": true, "space": ["medium-space"], "growthHabit": ["clumping", "trailing"]}},
+      "summary": {"headline": "細密羽狀葉形成柔軟垂墜線條", "shortDescription": "茂密羽狀葉適合吊盆或高層架，偏好高濕度與均勻水分。", "longDescription": "波士頓腎蕨的細密葉片容易在乾燥或缺水時脫落。應提供柔和散射光、保濕但透氣的介質與良好空氣濕度，並避開空調出風口。", "keyFeatures": ["細密羽狀葉", "柔軟垂墜株型", "對貓狗標示為非毒性"]},
+      "morphology": {"growthHabit": "trailing", "growthRate": "fast", "matureIndoorSize": {"heightCm": {"min": 40, "max": 80}, "spreadCm": {"min": 60, "max": 120}}},
+      "environmentProfile": {"light": {"scale": ["低光", "中等散射光", "明亮散射光", "柔和直射光"], "idealMin": 1, "idealMax": 2, "label": "中等至明亮散射光", "notes": "避免強烈直射光。"}, "humidity": {"scaleMin": 40, "scaleMax": 90, "idealMin": 65, "idealMax": 85, "unit": "%", "label": "65–85%"}, "temperature": {"scaleMin": 10, "scaleMax": 35, "idealMin": 16, "idealMax": 26, "unit": "°C", "label": "16–26°C"}, "growthRate": {"scale": ["緩慢", "中等", "快速"], "value": 2, "label": "快速"}},
+      "care": {"observationFrequency": "high", "environmentSensitivity": "sensitive", "light": {"primary": "medium-indirect", "acceptedLevels": ["medium-indirect", "bright-indirect"], "placement": "明亮浴室、北向窗或無直曬的吊盆位置。", "notes": "強光會使羽葉失水焦黃。"}, "watering": {"trigger": "表層剛開始乾燥時即補水，不讓根域完全乾透。", "method": "均勻澆透並維持盆底排水。", "avoid": ["完全乾透", "長期積水", "冷氣直吹"]}, "humidity": {"level": "high", "preferred": "65–85%", "notes": "濕度不足會增加小葉脫落。"}, "temperature": {"preferredCelsius": {"min": 16, "max": 26}, "minimumCelsius": 12}, "substrate": {"type": "moisture-retentive", "label": "保濕透氣型介質", "summary": "保持均勻濕度的細緻介質，搭配珍珠石避免根系窒息。", "properties": ["保濕", "細緻", "透氣"], "components": [{"name": "椰纖土", "percentage": 55}, {"name": "水苔碎料", "percentage": 20}, {"name": "珍珠石", "percentage": 15}, {"name": "堆肥", "percentage": 10}], "repottingNote": "根系擁擠或介質乾燥過快時於春季換盆或分株。"}, "fertilizing": "春夏每 4–6 週使用低濃度液肥。", "commonProblems": ["小葉大量乾落通常與缺水或空氣乾燥有關。", "基部發黑時應檢查積水與通風。"]},
+      "safety": {"petFriendly": true, "toxicTo": [], "note": "一般資料將波士頓腎蕨列為對貓狗非毒性。", "disclaimer": "仍不建議寵物大量啃食；若出現不適請聯絡獸醫。"},
+      "commerce": {"sellable": true, "basePrice": {"amount": 480, "currency": "TWD"}, "stockStatus": "in-stock", "totalStock": 14, "includedItems": ["健康植株一盆", "6 吋吊盆", "紙本照護說明卡"], "variants": [{"sku": "CAN-NEP-EXA-006", "name": "6 吋吊盆株", "active": true, "price": {"amount": 480, "currency": "TWD"}, "stockStatus": "in-stock", "stockQuantity": 14, "plantHeightCm": {"min": 30, "max": 45}, "nurseryPotCm": 15, "decorativePotIncluded": false}], "shipping": {"available": true, "fragile": true, "notes": "羽葉以透氣護套收束，拆箱後輕柔整理並立即檢查介質濕度。"}, "livingPlantNotice": "葉片密度、垂墜長度與少量老葉自然脫落屬個體差異。"},
+      "media": {"cardImage": {"src": "assets/images/plants/nephrolepis-exaltata-bostoniensis-card.webp", "alt": "波士頓腎蕨細密羽狀葉"}, "heroImage": {"src": "assets/images/plants/nephrolepis-exaltata-bostoniensis-hero.webp", "alt": "波士頓腎蕨六吋吊盆株"}, "gallery": []},
+      "relations": {"relatedPlantIds": ["plant-014", "plant-008", "plant-013"]}, "seo": {"title": "波士頓腎蕨商品與照護指南｜CANOPY", "description": "波士頓腎蕨商品規格、高濕度環境與保濕介質建議。"}, "editorial": {"lastReviewedAt": "2026-07-19", "sourceRefs": ["RHS houseplant guidance", "ASPCA toxic and non-toxic plants"]}
+    },
+    {
+      "id": "plant-016", "slug": "pilea-peperomioides", "status": "published",
+      "identity": {"name": "鏡面草", "shortName": "鏡面草", "englishName": "Chinese money plant", "aliases": ["圓葉冷水花"], "scientificName": "Pilea peperomioides", "family": "Urticaceae"},
+      "catalog": {"categoryLabel": "觀葉植物", "displayOrder": 16, "featured": true, "tags": ["圓形葉片", "小型植物", "寵物友善"], "filterKeys": {"light": ["medium-indirect", "bright-indirect"], "humidity": ["normal-home", "medium"], "substrate": "gritty", "petFriendly": true, "space": ["small-space"], "growthHabit": ["upright"]}},
+      "summary": {"headline": "輕盈葉柄上的圓形葉片", "shortDescription": "圓形葉片由細長葉柄向外展開，適合明亮窗邊、桌面與小型層架。", "longDescription": "鏡面草株型輕巧、容易產生側芽。明亮散射光有助維持緊湊株型，定期轉盆可讓葉片分布較均勻；介質需排水良好。", "keyFeatures": ["圓形盾狀葉", "小型直立株型", "容易產生側芽"]},
+      "morphology": {"growthHabit": "upright", "growthRate": "fast", "matureIndoorSize": {"heightCm": {"min": 25, "max": 45}, "spreadCm": {"min": 25, "max": 45}}},
+      "environmentProfile": {"light": {"scale": ["低光", "中等散射光", "明亮散射光", "柔和直射光"], "idealMin": 1, "idealMax": 2, "label": "中等至明亮散射光", "notes": "可接受短時間柔和晨光。"}, "humidity": {"scaleMin": 40, "scaleMax": 90, "idealMin": 40, "idealMax": 65, "unit": "%", "label": "40–65%"}, "temperature": {"scaleMin": 10, "scaleMax": 35, "idealMin": 16, "idealMax": 26, "unit": "°C", "label": "16–26°C"}, "growthRate": {"scale": ["緩慢", "中等", "快速"], "value": 2, "label": "快速"}},
+      "care": {"observationFrequency": "medium", "environmentSensitivity": "tolerant", "light": {"primary": "bright-indirect", "acceptedLevels": ["medium-indirect", "bright-indirect"], "placement": "東向窗或有紗簾的明亮窗台。", "notes": "每週轉盆四分之一圈有助株型均衡。"}, "watering": {"trigger": "表層介質乾燥約 2–3 公分後再澆水。", "method": "澆透後讓多餘水分排出。", "avoid": ["長期潮濕", "強烈曝曬"]}, "humidity": {"level": "normal-home", "preferred": "40–65%", "notes": "一般室內濕度即可。"}, "temperature": {"preferredCelsius": {"min": 16, "max": 26}, "minimumCelsius": 10}, "substrate": {"type": "gritty", "label": "高排水礦物型介質", "summary": "輕質排水配方可避免細根長期處於濕黏環境。", "properties": ["輕質", "排水快速", "適度保水"], "components": [{"name": "椰纖土", "percentage": 40}, {"name": "珍珠石", "percentage": 30}, {"name": "浮石", "percentage": 20}, {"name": "堆肥", "percentage": 10}], "repottingNote": "側芽增多或根系充滿盆器時於春季換盆或分株。"}, "fertilizing": "春夏每 4–6 週使用低濃度均衡液肥。", "commonProblems": ["葉柄過長、株型鬆散通常與光照不足有關。", "下位葉黃化且介質久濕時應減少澆水。"]},
+      "safety": {"petFriendly": true, "toxicTo": [], "note": "一般資料將鏡面草列為對貓狗非毒性。", "disclaimer": "仍不建議寵物大量啃食；若出現不適請聯絡獸醫。"},
+      "commerce": {"sellable": true, "basePrice": {"amount": 420, "currency": "TWD"}, "stockStatus": "in-stock", "totalStock": 24, "includedItems": ["健康植株一盆", "4 吋育苗盆", "紙本照護說明卡"], "variants": [{"sku": "CAN-PIL-PEP-004", "name": "4 吋標準株", "active": true, "price": {"amount": 420, "currency": "TWD"}, "stockStatus": "in-stock", "stockQuantity": 24, "plantHeightCm": {"min": 18, "max": 28}, "nurseryPotCm": 10, "decorativePotIncluded": false}], "shipping": {"available": true, "fragile": true, "notes": "細長葉柄以支撐環固定，拆箱時請從盆器處取出。"}, "livingPlantNotice": "每株圓葉大小、葉柄長度與側芽數量可能略有差異。"},
+      "media": {"cardImage": {"src": "assets/images/plants/pilea-peperomioides-card.webp", "alt": "鏡面草圓形葉片"}, "heroImage": {"src": "assets/images/plants/pilea-peperomioides-hero.webp", "alt": "鏡面草四吋標準株"}, "gallery": []},
+      "relations": {"relatedPlantIds": ["plant-013", "plant-012", "plant-003"]}, "seo": {"title": "鏡面草商品與照護指南｜CANOPY", "description": "鏡面草商品規格、明亮散射光與高排水介質建議。"}, "editorial": {"lastReviewedAt": "2026-07-19", "sourceRefs": ["RHS houseplant guidance", "ASPCA toxic and non-toxic plants"]}
     }
   ]
 }

@@ -43,10 +43,11 @@ window.CanopyFilters = {
       low: "耐低光",
     },
 
-    difficulty: {
-      beginner: "新手適合",
-      intermediate: "中等難度",
-      advanced: "進階照護",
+    substrate: {
+      chunky: "粗顆粒排水型",
+      balanced: "均衡保水型",
+      "moisture-retentive": "保濕透氣型",
+      gritty: "高排水礦物型",
     },
 
     humidity: {

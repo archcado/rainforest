@@ -1,124 +1,201 @@
 <!doctype html>
 <html lang="zh-Hant">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="CANOPY 植物詳情 — 完整照護資訊、購買選項與相關植物推薦。">
-  <title>植物詳情｜CANOPY</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="CANOPY 植物商品詳情，包含實際販售規格、適生環境、介質配方、完整照護與配送說明。"
+    />
+    <title>植物商品詳情｜CANOPY</title>
 
-  <link rel="stylesheet" href="../../assets/css/tokens.css">
-  <link rel="stylesheet" href="../../assets/css/reset.css">
-  <link rel="stylesheet" href="../../assets/css/base.css">
-  <link rel="stylesheet" href="../../assets/css/layout.css">
-  <link rel="stylesheet" href="../../assets/css/components.css">
-  <link rel="stylesheet" href="../../assets/css/utilities.css">
-  <link rel="stylesheet" href="../../assets/css/pages/plant-detail.css">
-</head>
+    <link rel="stylesheet" href="../../assets/css/tokens.css" />
+    <link rel="stylesheet" href="../../assets/css/reset.css" />
+    <link rel="stylesheet" href="../../assets/css/base.css" />
+    <link rel="stylesheet" href="../../assets/css/layout.css" />
+    <link rel="stylesheet" href="../../assets/css/components.css" />
+    <link rel="stylesheet" href="../../assets/css/utilities.css" />
+    <link rel="stylesheet" href="../../assets/css/pages/plant-detail.css" />
+  </head>
 
-<body>
+  <body>
+    <header class="site-header" role="banner">
+      <!-- 共用 Header 載入位置（components/header.html）-->
+    </header>
 
-  <header class="site-header" role="banner">
-    <!-- 共用 Header 載入位置（components/header.html）-->
-  </header>
-
-  <main class="site-main">
-
-    <div class="breadcrumb-bar">
-      <div class="container">
-        <nav class="breadcrumb" aria-label="麵包屑">
-          <ol class="breadcrumb__list" role="list">
-            <li class="breadcrumb__item"><a class="breadcrumb__link" href="../../index.html">首頁</a></li>
-            <li class="breadcrumb__item"><a class="breadcrumb__link" href="./plants.html">植物商城</a></li>
-            <li class="breadcrumb__item"><span class="breadcrumb__current" aria-current="page" id="plant-name-bc">植物名稱</span></li>
-          </ol>
-        </nav>
-      </div>
-    </div>
-
-    <section class="page-content">
-      <div class="container">
-        <div class="plant-detail">
-
-          <!-- 圖片區 -->
-          <div class="plant-detail__gallery">
-            <img
-              class="plant-detail__main-image"
-              src="../../assets/images/placeholders/plant-placeholder.webp"
-              alt="植物圖片"
-              id="main-image"
-            >
-            <div class="plant-detail__thumbnails" id="plant-thumbnails">
-              <!-- 縮圖由 JavaScript 動態載入 -->
-            </div>
-          </div>
-
-          <!-- 資訊區 -->
-          <div class="plant-detail__info">
-            <h1 class="plant-detail__name" id="plant-name">植物名稱</h1>
-            <p class="plant-detail__scientific" id="plant-scientific">學名</p>
-
-            <div class="plant-detail__price" id="plant-price">NT$ —</div>
-
-            <!-- 照護指標 -->
-            <div class="care-indicators">
-              <div class="care-indicator">
-                <p class="care-indicator__label">光照需求</p>
-                <p class="care-indicator__value" id="care-light">—</p>
-              </div>
-              <div class="care-indicator">
-                <p class="care-indicator__label">濕度需求</p>
-                <p class="care-indicator__value" id="care-humidity">—</p>
-              </div>
-              <div class="care-indicator">
-                <p class="care-indicator__label">照護難度</p>
-                <p class="care-indicator__value" id="care-difficulty">—</p>
-              </div>
-            </div>
-
-            <!-- 庫存狀態 -->
-            <p id="stock-status" class="badge badge--neutral">確認中</p>
-
-            <!-- 數量 + 加入購物車 -->
-            <div class="plant-detail__actions" style="margin-block-start:1.5rem;display:flex;gap:1rem;align-items:center">
-              <label class="sr-only" for="qty">數量</label>
-              <input id="qty" class="form-input" type="number" value="1" min="1" style="width:80px">
-              <button class="btn btn--primary btn--lg" id="add-to-cart-btn">加入購物車</button>
-              <button class="btn btn--ghost" aria-label="加入收藏" id="favorite-btn">♡</button>
-            </div>
-          </div>
-
+    <main class="site-main" id="main-content">
+      <div class="breadcrumb-bar">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="麵包屑">
+            <ol class="breadcrumb__list" role="list">
+              <li class="breadcrumb__item"><a class="breadcrumb__link" href="../../index.html">首頁</a></li>
+              <li class="breadcrumb__item"><a class="breadcrumb__link" href="./plants.html">植物商城</a></li>
+              <li class="breadcrumb__item"><span class="breadcrumb__current" aria-current="page" id="plant-name-bc">商品詳情</span></li>
+            </ol>
+          </nav>
         </div>
-
-        <!-- 詳細照護說明 -->
-        <section class="section" aria-labelledby="plant-care-title">
-          <h2 id="plant-care-title">照護說明</h2>
-          <div id="plant-care-body">
-            <!-- 詳細照護內容預留區 -->
-          </div>
-        </section>
-
-        <!-- 相關植物 -->
-        <section class="section" aria-labelledby="related-plants-title">
-          <h2 class="section__title" id="related-plants-title">你可能也喜歡</h2>
-          <div class="grid grid--auto-md" id="related-plants-grid">
-            <!-- 相關植物由 JavaScript 動態載入 -->
-          </div>
-        </section>
-
       </div>
-    </section>
 
-  </main>
+      <section class="page-content plant-detail-page">
+        <div class="container">
+          <div class="plant-detail-status" id="plant-detail-loading" role="status">正在載入植物商品資料</div>
 
-  <footer class="site-footer" role="contentinfo">
-    <!-- 共用 Footer 載入位置（components/footer.html）-->
-  </footer>
+          <section class="empty-state" id="plant-detail-error" aria-labelledby="plant-detail-error-title" hidden>
+            <h1 class="empty-state__title" id="plant-detail-error-title">找不到這項植物商品</h1>
+            <p class="empty-state__description">商品可能已下架，或網址中的植物編號不正確。</p>
+            <a class="btn btn--primary" href="./plants.html">返回植物商城</a>
+          </section>
 
-  <script src="../../assets/js/layout.js" defer></script>
-  <script src="../../assets/js/navigation.js" defer></script>
-  <script src="../../assets/js/cart.js" defer></script>
-  <script src="../../assets/js/toast.js" defer></script>
-  <script src="../../assets/js/main.js" defer></script>
+          <div id="plant-detail-content" hidden>
+            <section class="plant-detail" aria-labelledby="plant-name">
+              <div class="plant-detail__gallery">
+                <div class="plant-detail__image-frame">
+                  <img
+                    class="plant-detail__main-image"
+                    src="../../assets/images/placeholders/plant-placeholder.svg"
+                    alt="植物商品圖片"
+                    id="main-image"
+                  />
+                </div>
+                <div class="plant-detail__thumbnails" id="plant-thumbnails" aria-label="商品圖片選擇"></div>
+                <p class="plant-detail__image-note">實際植株會因自然生長而具有葉形、紋理與株型差異。</p>
+              </div>
 
-</body>
+              <div class="plant-detail__info">
+                <p class="plant-detail__eyebrow">CANOPY Plant Selection</p>
+                <h1 class="plant-detail__name" id="plant-name">植物名稱</h1>
+                <p class="plant-detail__scientific" id="plant-scientific">學名</p>
+                <p class="plant-detail__headline" id="plant-headline"></p>
+                <p class="plant-detail__summary" id="plant-summary"></p>
+
+                <div class="plant-detail__purchase-row">
+                  <div class="plant-detail__pricing" id="plant-price" aria-label="商品售價">
+                    <strong class="plant-detail__price">NT$ —</strong>
+                  </div>
+                  <p id="stock-status" class="badge badge--neutral">確認中</p>
+                </div>
+
+                <dl class="product-specs" aria-label="商品規格">
+                  <div class="product-specs__item">
+                    <dt>商品規格</dt>
+                    <dd id="product-variant">—</dd>
+                  </div>
+                  <div class="product-specs__item">
+                    <dt>植株高度</dt>
+                    <dd id="product-height">—</dd>
+                  </div>
+                  <div class="product-specs__item">
+                    <dt>育苗盆徑</dt>
+                    <dd id="product-pot">—</dd>
+                  </div>
+                  <div class="product-specs__item">
+                    <dt>裝飾盆</dt>
+                    <dd id="product-decorative-pot">—</dd>
+                  </div>
+                </dl>
+
+                <div class="care-indicators" aria-label="主要照護條件">
+                  <div class="care-indicator">
+                    <p class="care-indicator__label">光照需求</p>
+                    <p class="care-indicator__value" id="care-light">—</p>
+                  </div>
+                  <div class="care-indicator">
+                    <p class="care-indicator__label">濕度需求</p>
+                    <p class="care-indicator__value" id="care-humidity">—</p>
+                  </div>
+                  <div class="care-indicator">
+                    <p class="care-indicator__label">介質建議</p>
+                    <p class="care-indicator__value" id="care-substrate">—</p>
+                  </div>
+                </div>
+
+                <div class="plant-detail__actions">
+                  <label class="quantity-field" for="qty">
+                    <span>數量</span>
+                    <input id="qty" class="form-input" type="number" value="1" min="1" />
+                  </label>
+                  <button class="btn btn--primary btn--lg" id="add-to-cart-btn" type="button">加入購物車</button>
+                  <button class="btn btn--ghost plant-detail__favorite" aria-label="加入收藏" id="favorite-btn" type="button">收藏</button>
+                </div>
+
+                <div class="included-items">
+                  <h2 class="included-items__title">本商品包含</h2>
+                  <ul class="included-items__list" id="included-items"></ul>
+                </div>
+              </div>
+            </section>
+
+            <section class="detail-section environment-section" aria-labelledby="environment-title">
+              <div class="detail-section__heading">
+                <p class="detail-section__eyebrow">Growing Conditions</p>
+                <h2 id="environment-title">適生環境概覽</h2>
+                <p>圖示呈現建議範圍；實際澆水與生長仍會受到季節、通風、盆器與介質影響。</p>
+              </div>
+              <div class="environment-profile" id="environment-profile"></div>
+            </section>
+
+            <section class="detail-section" aria-labelledby="care-title">
+              <div class="detail-section__heading">
+                <p class="detail-section__eyebrow">Care Guide</p>
+                <h2 id="care-title">完整照護說明</h2>
+                <p id="plant-long-description"></p>
+              </div>
+              <div class="care-guide-grid">
+                <article class="care-guide-card"><p class="care-guide-card__index">01</p><h3>光照需求</h3><p id="care-light-detail"></p></article>
+                <article class="care-guide-card"><p class="care-guide-card__index">02</p><h3>濕度需求</h3><p id="care-humidity-detail"></p></article>
+                <article class="care-guide-card"><p class="care-guide-card__index">03</p><h3>適宜溫度</h3><p id="care-temperature-detail"></p></article>
+                <article class="care-guide-card"><p class="care-guide-card__index">04</p><h3>澆水建議</h3><p id="care-watering-detail"></p></article>
+                <article class="care-guide-card"><p class="care-guide-card__index">05</p><h3>介質建議</h3><p id="care-substrate-detail"></p></article>
+                <article class="care-guide-card"><p class="care-guide-card__index">06</p><h3>生長特性</h3><p id="care-growth-detail"></p></article>
+              </div>
+            </section>
+
+            <section class="detail-section substrate-section" aria-labelledby="substrate-title">
+              <div class="detail-section__heading">
+                <p class="detail-section__eyebrow">Substrate Formula</p>
+                <h2 id="substrate-title">建議介質配方</h2>
+                <p id="substrate-summary"></p>
+              </div>
+              <div class="substrate-composition" id="substrate-composition"></div>
+              <p class="substrate-repotting-note" id="substrate-repotting-note"></p>
+            </section>
+
+            <section class="detail-section product-notes" aria-labelledby="product-notes-title">
+              <div class="detail-section__heading">
+                <p class="detail-section__eyebrow">Before Ordering</p>
+                <h2 id="product-notes-title">配送與購買前說明</h2>
+              </div>
+              <div class="product-notes__grid">
+                <article class="product-note-card"><h3>活體植物差異</h3><p id="living-plant-notice"></p></article>
+                <article class="product-note-card"><h3>包裝與配送</h3><p id="shipping-note"></p></article>
+                <article class="product-note-card"><h3>寵物與兒童安全</h3><p id="safety-note"></p></article>
+              </div>
+            </section>
+
+            <section class="detail-section" aria-labelledby="related-plants-title">
+              <div class="detail-section__heading detail-section__heading--row">
+                <div>
+                  <p class="detail-section__eyebrow">Related Selection</p>
+                  <h2 id="related-plants-title">你可能也喜歡</h2>
+                </div>
+                <a class="btn btn--secondary" href="./plants.html">查看全部植物</a>
+              </div>
+              <div class="related-plants-grid" id="related-plants-grid"></div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <!-- 共用 Footer 載入位置（components/footer.html）-->
+    </footer>
+
+    <script src="../../assets/js/layout.js" defer></script>
+    <script src="../../assets/js/navigation.js" defer></script>
+    <script src="../../assets/js/cart.js" defer></script>
+    <script src="../../assets/js/toast.js" defer></script>
+    <script src="../../assets/js/pages/plant-detail.js" defer></script>
+    <script src="../../assets/js/main.js" defer></script>
+  </body>
 </html>

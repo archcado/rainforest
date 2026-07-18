@@ -89,7 +89,7 @@ window.CanopyPlants = {
    * 綁定頁面事件。
    */
   bindEvents() {
-    const { searchInput, sortSelect, retryButton, pagination } = this._elements;
+    const { grid, searchInput, sortSelect, retryButton, pagination } = this._elements;
 
     searchInput?.addEventListener("input", (event) => {
       window.clearTimeout(this._searchTimer);
@@ -109,6 +109,21 @@ window.CanopyPlants = {
 
     retryButton?.addEventListener("click", () => {
       this.loadPlants();
+    });
+
+    grid?.addEventListener("click", (event) => {
+      const favoriteButton = event.target.closest("[data-favorite-id]");
+      if (!favoriteButton) return;
+
+      event.preventDefault();
+      const plantId = favoriteButton.dataset.favoriteId;
+      const plantName = favoriteButton.dataset.name || "此商品";
+      const selected = this.toggleFavorite(plantId);
+      if (selected === null) return;
+      this.updateFavoriteButtons(plantId, selected);
+      window.CanopyToast?.success(
+        selected ? `${plantName} 已加入收藏` : `${plantName} 已取消收藏`,
+      );
     });
 
     pagination?.addEventListener("click", (event) => {
@@ -155,18 +170,9 @@ window.CanopyPlants = {
     this.setViewState("loading");
 
     try {
-      const response = await fetch(this._dataURL, {
-        headers: {
-          Accept: "application/json",
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error(`植物資料載入失敗，HTTP 狀態碼：${response.status}`);
-      }
-
-      const payload = await response.json();
-      const sourcePlants = this.extractPlantArray(payload);
+      const sourcePlants = window.CanopyPlantService
+        ? await window.CanopyPlantService.getAll()
+        : await this.fetchLegacyPlantData();
 
       if (!Array.isArray(sourcePlants)) {
         throw new TypeError("植物資料格式錯誤，找不到植物陣列。");
@@ -185,6 +191,21 @@ window.CanopyPlants = {
       this.updateCount(0);
       this.setViewState("error");
     }
+  },
+
+  /**
+   * 在植物資料服務無法載入時保留原本的 JSON 讀取方式。
+   */
+  async fetchLegacyPlantData() {
+    const response = await fetch(this._dataURL, {
+      headers: { Accept: "application/json" },
+    });
+
+    if (!response.ok) {
+      throw new Error(`植物資料載入失敗，HTTP 狀態碼：${response.status}`);
+    }
+
+    return this.extractPlantArray(await response.json());
   },
 
   /**
@@ -244,6 +265,7 @@ window.CanopyPlants = {
         "name",
         "nameZh",
         "displayName",
+        "identity.name",
         "basic.name",
         "basic.nameZh",
       ]) ?? `未命名植物 ${index + 1}`,
@@ -254,6 +276,7 @@ window.CanopyPlants = {
         "scientificName",
         "scientific_name",
         "latinName",
+        "identity.scientificName",
         "taxonomy.scientificName",
         "basic.scientificName",
       ]) ?? "",
@@ -279,20 +302,64 @@ window.CanopyPlants = {
         "category",
         "categoryName",
         "category.name",
+        "catalog.categoryLabel",
         "taxonomy.category",
         "basic.category",
       ]) ?? "雨林植物",
     );
 
-    const price = this.toNumber(
+    const explicitSalePrice = this.toNumber(
+      this.getValue(rawPlant, [
+        "salePrice",
+        "commerce.salePrice.amount",
+        "commerce.variants.0.salePrice.amount",
+      ]),
+      null,
+    );
+
+    const regularPrice = this.toNumber(
       this.getValue(rawPlant, [
         "price",
-        "salePrice",
         "commerce.price",
+        "commerce.basePrice.amount",
+        "commerce.variants.0.price.amount",
         "product.price",
         "purchase.price",
       ]),
       0,
+    );
+
+    const price = explicitSalePrice ?? regularPrice;
+    const explicitOriginalPrice = this.toNumber(
+      this.getValue(rawPlant, [
+        "originalPrice",
+        "compareAtPrice",
+        "regularPrice",
+        "commerce.compareAtPrice.amount",
+        "commerce.regularPrice.amount",
+        "commerce.variants.0.compareAtPrice.amount",
+        "commerce.variants.0.regularPrice.amount",
+      ]),
+      null,
+    );
+    const originalPriceCandidate =
+      explicitOriginalPrice ?? (explicitSalePrice !== null ? regularPrice : null);
+    const originalPrice =
+      originalPriceCandidate !== null && originalPriceCandidate > price
+        ? originalPriceCandidate
+        : null;
+    const discountPercentage = originalPrice
+      ? Math.round((1 - price / originalPrice) * 100)
+      : 0;
+
+    const currency = String(
+      this.getValue(rawPlant, [
+        "currency",
+        "commerce.salePrice.currency",
+        "commerce.basePrice.currency",
+        "commerce.variants.0.salePrice.currency",
+        "commerce.variants.0.price.currency",
+      ]) ?? "TWD",
     );
 
     const stock = this.toNumber(
@@ -302,15 +369,33 @@ window.CanopyPlants = {
         "inventory.stock",
         "inventory.quantity",
         "commerce.stock",
+        "commerce.totalStock",
+        "commerce.variants.0.stockQuantity",
       ]),
       0,
     );
+
+    const stockLabel = String(
+      this.getValue(rawPlant, ["stockLabel", "commerce.stockLabel"]) ??
+        (stock > 0 ? "現貨供應" : "暫時缺貨"),
+    );
+
+    const sellableValue = this.getValue(rawPlant, [
+      "sellable",
+      "commerce.sellable",
+      "purchase.sellable",
+    ]);
+    const sellable =
+      sellableValue === undefined || sellableValue === null
+        ? true
+        : this.toBoolean(sellableValue);
 
     const light = this.normalizeLight(
       this.getValue(rawPlant, [
         "light",
         "lightLevel",
         "care.light",
+        "care.light.primary",
         "care.light.level",
         "careProfile.light",
         "careProfile.light.level",
@@ -328,13 +413,21 @@ window.CanopyPlants = {
       ]),
     );
 
-    const difficulty = this.normalizeDifficulty(
+    const substrate = this.normalizeSubstrate(
       this.getValue(rawPlant, [
-        "difficulty",
-        "careLevel",
-        "care.difficulty",
-        "careProfile.difficulty",
+        "substrate",
+        "substrateType",
+        "care.substrate.type",
+        "careProfile.substrateType",
       ]),
+    );
+
+    const substrateLabel = String(
+      this.getValue(rawPlant, [
+        "substrateLabel",
+        "care.substrate.label",
+        "careProfile.substrateLabel",
+      ]) ?? this.getSubstrateLabel(substrate),
     );
 
     const size = this.normalizeSize(
@@ -353,12 +446,13 @@ window.CanopyPlants = {
         "pet_safe",
         "safety.petSafe",
         "safety.isPetSafe",
+        "safety.petFriendly",
         "care.petSafe",
       ]),
     );
 
     const featured = this.toBoolean(
-      this.getValue(rawPlant, ["featured", "isFeatured", "commerce.featured"]),
+      this.getValue(rawPlant, ["featured", "isFeatured", "catalog.featured", "commerce.featured"]),
     );
 
     const image = this.resolveImage(
@@ -370,6 +464,8 @@ window.CanopyPlants = {
         "images.0",
         "images.0.url",
         "media.cover",
+        "media.cardImage.src",
+        "media.heroImage.src",
         "media.images.0",
         "media.images.0.url",
       ]),
@@ -382,10 +478,17 @@ window.CanopyPlants = {
       scientificName,
       category,
       price,
+      originalPrice,
+      onSale: Boolean(originalPrice),
+      discountPercentage,
+      currency,
       stock,
+      stockLabel,
+      sellable,
       light,
       humidity,
-      difficulty,
+      substrate,
+      substrateLabel,
       size,
       petSafe,
       featured,
@@ -482,7 +585,7 @@ window.CanopyPlants = {
         return false;
       }
 
-      if (!this.matchesFilterValue(plant.difficulty, filters.difficulty)) {
+      if (!this.matchesFilterValue(plant.substrate, filters.substrate)) {
         return false;
       }
 
@@ -620,6 +723,24 @@ window.CanopyPlants = {
     imageLink.append(image);
     media.append(imageLink);
 
+    const favoriteButton = document.createElement("button");
+    favoriteButton.className = "plant-card__favorite";
+    favoriteButton.type = "button";
+    favoriteButton.dataset.favoriteId = plant.id;
+    favoriteButton.dataset.name = plant.name;
+    const isFavorite = this.isFavorite(plant.id);
+    favoriteButton.setAttribute(
+      "aria-label",
+      `${isFavorite ? "取消收藏" : "收藏"} ${plant.name}`,
+    );
+    favoriteButton.setAttribute("aria-pressed", String(isFavorite));
+    favoriteButton.innerHTML = `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"/>
+      </svg>
+    `;
+    media.append(favoriteButton);
+
     if (plant.featured) {
       const featuredBadge = document.createElement("span");
       featuredBadge.className = "plant-card__featured";
@@ -652,19 +773,46 @@ window.CanopyPlants = {
 
     tags.append(
       this.createTag(this.getLightLabel(plant.light)),
-      this.createTag(this.getDifficultyLabel(plant.difficulty)),
+      this.createTag(plant.substrateLabel),
     );
 
     if (plant.petSafe) {
       tags.append(this.createTag("寵物友善"));
     }
 
-    const footer = document.createElement("div");
-    footer.className = "plant-card__footer";
+    const purchase = document.createElement("div");
+    purchase.className = "plant-card__purchase";
 
-    const price = document.createElement("p");
+    const priceBlock = document.createElement("div");
+    priceBlock.className = `plant-card__pricing${plant.onSale ? " plant-card__pricing--sale" : ""}`;
+
+    const priceLabel = document.createElement("span");
+    priceLabel.className = "plant-card__price-label";
+    priceLabel.textContent = plant.onSale ? "優惠價" : "售價";
+
+    const priceRow = document.createElement("div");
+    priceRow.className = "plant-card__price-row";
+
+    const price = document.createElement("strong");
     price.className = "plant-card__price";
-    price.textContent = this.formatCurrency(plant.price);
+    price.textContent = this.formatCurrency(plant.price, plant.currency);
+    priceRow.append(price);
+
+    if (plant.originalPrice) {
+      const originalPrice = document.createElement("del");
+      originalPrice.className = "plant-card__original-price";
+      originalPrice.textContent = this.formatCurrency(
+        plant.originalPrice,
+        plant.currency,
+      );
+
+      const discount = document.createElement("span");
+      discount.className = "plant-card__discount";
+      discount.textContent = `${plant.discountPercentage}% OFF`;
+      priceRow.append(originalPrice, discount);
+    }
+
+    priceBlock.append(priceLabel, priceRow);
 
     const stock = document.createElement("p");
     stock.className =
@@ -672,20 +820,41 @@ window.CanopyPlants = {
         ? "plant-card__stock"
         : "plant-card__stock plant-card__stock--empty";
 
-    stock.textContent = plant.stock > 0 ? "現貨供應" : "暫時缺貨";
+    if (plant.stock > 0 && plant.stock <= 6) {
+      stock.classList.add("plant-card__stock--low");
+    }
+
+    stock.textContent = plant.stockLabel;
 
     const actions = document.createElement("div");
     actions.className = "plant-card__actions";
 
+    const addToCartButton = document.createElement("button");
+    addToCartButton.className = "btn btn--primary plant-card__cart-button";
+    addToCartButton.type = "button";
+    addToCartButton.dataset.addToCart = plant.id;
+    addToCartButton.dataset.name = plant.name;
+    addToCartButton.dataset.price = String(plant.price);
+    addToCartButton.dataset.image = plant.image || "";
+    addToCartButton.disabled = plant.stock <= 0 || !plant.sellable;
+    addToCartButton.innerHTML = `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 4h2l2.2 10.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 2-1.6L20.5 8H6.2"/>
+        <circle cx="10" cy="20" r="1"/>
+        <circle cx="18" cy="20" r="1"/>
+      </svg>
+      <span>${addToCartButton.disabled ? "暫時缺貨" : "加入購物車"}</span>
+    `;
+
     const detailLink = document.createElement("a");
-    detailLink.className = "btn btn--outline";
+    detailLink.className = "plant-card__detail-link";
     detailLink.href = this.createDetailURL(plant);
-    detailLink.textContent = "查看詳情";
+    detailLink.innerHTML = `<span>查看詳情</span><span aria-hidden="true">→</span>`;
 
-    footer.append(price, stock);
-    actions.append(detailLink);
+    purchase.append(priceBlock, stock);
+    actions.append(addToCartButton, detailLink);
 
-    body.append(category, title, scientificName, tags, footer, actions);
+    body.append(category, title, scientificName, tags, purchase, actions);
 
     article.append(media, body);
 
@@ -703,6 +872,50 @@ window.CanopyPlants = {
     tag.className = "plant-card__tag";
     tag.textContent = text;
     return tag;
+  },
+
+  getFavorites() {
+    try {
+      const value = JSON.parse(localStorage.getItem("canopy_favorites"));
+      return Array.isArray(value) ? value.map(String) : [];
+    } catch {
+      return [];
+    }
+  },
+
+  isFavorite(plantId) {
+    return this.getFavorites().includes(String(plantId));
+  },
+
+  toggleFavorite(plantId) {
+    const normalizedId = String(plantId);
+    const favorites = this.getFavorites();
+    const selected = !favorites.includes(normalizedId);
+    const nextFavorites = selected
+      ? [...favorites, normalizedId]
+      : favorites.filter((id) => id !== normalizedId);
+
+    try {
+      localStorage.setItem("canopy_favorites", JSON.stringify(nextFavorites));
+    } catch (error) {
+      console.error("無法儲存收藏資料。", error);
+      window.CanopyToast?.error("收藏狀態無法儲存，請稍後再試");
+      return null;
+    }
+
+    return selected;
+  },
+
+  updateFavoriteButtons(plantId, selected) {
+    document
+      .querySelectorAll(`[data-favorite-id="${CSS.escape(String(plantId))}"]`)
+      .forEach((button) => {
+        button.setAttribute("aria-pressed", String(selected));
+        button.setAttribute(
+          "aria-label",
+          `${selected ? "取消收藏" : "收藏"} ${button.dataset.name || "此商品"}`,
+        );
+      });
   },
 
   /**
@@ -1078,34 +1291,36 @@ window.CanopyPlants = {
   },
 
   /**
-   * 標準化照護難度。
+   * 標準化介質類型。
    *
    * @param {unknown} value
    * @returns {string}
    */
-  normalizeDifficulty(value) {
+  normalizeSubstrate(value) {
     const normalized = String(value ?? "")
       .trim()
       .toLowerCase();
 
     if (
-      normalized.includes("advanced") ||
-      normalized.includes("hard") ||
-      normalized.includes("進階") ||
-      normalized.includes("困難")
+      normalized.includes("moisture") ||
+      normalized.includes("保濕")
     ) {
-      return "advanced";
+      return "moisture-retentive";
     }
 
     if (
-      normalized.includes("intermediate") ||
-      normalized.includes("medium") ||
-      normalized.includes("中等")
+      normalized.includes("gritty") ||
+      normalized.includes("礦物") ||
+      normalized.includes("高排水")
     ) {
-      return "intermediate";
+      return "gritty";
     }
 
-    return "beginner";
+    if (normalized.includes("chunky") || normalized.includes("粗顆粒")) {
+      return "chunky";
+    }
+
+    return "balanced";
   },
 
   /**
@@ -1147,31 +1362,33 @@ window.CanopyPlants = {
   },
 
   /**
-   * 取得難度中文文字。
+   * 取得介質類型中文文字。
    *
    * @param {string} value
    * @returns {string}
    */
-  getDifficultyLabel(value) {
+  getSubstrateLabel(value) {
     const labels = {
-      beginner: "新手適合",
-      intermediate: "中等難度",
-      advanced: "進階照護",
+      chunky: "粗顆粒排水型",
+      balanced: "均衡保水型",
+      "moisture-retentive": "保濕透氣型",
+      gritty: "高排水礦物型",
     };
 
-    return labels[value] ?? "新手適合";
+    return labels[value] ?? "均衡保水型";
   },
 
   /**
    * 格式化價格。
    *
    * @param {number} value
+   * @param {string} currency
    * @returns {string}
    */
-  formatCurrency(value) {
+  formatCurrency(value, currency = "TWD") {
     return new Intl.NumberFormat("zh-TW", {
       style: "currency",
-      currency: "TWD",
+      currency,
       maximumFractionDigits: 0,
     }).format(value);
   },

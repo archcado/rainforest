@@ -2,7 +2,7 @@
 
 本文件說明 CANOPY 品牌視覺系統、設計語言與使用原則。
 
-設計系統的實作細節（CSS 變數、元件範例）請參閱 `design-system.html`。
+`design-system/design-system.html` 是正式視覺與元件規格；`assets/css/tokens.css` 是正式 Design Token 實作。兩者必須保持一致，正式頁面不得建立平行的品牌規格。
 
 ---
 

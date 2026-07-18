@@ -12,10 +12,13 @@
 
 window.CanopyCart = {
   _key: "canopy_cart",
+  _initialized: false,
 
   init() {
+    if (this._initialized) return;
     this.updateBadge();
     this.initAddToCartButtons();
+    this._initialized = true;
   },
 
   getItems() {
@@ -39,9 +42,9 @@ window.CanopyCart = {
     const items = this.getItems();
     const existing = items.find((i) => i.id === item.id);
     if (existing) {
-      existing.qty += qty;
+      existing.qty += Math.max(1, Number(qty) || 1);
     } else {
-      items.push({ ...item, qty });
+      items.push({ ...item, qty: Math.max(1, Number(qty) || 1) });
     }
     this.saveItems(items);
     if (window.CanopyToast) {
@@ -65,11 +68,11 @@ window.CanopyCart = {
   },
 
   updateBadge() {
-    const badge = document.querySelector("[data-cart-count]");
-    if (!badge) return;
     const qty = this.getTotalQty();
-    badge.textContent = String(qty);
-    badge.hidden = qty === 0;
+    document.querySelectorAll("[data-cart-count]").forEach((badge) => {
+      badge.textContent = String(qty);
+      badge.hidden = qty === 0;
+    });
   },
 
   initAddToCartButtons() {
@@ -79,7 +82,8 @@ window.CanopyCart = {
       const id    = btn.dataset.addToCart;
       const name  = btn.dataset.name  || "植物";
       const price = Number(btn.dataset.price || 0);
-      this.addItem({ id, name, price });
+      const image = btn.dataset.image || undefined;
+      this.addItem({ id, name, price, image });
     });
   },
 };

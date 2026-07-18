@@ -1,0 +1,193 @@
+{
+  "schemaVersion": "1.0.0",
+  "scoreName": "條件符合度",
+  "maximumScore": 100,
+  "weights": {
+    "light": 30,
+    "humidity": 10,
+    "careTime": 15,
+    "experience": 10,
+    "space": 15,
+    "growthHabit": 10,
+    "budget": 10
+  },
+  "hardRules": {
+    "publishedOnly": true,
+    "sellableOnly": true,
+    "inStockOnly": true,
+    "activeVariantRequired": true,
+    "petReachableRequiresPetFriendly": true,
+    "noLightWithoutGrowLight": true,
+    "excludeOverBudget": true,
+    "excludeSpaceMismatch": true,
+    "minimumLightCompatibility": 0.35
+  },
+  "thresholds": [
+    {
+      "min": 85,
+      "key": "excellent",
+      "label": "高度適合"
+    },
+    {
+      "min": 70,
+      "key": "good",
+      "label": "適合"
+    },
+    {
+      "min": 55,
+      "key": "conditional",
+      "label": "有條件適合"
+    }
+  ],
+  "budgetMaximums": {
+    "under-500": 500,
+    "under-1000": 1000,
+    "under-1500": 1500,
+    "open": 999999
+  },
+  "compatibility": {
+    "light": {
+      "bright-direct": {
+        "bright-direct": 1,
+        "bright-indirect": 0.65,
+        "medium-indirect": 0.4,
+        "low-to-indirect": 0.2
+      },
+      "bright-indirect": {
+        "bright-direct": 0.55,
+        "bright-indirect": 1,
+        "medium-indirect": 0.8,
+        "low-to-indirect": 0.65
+      },
+      "medium-indirect": {
+        "bright-direct": 0.2,
+        "bright-indirect": 0.72,
+        "medium-indirect": 1,
+        "low-to-indirect": 0.85
+      },
+      "low-to-indirect": {
+        "bright-direct": 0,
+        "bright-indirect": 0.25,
+        "medium-indirect": 0.55,
+        "low-to-indirect": 1
+      },
+      "grow-light": {
+        "bright-direct": 0.65,
+        "bright-indirect": 0.9,
+        "medium-indirect": 0.9,
+        "low-to-indirect": 0.8
+      }
+    },
+    "humidity": {
+      "dry": {
+        "normal-home": 0.75,
+        "medium": 0.55,
+        "medium-high": 0.3,
+        "high": 0.15
+      },
+      "normal": {
+        "normal-home": 1,
+        "medium": 1,
+        "medium-high": 0.75,
+        "high": 0.5
+      },
+      "humid": {
+        "normal-home": 0.75,
+        "medium": 0.9,
+        "medium-high": 1,
+        "high": 1
+      }
+    },
+    "careTime": {
+      "low": {
+        "low": 1,
+        "medium": 0.35,
+        "high": 0
+      },
+      "medium": {
+        "low": 1,
+        "medium": 0.85,
+        "high": 0.45
+      },
+      "high": {
+        "low": 1,
+        "medium": 1,
+        "high": 0.9
+      }
+    },
+    "experience": {
+      "beginner": {
+        "tolerant": 1,
+        "moderate": 0.4,
+        "sensitive": 0.1
+      },
+      "intermediate": {
+        "tolerant": 1,
+        "moderate": 0.9,
+        "sensitive": 0.55
+      },
+      "advanced": {
+        "tolerant": 1,
+        "moderate": 1,
+        "sensitive": 1
+      }
+    },
+    "space": {
+      "small-space": {
+        "small-space": 1,
+        "medium-space": 0,
+        "large-space": 0
+      },
+      "medium-space": {
+        "small-space": 0.85,
+        "medium-space": 1,
+        "large-space": 0.35
+      },
+      "large-space": {
+        "small-space": 0.75,
+        "medium-space": 0.9,
+        "large-space": 1
+      }
+    }
+  },
+  "labels": {
+    "light": {
+      "bright-direct": "直射光",
+      "bright-indirect": "明亮散射光",
+      "medium-indirect": "中等自然光",
+      "low-to-indirect": "較低自然光",
+      "grow-light": "植物燈",
+      "no-light": "幾乎無自然光"
+    },
+    "humidity": {
+      "dry": "較乾燥",
+      "normal": "一般室內環境",
+      "humid": "偏高濕度",
+      "normal-home": "一般室內濕度",
+      "medium": "中等濕度",
+      "medium-high": "中高濕度",
+      "high": "高濕度"
+    },
+    "observationFrequency": {
+      "low": "每週檢查一次即可",
+      "medium": "建議每週檢查兩次",
+      "high": "建議每兩至三日觀察"
+    },
+    "environmentSensitivity": {
+      "tolerant": "可適應一般環境波動",
+      "moderate": "偏好較穩定的環境",
+      "sensitive": "需要穩定的溫濕度"
+    },
+    "space": {
+      "small-space": "小型空間",
+      "medium-space": "中型空間",
+      "large-space": "大型空間"
+    },
+    "growthHabit": {
+      "trailing": "垂墜蔓生",
+      "climbing": "攀爬生長",
+      "upright": "直立株型",
+      "no-preference": "不限株型"
+    }
+  }
+}

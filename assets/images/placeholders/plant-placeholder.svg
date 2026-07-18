@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 800" role="img" aria-labelledby="title desc">
+  <title id="title">CANOPY 植物圖片預留圖</title>
+  <desc id="desc">由森林綠葉片與柔和草綠背景組成的植物圖形</desc>
+  <defs>
+    <radialGradient id="background" cx="25%" cy="20%" r="90%">
+      <stop offset="0" stop-color="#c5dc99"/>
+      <stop offset="0.48" stop-color="#eef3e5"/>
+      <stop offset="1" stop-color="#b8ddc1"/>
+    </radialGradient>
+    <linearGradient id="leafA" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#4b6f55"/>
+      <stop offset="1" stop-color="#345f45"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="800" fill="url(#background)"/>
+  <circle cx="510" cy="185" r="145" fill="#f6f0d7" opacity=".62"/>
+  <path d="M320 700V310" fill="none" stroke="#385943" stroke-width="18" stroke-linecap="round"/>
+  <path d="M310 410C205 385 135 300 120 185c120 23 193 96 190 225Z" fill="url(#leafA)"/>
+  <path d="M330 475c116-35 208 8 255 108-124 38-217 2-255-108Z" fill="#66866d"/>
+  <path d="M314 575c-95-23-171 14-218 101 107 25 184-10 218-101Z" fill="#87a58d"/>
+  <path d="M310 405 155 215M332 474l204 83M313 574l-172 75" fill="none" stroke="#dce8b8" stroke-width="7" stroke-linecap="round" opacity=".72"/>
+</svg>

@@ -1,68 +1,81 @@
-<!--
-  components/header.html
-  ─────────────────────────────────────────────
-  共用 Header 元件骨架
-  使用方式：透過 JavaScript 或伺服端 include 載入至各頁面。
-  注意：不含寫死的使用者資料或頁面特殊內容。
-  ─────────────────────────────────────────────
--->
-<header class="site-header" role="banner">
+<header class="site-header" id="site-header">
   <div class="header-inner">
-
-    <!-- 品牌識別 -->
     <a class="brand" href="/index.html" aria-label="CANOPY 首頁">
       <span class="brand-mark" aria-hidden="true">
-        <!-- Logo SVG 插入位置 -->
+        <svg viewBox="0 0 84 84" fill="none" aria-hidden="true">
+          <defs>
+            <clipPath id="left-leaf-header">
+              <path d="M37.4 66.5C29.8 59.6 22.6 50.9 17.7 41.6C13.2 33.2 12 24.1 15.4 16.6C18.8 9.2 26.1 5.3 33.6 6.8C40.5 8.2 45 14.1 45.3 21.4C45.7 29.1 42.6 36.5 40.1 43.6C37.3 51.3 36.3 59 37.4 66.5Z"/>
+            </clipPath>
+            <clipPath id="right-leaf-header">
+              <path d="M47.2 60.5C46 51.9 46.7 43.8 49.3 35.9C51.9 28 55.4 20 61.2 14.2C66.2 9.2 72.2 8.4 76.1 12.3C80 16.3 79.4 22.9 75.6 28.5C71.2 35 65.2 40.1 59.9 45.8C54.8 51.2 50.7 56.1 47.2 60.5Z"/>
+            </clipPath>
+          </defs>
+          <path d="M39.2 76.8C39.4 65.3 38.7 53.6 36.8 42.1C36.7 41.3 37.2 40.6 38 40.4C38.8 40.2 39.5 40.8 39.7 41.6C41.6 53.4 42.2 65.2 42 76.9Z" fill="var(--logo-green-deep)"/>
+          <path d="M43.4 76.4C45.1 64.9 48.2 53.7 52.9 43C53.2 42.2 54 41.9 54.8 42.2C55.6 42.6 55.9 43.4 55.5 44.2C50.9 54.6 47.9 65.5 46.2 76.8Z" fill="var(--logo-green-mid)"/>
+          <g clip-path="url(#left-leaf-header)">
+            <rect width="84" height="84" fill="var(--logo-green-deep)"/>
+            <path d="M18 10C24 8 30 9 34.8 13.5C31 20.8 29.5 28.1 29.6 35.4C24.3 31.7 19.6 26.6 16 20.3Z" fill="var(--logo-green-fresh)"/>
+            <path d="M30 7C37.1 7.6 42.1 12.5 43.2 19.1C41.8 26.9 38.5 34.2 35.1 41.6C32.8 31.7 32 20.9 30 7Z" fill="var(--logo-green-mid)"/>
+            <path d="M19.2 32.4C25.8 36.3 31.1 42 35 49.4C34.3 54.8 34.4 60.1 35.5 65.5C27.5 58.6 21.3 50.4 17.4 41.6Z" fill="var(--logo-green-fresh)" opacity="0.9"/>
+            <path d="M38.2 66C34.7 50.7 31.2 34.4 28.2 8.4" stroke="var(--logo-vein)" stroke-width="1.35" stroke-linecap="round"/>
+            <g stroke="var(--logo-green-light)" stroke-width="0.9" stroke-linecap="round" opacity="0.88">
+              <path d="M29.1 15C24.9 14.3 21.2 14.5 17.8 15.8"/>
+              <path d="M30.2 20.4C25.6 19.4 21.5 19.5 17.7 21.2"/>
+              <path d="M31.4 26C26.4 24.8 22 25 18 27"/>
+              <path d="M32.5 31.9C27.7 30.5 23.4 30.7 19.4 32.8"/>
+              <path d="M33.8 38C29.3 36.8 25.4 37.1 21.6 39.2"/>
+              <path d="M35 44.2C31.1 43.2 27.7 43.5 24.4 45.4"/>
+              <path d="M36.1 50.6C32.9 49.8 30 50.1 27.2 51.8"/>
+            </g>
+          </g>
+          <g clip-path="url(#right-leaf-header)">
+            <rect width="84" height="84" fill="var(--logo-green-mid)"/>
+            <path d="M60 12C65.2 8.9 71.8 9.2 75.5 13.3C73.3 20.3 69.3 26.8 64.5 32.6C63.2 25.4 61.9 18.6 60 12Z" fill="var(--logo-green-fresh)"/>
+            <path d="M51.2 34C55.1 27.1 58.3 20.7 61.3 14.2C62.4 22.8 62.9 31.8 61.7 40.1C56.8 45.8 52.7 51.3 48.5 57.4C48.1 49.2 49.2 41.4 51.2 34Z" fill="var(--logo-green-deep)" opacity="0.88"/>
+            <path d="M47.8 60.2C53.8 45.5 61.3 29.8 74.7 13.7" stroke="var(--logo-vein)" stroke-width="1.25" stroke-linecap="round"/>
+            <g stroke="var(--logo-green-light)" stroke-width="0.82" stroke-linecap="round" opacity="0.82">
+              <path d="M69.8 17.4C71.7 18.2 73.6 19.4 75.4 21"/>
+              <path d="M65.8 22.5C68.5 23.3 71.2 24.8 73.8 27"/>
+              <path d="M61.8 27.8C64.9 28.7 67.9 30.5 70.7 33"/>
+              <path d="M57.9 33.3C61.1 34.3 64.1 36.1 66.8 38.7"/>
+              <path d="M54.4 39.2C57.5 40.2 60.2 42 62.6 44.4"/>
+              <path d="M51.3 45.2C53.9 46.1 56.3 47.5 58.4 49.5"/>
+            </g>
+          </g>
+        </svg>
       </span>
       <span class="brand-text">
         <span class="brand-name">CANOPY</span>
-        <span class="brand-sub">Rainforest Plants</span>
+        <span class="brand-sub">Tropical Plant Care</span>
       </span>
     </a>
 
-    <!-- 桌面主導覽 -->
-    <nav class="nav" aria-label="主導覽">
+    <nav class="nav" aria-label="主要導覽">
       <a class="nav-link" href="/pages/plants/plants.html">植物商城</a>
       <a class="nav-link" href="/pages/care/care.html">照護知識</a>
       <a class="nav-link" href="/pages/quiz/quiz.html">植物配對</a>
-      <a class="nav-link" href="/pages/member/my-plants.html">我的植物</a>
       <a class="nav-link" href="/pages/sustainability/sustainability.html">永續計畫</a>
+      <a class="nav-link" href="/pages/system/about.html">品牌故事</a>
     </nav>
 
-    <!-- 右側功能列 -->
-    <div class="header-actions" role="toolbar" aria-label="功能列">
-      <!-- 搜尋 -->
-      <button class="header-icon-btn" data-search-open aria-label="開啟搜尋">
-        <!-- Search Icon -->
+    <div class="header-actions" role="group" aria-label="網站功能">
+      <button class="header-icon-btn" type="button" data-search-open aria-label="開啟搜尋">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
       </button>
-
-      <!-- 收藏 -->
-      <a class="header-icon-btn" href="/pages/member/favorites.html" aria-label="我的收藏">
-        <!-- Heart Icon -->
+      <a class="header-icon-btn header-action--optional" href="/pages/member/favorites.html" aria-label="我的收藏">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"/></svg>
       </a>
-
-      <!-- 購物車 -->
       <a class="header-icon-btn" href="/pages/commerce/cart.html" aria-label="購物車">
-        <!-- Cart Icon -->
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 10.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 2-1.6L20.5 8H6.2"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
         <span class="cart-badge" data-cart-count hidden>0</span>
       </a>
-
-      <!-- 會員 -->
-      <a class="header-icon-btn" href="/pages/system/login.html" aria-label="會員登入">
-        <!-- User Icon -->
+      <a class="header-icon-btn header-action--optional" href="/pages/system/login.html" aria-label="會員登入">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/></svg>
       </a>
-
-      <!-- 行動版漢堡選單 -->
-      <button
-        class="header-icon-btn hide-desktop"
-        data-nav-toggle
-        aria-label="開啟選單"
-        aria-expanded="false"
-        aria-controls="mobile-nav"
-      >
-        <!-- Hamburger Icon -->
+      <button class="header-icon-btn hide-desktop" type="button" data-nav-open aria-label="開啟選單" aria-expanded="false" aria-controls="mobile-nav">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
     </div>
-
   </div>
 </header>

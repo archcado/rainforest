@@ -216,7 +216,14 @@
       transition: right .25s ease;
     }
 
-    .nav a:hover::after { right: 0; }
+    .nav a:hover::after,
+    .nav a:focus-visible::after,
+    .nav a[aria-current="page"]::after { right: 0; }
+
+    .nav a:focus-visible {
+      outline: 2px solid var(--canopy-700);
+      outline-offset: 3px;
+    }
 
     .header-actions {
       display: flex;
@@ -1459,10 +1466,10 @@
       </a>
 
       <nav class="nav" aria-label="主要導覽">
-        <a href="#foundation">植物圖鑑</a>
+        <a href="#plants">植物商城</a>
         <a href="#forms">照護指南</a>
-        <a href="#information">環境診斷</a>
-        <a href="#plants">植物日誌</a>
+        <a href="#information">植物配對</a>
+        <a href="#footer">永續計畫</a>
         <a href="#footer">品牌故事</a>
       </nav>
 
@@ -1474,7 +1481,7 @@
         <button class="mobile-search-toggle" type="button" aria-label="開啟搜尋">
           ⌕
         </button>
-        <button class="icon-btn" aria-label="我的植物">
+        <button class="icon-btn" aria-label="會員登入">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
             <path d="M12 13.5a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm7 6c-.8-3-3.4-4.5-7-4.5S5.8 16.5 5 19.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
           </svg>
@@ -1501,10 +1508,10 @@
       <button class="mobile-nav-close" type="button" aria-label="關閉導覽">✕</button>
     </div>
     <nav class="mobile-nav-links" aria-label="手機主要導覽">
-      <a href="#foundation">植物圖鑑</a>
+      <a href="#plants">植物商城</a>
       <a href="#forms">照護指南</a>
-      <a href="#information">環境診斷</a>
-      <a href="#plants">植物日誌</a>
+      <a href="#information">植物配對</a>
+      <a href="#footer">永續計畫</a>
       <a href="#footer">品牌故事</a>
     </nav>
   </aside>
@@ -1781,29 +1788,29 @@
             <input id="search" class="control" type="search" placeholder="搜尋照護知識…" />
           </div>
           <div class="field">
-            <label>偏好設定</label>
+            <label>介質特性</label>
             <div class="checks">
-              <label><input type="checkbox" checked /> 澆水提醒</label>
-              <label><input type="checkbox" /> 生長紀錄</label>
+              <label><input type="checkbox" checked /> 透氣排水</label>
+              <label><input type="checkbox" /> 均勻保濕</label>
             </div>
           </div>
           <div class="field">
-            <label>照護難度</label>
+            <label>介質類型</label>
             <div class="checks">
-              <label><input type="radio" name="level" checked /> 新手</label>
-              <label><input type="radio" name="level" /> 進階</label>
+              <label><input type="radio" name="substrate" checked /> 粗顆粒排水型</label>
+              <label><input type="radio" name="substrate" /> 保濕透氣型</label>
             </div>
           </div>
           <div class="field">
             <label>系統狀態</label>
             <div class="status-stack">
-              <div class="notice success">儲存成功，照護紀錄已更新。</div>
+              <div class="notice success">儲存成功，商品資料已更新。</div>
               <div class="notice danger">資料填寫有誤，請檢查必填欄位。</div>
             </div>
           </div>
           <div class="field" style="grid-column:1/-1">
-            <label for="notes">照護備註</label>
-            <textarea id="notes" class="control" placeholder="輸入每日觀察、葉況或環境變化…"></textarea>
+            <label for="notes">商品備註</label>
+            <textarea id="notes" class="control" placeholder="輸入商品規格、包裝或配送注意事項…"></textarea>
           </div>
         </div>
       </section>
@@ -1815,7 +1822,7 @@
           <div class="badge water">高濕度環境</div>
           <div class="badge water">土壤微濕即可</div>
           <div class="badge pet">寵物不友善</div>
-          <div class="badge growth">新手適合</div>
+          <div class="badge growth">粗顆粒排水型</div>
           <div class="badge growth">生長旺盛期</div>
           <div class="badge care">需要換盆</div>
           <div class="badge care">注意病蟲害</div>
@@ -1845,10 +1852,10 @@
             <div class="plant-body">
               <h3>龜背芋</h3>
               <div class="latin">Monstera deliciosa</div>
-              <div class="plant-meta"><span>散射光</span><span>高濕度</span><span>中等難度</span></div>
+              <div class="plant-meta"><span>散射光</span><span>高濕度</span><span>粗顆粒排水型</span></div>
               <div class="plant-actions">
                 <button class="btn btn-outline">查看更多</button>
-                <button class="icon-btn" aria-label="加入日誌">＋</button>
+                <button class="icon-btn" aria-label="加入購物車">＋</button>
               </div>
             </div>
           </article>
@@ -1869,10 +1876,10 @@
             <div class="plant-body">
               <h3>海芋</h3>
               <div class="latin">Alocasia amazonica</div>
-              <div class="plant-meta"><span>明亮光</span><span>高濕度</span><span>進階照護</span></div>
+              <div class="plant-meta"><span>明亮光</span><span>高濕度</span><span>保濕透氣型</span></div>
               <div class="plant-actions">
                 <button class="btn btn-outline">查看更多</button>
-                <button class="icon-btn" aria-label="加入日誌">＋</button>
+                <button class="icon-btn" aria-label="加入購物車">＋</button>
               </div>
             </div>
           </article>
@@ -1899,10 +1906,10 @@
             <div class="plant-body">
               <h3>鳥巢蕨</h3>
               <div class="latin">Asplenium nidus</div>
-              <div class="plant-meta"><span>耐低光</span><span>喜濕潤</span><span>新手適合</span></div>
+              <div class="plant-meta"><span>耐低光</span><span>喜濕潤</span><span>均衡保水型</span></div>
               <div class="plant-actions">
                 <button class="btn btn-outline">查看更多</button>
-                <button class="icon-btn" aria-label="加入日誌">＋</button>
+                <button class="icon-btn" aria-label="加入購物車">＋</button>
               </div>
             </div>
           </article>

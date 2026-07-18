@@ -1,42 +1,232 @@
-[
-  {
-    "id": "q-01",
-    "question": "你家的光線環境大致是？",
-    "type": "single-choice",
-    "options": [
-      { "value": "bright-direct",   "label": "明亮直射光（窗邊無遮蔽）" },
-      { "value": "bright-indirect", "label": "明亮散射光（窗邊有薄紗）" },
-      { "value": "medium",          "label": "中等光線（距窗 1–2 公尺）" },
-      { "value": "low",             "label": "低光環境（距窗 2 公尺以上）" }
-    ]
-  },
-  {
-    "id": "q-02",
-    "question": "你能維持的室內濕度大約是？",
-    "type": "single-choice",
-    "options": [
-      { "value": "high",   "label": "高濕（有加濕器或浴室附近）" },
-      { "value": "medium", "label": "一般（台灣標準室內）" },
-      { "value": "low",    "label": "乾燥（冷氣長時間開啟）" }
-    ]
-  },
-  {
-    "id": "q-03",
-    "question": "你每週能花多少時間照顧植物？",
-    "type": "single-choice",
-    "options": [
-      { "value": "low",    "label": "10 分鐘以內" },
-      { "value": "medium", "label": "10–30 分鐘" },
-      { "value": "high",   "label": "30 分鐘以上" }
-    ]
-  },
-  {
-    "id": "q-04",
-    "question": "家中是否有寵物？",
-    "type": "single-choice",
-    "options": [
-      { "value": "yes", "label": "有（狗或貓）" },
-      { "value": "no",  "label": "沒有" }
-    ]
-  }
-]
+{
+  "schemaVersion": "2.0.0",
+  "title": "觀葉植物環境配對",
+  "description": "依實際光照、空氣環境、照護能力、安全條件與購買需求，找出目前可購買的觀葉植物。",
+  "questions": [
+    {
+      "id": "light",
+      "category": "環境條件",
+      "question": "植物預計擺放位置的自然光線如何？",
+      "help": "請以白天不開室內燈時的實際情況判斷。低光不代表完全沒有自然光。",
+      "type": "single-choice",
+      "required": true,
+      "options": [
+        {
+          "value": "bright-direct",
+          "label": "有明顯直射光",
+          "description": "陽光會直接照到葉片，通常位於無遮蔽窗邊。"
+        },
+        {
+          "value": "bright-indirect",
+          "label": "明亮散射光",
+          "description": "空間明亮，但有窗紗或陽光不直接照到葉片。"
+        },
+        {
+          "value": "medium-indirect",
+          "label": "中等自然光",
+          "description": "白天可自然閱讀，植物與窗戶保持一段距離。"
+        },
+        {
+          "value": "low-to-indirect",
+          "label": "較低自然光",
+          "description": "白天仍有自然光，但空間偏暗且距窗較遠。"
+        },
+        {
+          "value": "grow-light",
+          "label": "使用植物燈",
+          "description": "自然光不足，但願意使用定時植物燈補光。"
+        },
+        {
+          "value": "no-light",
+          "label": "幾乎沒有自然光",
+          "description": "白天也需要開燈，且目前不使用植物燈。"
+        }
+      ]
+    },
+    {
+      "id": "humidity",
+      "category": "環境條件",
+      "question": "植物預計擺放空間的空氣環境為何？",
+      "help": "不需要精確測量濕度，選擇最接近日常使用情況的描述。",
+      "type": "single-choice",
+      "required": true,
+      "options": [
+        {
+          "value": "dry",
+          "label": "較乾燥",
+          "description": "長時間使用冷氣、除濕機或暖氣。"
+        },
+        {
+          "value": "normal",
+          "label": "一般室內環境",
+          "description": "有基本通風，沒有持續加濕或除濕。"
+        },
+        {
+          "value": "humid",
+          "label": "偏高濕度",
+          "description": "浴室附近、植物櫃或穩定使用加濕器。"
+        }
+      ]
+    },
+    {
+      "id": "careTime",
+      "category": "照護能力",
+      "question": "你每週能穩定投入多少植物照護時間？",
+      "help": "包含檢查介質、清潔葉片、觀察病蟲害與調整擺放位置。",
+      "type": "single-choice",
+      "required": true,
+      "options": [
+        {
+          "value": "low",
+          "label": "10 分鐘以內",
+          "description": "希望照護步驟單純，能容忍偶爾延後。"
+        },
+        {
+          "value": "medium",
+          "label": "10 至 30 分鐘",
+          "description": "可每週檢查植物並處理基本照護。"
+        },
+        {
+          "value": "high",
+          "label": "30 分鐘以上",
+          "description": "願意持續觀察環境並做較細緻的調整。"
+        }
+      ]
+    },
+    {
+      "id": "experience",
+      "category": "照護能力",
+      "question": "你目前的觀葉植物種植經驗為何？",
+      "help": "這只用於評估你能維持的觀察頻率與環境穩定度，不會改變植物外觀偏好。",
+      "type": "single-choice",
+      "required": true,
+      "options": [
+        {
+          "value": "beginner",
+          "label": "第一次或剛開始",
+          "description": "希望植物對環境變動有較高容忍度。"
+        },
+        {
+          "value": "intermediate",
+          "label": "已有基礎經驗",
+          "description": "能判斷介質乾濕並處理常見照護問題。"
+        },
+        {
+          "value": "advanced",
+          "label": "具進階經驗",
+          "description": "能管理濕度、介質、施肥及病蟲害。"
+        }
+      ]
+    },
+    {
+      "id": "petAccess",
+      "category": "居家安全",
+      "question": "家中貓狗是否可能接觸或啃咬植物？",
+      "help": "若寵物可接觸，系統會排除資料中標示對貓狗有毒的植物。",
+      "type": "single-choice",
+      "required": true,
+      "options": [
+        {
+          "value": "none",
+          "label": "沒有貓狗",
+          "description": "不需要以貓狗接觸風險排除植物。"
+        },
+        {
+          "value": "inaccessible",
+          "label": "有，但能完全隔離",
+          "description": "植物會放在寵物無法進入或碰觸的位置。"
+        },
+        {
+          "value": "reachable",
+          "label": "有，而且可能接觸",
+          "description": "只推薦資料中標示為寵物友善的植物。"
+        }
+      ]
+    },
+    {
+      "id": "space",
+      "category": "空間規劃",
+      "question": "你能提供多大的植物生長空間？",
+      "help": "請考慮植物成熟後的高度、寬度與是否需要攀爬支撐。",
+      "type": "single-choice",
+      "required": true,
+      "options": [
+        {
+          "value": "small-space",
+          "label": "桌面或小型層架",
+          "description": "適合小型盆器與容易控制株型的植物。"
+        },
+        {
+          "value": "medium-space",
+          "label": "一般地面或寬層架",
+          "description": "可容納中型植株與基本支撐架。"
+        },
+        {
+          "value": "large-space",
+          "label": "大型角落或寬敞空間",
+          "description": "可讓大型葉片或攀爬植物充分生長。"
+        }
+      ]
+    },
+    {
+      "id": "growthHabit",
+      "category": "外觀偏好",
+      "question": "你偏好哪一種植物生長型態？",
+      "help": "這是偏好條件；若其他環境條件更重要，系統仍可能提供不同株型的替代選擇。",
+      "type": "single-choice",
+      "required": true,
+      "options": [
+        {
+          "value": "trailing",
+          "label": "垂墜或蔓生",
+          "description": "適合層架、吊盆或讓枝葉自然向下延伸。"
+        },
+        {
+          "value": "climbing",
+          "label": "攀爬生長",
+          "description": "可搭配支柱，呈現向上延伸的葉片層次。"
+        },
+        {
+          "value": "upright",
+          "label": "直立株型",
+          "description": "輪廓集中，適合作為桌面或空間焦點。"
+        },
+        {
+          "value": "no-preference",
+          "label": "沒有特定偏好",
+          "description": "優先依環境與照護條件推薦。"
+        }
+      ]
+    },
+    {
+      "id": "budget",
+      "category": "購買需求",
+      "question": "這次預計購買植物的預算為何？",
+      "help": "系統會依目前商品基本售價篩選；運費與加購盆器不包含在內。",
+      "type": "single-choice",
+      "required": true,
+      "options": [
+        {
+          "value": "under-500",
+          "label": "NT$500 以下",
+          "description": "優先尋找入門尺寸與價格較低的植物。"
+        },
+        {
+          "value": "under-1000",
+          "label": "NT$1,000 以下",
+          "description": "可選擇較多中小型觀葉植物。"
+        },
+        {
+          "value": "under-1500",
+          "label": "NT$1,500 以下",
+          "description": "可納入較特殊品種或較完整株型。"
+        },
+        {
+          "value": "open",
+          "label": "預算彈性",
+          "description": "先依適配條件排序，再比較售價。"
+        }
+      ]
+    }
+  ]
+}

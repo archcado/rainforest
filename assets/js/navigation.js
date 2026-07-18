@@ -1,61 +1,59 @@
 "use strict";
 
-/**
- * navigation.js
- * ─────────────────────────────────────────────
- * 桌面與行動版導覽
- * 職責：行動版選單開關、當前頁面高亮、鍵盤導覽支援。
- * ─────────────────────────────────────────────
- */
+window.CanopyNavigation = (() => {
+  let initialized = false;
 
-window.CanopyNavigation = {
-  init() {
-    this.initMobileMenu();
-    this.highlightCurrentPage();
-  },
+  function setOpen(isOpen) {
+    const mobileNav = document.querySelector("#mobile-nav");
+    if (!mobileNav) return;
 
-  initMobileMenu() {
-    const toggle = document.querySelector("[data-nav-toggle]");
-    const mobileNav = document.querySelector(".mobile-nav");
-    if (!toggle || !mobileNav) return;
-
-    toggle.addEventListener("click", () => {
-      const isOpen = mobileNav.getAttribute("aria-hidden") === "false";
-      mobileNav.setAttribute("aria-hidden", String(isOpen));
-      toggle.setAttribute("aria-expanded", String(!isOpen));
-      document.body.classList.toggle("nav-open", !isOpen);
+    mobileNav.hidden = !isOpen;
+    document.body.classList.toggle("nav-open", isOpen);
+    document.querySelectorAll("[data-nav-open]").forEach((button) => {
+      button.setAttribute("aria-expanded", String(isOpen));
     });
 
-    // 點擊背景關閉
-    document.addEventListener("click", (e) => {
-      if (
-        mobileNav.getAttribute("aria-hidden") === "false" &&
-        !mobileNav.contains(e.target) &&
-        !toggle.contains(e.target)
-      ) {
-        mobileNav.setAttribute("aria-hidden", "true");
-        toggle.setAttribute("aria-expanded", "false");
-        document.body.classList.remove("nav-open");
+    if (isOpen) {
+      mobileNav.querySelector("a, button")?.focus();
+    }
+  }
+
+  function highlightCurrentPage() {
+    const current = new URL(window.location.href);
+    const currentPath = current.pathname.replace(/\/$/, "/index.html");
+
+    document.querySelectorAll(".nav-link[href], .mobile-nav__link[href]").forEach((link) => {
+      const target = new URL(link.href, current);
+      const targetPath = target.pathname.replace(/\/$/, "/index.html");
+      if (targetPath === currentPath) link.setAttribute("aria-current", "page");
+    });
+  }
+
+  function init() {
+    if (initialized) return;
+
+    document.addEventListener("click", (event) => {
+      if (event.target.closest("[data-nav-open]")) setOpen(true);
+      if (event.target.closest("[data-nav-close]")) setOpen(false);
+      if (event.target.closest(".mobile-nav__link")) setOpen(false);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape") return;
+      const mobileNav = document.querySelector("#mobile-nav");
+      if (mobileNav && !mobileNav.hidden) {
+        setOpen(false);
+        document.querySelector("[data-nav-open]")?.focus();
       }
     });
 
-    // Escape 鍵關閉
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && mobileNav.getAttribute("aria-hidden") === "false") {
-        mobileNav.setAttribute("aria-hidden", "true");
-        toggle.setAttribute("aria-expanded", "false");
-        document.body.classList.remove("nav-open");
-        toggle.focus();
-      }
+    window.addEventListener("resize", () => {
+      if (window.innerWidth >= 1024) setOpen(false);
     });
-  },
 
-  highlightCurrentPage() {
-    const currentPath = window.location.pathname;
-    document.querySelectorAll(".nav-link[href]").forEach((link) => {
-      if (link.getAttribute("href") === currentPath) {
-        link.setAttribute("aria-current", "page");
-      }
-    });
-  },
-};
+    highlightCurrentPage();
+    initialized = true;
+  }
+
+  return { init, setOpen };
+})();

@@ -1,61 +1,57 @@
 "use strict";
 
-/**
- * search.js
- * ─────────────────────────────────────────────
- * 搜尋功能
- * 職責：搜尋面板開關、關鍵字輸入處理、
- *       搜尋結果導向（未來可串接 API）。
- * ─────────────────────────────────────────────
- */
+window.CanopySearch = (() => {
+  let initialized = false;
+  let returnFocus = null;
 
-window.CanopySearch = {
-  init() {
-    this.initSearchToggle();
-    this.initSearchForm();
-  },
+  function getPanel() {
+    return document.querySelector(".search-panel");
+  }
 
-  initSearchToggle() {
-    const openBtn  = document.querySelector("[data-search-open]");
-    const closeBtn = document.querySelector("[data-search-close]");
-    const panel    = document.querySelector(".search-panel");
+  function open(trigger) {
+    const panel = getPanel();
     if (!panel) return;
-
-    openBtn?.addEventListener("click", () => this.openPanel(panel));
-    closeBtn?.addEventListener("click", () => this.closePanel(panel));
-
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") this.closePanel(panel);
-    });
-  },
-
-  initSearchForm() {
-    const form = document.querySelector(".search-panel__form");
-    if (!form) return;
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const query = form.querySelector("input[type='search']")?.value.trim();
-      if (query) {
-        // 導向搜尋結果頁（路徑依部署位置調整）
-        const base = this.resolveBase();
-        window.location.href = `${base}pages/system/search-results.html?q=${encodeURIComponent(query)}`;
-      }
-    });
-  },
-
-  openPanel(panel) {
-    panel.setAttribute("aria-hidden", "false");
+    returnFocus = trigger || document.activeElement;
+    panel.hidden = false;
+    document.body.classList.add("search-open");
     panel.querySelector("input[type='search']")?.focus();
-  },
+  }
 
-  closePanel(panel) {
-    panel.setAttribute("aria-hidden", "true");
-  },
+  function close() {
+    const panel = getPanel();
+    if (!panel || panel.hidden) return;
+    panel.hidden = true;
+    document.body.classList.remove("search-open");
+    returnFocus?.focus?.();
+  }
 
-  /** 計算專案根目錄（開發期用）*/
-  resolveBase() {
-    const depth = window.location.pathname.split("/").filter(Boolean).length;
-    return depth > 1 ? "../".repeat(depth - 1) : "./";
-  },
-};
+  function init() {
+    if (initialized) return;
+
+    document.addEventListener("click", (event) => {
+      const opener = event.target.closest("[data-search-open]");
+      if (opener) open(opener);
+      if (event.target.closest("[data-search-close]")) close();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") close();
+    });
+
+    getPanel()?.querySelector(".search-panel__form")?.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const query = event.currentTarget.querySelector("input[type='search']")?.value.trim();
+      if (!query) return;
+      const url = new URL(
+        "pages/system/search-results.html",
+        window.CanopyLayout.getProjectRootURL(),
+      );
+      url.searchParams.set("q", query);
+      window.location.href = url.href;
+    });
+
+    initialized = true;
+  }
+
+  return { init, open, close };
+})();
