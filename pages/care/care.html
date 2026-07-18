@@ -3,26 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="CANOPY 照護資源 — 科學驗證的雨林植物照護指南，涵蓋澆水、光照、濕度、病蟲害等主題。">
+  <meta name="description" content="CANOPY 照護資源，提供照護指南、問題診斷、好物分享與空間靈感。">
   <title>照護資源｜CANOPY</title>
-
   <link rel="stylesheet" href="../../assets/css/tokens.css">
   <link rel="stylesheet" href="../../assets/css/reset.css">
   <link rel="stylesheet" href="../../assets/css/base.css">
   <link rel="stylesheet" href="../../assets/css/layout.css">
   <link rel="stylesheet" href="../../assets/css/components.css">
   <link rel="stylesheet" href="../../assets/css/utilities.css">
-  <link rel="stylesheet" href="../../assets/css/pages/care.css">
+  <link rel="stylesheet" href="../../assets/css/pages/care.css?v=20260719-2">
 </head>
-
-<body>
-
-  <header class="site-header" role="banner">
-    <!-- 共用 Header 載入位置（components/header.html）-->
-  </header>
-
+<body data-care-page>
+  <header class="site-header" role="banner"></header>
   <main class="site-main">
-
     <div class="breadcrumb-bar">
       <div class="container">
         <nav class="breadcrumb" aria-label="麵包屑">
@@ -34,45 +27,121 @@
       </div>
     </div>
 
-    <section class="page-hero" aria-labelledby="care-title">
-      <div class="container">
-        <h1 class="page-hero__title" id="care-title">照護資源</h1>
-        <p class="page-hero__desc">從澆水到病蟲害，提供可實際執行的植物照護指南。</p>
+    <section class="care-page-hero" aria-labelledby="care-title">
+      <div class="container care-page-hero__inner">
+        <div class="care-page-hero__copy">
+          <p class="care-eyebrow">CANOPY FIELD NOTES</p>
+          <h1 id="care-title">讓照護有依據，<br>也保留生活的餘裕。</h1>
+          <p>從環境判讀、問題診斷到真正好用的工具，整理成可以立即執行的雨林植物資源。</p>
+          <a class="btn btn--primary" href="#resource-library">探索全部資源</a>
+        </div>
+        <div class="care-page-hero__visual" aria-hidden="true">
+          <span class="care-orbit care-orbit--one"></span>
+          <span class="care-orbit care-orbit--two"></span>
+          <svg class="care-fern" viewBox="0 0 360 470">
+            <defs>
+              <linearGradient id="care-fern-green" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#8fb773"/>
+                <stop offset=".52" stop-color="#4f815a"/>
+                <stop offset="1" stop-color="#315f43"/>
+              </linearGradient>
+            </defs>
+            <path d="M191 454C190 351 188 236 174 34" fill="none" stroke="#385943" stroke-width="5" stroke-linecap="round"/>
+            <g fill="url(#care-fern-green)" stroke="#eef3e5" stroke-width="1.4" stroke-linejoin="round">
+              <path d="M175 52C160 47 149 37 143 25C157 29 168 37 176 48Z"/><path d="M176 57C190 48 198 38 202 25C189 31 180 40 175 53Z"/>
+              <path d="M178 78C155 72 138 58 128 42C150 49 166 59 179 73Z"/><path d="M179 84C200 72 215 57 221 40C202 50 188 62 178 79Z"/>
+              <path d="M181 105C151 99 127 83 112 62C141 69 164 82 182 99Z"/><path d="M182 112C209 96 229 78 239 57C213 69 194 86 181 106Z"/>
+              <path d="M183 135C145 130 114 111 94 86C132 94 162 109 184 128Z"/><path d="M184 142C219 123 246 101 260 75C227 90 202 110 183 135Z"/>
+              <path d="M185 168C138 163 101 143 76 115C122 122 158 139 186 160Z"/><path d="M186 175C228 153 261 128 279 99C239 116 209 138 185 167Z"/>
+              <path d="M187 202C134 199 90 179 59 150C112 155 154 170 188 194Z"/><path d="M188 210C237 186 274 160 297 130C251 146 216 169 187 202Z"/>
+              <path d="M189 238C131 237 81 219 45 190C103 191 151 205 190 230Z"/><path d="M190 246C244 224 286 198 313 167C261 181 222 203 189 238Z"/>
+              <path d="M190 275C130 279 77 265 36 238C96 234 148 246 191 267Z"/><path d="M191 284C247 265 292 241 323 211C268 222 226 242 190 275Z"/>
+              <path d="M191 314C132 322 79 312 38 290C97 281 148 290 192 306Z"/><path d="M192 323C246 310 292 291 326 265C272 271 229 287 191 314Z"/>
+              <path d="M191 353C138 363 89 358 49 340C102 328 149 332 192 345Z"/><path d="M192 362C241 354 284 340 318 319C269 320 228 332 191 353Z"/>
+              <path d="M191 391C148 402 108 400 74 388C117 375 156 377 192 383Z"/><path d="M192 400C231 395 267 386 297 371C258 369 224 377 191 391Z"/>
+              <path d="M191 425C160 434 131 434 106 428C137 417 165 417 192 418Z"/><path d="M192 434C219 431 245 426 267 416C240 413 215 418 191 425Z"/>
+            </g>
+          </svg>
+          <span class="care-hero-note care-hero-note--light">光線</span>
+          <span class="care-hero-note care-hero-note--water">水分</span>
+          <span class="care-hero-note care-hero-note--soil">介質</span>
+        </div>
       </div>
     </section>
 
-    <section class="page-content">
+    <section class="care-featured section" aria-labelledby="featured-title">
       <div class="container">
-
-        <!-- 分類標籤 -->
-        <div class="care-categories" role="tablist" aria-label="照護分類">
-          <button class="care-category-tab care-category-tab--active" role="tab" aria-selected="true" data-category="all">全部</button>
-          <button class="care-category-tab" role="tab" aria-selected="false" data-category="watering">澆水</button>
-          <button class="care-category-tab" role="tab" aria-selected="false" data-category="light">光照</button>
-          <button class="care-category-tab" role="tab" aria-selected="false" data-category="humidity">濕度</button>
-          <button class="care-category-tab" role="tab" aria-selected="false" data-category="soil">介質</button>
-          <button class="care-category-tab" role="tab" aria-selected="false" data-category="repotting">換盆</button>
-          <button class="care-category-tab" role="tab" aria-selected="false" data-category="fertilizing">施肥</button>
-          <button class="care-category-tab" role="tab" aria-selected="false" data-category="pests">病蟲害</button>
+        <div class="section__header care-section-heading">
+          <div>
+            <p class="care-eyebrow">EDITOR'S PICK</p>
+            <h2 class="section__title" id="featured-title">本週精選</h2>
+          </div>
+          <p>先從最常遇到的光線、澆水與問題判讀開始。</p>
         </div>
-
-        <!-- 文章格狀 -->
-        <div class="care-grid" id="care-grid" aria-live="polite">
-          <!-- 照護文章卡片由 JavaScript 動態載入 -->
+        <div class="care-featured-grid" data-care-featured aria-live="polite">
+          <p class="care-loading">正在整理精選資源…</p>
         </div>
-
       </div>
     </section>
 
+    <section class="care-library section" id="resource-library" aria-labelledby="library-title">
+      <div class="container">
+        <div class="care-library__header">
+          <div>
+            <p class="care-eyebrow">RESOURCE LIBRARY</p>
+            <h2 class="section__title" id="library-title">照護資源庫</h2>
+            <p>以內容類型找到閱讀方向，再依植物問題與環境主題縮小範圍。</p>
+          </div>
+          <label class="care-search">
+            <span class="sr-only">搜尋照護資源</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
+            <input type="search" placeholder="搜尋文章、工具或問題…" data-care-search>
+          </label>
+        </div>
+
+        <div class="care-filter-panel">
+          <div class="care-type-tabs" role="tablist" aria-label="內容類型">
+            <button class="care-type-tab care-type-tab--active" type="button" role="tab" aria-selected="true" data-care-type="all">全部內容</button>
+            <button class="care-type-tab" type="button" role="tab" aria-selected="false" data-care-type="guide">照護指南</button>
+            <button class="care-type-tab" type="button" role="tab" aria-selected="false" data-care-type="diagnosis">問題診斷</button>
+            <button class="care-type-tab" type="button" role="tab" aria-selected="false" data-care-type="gear">好物分享</button>
+            <button class="care-type-tab" type="button" role="tab" aria-selected="false" data-care-type="inspiration">空間靈感</button>
+          </div>
+          <label class="care-category-select">
+            <span>主題</span>
+            <select data-care-category>
+              <option value="all">所有主題</option>
+              <option value="watering">澆水</option>
+              <option value="light">光照</option>
+              <option value="humidity">濕度</option>
+              <option value="soil">介質</option>
+              <option value="repotting">換盆</option>
+              <option value="fertilizing">施肥</option>
+              <option value="pests">病蟲害</option>
+              <option value="maintenance">日常整理</option>
+              <option value="environment">環境</option>
+              <option value="tools">工具</option>
+              <option value="styling">空間配置</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="care-result-bar">
+          <p data-care-count>正在載入資源…</p>
+          <p>文章收藏會保留在這個瀏覽器中。</p>
+        </div>
+        <div class="care-grid" data-care-grid aria-live="polite"></div>
+        <div class="care-empty-state" data-care-empty hidden>
+          <h3>沒有符合條件的資源</h3>
+          <p>試著更換內容類型、主題或搜尋文字。</p>
+        </div>
+      </div>
+    </section>
   </main>
-
-  <footer class="site-footer" role="contentinfo">
-    <!-- 共用 Footer 載入位置（components/footer.html）-->
-  </footer>
-
+  <footer class="site-footer" role="contentinfo"></footer>
   <script src="../../assets/js/layout.js" defer></script>
   <script src="../../assets/js/navigation.js" defer></script>
+  <script src="../../assets/js/pages/care.js" defer></script>
   <script src="../../assets/js/main.js" defer></script>
-
 </body>
 </html>

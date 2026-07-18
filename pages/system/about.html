@@ -1,46 +1,268 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="CANOPY 關於我們 — 探索 CANOPY 的品牌故事、核心價值與永續理念。">
-  <title>關於我們｜CANOPY</title>
+  <meta name="description" content="關於 CANOPY：品牌故事、植物旅程、永續選品與包裝行動。">
+  <title>關於 CANOPY｜品牌故事與永續行動</title>
   <link rel="stylesheet" href="../../assets/css/tokens.css">
   <link rel="stylesheet" href="../../assets/css/reset.css">
   <link rel="stylesheet" href="../../assets/css/base.css">
   <link rel="stylesheet" href="../../assets/css/layout.css">
   <link rel="stylesheet" href="../../assets/css/components.css">
   <link rel="stylesheet" href="../../assets/css/utilities.css">
+  <link rel="stylesheet" href="../../assets/css/pages/about.css">
 </head>
-<body>
-  <header class="site-header" role="banner"><!-- 共用 Header 載入位置（components/header.html）--></header>
+<body data-about-page>
+  <div class="about-scroll-progress" data-about-progress aria-hidden="true"></div>
+  <header class="site-header" role="banner"></header>
   <main class="site-main">
-    <section class="page-hero" aria-labelledby="about-title">
-      <div class="container">
-        <h1 class="page-hero__title" id="about-title">關於 CANOPY</h1>
-        <p>從雨林到居家，讓每個人都能與植物建立連結。</p>
+    <section class="about-hero" aria-labelledby="about-title">
+      <div class="container about-hero__inner">
+        <div class="about-hero__copy">
+          <p class="about-eyebrow">ABOUT CANOPY</p>
+          <h1 id="about-title">把雨林的生命力，<br>帶進可以長久生活的家。</h1>
+          <p>CANOPY 從選擇一株真正適合環境的植物開始，把商品、照護與永續行動放在同一段旅程裡。</p>
+          <div class="about-hero__actions">
+            <a class="btn btn--primary" href="#story">閱讀品牌故事</a>
+            <a class="btn btn--secondary" href="#sustainability">探索永續行動</a>
+          </div>
+        </div>
+        <div class="about-hero__art" aria-hidden="true">
+          <span class="about-hero__sun"></span>
+          <svg class="about-pearls" viewBox="0 0 520 600">
+            <g class="about-pearls__strand about-pearls__strand--one">
+              <path d="M92-20C110 84 75 188 108 310C126 378 99 485 118 620"/>
+              <circle cx="101" cy="38" r="13"/><circle cx="104" cy="88" r="9"/><circle cx="91" cy="137" r="16"/>
+              <circle cx="86" cy="190" r="10"/><circle cx="103" cy="241" r="14"/><circle cx="112" cy="294" r="8"/>
+              <circle cx="112" cy="349" r="16"/><circle cx="101" cy="406" r="10"/><circle cx="104" cy="462" r="14"/>
+              <circle cx="112" cy="519" r="8"/><circle cx="118" cy="575" r="17"/>
+            </g>
+            <g class="about-pearls__strand about-pearls__strand--two">
+              <path d="M190-20C175 102 218 176 182 294C154 386 203 465 184 620"/>
+              <circle cx="185" cy="44" r="9"/><circle cx="185" cy="91" r="14"/><circle cx="198" cy="140" r="8"/>
+              <circle cx="201" cy="190" r="16"/><circle cx="190" cy="242" r="10"/><circle cx="178" cy="295" r="14"/>
+              <circle cx="169" cy="349" r="8"/><circle cx="174" cy="403" r="16"/><circle cx="187" cy="458" r="10"/>
+              <circle cx="191" cy="515" r="14"/><circle cx="184" cy="574" r="9"/>
+            </g>
+            <g class="about-pearls__strand about-pearls__strand--three">
+              <path d="M300-20C318 85 273 166 307 251C337 326 292 444 320 620"/>
+              <circle cx="306" cy="39" r="16"/><circle cx="306" cy="91" r="9"/><circle cx="292" cy="139" r="13"/>
+              <circle cx="291" cy="188" r="8"/><circle cx="307" cy="238" r="16"/><circle cx="319" cy="290" r="10"/>
+              <circle cx="320" cy="345" r="14"/><circle cx="309" cy="400" r="8"/><circle cx="308" cy="456" r="17"/>
+              <circle cx="316" cy="514" r="10"/><circle cx="320" cy="575" r="14"/>
+            </g>
+            <g class="about-pearls__strand about-pearls__strand--four">
+              <path d="M409-20C377 97 431 183 395 288C364 378 421 497 390 620"/>
+              <circle cx="398" cy="38" r="10"/><circle cx="395" cy="87" r="16"/><circle cx="404" cy="139" r="9"/>
+              <circle cx="412" cy="189" r="14"/><circle cx="407" cy="241" r="8"/><circle cx="393" cy="293" r="17"/>
+              <circle cx="385" cy="348" r="10"/><circle cx="386" cy="403" r="14"/><circle cx="397" cy="458" r="8"/>
+              <circle cx="400" cy="514" r="16"/><circle cx="390" cy="575" r="10"/>
+            </g>
+          </svg>
+          <p class="about-hero__caption">String of pearls · Thoughtful care · Responsible choices</p>
+        </div>
       </div>
     </section>
-    <section class="page-content"><div class="container">
-      <div class="prose">
-        <section aria-labelledby="brand-story">
-          <h2 id="brand-story">品牌故事</h2>
-          <p>（內容待補）</p>
-        </section>
-        <section aria-labelledby="brand-values" style="margin-block-start:2rem">
-          <h2 id="brand-values">核心價值</h2>
-          <p>（內容待補）</p>
-        </section>
-        <section aria-labelledby="sustainability-intro" style="margin-block-start:2rem">
-          <h2 id="sustainability-intro">永續承諾</h2>
-          <p>（內容待補）</p>
-        </section>
+
+    <nav class="about-section-nav" aria-label="關於 CANOPY 章節">
+      <div class="container">
+        <a href="#story">品牌故事</a>
+        <a href="#journey">植物旅程</a>
+        <a href="#values">核心價值</a>
+        <a href="#sustainability">永續行動</a>
+        <a href="#participate">一起參與</a>
       </div>
-    </div></section>
+    </nav>
+
+    <section class="about-story about-section" id="story" aria-labelledby="story-title">
+      <div class="container about-story__grid">
+        <div class="about-story__index" data-about-reveal>
+          <span>01</span>
+          <p>OUR STORY</p>
+        </div>
+        <div class="about-story__content" data-about-reveal>
+          <p class="about-eyebrow">品牌故事</p>
+          <h2 id="story-title">不是把植物送進家裡，<br>而是替它找到能繼續生長的位置。</h2>
+          <div class="about-story__columns">
+            <p>CANOPY 從一個很簡單的問題出發：為什麼我們在店裡愛上一株植物，帶回家後卻常常不知道該把它放在哪裡、什麼時候澆水，也不明白它正在承受什麼改變？</p>
+            <p>因此，我們把植物商城、環境配對與照護資源放在一起。每一株植物不只是一件商品，也帶著光線、濕度、介質、溫度與空間需求。選擇之前先理解，購買之後仍然找得到清楚的指引。</p>
+          </div>
+          <blockquote>讓每一株植物，都能找到適合生長的室內微氣候。</blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-journey about-section" id="journey" aria-labelledby="journey-title">
+      <div class="container">
+        <div class="about-section-heading" data-about-reveal>
+          <div>
+            <p class="about-eyebrow">FROM SOURCE TO HOME</p>
+            <h2 id="journey-title">一株植物到你家的旅程</h2>
+          </div>
+          <p>點選每個階段，看看 CANOPY 如何把選品、配送與照護串在一起。</p>
+        </div>
+
+        <div class="about-journey__shell" data-about-reveal>
+          <div class="about-journey__tabs" role="tablist" aria-label="植物旅程階段">
+            <button class="about-journey-tab about-journey-tab--active" type="button" role="tab" aria-selected="true" data-journey-stage="source"><span>01</span>來源</button>
+            <button class="about-journey-tab" type="button" role="tab" aria-selected="false" data-journey-stage="grow"><span>02</span>培育</button>
+            <button class="about-journey-tab" type="button" role="tab" aria-selected="false" data-journey-stage="select"><span>03</span>配對</button>
+            <button class="about-journey-tab" type="button" role="tab" aria-selected="false" data-journey-stage="pack"><span>04</span>包裝</button>
+            <button class="about-journey-tab" type="button" role="tab" aria-selected="false" data-journey-stage="home"><span>05</span>到家</button>
+          </div>
+
+          <div class="about-journey__stage">
+            <div class="about-journey__visual" data-journey-visual data-stage="source" aria-hidden="true">
+              <span class="journey-orbit"></span>
+              <svg viewBox="0 0 360 360">
+                <path class="journey-plant__stem" d="M180 314V132"/>
+                <path class="journey-plant__leaf journey-plant__leaf--a" d="M178 196C104 191 64 151 52 85c76 9 120 46 126 111Z"/>
+                <path class="journey-plant__leaf journey-plant__leaf--b" d="M183 238c74-17 123 11 148 75-78 20-128-6-148-75Z"/>
+                <path class="journey-plant__leaf journey-plant__leaf--c" d="M181 148c38-48 87-61 139-37-34 56-83 70-139 37Z"/>
+                <path class="journey-box" d="M112 265h136l-12 68H124l-12-68Z"/>
+              </svg>
+              <span class="journey-stage-number" data-journey-number>01</span>
+            </div>
+            <div class="about-journey__copy" role="tabpanel" aria-live="polite">
+              <p class="about-eyebrow" data-journey-eyebrow>RESPONSIBLE SOURCE</p>
+              <h3 data-journey-title>從可追溯的來源開始</h3>
+              <p class="about-journey__description" data-journey-description></p>
+              <p class="about-journey__detail" data-journey-detail></p>
+              <a href="../quiz/quiz.html">從我的環境開始配對植物</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-values about-section" id="values" aria-labelledby="values-title">
+      <div class="container">
+        <div class="about-section-heading" data-about-reveal>
+          <div>
+            <p class="about-eyebrow">WHAT WE BELIEVE</p>
+            <h2 id="values-title">CANOPY 的三個核心價值</h2>
+          </div>
+        </div>
+        <div class="about-values__grid">
+          <article class="about-value-card" data-about-reveal>
+            <span>01</span>
+            <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 54V22M31 32C18 31 10 23 9 11c14 1 22 8 22 21Zm2 8c13-4 23 1 29 12-14 5-24 1-29-12Z"/></svg>
+            <h3>適合，比稀有重要</h3>
+            <p>先理解環境條件，再推薦能長期維持的植物，不讓稀有標籤蓋過實際需求。</p>
+          </article>
+          <article class="about-value-card" data-about-reveal>
+            <span>02</span>
+            <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="28" cy="28" r="17"/><path d="m41 41 13 13M20 28h16M28 20v16"/></svg>
+            <h3>資訊必須可以執行</h3>
+            <p>把抽象的難易度改成光線、濕度、溫度、介質與觀察方式，讓照護有清楚下一步。</p>
+          </article>
+          <article class="about-value-card" data-about-reveal>
+            <span>03</span>
+            <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M13 20h38v29H13V20Zm6-8h26l6 8H13l6-8Z"/><path d="M25 31h14M32 25v13"/></svg>
+            <h3>每一層材料都有理由</h3>
+            <p>包裝先滿足活體配送安全，再持續減少不必要體積、裝飾與難以分類的複合材料。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-impact about-section" id="sustainability" aria-labelledby="impact-title">
+      <div class="container">
+        <div class="about-section-heading about-section-heading--light" data-about-reveal>
+          <div>
+            <p class="about-eyebrow">SUSTAINABILITY IN ACTION</p>
+            <h2 id="impact-title">永續不是一句標語，<br>而是一連串可以檢查的選擇。</h2>
+          </div>
+          <p>先公開我們採用的原則；待有真實營運資料後，再呈現可驗證的回收率、材料量與配送成果。</p>
+        </div>
+
+        <div class="about-impact__interactive" data-about-reveal>
+          <div class="about-impact__options" aria-label="永續行動主題">
+            <button class="about-impact-option about-impact-option--active" type="button" aria-pressed="true" data-sustainability-key="source"><span>01</span>選品來源</button>
+            <button class="about-impact-option" type="button" aria-pressed="false" data-sustainability-key="packaging"><span>02</span>減量包裝</button>
+            <button class="about-impact-option" type="button" aria-pressed="false" data-sustainability-key="delivery"><span>03</span>配送安排</button>
+            <button class="about-impact-option" type="button" aria-pressed="false" data-sustainability-key="recycling"><span>04</span>盆器循環</button>
+          </div>
+          <div class="about-impact__panel" aria-live="polite">
+            <p class="about-eyebrow">OUR APPROACH</p>
+            <h3 data-impact-title>選品與來源</h3>
+            <p data-impact-description></p>
+            <ul data-impact-points></ul>
+          </div>
+        </div>
+
+        <div class="about-package" data-about-reveal>
+          <div class="about-package__visual">
+            <div class="package-diagram" aria-label="植物包裝分層示意">
+              <span class="package-diagram__plant" aria-hidden="true">
+                <svg viewBox="0 0 180 230"><path d="M90 222V86"/><path d="M88 125C42 123 17 97 12 54c48 5 74 30 76 71Z"/><path d="M92 153c47-12 78 5 93 45-49 14-81-2-93-45Z"/><path d="M91 98c25-31 55-40 88-24-22 36-52 45-88 24Z"/></svg>
+              </span>
+              <button class="package-layer-button package-layer-button--box package-layer-button--active" type="button" aria-pressed="true" data-package-layer="box"><span>外箱</span></button>
+              <button class="package-layer-button package-layer-button--support" type="button" aria-pressed="false" data-package-layer="support"><span>固定層</span></button>
+              <button class="package-layer-button package-layer-button--moisture" type="button" aria-pressed="false" data-package-layer="moisture"><span>保濕層</span></button>
+            </div>
+          </div>
+          <div class="about-package__copy" aria-live="polite">
+            <p class="about-eyebrow">PACKAGING EXPLORER</p>
+            <span class="about-package__label" data-package-label>外箱</span>
+            <h3 data-package-title>可拆解的外部保護</h3>
+            <p data-package-description></p>
+            <p class="about-package__note">點擊包裝圖上的標籤，查看每一層存在的理由。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-participate about-section" id="participate" aria-labelledby="participate-title">
+      <div class="container">
+        <div class="about-participate__intro" data-about-reveal>
+          <p class="about-eyebrow">YOUR CHOICE MATTERS</p>
+          <h2 id="participate-title">選出你希望 CANOPY 優先實現的行動</h2>
+          <p>選擇會保留在這個瀏覽器中，也可以透過回饋告訴我們你真正需要的服務。</p>
+        </div>
+        <div class="about-participate__layout" data-about-reveal>
+          <div class="about-choices" aria-label="我的永續選擇">
+            <button class="about-choice" type="button" aria-pressed="false" data-choice="minimal-packaging">
+              <span class="about-choice__marker"></span>
+              <span><strong>結帳時選擇減量包裝</strong><small>減少非必要裝飾與額外層次</small></span>
+            </button>
+            <button class="about-choice" type="button" aria-pressed="false" data-choice="pot-return">
+              <span class="about-choice__marker"></span>
+              <span><strong>建立育苗盆回收機制</strong><small>讓可用盆器進入下一次循環</small></span>
+            </button>
+            <button class="about-choice" type="button" aria-pressed="false" data-choice="source-information">
+              <span class="about-choice__marker"></span>
+              <span><strong>公開更多來源與材料資訊</strong><small>讓購買決策有更完整依據</small></span>
+            </button>
+          </div>
+          <aside class="about-participate__summary">
+            <span data-choice-count>尚未選擇</span>
+            <h3>你的選擇會成為下一步功能的排序依據。</h3>
+            <p>目前選擇先儲存在本機；使用「提供回饋」即可送出更具體的建議。</p>
+            <button class="btn btn--primary" type="button" data-feedback-open>提供回饋</button>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-final-cta">
+      <div class="container about-final-cta__inner" data-about-reveal>
+        <div>
+          <p class="about-eyebrow">START WITH YOUR SPACE</p>
+          <h2>從你家的光線與生活節奏，找到下一株植物。</h2>
+        </div>
+        <div class="about-final-cta__actions">
+          <a class="btn btn--primary" href="../quiz/quiz.html">開始植物配對</a>
+          <a class="btn btn--secondary" href="../plants/plants.html">前往植物商城</a>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer class="site-footer" role="contentinfo"><!-- 共用 Footer 載入位置（components/footer.html）--></footer>
+  <footer class="site-footer" role="contentinfo"></footer>
   <script src="../../assets/js/layout.js" defer></script>
   <script src="../../assets/js/navigation.js" defer></script>
+  <script src="../../assets/js/pages/about.js" defer></script>
   <script src="../../assets/js/main.js" defer></script>
 </body>
 </html>

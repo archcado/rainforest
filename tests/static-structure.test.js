@@ -126,6 +126,32 @@ assert.match(serverSource, /HttpOnly; SameSite=Lax/);
 const headerSource = fs.readFileSync(path.join(root, "components/header.html"), "utf8");
 assert.match(headerSource, />照護資源</);
 assert.doesNotMatch(headerSource, />照護知識</);
+assert.match(headerSource, />關於 CANOPY</);
+assert.doesNotMatch(headerSource, />永續計畫</);
+assert.doesNotMatch(headerSource, />品牌故事</);
+assert.match(headerSource, /header-action--member/);
+const memberLinkTag = headerSource.match(/<a[^>]*data-member-link[^>]*>/)?.[0] || "";
+assert.ok(memberLinkTag, "Header 缺少會員入口");
+assert.doesNotMatch(
+  memberLinkTag,
+  /header-action--optional/,
+);
+
+const careSource = fs.readFileSync(path.join(root, "pages/care/care.html"), "utf8");
+const careDetailSource = fs.readFileSync(path.join(root, "pages/care/care-detail.html"), "utf8");
+const aboutSource = fs.readFileSync(path.join(root, "pages/system/about.html"), "utf8");
+const homeSource = fs.readFileSync(path.join(root, "index.html"), "utf8");
+assert.match(homeSource, /class="hero-botanical"/);
+assert.match(homeSource, /hero-botanical__outline/);
+assert.match(careSource, /assets\/js\/pages\/care\.js/);
+assert.match(careSource, /class="care-fern"/);
+assert.match(careSource, />好物分享</);
+assert.match(careDetailSource, /assets\/js\/pages\/care-detail\.js/);
+assert.match(aboutSource, /id="journey"/);
+assert.match(aboutSource, /id="sustainability"/);
+assert.match(aboutSource, /data-choice=/);
+assert.match(aboutSource, /class="about-pearls"/);
+assert.match(aboutSource, /assets\/js\/pages\/about\.js/);
 
 const publicSources = [
   path.join(root, "index.html"),
