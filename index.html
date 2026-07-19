@@ -13,86 +13,52 @@
   <link rel="stylesheet" href="./assets/css/components.css">
   <link rel="stylesheet" href="./assets/css/utilities.css">
   <link rel="stylesheet" href="./assets/css/pages/home.css">
+  <link rel="stylesheet" href="./assets/css/pages/home-hero-rwd.css">
 </head>
 
 <body>
 
   <!-- ── 共用 Header ── -->
-  <header class="site-header" role="banner">
-    <!-- 共用 Header 載入位置（components/header.html）-->
-    <div class="header-inner">
-      <a class="brand" href="./index.html" aria-label="CANOPY 首頁">
-        <span class="brand-name">CANOPY</span>
-      </a>
-      <nav class="nav" aria-label="主導覽">
-        <a class="nav-link" href="./pages/plants/plants.html">植物商城</a>
-        <a class="nav-link" href="./pages/care/care.html">照護資源</a>
-        <a class="nav-link" href="./pages/quiz/quiz.html">植物配對</a>
-        <a class="nav-link" href="./pages/system/about.html">關於 CANOPY</a>
-      </nav>
-      <div class="header-actions">
-        <button class="header-icon-btn" data-search-open aria-label="開啟搜尋">🔍</button>
-        <a class="header-icon-btn" href="./pages/member/favorites.html" aria-label="收藏">♡</a>
-        <a class="header-icon-btn" href="./pages/commerce/cart.html" aria-label="購物車">
-          🛒 <span class="cart-badge" data-cart-count hidden>0</span>
-        </a>
-        <a class="header-icon-btn" href="./pages/system/login.html" aria-label="登入">👤</a>
-        <button class="header-icon-btn hide-desktop" data-nav-toggle
-          aria-label="開啟選單" aria-expanded="false" aria-controls="mobile-nav">☰</button>
-      </div>
-    </div>
-  </header>
+  <header class="site-header" role="banner"></header>
 
   <main class="site-main">
 
     <!-- ── Hero 品牌主視覺 ── -->
-    <section class="hero section" aria-labelledby="hero-title">
+    <section class="hero section home-hero" aria-labelledby="hero-title">
       <div class="container">
-        <div class="hero__inner">
-          <div class="hero__copy">
-            <h1 class="hero__title" id="hero-title">
-              將雨林的<br>生命力帶回家
+        <div class="hero__inner home-hero__grid">
+          <div class="hero__copy home-hero__content">
+            <h1 class="hero__title hero-title-lines" id="hero-title">
+              <span class="page-hero__title-line">探索</span>
+              <span class="page-hero__title-line">適合你的雨林植物</span>
             </h1>
             <p class="hero__desc">
               CANOPY 精選來自世界各地的雨林植物，提供科學照護指南、
-              環境配對測驗，協助你找到真正適合你的植物夥伴。
+              <span class="hero-word-keep">環境</span>配對測驗，協助你找到真正適合你的植物夥伴。
             </p>
             <div class="hero__actions">
               <a class="btn btn--primary btn--lg" href="./pages/plants/plants.html">探索植物</a>
               <a class="btn btn--secondary btn--lg" href="./pages/quiz/quiz.html">開始植物配對</a>
             </div>
           </div>
-          <div class="hero__visual" aria-hidden="true">
-            <span class="hero__specimen-index">SPECIMEN 01</span>
-            <span class="hero__specimen-name">Caladium · 彩葉芋</span>
-            <svg class="hero-botanical" viewBox="0 0 600 700" role="img">
-              <g class="hero-botanical__leaf">
-                <path class="hero-botanical__petiole" d="M300 626C265 646 230 672 191 700"/>
-                <path class="hero-botanical__outline" d="M300 638C263 585 186 558 126 480C72 411 51 319 77 225C98 147 160 91 230 86C271 83 292 112 300 151C309 112 331 83 372 86C444 91 507 151 524 236C546 345 509 443 441 512C385 568 329 589 300 638Z"/>
-                <path class="hero-botanical__center" d="M300 626C301 514 301 394 300 151"/>
-                <g class="hero-botanical__veins">
-                  <path d="M300 535C250 529 187 508 132 471"/>
-                  <path d="M300 449C235 434 155 400 86 350"/>
-                  <path d="M300 355C231 329 157 280 82 229"/>
-                  <path d="M300 257C267 211 244 154 230 91"/>
-                  <path d="M300 535C352 524 402 501 444 468"/>
-                  <path d="M300 449C373 428 454 386 516 329"/>
-                  <path d="M300 355C367 319 441 274 518 230"/>
-                  <path d="M300 257C330 207 352 150 372 91"/>
-                </g>
-                <g class="hero-botanical__markings">
-                  <path d="M171 202c19-12 39-13 57-2M122 292c24-4 44 2 62 17M149 393c25 2 47 12 65 28M206 491c20 1 38 8 51 19"/>
-                  <path d="M429 191c-19-9-38-7-55 4M478 276c-23-1-44 7-62 23M450 389c-26 3-47 14-65 31M393 489c-20 2-37 9-51 20"/>
-                </g>
-                <g class="hero-botanical__spots">
-                  <circle cx="184" cy="251" r="7"/><circle cx="141" cy="337" r="4"/>
-                  <circle cx="221" cy="371" r="6"/><circle cx="183" cy="451" r="4"/>
-                  <circle cx="416" cy="247" r="7"/><circle cx="463" cy="337" r="4"/>
-                  <circle cx="381" cy="371" r="6"/><circle cx="417" cy="451" r="4"/>
-                </g>
-              </g>
-            </svg>
-            <span class="hero__specimen-note">BOTANICAL LINE STUDY<br>CANOPY TROPICAL PLANT CARE</span>
+          <div class="home-hero-visual" aria-hidden="true">
+            <div class="home-hero-visual__field"></div>
+            <picture class="home-hero-plant-media">
+              <source
+                srcset="assets/images/home/hero/canopy-caladium-hero-v2.webp"
+                type="image/webp"
+              >
+              <img
+                src="assets/images/home/hero/canopy-caladium-hero-v2.png"
+                width="1024"
+                height="1536"
+                alt="粉綠彩葉芋植株"
+                loading="eager"
+                decoding="async"
+                fetchpriority="high"
+              >
+            </picture>
+            <span class="home-hero-visual__caption">BOTANICAL IMAGE STUDY<br>CANOPY TROPICAL PLANT CARE</span>
           </div>
         </div>
       </div>
@@ -226,18 +192,7 @@
   </main>
 
   <!-- ── 共用 Footer ── -->
-  <footer class="site-footer" role="contentinfo">
-    <!-- 共用 Footer 載入位置（components/footer.html）-->
-    <div class="footer-inner">
-      <p style="color:rgba(255,255,255,.5);font-size:.875rem;padding-block:1rem">
-        &copy; <span id="footer-year"></span> CANOPY. 保留所有權利。
-      </p>
-    </div>
-  </footer>
-
-  <script>
-    document.getElementById("footer-year").textContent = new Date().getFullYear();
-  </script>
+  <footer class="site-footer" role="contentinfo"></footer>
   <script src="./assets/js/layout.js" defer></script>
   <script src="./assets/js/navigation.js" defer></script>
   <script src="./assets/js/search.js" defer></script>

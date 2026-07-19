@@ -1,0 +1,242 @@
+/*
+ * CANOPY homepage hero plant visual v2
+ * Scope: root index.html only
+ * Asset: assets/images/home/hero/canopy-caladium-hero-v2.*
+ */
+
+.home-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  overflow: clip;
+}
+
+.home-hero__grid {
+  width: min(100% - 40px, 1480px);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(460px, 0.9fr);
+  align-items: center;
+  gap: clamp(32px, 5vw, 88px);
+}
+
+.home-hero__content {
+  position: relative;
+  z-index: 3;
+  min-width: 0;
+}
+
+.home-hero-visual {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  min-height: clamp(590px, 45vw, 720px);
+  overflow: visible;
+  isolation: isolate;
+  --hero-field-inset-left: clamp(18px, 2.5vw, 42px);
+  --hero-field-inset-right: 0;
+  --hero-field-inset-bottom: 0;
+  --hero-field-radius: clamp(22px, 2.2vw, 34px);
+  --hero-field-border-color: rgba(70, 96, 72, 0.12);
+}
+
+.home-hero-visual::after {
+  content: "";
+  position: absolute;
+  z-index: 4;
+  left: var(--hero-field-inset-left);
+  right: var(--hero-field-inset-right);
+  bottom: var(--hero-field-inset-bottom);
+  height: 32px;
+  box-sizing: border-box;
+  background: transparent;
+  border-right: 1px solid var(--hero-field-border-color);
+  border-bottom: 1px solid var(--hero-field-border-color);
+  border-left: 1px solid var(--hero-field-border-color);
+  border-radius: 0 0 var(--hero-field-radius) var(--hero-field-radius);
+  pointer-events: none;
+}
+
+.home-hero-visual__field {
+  position: absolute;
+  z-index: 0;
+  inset:
+    clamp(62px, 6vw, 92px)
+    var(--hero-field-inset-right)
+    var(--hero-field-inset-bottom)
+    var(--hero-field-inset-left);
+  overflow: hidden;
+  border: 1px solid var(--hero-field-border-color);
+  border-radius: var(--hero-field-radius);
+  background:
+    radial-gradient(circle at 54% 42%, rgba(240, 201, 202, 0.24), transparent 34%),
+    radial-gradient(circle at 68% 34%, rgba(197, 220, 153, 0.22), transparent 40%),
+    linear-gradient(145deg, rgba(247, 250, 242, 0.78), rgba(235, 242, 222, 0.66));
+}
+
+.home-hero-visual__field::before,
+.home-hero-visual__field::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 51%;
+  translate: -50% -50%;
+  border: 1px solid rgba(52, 95, 69, 0.10);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.home-hero-visual__field::before {
+  width: min(76%, 480px);
+  aspect-ratio: 1;
+}
+
+.home-hero-visual__field::after {
+  width: min(56%, 350px);
+  aspect-ratio: 1;
+  border-style: dashed;
+}
+
+.home-hero-plant-media {
+  position: absolute;
+  z-index: 2;
+  left: 51%;
+  bottom: clamp(-20px, -1.4vw, -15px);
+  display: block;
+  width: max-content;
+  pointer-events: none;
+  user-select: none;
+  transform: translateX(-47%);
+}
+
+.home-hero-plant-media img {
+  display: block;
+  width: auto;
+  height: clamp(660px, 53vw, 830px);
+  max-width: none;
+  object-fit: contain;
+  filter: drop-shadow(0 28px 30px rgba(43, 69, 52, 0.17));
+}
+
+.home-hero-visual__caption {
+  position: absolute;
+  z-index: 3;
+  box-sizing: border-box;
+  left: var(--hero-field-inset-left);
+  right: var(--hero-field-inset-right);
+  bottom: 0;
+  min-height: 76px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  color: var(--leaf-mid, #66866d);
+  font-size: clamp(8px, 0.52vw, 10px);
+  line-height: 1.65;
+  letter-spacing: 0.14em;
+  text-align: right;
+  text-transform: uppercase;
+  padding: 24px 20px 11px;
+  border-bottom-right-radius: var(--hero-field-radius);
+  border-bottom-left-radius: var(--hero-field-radius);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(238, 243, 229, 0) 0%,
+      rgba(238, 243, 229, 0.66) 35%,
+      rgba(238, 243, 229, 0.94) 100%
+    );
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-top: 1px solid rgba(255, 255, 255, 0.26);
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
+  pointer-events: none;
+}
+
+@media (max-width: 1199px) {
+  .home-hero__grid {
+    grid-template-columns: minmax(0, 1fr) minmax(390px, 0.82fr);
+    gap: clamp(24px, 3vw, 48px);
+  }
+
+  .home-hero-visual {
+    min-height: 620px;
+  }
+
+  .home-hero-plant-media img {
+    height: clamp(610px, 63vw, 720px);
+  }
+}
+
+@media (max-width: 899px) {
+  .home-hero__grid {
+    width: min(100% - 30px, 760px);
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .home-hero-visual {
+    min-height: clamp(540px, 82vw, 650px);
+    margin-top: 14px;
+    --hero-field-inset-left: 4%;
+    --hero-field-inset-right: 4%;
+  }
+
+  .home-hero-visual__field {
+    inset: 52px var(--hero-field-inset-right) var(--hero-field-inset-bottom) var(--hero-field-inset-left);
+  }
+
+  .home-hero-plant-media {
+    left: 50%;
+    bottom: -15px;
+    transform: translateX(-50%);
+  }
+
+  .home-hero-plant-media img {
+    height: clamp(550px, 88vw, 670px);
+  }
+
+  .home-hero-visual__caption {
+    min-height: 68px;
+    padding: 21px 18px 10px;
+  }
+}
+
+@media (max-width: 599px) {
+  .home-hero__grid {
+    width: min(100% - 22px, 520px);
+  }
+
+  .home-hero-visual {
+    min-height: clamp(475px, 132vw, 590px);
+    --hero-field-inset-left: 0;
+    --hero-field-inset-right: 0;
+    --hero-field-radius: 24px;
+  }
+
+  .home-hero-visual__field {
+    inset: 42px var(--hero-field-inset-right) var(--hero-field-inset-bottom) var(--hero-field-inset-left);
+  }
+
+  .home-hero-plant-media {
+    bottom: -13px;
+  }
+
+  .home-hero-plant-media img {
+    height: clamp(500px, 142vw, 590px);
+    filter: drop-shadow(0 20px 24px rgba(43, 69, 52, 0.15));
+  }
+
+  .home-hero-visual__caption {
+    min-height: 60px;
+    padding: 18px 14px 8px;
+    font-size: clamp(7px, 2.1vw, 8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-hero-plant-media,
+  .home-hero-plant-media img {
+    animation: none;
+    transition: none;
+  }
+}

@@ -21,15 +21,20 @@
 
 .hero__inner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
   gap: var(--space-12);
   align-items: center;
 }
 
+.hero__copy {
+  min-width: 0;
+}
+
 .hero__title {
   font-family: var(--font-serif);
-  font-size: var(--text-5xl);
-  line-height: var(--leading-tight);
+  font-size: clamp(var(--text-4xl), 4.8vw, var(--text-5xl));
+  line-height: 1.12;
+  max-width: 9.5ch;
   color: var(--canopy-950);
   margin-block-end: var(--space-5);
 }
@@ -37,7 +42,7 @@
 .hero__desc {
   font-size: var(--text-lg);
   color: var(--muted);
-  max-width: 52ch;
+  max-width: 56ch;
   margin-block-end: var(--space-8);
 }
 
@@ -45,147 +50,6 @@
   display: flex;
   gap: var(--space-4);
   flex-wrap: wrap;
-}
-
-.hero__visual {
-  aspect-ratio: 1;
-  border-radius: var(--radius-lg);
-  position: relative;
-  display: grid;
-  place-items: center;
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.44), transparent 55%),
-    var(--surface-leaf);
-  border: 1px solid rgba(75, 111, 85, 0.08);
-  overflow: hidden;
-}
-
-.hero__visual::before,
-.hero__visual::after {
-  content: "";
-  position: absolute;
-  border: 1px solid rgba(75, 111, 85, 0.12);
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.hero__visual::before {
-  width: 76%;
-  aspect-ratio: 1;
-  inset: 12% auto auto 12%;
-}
-
-.hero__visual::after {
-  width: 46%;
-  aspect-ratio: 1;
-  inset: 27% auto auto 27%;
-  border-color: rgba(214, 150, 157, 0.16);
-}
-
-.hero-botanical {
-  position: relative;
-  z-index: 1;
-  width: 88%;
-  height: 88%;
-  overflow: visible;
-  transform: rotate(-3deg);
-  filter: drop-shadow(0 20px 30px rgba(52, 95, 69, 0.08));
-}
-
-.hero-botanical path,
-.hero-botanical circle {
-  vector-effect: non-scaling-stroke;
-}
-
-.hero-botanical__leaf {
-  transform-origin: 50% 52%;
-  animation: hero-leaf-arrive 900ms var(--ease-out) both;
-}
-
-.hero-botanical__outline {
-  fill: rgba(248, 250, 244, 0.36);
-  stroke: var(--leaf-deep);
-  stroke-width: 3.4;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.hero-botanical__petiole {
-  fill: none;
-  stroke: var(--leaf-mid);
-  stroke-width: 4;
-  stroke-linecap: round;
-}
-
-.hero-botanical__center {
-  fill: none;
-  stroke: var(--blush-deep);
-  stroke-width: 4.5;
-  stroke-linecap: round;
-}
-
-.hero-botanical__veins,
-.hero-botanical__markings,
-.hero-botanical__spots {
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.hero-botanical__veins {
-  stroke: var(--blush-mid);
-  stroke-width: 2.2;
-}
-
-.hero-botanical__markings {
-  stroke: var(--leaf-sage);
-  stroke-width: 2;
-  opacity: 0.72;
-}
-
-.hero-botanical__spots {
-  stroke: var(--leaf-mid);
-  stroke-width: 1.8;
-  opacity: 0.68;
-}
-
-.hero__specimen-index,
-.hero__specimen-name,
-.hero__specimen-note {
-  position: absolute;
-  z-index: 2;
-  color: var(--canopy-700);
-  font-size: 0.62rem;
-  line-height: 1.55;
-  letter-spacing: 0.16em;
-}
-
-.hero__specimen-index {
-  inset: var(--space-6) auto auto var(--space-6);
-}
-
-.hero__specimen-name {
-  inset: var(--space-6) var(--space-6) auto auto;
-  font-family: var(--font-serif);
-  font-style: italic;
-  letter-spacing: 0.06em;
-}
-
-.hero__specimen-note {
-  inset: auto var(--space-6) var(--space-6) auto;
-  text-align: end;
-  opacity: 0.76;
-}
-
-@keyframes hero-leaf-arrive {
-  from {
-    opacity: 0;
-    transform: translateY(18px) scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
 }
 
 /* ── Quiz Entry ── */
@@ -261,25 +125,13 @@
 /* ── RWD ── */
 @media (max-width: 1023px) {
   .hero__inner   { grid-template-columns: 1fr; }
-  .hero__visual  {
-    width: min(100%, 34rem);
-    margin-inline: auto;
-  }
+  .hero__title { max-width: 11ch; }
   .env-grid      { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 640px) {
   .hero { padding-block: var(--space-12) var(--space-16); }
-  .hero__title { font-size: var(--text-4xl); }
+  .hero__title { font-size: clamp(2rem, 9vw, var(--text-4xl)); max-width: none; }
   .hero__inner { gap: var(--space-8); }
-  .hero__visual { aspect-ratio: 5 / 4; }
-  .hero-botanical { width: 76%; height: 96%; }
-  .hero__specimen-name { display: none; }
-  .hero__specimen-index,
-  .hero__specimen-note { font-size: 0.55rem; }
   .env-grid    { grid-template-columns: 1fr; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-botanical__leaf { animation: none; }
 }
