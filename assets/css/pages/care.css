@@ -52,8 +52,9 @@ body[data-care-page] { overflow-x: clip; }
   margin-block-end: var(--space-6);
   color: var(--canopy-950);
   font-family: var(--font-serif);
-  font-size: clamp(2.6rem, 4.4vw, 4.25rem);
+  font-size: clamp(2.3rem, 4.4vw, 4.25rem);
   font-weight: 500;
+  line-height: 1.12;
   letter-spacing: -0.035em;
 }
 
@@ -632,7 +633,7 @@ body[data-care-page] { overflow-x: clip; }
 @media (max-width: 640px) {
   .care-page-hero__inner { gap: 0; }
   .care-page-hero__copy { padding-block: var(--space-12) 0; }
-  .care-page-hero__copy h1 { font-size: 2.65rem; }
+  .care-page-hero__copy h1 { font-size: clamp(2.15rem, 8.6vw, 2.55rem); }
   .care-page-hero__visual { width: 92%; }
   .care-section-heading,
   .care-library__header,

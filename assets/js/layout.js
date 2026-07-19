@@ -62,24 +62,60 @@ window.CanopyLayout = (() => {
     const headerPlaceholder = document.querySelector(".site-header");
     const footerPlaceholder = document.querySelector(".site-footer");
 
-    const [header, footer, mobileNav, searchPanel, chatbot] = await Promise.all([
-      fetchComponent("components/header.html"),
+    const headerTask = fetchComponent("components/header.html");
+    const secondaryComponentsTask = Promise.allSettled([
       fetchComponent("components/footer.html"),
       fetchComponent("components/mobile-nav.html"),
       fetchComponent("components/search-panel.html"),
       fetchComponent("components/chatbot.html"),
     ]);
 
+    const header = await headerTask;
     headerPlaceholder?.replaceWith(header);
-    footerPlaceholder?.replaceWith(footer);
 
-    document.querySelector("#mobile-nav")?.remove();
-    document.querySelector(".search-panel")?.remove();
-    document.querySelector(".support-widget")?.remove();
-    document.body.append(mobileNav, searchPanel, chatbot);
+    if (window.CanopyMember?.refreshSession) {
+      try {
+        await window.CanopyMember.refreshSession();
+      } catch (error) {
+        console.warn("會員狀態同步失敗。", error);
+      }
+    }
 
-    const year = footer.querySelector("[data-footer-year]");
-    if (year) year.textContent = String(new Date().getFullYear());
+    const [
+      footerResult,
+      mobileNavResult,
+      searchPanelResult,
+      chatbotResult,
+    ] = await secondaryComponentsTask;
+
+    if (footerResult.status === "fulfilled") {
+      footerPlaceholder?.replaceWith(footerResult.value);
+      const year = footerResult.value.querySelector("[data-footer-year]");
+      if (year) year.textContent = String(new Date().getFullYear());
+    } else {
+      console.warn("共用元件載入失敗：components/footer.html", footerResult.reason);
+    }
+
+    if (mobileNavResult.status === "fulfilled") {
+      document.querySelector("#mobile-nav")?.remove();
+      document.body.append(mobileNavResult.value);
+    } else {
+      console.warn("共用元件載入失敗：components/mobile-nav.html", mobileNavResult.reason);
+    }
+
+    if (searchPanelResult.status === "fulfilled") {
+      document.querySelector(".search-panel")?.remove();
+      document.body.append(searchPanelResult.value);
+    } else {
+      console.warn("共用元件載入失敗：components/search-panel.html", searchPanelResult.reason);
+    }
+
+    if (chatbotResult.status === "fulfilled") {
+      document.querySelector(".support-widget")?.remove();
+      document.body.append(chatbotResult.value);
+    } else {
+      console.warn("共用元件載入失敗：components/chatbot.html", chatbotResult.reason);
+    }
   }
 
   function initStickyHeader() {
