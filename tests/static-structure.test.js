@@ -141,8 +141,10 @@ const careSource = fs.readFileSync(path.join(root, "pages/care/care.html"), "utf
 const careDetailSource = fs.readFileSync(path.join(root, "pages/care/care-detail.html"), "utf8");
 const aboutSource = fs.readFileSync(path.join(root, "pages/system/about.html"), "utf8");
 const homeSource = fs.readFileSync(path.join(root, "index.html"), "utf8");
-assert.match(homeSource, /class="hero-botanical"/);
-assert.match(homeSource, /hero-botanical__outline/);
+assert.match(homeSource, /class="home-hero-visual"/);
+assert.match(homeSource, /class="home-hero-plant-media"/);
+assert.match(homeSource, /canopy-caladium-hero-v2\.webp/);
+assert.match(homeSource, /canopy-caladium-hero-v2\.png/);
 assert.match(careSource, /assets\/js\/pages\/care\.js/);
 assert.match(careSource, /class="care-fern"/);
 assert.match(careSource, />好物分享</);

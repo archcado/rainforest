@@ -12,6 +12,14 @@ const sessions = new Map();
 const resetTokens = new Map();
 const SESSION_MAX_AGE = 60 * 60 * 24 * 7;
 const MAX_BODY_BYTES = 1_000_000;
+const ALLOWED_CORS_ORIGINS = new Set([
+  "http://127.0.0.1:5500",
+  "http://localhost:5500",
+  "http://127.0.0.1:3000",
+  "http://localhost:3000",
+]);
+const CORS_ALLOW_METHODS = "GET,HEAD,POST,PUT,PATCH,DELETE,OPTIONS";
+const CORS_ALLOW_HEADERS = "Content-Type, X-Canopy-CSRF";
 
 const mimeTypes = {
   ".html": "text/html; charset=utf-8",
@@ -37,6 +45,19 @@ function sendJson(response, statusCode, body, headers = {}) {
 
 function sendError(response, statusCode, message, code = "request_error") {
   sendJson(response, statusCode, { error: { code, message } });
+}
+
+function applyApiCors(request, response) {
+  const origin = String(request.headers.origin || "");
+  if (!origin) return { allowed: true };
+  if (!ALLOWED_CORS_ORIGINS.has(origin)) return { allowed: false, origin };
+
+  response.setHeader("Access-Control-Allow-Origin", origin);
+  response.setHeader("Access-Control-Allow-Credentials", "true");
+  response.setHeader("Access-Control-Allow-Headers", CORS_ALLOW_HEADERS);
+  response.setHeader("Access-Control-Allow-Methods", CORS_ALLOW_METHODS);
+  response.setHeader("Vary", "Origin");
+  return { allowed: true, origin };
 }
 
 async function readBody(request) {
@@ -612,6 +633,17 @@ function createCanopyServer() {
   return http.createServer(async (request, response) => {
     const url = new URL(request.url, `http://${request.headers.host || "localhost"}`);
     try {
+      if (url.pathname.startsWith("/api/")) {
+        const cors = applyApiCors(request, response);
+        if (!cors.allowed) {
+          return sendError(response, 403, "目前來源不在允許清單中", "cors_origin_denied");
+        }
+        if (request.method === "OPTIONS") {
+          response.writeHead(204);
+          response.end();
+          return;
+        }
+      }
       if (url.pathname.startsWith("/api/auth/")) {
         const handled = await handleAuth(request, response, url.pathname);
         if (handled !== false) return;

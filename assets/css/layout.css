@@ -122,6 +122,20 @@
   margin-block-end: var(--space-4);
 }
 
+.hero-title-lines {
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
+
+.page-hero__title-line {
+  display: block;
+  white-space: nowrap;
+}
+
+.hero-word-keep {
+  white-space: nowrap;
+}
+
 .page-hero__desc {
   font-size: var(--text-lg);
   color: var(--muted);

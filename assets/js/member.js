@@ -4,6 +4,15 @@ window.CanopyMember = (() => {
   let initialized = false;
   let session = { authenticated: false, user: null, csrfToken: null };
   let apiAvailable = true;
+  const API_BASE_URL =
+    window.CANOPY_API_BASE_URL ??
+    (window.location.port === "5500"
+      ? `${window.location.protocol}//${window.location.hostname}:3000`
+      : "");
+
+  function apiUrl(path) {
+    return `${API_BASE_URL}${path}`;
+  }
 
   async function request(path, options = {}) {
     const method = options.method || "GET";
@@ -12,15 +21,17 @@ window.CanopyMember = (() => {
     if (!['GET', 'HEAD', 'OPTIONS'].includes(method) && session.csrfToken) {
       headers["X-Canopy-CSRF"] = session.csrfToken;
     }
-    const response = await fetch(path, {
+    const response = await fetch(apiUrl(path), {
       ...options,
       method,
       headers,
-      credentials: "same-origin",
+      credentials: "include",
       body: options.body === undefined ? undefined : JSON.stringify(options.body),
     });
     const type = response.headers.get("content-type") || "";
-    if (!type.includes("application/json")) throw new Error("會員 API 尚未啟動，請使用 npm start 開啟網站");
+    if (!type.includes("application/json")) {
+      throw new Error("會員服務暫時無法連線，請確認 API 服務與跨來源設定。");
+    }
     const data = await response.json();
     if (!response.ok) throw new Error(data?.error?.message || data?.message || "操作失敗");
     return data;
@@ -28,13 +39,14 @@ window.CanopyMember = (() => {
 
   function updateHeader() {
     document.querySelectorAll("[data-member-link]").forEach((link) => {
+      const memberLabel = session.authenticated ? "會員中心" : "登入";
       link.href = window.CanopyLayout?.resolveProjectURL(
         session.authenticated ? "pages/member/account.html" : "pages/system/login.html",
       ) || link.href;
       link.setAttribute("aria-label", session.authenticated ? `${session.user.name} 的會員中心` : "會員登入");
-      if (!link.classList.contains("header-icon-btn")) {
-        link.textContent = session.authenticated ? "會員中心" : "登入或註冊";
-      }
+      const memberLabelNode = link.querySelector("[data-member-label]");
+      if (memberLabelNode) memberLabelNode.textContent = memberLabel;
+      else if (!link.classList.contains("header-icon-btn")) link.textContent = session.authenticated ? "會員中心" : "登入或註冊";
     });
     document.querySelectorAll("[data-admin-only]").forEach((element) => {
       element.hidden = session.user?.role !== "admin";
@@ -141,4 +153,3 @@ window.CanopyMember = (() => {
     getLoginURL,
   };
 })();
-

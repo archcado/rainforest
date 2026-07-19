@@ -61,15 +61,19 @@ html { scroll-behavior: smooth; }
   z-index: 1;
 }
 
-.about-hero__copy { padding-block: var(--space-16); }
+.about-hero__copy {
+  min-width: 0;
+  padding-block: var(--space-16);
+}
 
 .about-hero__copy h1 {
   max-width: 13ch;
   margin-block-end: var(--space-6);
   color: var(--canopy-950);
   font-family: var(--font-serif);
-  font-size: clamp(3rem, 6vw, 5.8rem);
+  font-size: clamp(2.35rem, 5.2vw, 5.8rem);
   font-weight: 500;
+  line-height: 1.1;
   letter-spacing: -0.06em;
 }
 
@@ -687,7 +691,7 @@ html { scroll-behavior: smooth; }
 @media (max-width: 640px) {
   .about-section { padding-block: var(--space-16); }
   .about-hero__copy { padding-block: var(--space-12) 0; }
-  .about-hero__copy h1 { font-size: 3rem; }
+  .about-hero__copy h1 { font-size: clamp(2.15rem, 8.2vw, 2.8rem); }
   .about-hero__actions { align-items: stretch; flex-direction: column; }
   .about-hero__actions .btn { width: 100%; }
   .about-hero__art { min-height: 470px; }
