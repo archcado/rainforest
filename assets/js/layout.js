@@ -61,61 +61,74 @@ window.CanopyLayout = (() => {
   async function loadSharedComponents() {
     const headerPlaceholder = document.querySelector(".site-header");
     const footerPlaceholder = document.querySelector(".site-footer");
-
-    const headerTask = fetchComponent("components/header.html");
-    const secondaryComponentsTask = Promise.allSettled([
-      fetchComponent("components/footer.html"),
-      fetchComponent("components/mobile-nav.html"),
-      fetchComponent("components/search-panel.html"),
-      fetchComponent("components/chatbot.html"),
-    ]);
-
-    const header = await headerTask;
-    headerPlaceholder?.replaceWith(header);
+    if (!headerPlaceholder) {
+      throw new Error("[layout] 缺少核心容器 .site-header，無法初始化共用版面。");
+    }
+    const headerPath = "components/header.html";
+    const header = await fetchComponent(headerPath);
+    headerPlaceholder.replaceWith(header);
 
     if (window.CanopyMember?.refreshSession) {
       try {
         await window.CanopyMember.refreshSession();
       } catch (error) {
-        console.warn("會員狀態同步失敗。", error);
+        console.warn("[layout] 會員狀態同步失敗。", error);
       }
     }
 
-    const [
-      footerResult,
-      mobileNavResult,
-      searchPanelResult,
-      chatbotResult,
-    ] = await secondaryComponentsTask;
-
-    if (footerResult.status === "fulfilled") {
-      footerPlaceholder?.replaceWith(footerResult.value);
-      const year = footerResult.value.querySelector("[data-footer-year]");
-      if (year) year.textContent = String(new Date().getFullYear());
-    } else {
-      console.warn("共用元件載入失敗：components/footer.html", footerResult.reason);
-    }
-
-    if (mobileNavResult.status === "fulfilled") {
-      document.querySelector("#mobile-nav")?.remove();
-      document.body.append(mobileNavResult.value);
-    } else {
-      console.warn("共用元件載入失敗：components/mobile-nav.html", mobileNavResult.reason);
-    }
-
-    if (searchPanelResult.status === "fulfilled") {
-      document.querySelector(".search-panel")?.remove();
-      document.body.append(searchPanelResult.value);
-    } else {
-      console.warn("共用元件載入失敗：components/search-panel.html", searchPanelResult.reason);
-    }
-
-    if (chatbotResult.status === "fulfilled") {
-      document.querySelector(".support-widget")?.remove();
-      document.body.append(chatbotResult.value);
-    } else {
-      console.warn("共用元件載入失敗：components/chatbot.html", chatbotResult.reason);
-    }
+    const optionalComponents = [
+      {
+        name: "footer",
+        path: "components/footer.html",
+        mount: (element) => {
+          if (!footerPlaceholder) {
+            console.error("[layout] Optional component mount failed: footer placeholder .site-footer not found.");
+            return;
+          }
+          footerPlaceholder.replaceWith(element);
+          const year = element.querySelector("[data-footer-year]");
+          if (year) year.textContent = String(new Date().getFullYear());
+        },
+      },
+      {
+        name: "mobile-nav",
+        path: "components/mobile-nav.html",
+        mount: (element) => {
+          document.querySelector("#mobile-nav")?.remove();
+          document.body.append(element);
+        },
+      },
+      {
+        name: "search-panel",
+        path: "components/search-panel.html",
+        mount: (element) => {
+          document.querySelector(".search-panel")?.remove();
+          document.body.append(element);
+        },
+      },
+      {
+        name: "chatbot",
+        path: "components/chatbot.html",
+        mount: (element) => {
+          document.querySelector(".support-widget")?.remove();
+          document.body.append(element);
+        },
+      },
+    ];
+    const optionalResults = await Promise.allSettled(
+      optionalComponents.map((component) => fetchComponent(component.path)),
+    );
+    optionalResults.forEach((result, index) => {
+      const component = optionalComponents[index];
+      if (result.status === "fulfilled") {
+        component.mount(result.value);
+      } else {
+        console.error(
+          `[layout] Optional component failed: ${component.name} (${resolveProjectURL(component.path)})`,
+          result.reason,
+        );
+      }
+    });
   }
 
   function initStickyHeader() {

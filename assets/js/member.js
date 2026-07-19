@@ -135,12 +135,28 @@ window.CanopyMember = (() => {
     return window.CanopyLayout.resolveProjectURL(`pages/system/login.html?returnTo=${encodeURIComponent(returnTo)}`);
   }
 
+  function renderLimitedAccessNotice() {
+    if (document.querySelector("[data-member-limited-notice]")) return;
+    const main = document.querySelector(".site-main");
+    if (!main) return;
+    const block = document.createElement("section");
+    block.className = "page-content";
+    block.dataset.memberLimitedNotice = "true";
+    block.innerHTML =
+      '<div class="container"><div class="commerce-empty"><h2>會員服務暫時離線</h2><p>目前僅能顯示頁面框架，登入、會員資料與結帳送出需要啟動 API（localhost:3000）。</p></div></div>';
+    main.prepend(block);
+  }
+
   async function init() {
     if (initialized) return;
     initialized = true;
     await refreshSession();
     if (document.body.hasAttribute("data-member-required") && !session.authenticated) {
-      window.location.replace(getLoginURL());
+      if (apiAvailable) window.location.replace(getLoginURL());
+      else {
+        document.documentElement.dataset.memberMode = "limited";
+        renderLimitedAccessNotice();
+      }
     }
   }
 
