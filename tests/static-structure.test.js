@@ -141,19 +141,30 @@ const careSource = fs.readFileSync(path.join(root, "pages/care/care.html"), "utf
 const careDetailSource = fs.readFileSync(path.join(root, "pages/care/care-detail.html"), "utf8");
 const aboutSource = fs.readFileSync(path.join(root, "pages/system/about.html"), "utf8");
 const homeSource = fs.readFileSync(path.join(root, "index.html"), "utf8");
+const memberAccountSource = fs.readFileSync(path.join(root, "pages/member/account.html"), "utf8");
+const checkoutSource = fs.readFileSync(path.join(root, "pages/commerce/checkout.html"), "utf8");
 assert.match(homeSource, /class="home-hero-visual"/);
 assert.match(homeSource, /class="home-hero-plant-media"/);
 assert.match(homeSource, /canopy-caladium-hero-v2\.webp/);
 assert.match(homeSource, /canopy-caladium-hero-v2\.png/);
 assert.match(careSource, /assets\/js\/pages\/care\.js/);
-assert.match(careSource, /class="care-fern"/);
-assert.match(careSource, />好物分享</);
+assert.match(careSource, /class="care-hero__plant-media"/);
+assert.match(careSource, /canopy-dieffenbachia-care-hero\.webp/);
+assert.match(careSource, /canopy-dieffenbachia-care-hero\.png/);
+assert.match(careSource, /好物分享/);
 assert.match(careDetailSource, /assets\/js\/pages\/care-detail\.js/);
 assert.match(aboutSource, /id="journey"/);
 assert.match(aboutSource, /id="sustainability"/);
 assert.match(aboutSource, /data-choice=/);
 assert.match(aboutSource, /class="about-pearls"/);
 assert.match(aboutSource, /assets\/js\/pages\/about\.js/);
+assert.match(memberAccountSource, /class="member-layout"/);
+assert.match(memberAccountSource, /data-account-form/);
+assert.match(memberAccountSource, /data-address-form/);
+assert.match(memberAccountSource, /data-password-form/);
+assert.match(checkoutSource, /data-checkout-form/);
+assert.match(checkoutSource, /class="payment-options"/);
+assert.match(checkoutSource, /name="paymentMethod"/);
 
 const publicSources = [
   path.join(root, "index.html"),

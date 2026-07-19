@@ -1,0 +1,138 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CANOPY ?扯風鞈?嚗?靘霅瑟???憿那?瑯末?拙?鈭怨?蝛粹?????>
+  <title>?扯風鞈?嚚ANOPY</title>
+  <link rel="stylesheet" href="../../assets/css/tokens.css">
+  <link rel="stylesheet" href="../../assets/css/reset.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/utilities.css">
+  <link rel="stylesheet" href="../../assets/css/pages/care.css?v=20260719-2">
+</head>
+<body data-care-page>
+  <header class="site-header" role="banner"></header>
+  <main class="site-main">
+    <div class="breadcrumb-bar">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="暻萄?撅?>
+          <ol class="breadcrumb__list" role="list">
+            <li class="breadcrumb__item"><a class="breadcrumb__link" href="../../index.html">擐?</a></li>
+            <li class="breadcrumb__item"><span class="breadcrumb__current" aria-current="page">?扯風鞈?</span></li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <section class="care-page-hero" aria-labelledby="care-title">
+      <div class="container care-page-hero__inner">
+        <div class="care-page-hero__copy">
+          <p class="care-eyebrow">CANOPY FIELD NOTES</p>
+          <h1 class="hero-title-lines" id="care-title">
+            <span class="page-hero__title-line">霈霅瑟?靘?</span>
+            <span class="page-hero__title-line">銋???瘣餌?擗?</span>
+          </h1>
+          <p>敺憓霈??憿那?瑕?迤憟賜?極?瘀??渡??隞亦??喳銵??冽?璊鞈???/p>
+          <a class="btn btn--primary" href="#resource-library">?Ｙ揣?券鞈?</a>
+        </div>
+        <div class="care-page-hero__visual">
+          <span class="care-orbit care-orbit--one"></span>
+          <span class="care-orbit care-orbit--two"></span>
+          <picture class="care-hero__plant-media">
+            <source srcset="../../assets/images/care/canopy-dieffenbachia-care-hero.webp" type="image/webp"/>
+            <img
+              src="../../assets/images/care/canopy-dieffenbachia-care-hero.png"
+              alt="瘜Ｗㄚ??予?嗥?蝬剔楊蝜???
+              class="care-hero__plant-image"
+              width="1600"
+              height="1800"
+              loading="eager"
+              decoding="async"
+            />
+          </picture>
+          <span class="care-hero-note care-hero-note--light">??</span>
+          <span class="care-hero-note care-hero-note--water">瘞游?</span>
+          <span class="care-hero-note care-hero-note--soil">隞釭</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="care-featured section" aria-labelledby="featured-title">
+      <div class="container">
+        <div class="section__header care-section-heading">
+          <div>
+            <p class="care-eyebrow">EDITOR'S PICK</p>
+            <h2 class="section__title" id="featured-title">?祇梁移??/h2>
+          </div>
+          <p>???撣賊??啁?????瘞渲????方?????/p>
+        </div>
+        <div class="care-featured-grid" data-care-featured aria-live="polite">
+          <p class="care-loading">甇??渡?蝎暸鞈???/p>
+        </div>
+      </div>
+    </section>
+
+    <section class="care-library section" id="resource-library" aria-labelledby="library-title">
+      <div class="container">
+        <div class="care-library__header">
+          <div>
+            <p class="care-eyebrow">RESOURCE LIBRARY</p>
+            <h2 class="section__title" id="library-title">?扯風鞈?摨?/h2>
+            <p>隞亙摰寥???圈霈?孵?嚗?靘??拙?憿??啣?銝駁?蝮桀?蝭???/p>
+          </div>
+          <label class="care-search">
+            <span class="sr-only">???扯風鞈?</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
+            <input type="search" placeholder="?????極?瑟????? data-care-search>
+          </label>
+        </div>
+
+        <div class="care-filter-panel">
+          <div class="care-type-tabs" role="tablist" aria-label="?批捆憿?">
+            <button class="care-type-tab care-type-tab--active" type="button" role="tab" aria-selected="true" data-care-type="all">?券?批捆</button>
+            <button class="care-type-tab" type="button" role="tab" aria-selected="false" data-care-type="guide">?扯風??</button>
+            <button class="care-type-tab" type="button" role="tab" aria-selected="false" data-care-type="diagnosis">??閮箸</button>
+            <button class="care-type-tab" type="button" role="tab" aria-selected="false" data-care-type="gear">憟賜?澈</button>
+            <button class="care-type-tab" type="button" role="tab" aria-selected="false" data-care-type="inspiration">蝛粹???</button>
+          </div>
+          <label class="care-category-select">
+            <span>銝駁?</span>
+            <select data-care-category>
+              <option value="all">??蜓憿?/option>
+              <option value="watering">瞉偌</option>
+              <option value="light">?</option>
+              <option value="humidity">瞈漲</option>
+              <option value="soil">隞釭</option>
+              <option value="repotting">??</option>
+              <option value="fertilizing">?質</option>
+              <option value="pests">?摰?/option>
+              <option value="maintenance">?亙虜?渡?</option>
+              <option value="environment">?啣?</option>
+              <option value="tools">撌亙</option>
+              <option value="styling">蝛粹??蔭</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="care-result-bar">
+          <p data-care-count>甇?頛鞈???/p>
+          <p>???嗉?????汗?其葉??/p>
+        </div>
+        <div class="care-grid" data-care-grid aria-live="polite"></div>
+        <div class="care-empty-state" data-care-empty hidden>
+          <h3>瘝?蝚血?璇辣??皞?/h3>
+          <p>閰西??湔??批捆憿??蜓憿???????/p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer" role="contentinfo"></footer>
+  <script src="../../assets/js/layout.js" defer></script>
+  <script src="../../assets/js/navigation.js" defer></script>
+  <script src="../../assets/js/pages/care.js" defer></script>
+  <script src="../../assets/js/main.js" defer></script>
+</body>
+</html>

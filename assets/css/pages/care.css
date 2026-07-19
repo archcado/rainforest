@@ -26,12 +26,7 @@ body[data-care-page] { overflow-x: clip; }
 }
 
 .care-page-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: 0.14;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E");
+  content: none;
 }
 
 .care-page-hero__inner {
@@ -66,34 +61,112 @@ body[data-care-page] { overflow-x: clip; }
 }
 
 .care-page-hero__visual {
-  width: min(480px, 100%);
-  aspect-ratio: 1;
+  width: min(720px, 100%);
+  min-height: 560px;
   margin-inline: auto;
   position: relative;
-  display: grid;
-  place-items: center;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
-.care-page-hero__visual > svg {
-  width: 76%;
-  height: 92%;
+.care-page-hero__visual::before {
+  content: "";
+  position: absolute;
+  inset: 6% -4% 0 4%;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse at 57% 45%,
+      rgba(246, 240, 215, 0.24) 0%,
+      rgba(246, 240, 215, 0.12) 22%,
+      transparent 42%
+    ),
+    radial-gradient(
+      circle at 55% 42%,
+      rgba(246, 240, 215, 0.72) 0%,
+      rgba(197, 220, 153, 0.4) 34%,
+      rgba(184, 221, 193, 0.16) 58%,
+      transparent 76%
+    ),
+    radial-gradient(ellipse at 34% 86%, rgba(159, 199, 214, 0.16), transparent 62%),
+    radial-gradient(ellipse at 78% 16%, rgba(184, 221, 193, 0.22), transparent 58%),
+    radial-gradient(ellipse at 80% 82%, rgba(197, 220, 153, 0.22), transparent 60%),
+    radial-gradient(ellipse at 60% 48%, rgba(246, 240, 215, 0.28), transparent 70%);
+  -webkit-mask-image: radial-gradient(
+    circle at 55% 44%,
+    #000 0 48%,
+    rgba(0, 0, 0, 0.72) 64%,
+    transparent 82%
+  );
+  mask-image: radial-gradient(
+    circle at 55% 44%,
+    #000 0 48%,
+    rgba(0, 0, 0, 0.72) 64%,
+    transparent 82%
+  );
+}
+
+.care-page-hero__visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.065;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+  background-color: rgba(102, 134, 109, 0.12);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' fill='%234B6F55' filter='url(%23grain)' opacity='0.2'/%3E%3C/svg%3E");
+  background-size: 240px 240px;
+  -webkit-mask-image: radial-gradient(
+    ellipse at 72% 46%,
+    #000 0%,
+    rgba(0, 0, 0, 0.72) 42%,
+    transparent 82%
+  );
+  mask-image: radial-gradient(
+    ellipse at 72% 46%,
+    #000 0%,
+    rgba(0, 0, 0, 0.72) 42%,
+    transparent 82%
+  );
+}
+
+.care-hero__plant-media {
+  width: clamp(560px, 44vw, 720px);
+  max-width: 100%;
+  display: block;
+  line-height: 0;
   position: relative;
   z-index: 2;
-  filter: drop-shadow(0 24px 30px rgba(48, 82, 55, 0.14));
 }
 
-.care-fern path {
-  vector-effect: non-scaling-stroke;
+.care-hero__plant-image {
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 2;
+  display: block;
+  transform: translate(13px, 13px) scale(1.16);
+  transform-origin: center bottom;
 }
 
 .care-orbit {
   position: absolute;
-  border: 1px solid rgba(56, 89, 67, 0.16);
+  z-index: 1;
+  border: 1px solid rgba(56, 89, 67, 0.08);
   border-radius: 50%;
 }
 
 .care-orbit--one { width: 94%; height: 94%; }
-.care-orbit--two { width: 70%; height: 70%; border-style: dashed; }
+.care-orbit--two {
+  width: 70%;
+  height: 70%;
+  border-style: dashed;
+  border-color: rgba(56, 89, 67, 0.06);
+}
 
 .care-hero-note {
   padding: 7px 14px;
@@ -109,9 +182,11 @@ body[data-care-page] { overflow-x: clip; }
   font-weight: 700;
 }
 
-.care-hero-note--light { top: 16%; right: 4%; }
-.care-hero-note--water { left: 2%; bottom: 30%; }
-.care-hero-note--soil { right: 13%; bottom: 9%; }
+.care-hero-note--light { top: 16%; right: 8%; transform: translate(6%, -8%); }
+
+.care-hero-note--water { left: 4%; top: 49%; transform: translate(-4%, -50%); }
+
+.care-hero-note--soil { right: 10%; bottom: 15%; transform: translate(4%, 0); }
 
 .care-featured { background: var(--leaf-white); }
 
@@ -622,7 +697,14 @@ body[data-care-page] { overflow-x: clip; }
 @media (max-width: 1023px) {
   .care-page-hero__inner { min-height: auto; grid-template-columns: 1fr; }
   .care-page-hero__copy { padding-block-end: 0; }
-  .care-page-hero__visual { max-width: 400px; }
+  .care-page-hero__visual { width: min(560px, 100%); min-height: 430px; }
+  .care-page-hero__visual::before { inset: 8% -2% 2% 2%; }
+  .care-page-hero__visual::after { opacity: 0.062; }
+  .care-hero__plant-media { width: min(520px, 100%); }
+  .care-hero__plant-image { transform: translate(10px, 10px) scale(1.06); }
+  .care-hero-note--light { top: 14%; right: 4%; transform: translate(4%, -8%); }
+  .care-hero-note--water { left: 1%; top: 50%; transform: translate(-2%, -50%); }
+  .care-hero-note--soil { right: 8%; bottom: 13%; transform: translate(2%, 0); }
   .care-featured-grid,
   .care-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .care-filter-panel { align-items: flex-start; flex-direction: column; }
@@ -634,7 +716,15 @@ body[data-care-page] { overflow-x: clip; }
   .care-page-hero__inner { gap: 0; }
   .care-page-hero__copy { padding-block: var(--space-12) 0; }
   .care-page-hero__copy h1 { font-size: clamp(2.15rem, 8.6vw, 2.55rem); }
-  .care-page-hero__visual { width: 92%; }
+  .care-page-hero__visual { width: 94%; min-height: 318px; justify-content: center; }
+  .care-page-hero__visual::before { inset: 12% 2% 6% 2%; }
+  .care-page-hero__visual::after { opacity: 0.05; }
+  .care-hero__plant-media { width: min(430px, 100%); }
+  .care-hero__plant-image { transform: translate(8px, 8px) scale(1.04); }
+  .care-hero-note { padding: 6px 11px; font-size: 0.73rem; }
+  .care-hero-note--light { top: 14%; right: 3%; transform: translate(0, -6%); }
+  .care-hero-note--water { left: 0; top: 52%; transform: translate(0, -50%); }
+  .care-hero-note--soil { right: 7%; bottom: 12%; transform: none; }
   .care-section-heading,
   .care-library__header,
   .care-detail__hero-inner,
